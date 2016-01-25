@@ -1,40 +1,54 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Comments and Votes functionality (1.5 days)
 
 ## Rails
 ### Models
-* Reminder
+* Comment
+* Vote
 
 ### Controllers
-* Api::RemindersController (create, destroy, index, show, update)
+* CommentsController (create, destroy)
+* VotesController (create, destroy)
 
 ### Views
-* reminders/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* RemindersIndex
-  - ReminderIndexItem
-* ReminderShow
-* ReminderForm
+* Comment Form
+* Comment Show
+* Vote Button
+* Vote Show
 
 ### Stores
-* Reminder
+* Comment
+* Votes
 
 ### Actions
-* ApiActions.receiveAllReminders -> triggered by ApiUtil
-* ApiActions.receiveSingleReminder
-* ApiActions.deleteReminder
-* ReminderActions.fetchAllReminders -> triggers ApiUtil
-* ReminderActions.fetchSingleReminder
-* ReminderActions.createReminder
-* ReminderActions.updateReminder
-* ReminderActions.destroyReminder
+* ApiActions.receiveAllComments -> triggered by ApiUtil
+* ApiActions.receiveSingleComment
+* ApiActions.deleteComment
+* CommentActions.fetchAllComments -> triggers ApiUtil
+* CommentActions.fetchSingleComment
+* CommentActions.createComment
+* CommentActions.destroyComment
+
+* ApiActions.receiveAllVotes -> triggered by ApiUtil
+* ApiActions.receiveSingleVote
+* ApiActions.deleteVote
+* VoteActions.fetchAllVotes -> triggers ApiUtil
+* VoteActions.fetchSingleVote
+* VoteActions.createVote
+* VoteActions.destroyVote
+
 
 ### ApiUtil
-* ApiUtil.fetchAllReminders
-* ApiUtil.fetchSingleReminder
-* ApiUtil.createReminder
-* ApiUtil.updateReminder
-* ApiUtil.destroyReminder
+* ApiUtil.fetchAllComments
+* ApiUtil.fetchSingleComment
+* ApiUtil.createComment
+* ApiUtil.destroyComment
+
+* ApiUtil.fetchAllVotes
+* ApiUtil.fetchSingleVote
+* ApiUtil.createVote
+* ApiUtil.destroyVote
 
 ## Gems/Libraries

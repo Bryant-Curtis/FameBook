@@ -1,29 +1,19 @@
-# Phase 1: User Authentication, Note Model and JSON API
+# Phase 1: User Authentication and Home page/User settings page design (1.5 days)
 
 ## Rails
 ### Models
 * User
-* Note
 
 ### Controllers
-* UsersController (create, new)
+* UsersController (create, new, show)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* StaticPagesController (root)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
-
-## Flux
-### Views (React Components)
-
-### Stores
-
-### Actions
-
-### ApiUtil
+* static_pages/root.html.erb
+  - Sign Up
+  - Log in
+* users/show.html.erb
 
 ## Gems/Libraries
 * BCrypt (Gem)
