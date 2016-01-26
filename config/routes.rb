@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#homepage'
   get 'users/:id/settings', to: 'users#settings', as: 'user_settings'
   resources :users, only: [:create, :show]
+  resource :session, only: [:create, :destroy]
 end
 
 # If have time later and it seems viable and a good thing to do, create

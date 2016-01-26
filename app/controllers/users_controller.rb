@@ -4,11 +4,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # log_in(@user)
-      redirect_to user_url(@user)
+      redirect_to user_settings_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
       render "static_pages/homepage"
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def settings
