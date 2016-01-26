@@ -1,7 +1,7 @@
 <h1>famebook</h1>
 
 <form action="<%= session_url %>" method="post">
-  <% auth_token_form %>
+  <%= auth_token_form %>
 
   <input type="text" name="session[email]" value="Email">
   <input type="password" name="session[password]" value="">
@@ -13,7 +13,7 @@
 <br/>
 
 <form action="<%= users_url %>" method="post">
-  <% auth_token_form %>
+  <%= auth_token_form %>
 
   <input type="text" name="user[first_name]" value="First name">
   <input type="text" name="user[last_name]" value="Last Name">
