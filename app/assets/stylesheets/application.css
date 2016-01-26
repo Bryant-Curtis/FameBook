@@ -13,3 +13,104 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* RESET */
+
+html, body, h1, h2, main, figure,
+section, h3, a, span, strong, img,
+ul, li, ol, p, br, input, form, button,
+header, footer, nav {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  box-sizing: border-box;
+
+  background: transparent;
+}
+
+/* CLEAR FIX */
+
+.group {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* HEADER */
+
+.header {
+  border-bottom: 1px solid #000;
+  font-family: helvetica;
+  color: #ffffff;
+  height: 82px;
+  background: #3a5694;
+}
+
+.famebook {
+  float: left;
+  /*font-size: 36px;
+  display: block;*/
+}
+
+.log-in-form {
+  float: right;
+}
+
+.log-in-form > label {
+  float: left;
+  margin-right: 15px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.log-in-form input {
+  background: #ffffff;
+  width: 150px;
+  height: 22px;
+  display: block;
+  margin-top: 5px;
+  border: 1px solid #000;
+}
+
+.log-in-form > button {
+  margin-top: 18px;
+  background: #5a74a8;
+  border-style: outset;
+  border: 1px solid #000;
+  text-align:center;
+  width: 50px;
+  height: 22px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* CONTENT */
+
+.content {
+  background: #edf0f5;
+}
+
+/* sign in button*/
+.button {
+  background: #5f9b4c;
+}
+
+/* log in button*/
+
+/* text in the sign in box color */
+.text {
+  color: #999999;
+}
+
+/* sign in error border and logo color */
+.input {
+  border: 1px solid #b94a48;
+}

@@ -1,27 +1,49 @@
-<h1>famebook</h1>
+<header class="header group">
+  <h1 class="famebook">famebook</h1>
 
-<form action="<%= session_url %>" method="post">
-  <%= auth_token_form %>
+  <form class="log-in-form group" action="<%= session_url %>" method="post">
+    <%= auth_token_form %>
 
-  <input type="text" name="session[email]" value="Email">
-  <input type="password" name="session[password]" value="">
+    <label>Email<br/>
+      <input type="text" name="session[email]" value="">
+    </label>
 
-  <button>Log in</button>
-</form>
+    <label>Password<br/>
+      <input type="password" name="session[password]" value="">
+    </label>
 
-<br/>
-<br/>
+    <button>Log In</button>
+  </form>
+</header>
 
-<form action="<%= users_url %>" method="post">
-  <%= auth_token_form %>
+<main class="content">
+  <section class="home-info">
 
-  <input type="text" name="user[first_name]" value="First name">
-  <input type="text" name="user[last_name]" value="Last Name">
-  <input type="text" name="user[email]" value="Email">
-  <input type="password" name="user[password]" value="">
+  </section>
 
-  <button>Sign Up</button>
-</form>
+  <section class="sign-up-form">
+    <form action="<%= users_url %>" method="post">
+      <%= auth_token_form %>
+
+      <input type="text" name="user[first_name]" value="First name">
+      <input type="text" name="user[last_name]" value="Last Name">
+      <input type="text" name="user[email]" value="Email">
+      <input type="password" name="user[password]" value="">
+
+      <button>Sign Up</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <section class="copyright">
+    Famebook © 2016
+  </section>
+<!-- Check with TA's to see if "Famebook © 2016" would be legal issue.
+    Add an "About" link in the footer leading the user to either
+      1. the github ReadME or 2. a new page with similar information.  -->
+</footer>
+
 
 <!-- Change the text in the input fields. Do not add them as values here! -->
 <!-- Note: Add an email or password confirmation later. -->
