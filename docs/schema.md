@@ -54,7 +54,8 @@ lname           | string    | not null
 email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-<!-- birthday        | date    | not null, indexed, unique -->
+<!-- sex             | ????    | not null -->
+<!-- birthday        | date    | not null -->
 
 
 
@@ -62,5 +63,5 @@ session_token   | string    | not null, indexed, unique
 
 <!--
   1. Note: If feel it's important later, change email to be encrypted in database.
-
+  2. Would sex be a string type data in the db?
  -->

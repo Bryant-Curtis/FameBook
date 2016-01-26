@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#homepage'
+  get 'users/:id/settings', to: 'users#settings', as: 'user_settings'
   resources :users, only: [:create, :show]
-  root to: 'static_pages#root'
 end
 
 # If have time later and it seems viable and a good thing to do, create
 # a custom route for the homepage for user sign in/log in.
+
+# This is one way to add custom routes. Keep for later use if necessary. Delete
+# when no longer needed.
+    # resources :users, only: [:create, :show] do
+    #   get 'settings', to: 'users#settings'
+    # end

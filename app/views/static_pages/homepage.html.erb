@@ -1,0 +1,15 @@
+<h1>famebook</h1>
+
+<form action="<%= users_url %>" method="post">
+  <% auth_token_form %>
+
+  <input type="text" name="user[first_name]" value="First name">
+  <input type="text" name="user[last_name]" value="Last Name">
+  <input type="text" name="user[email]" value="Email">
+  <input type="password" name="user[password]" value="">
+
+  <button>Sign Up</button>
+</form>
+
+<!-- Change the text in the input fields. Do not add them as values here! -->
+<!-- Note: Add an email or password confirmation later. -->
