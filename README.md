@@ -1,5 +1,5 @@
 # FameBook
 
-[Heroku link][heroku] **NB:** Link to my production site (Needs to be added!)
+[Heroku link][heroku] **NB:** Link to my production site
 
-[heroku]: http://www.herokuapp.com (Need updating!)
+[heroku]: http://famebook.herokuapp.com/
