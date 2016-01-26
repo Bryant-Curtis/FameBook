@@ -1,0 +1,40 @@
+{
+  "name": "Capstone-Project",
+  "version": "1.0.0",
+  "description": "[Heroku link][heroku] **NB:** Link to my production site (Needs to be added!)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bryant-Curtis/Capstone-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bryant-Curtis/Capstone-Project/issues"
+  },
+  "homepage": "https://github.com/Bryant-Curtis/Capstone-Project#readme",
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
+  "dependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-react": "^6.3.13",
+    "flux": "^2.1.1",
+    "history": "1.17.0",
+    "react": "^0.14.6",
+    "react-addons-linked-state-mixin": "^0.14.2",
+    "react-dom": "^0.14.6",
+    "react-router": "1.0.2",
+    "webpack": "^1.12.12"
+  }
+}
