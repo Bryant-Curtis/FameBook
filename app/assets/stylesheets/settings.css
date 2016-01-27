@@ -39,10 +39,10 @@ body {
 /* HEADER */
 
 header {
-  background: -webkit-gradient(linear, center bottom, center top, from(#3b5998), to(#4e69a2));
   border-bottom: 1px solid #1c326c;
   height: 44px;
   color: #ffffff;
+  background: -webkit-gradient(linear, center bottom, center top, from(#3b5998), to(#4e69a2));
 }
 
 header > .header-nav {
@@ -53,70 +53,67 @@ header .logo-box {
   float: left;
   display: block;
   position: relative;
+  margin: 10px 2px;
   border: 1px solid #3a548c;
   border-radius: 3px;
-  margin: 10px 2px;
   width: 24px;
   height: 24px;
-  background: #ffffff;
   font-size: 25px;
   text-align: center;
-  vertical-align: bottom;
+  background: #ffffff;
 }
 
 
 header .logo-letter-f {
+  display: block;
   position: absolute;
   top: 0px;
-  /*bottom: 0px;*/
   left: 2px;
-  display: block;
   color: #44619d;
   font-weight: bold;
 }
 
 header .logo-letter-m {
+  display: block;
   position: absolute;
   top: 8px;
   left: 5px;
-  display: block;
   color: #44619d;
   font-size: 16px;
   font-weight: bold;
 }
 
-header button {
+header .button {
   float: right;
   display: block;
-  background: -webkit-gradient(linear, center bottom, center top, from(#637bad), to(#5972a7));
   margin-top: 10px;
   border-top: 1px solid #8a9cc2;
   border-bottom: 1px solid #1a356e;
   border-left: 1px solid #29447e;
   border-right: 1px solid #29447e;
   padding-bottom: 4px;
-  border-style: outset;
-  text-align:center;
   width: 50px;
   height: 21px;
   font-size: 12px;
   font-weight: bold;
+  text-align:center;
+  background: -webkit-gradient(linear, center bottom, center top, from(#637bad), to(#5972a7));
 }
 
 /* SETTINGS CONTENT */
 
 .settings-content {
   margin: auto;
+  border: 1px solid #cccccc;
   padding: 20px;
   width: 980px;
   height: 620px;
-  border: 1px solid #cccccc;
 }
 
 .settings-heading {
   padding: 0 0 20px 0;
-  font-weight: bold;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .settings-details > section:first-child {
@@ -136,7 +133,6 @@ header button {
 
 .settings-details label {
   float: left;
-
 }
 
 .settings-details div {
@@ -146,30 +142,7 @@ header button {
   font-weight: bold;
 }
 
-
-/*
-.name-label {
-  float: left;
-}
-
-.name-details {
-
-}
-
-.email-label {
-  float: left;
-}
-
-.email-details {
-
-}*/
-
-
 /* FOOTER */
-
-.footer {
-
-}
 
 .footer-info {
   margin: auto;

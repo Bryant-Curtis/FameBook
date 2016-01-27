@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.reset_token!
-    redirect_to "static_pages/homepage"
+    redirect_to "/"
   end
 
   private

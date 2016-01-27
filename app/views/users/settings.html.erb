@@ -1,10 +1,18 @@
 <header>
   <nav class="header-nav group">
+
     <figure class="logo-box">
       <p class="logo-letter-f">f</p>
       <p class="logo-letter-m">m</p>
     </figure>
-    <button>Log out</button>
+
+    <form class="button" action="<%= session_url(current_user.id) %>" method="post">
+      <%= auth_token_form %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="id" value="<%= current_user.id %>">
+      <button>Log out</button>
+    </form>
+
   </nav>
 </header>
 
