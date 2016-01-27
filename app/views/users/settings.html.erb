@@ -9,14 +9,22 @@
 </header>
 
 <main class="settings">
-  <content class="settings-content">
+  <section class="settings-content">
     <h1 class="settings-heading">Settings</h1>
     <section class="settings-details">
 
-      <%= @user.first_name %>
-      <%= @user.last_name %>
+      <section class="group">
+        <label class="name-label">Name</label>
+        <div class="name-details"><%= @user.first_name %> <%= @user.last_name %></div>
+      </section>
+      <section class="group">
+        <label class="email-label">Email</label>
+        <div class="email"><%= @user.email %></div>
+      </section>
+
+
     </section>
-  </content>
+  </section>
 </main>
 
 <footer class="footer">

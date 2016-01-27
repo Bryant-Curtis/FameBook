@@ -19677,3 +19677,1789 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:33:10 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:41:57 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 328ms (Views: 327.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/settings.self-8c89eb373963a64f3e3a84b695b80980b1c47b969faf71bc3ec88cc142e8264a.css?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:41:57 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:42:51 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:42:51 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:42:51 -0500
+
+
+Started GET "/assets/settings.self-990bd9010518fb83f9c13a846b8cfe8913a1f86a8ce8985980987407746b87a4.css?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:42:52 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:47:23 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 156ms (Views: 154.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/settings.self-3f0f94ae830ae28c268c7810df4526f2a5a1a7f492bb696f9ec994f8400b6326.css?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:47:23 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:48:30 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/settings.self-e0b74bc82f83b731209bf6a7c739fb15b4ffc0bd99f84e60862ff0b4237a316a.css?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:48:31 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:49:12 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 58.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/settings.self-344bc18a7b47bad6ec8d257af3504db5bc1ed573b15d7e0b0ffe420daae6a590.css?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:49:12 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:50:34 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/settings.self-d0d6b5c02a269de593270fa4c501d8141f506bc1741bf850581cdc73e8decc05.css?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:50:34 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:50:52 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 55ms (Views: 54.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/settings.self-9ecd8865212abbbcaefe844fdd40887b67fddcb8e3bf412f9cde2abdbd9ce057.css?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:50:52 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:51:05 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/settings.self-9ecd8865212abbbcaefe844fdd40887b67fddcb8e3bf412f9cde2abdbd9ce057.css?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:51:05 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:52:50 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 53ms (Views: 52.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:52:50 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/settings.self-d3959898d1234abf5f5aba9542bfedd4dc03a70deede2fd355c1603db16d8702.css?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:52:51 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:53:17 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 73ms (Views: 71.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/settings.self-bfabc0ab7d26aca96d2810ef3452d7ba73963a5fb07e28cc349bd0a36055aa55.css?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:53:17 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:53:22 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/settings.self-b528a8dcad080b49f686b7a826cae6a3999ed1c19b13b2fff88ada8807a5d120.css?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:53:22 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:53:31 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 54ms (Views: 52.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/settings.self-526998cc8dafbde4040ad699863a1c26365379be12ff80b162d23f3683a5d896.css?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:53:31 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:54:45 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:54:45 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:54:45 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:54:45 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:54:45 -0500
+
+
+Started GET "/assets/settings.self-de7ea235345a50d370da872f1374149a58d6b7897d268a5803d12e831b8c42bd.css?body=1" for ::1 at 2016-01-27 13:54:46 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:54:46 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:54:46 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:54:46 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:54:46 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:55:07 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 76ms (Views: 75.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/settings.self-95a6fb27fefc9e24193c39b582f651887ac3810791fc81ed67263f24984333e4.css?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:55:07 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:56:01 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/settings.self-bc3412b6899ad6c308670c1c0b637ec5a7e1800acfd05817a9c2a842b3743bd6.css?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:56:01 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:56:13 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/settings.self-e2dd15a6ced4084d4d5d05850095d7a1f26de4b92695644edd3cee73745c7e6f.css?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:56:13 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:57:23 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/settings.self-e2dd15a6ced4084d4d5d05850095d7a1f26de4b92695644edd3cee73745c7e6f.css?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:57:23 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:58:25 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/settings.self-e2dd15a6ced4084d4d5d05850095d7a1f26de4b92695644edd3cee73745c7e6f.css?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:58:25 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:58:42 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 57ms (Views: 55.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/settings.self-57aae1931f7ea342085ab9c0fa89f93ae795fb8b7d5fea780545c061a49f5600.css?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:58:42 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:59:13 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 52ms (Views: 50.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/settings.self-745521d51fd96a33ee35a308c0c1c5accce16f71c3e2c61af93fdf694671a5ce.css?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:59:13 -0500
+
+
+Started GET "/" for ::1 at 2016-01-27 13:59:44 -0500
+Processing by StaticPagesController#homepage as HTML
+  Rendered static_pages/homepage.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/settings.self-745521d51fd96a33ee35a308c0c1c5accce16f71c3e2c61af93fdf694671a5ce.css?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:59:44 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0" for ::1 at 2016-01-27 13:59:45 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 13:59:52 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/settings.self-745521d51fd96a33ee35a308c0c1c5accce16f71c3e2c61af93fdf694671a5ce.css?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 13:59:52 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 13:59:53 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:02:36 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/settings.self-745521d51fd96a33ee35a308c0c1c5accce16f71c3e2c61af93fdf694671a5ce.css?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:02:37 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:04:43 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/settings.self-3992a96b7817428e8ecf9f73f18a4bd5562dd43d3c488d715abd83343f597997.css?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:04:43 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:05:11 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 65ms (Views: 64.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/settings.self-19627575a990a356c3d7008291d6763b1f5982585859507625342572942e5606.css?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:05:12 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:05:29 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 51ms (Views: 48.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/settings.self-4f63031cb3396d5f7137b6c65619ed74aeea6ce47fdff57e2d996d9030467e70.css?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:05:29 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:05:59 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 69ms (Views: 68.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/settings.self-4dc0f65c3aee6e79ecab61d47ca6b9a0335bf5c0bf56c2b1e2fdc49012e4092f.css?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:06:00 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:06:08 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 55.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:06:08 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:06:08 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/assets/settings.self-dc92e872ca278c32073ef4187693c320d0a68c52811f7cd6ed895660a22c1c2d.css?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:06:09 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:06:49 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 55ms (Views: 53.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/settings.self-711450dbd0c089248acd707e1ffe5b12d1ffbfd409e86467dea592acd1ba2a19.css?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:06:49 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:07:21 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 56.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/settings.self-c1962b3103865bcc4c041fb588d3574e9cc71fcea0df0480eb6bd72145aabdb4.css?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:07:21 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:09:42 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/settings.self-e1ace2d666f2f070cd8b8327346058cc870d54b05b5d57077d660c27d286902f.css?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:09:42 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:10:45 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 55ms (Views: 54.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/settings.self-7f644c47a51707e9dafb26eb23595547af169c086bdb9f9a955a9ceec2b07699.css?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:10:45 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:12:10 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 55ms (Views: 54.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/settings.self-16cb6605ae5b1607801e7d479798e3e22aeb923886b79b84140bfd3e453a3c14.css?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:12:10 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:13:18 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 55.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/settings.self-894dfb31f9b224bf369a668d7b0408542ee412b4efffb74f29a5539796d95039.css?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:13:18 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:14:03 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/settings.self-c7b20a8dc3259c7390cb374ffef2c0165c0becc92de747fab705b418034dba0c.css?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:14:04 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:14:10 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/settings.self-4f2b1fa5d074f9a89f9c4d2ea0e05d48ee36a2bbe9552b716ce17ac1a92fa783.css?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:14:10 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:14:25 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/settings.self-93f5c6062baeca3622ac3f586a8fc76e26cbf86d02b7b089a37255eb786daa73.css?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:14:25 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:14:42 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 57.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/settings.self-72d2e461aade30c64354577a36078332615346c6f217247f20bf82e5f7bd069d.css?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:14:42 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:14:50 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 54.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/settings.self-e84b2256734991e2ef41089f94aec62faf059ae210576318dae1a781043cc6af.css?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:14:51 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:15:29 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/settings.self-37f8e1e6cd0da32daadde4ba665098b16ebb02b8d5037ba369857f3f24b4ce1f.css?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:15:29 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:16:03 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 54ms (Views: 53.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/settings.self-ad91825f2ef5f181fc22e89d52fe77aca5be09b15a1d0a8c60bfedd2d6100d52.css?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:16:03 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:16:04 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:16:04 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:16:11 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 76ms (Views: 75.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/settings.self-6d4693ef9e83d8188ae5c26866f1b583e0d76c6c9d0feb3ebda4fcfc50af43c3.css?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:16:11 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:16:19 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 95ms (Views: 94.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/settings.self-dc340b23197d8c02d10e639791b47fb490d9992f6820e1aa39fb6a55c5ed2bcc.css?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:16:19 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:16:21 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/settings.self-dc340b23197d8c02d10e639791b47fb490d9992f6820e1aa39fb6a55c5ed2bcc.css?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:16:21 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:16:28 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 57ms (Views: 56.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/settings.self-458ad4654bf94287b4a3061dc3ab29b691007593cd361c6cd1ddcf249886dce1.css?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:16:28 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:17:35 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 76ms (Views: 74.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/settings.self-725774a7210889da93cf22978bf8ce7862c994243586fad33111a8d3b400401d.css?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:17:35 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:17:49 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/settings.self-725774a7210889da93cf22978bf8ce7862c994243586fad33111a8d3b400401d.css?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:17:49 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:17:53 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:17:53 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:17:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:17:53 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:17:53 -0500
+
+
+Started GET "/assets/settings.self-725774a7210889da93cf22978bf8ce7862c994243586fad33111a8d3b400401d.css?body=1" for ::1 at 2016-01-27 14:17:53 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:17:54 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:17:54 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:17:54 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:17:54 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:19:29 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 153ms (Views: 151.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/settings.self-8b9f8818042eefd910bcb28b75bea64f04bf4d15bdfc0b41fe6949d33e5b3330.css?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:19:29 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:19:37 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/settings.self-05919f3ed6e64859f3668da660ab5c689749fd84246cbe1ed0cc1bbb227e8f74.css?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:19:37 -0500
+
+
+Started GET "/users/3/settings" for ::1 at 2016-01-27 14:19:46 -0500
+Processing by UsersController#settings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered users/settings.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-386f0cec2c7738882485a191b788cbfa3f5ce4a754c2b3405982ae288b08c8dc.css?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/settings.self-0908dcc5900d9f351cee421f103e35987cec302da33f8a05a471e81ccd0ab544.css?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/bundle.self-1777ddb7bb67be18d45b0f4ac489ad56a0b766e9de4bafe92c867c5a6f7d022e.js?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-27 14:19:46 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-01-27 14:19:46 -0500

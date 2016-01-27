@@ -105,7 +105,65 @@ header button {
 
 /* SETTINGS CONTENT */
 
-.settings-content
+.settings-content {
+  margin: auto;
+  padding: 20px;
+  width: 980px;
+  height: 620px;
+  border: 1px solid #cccccc;
+}
+
+.settings-heading {
+  padding: 0 0 20px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.settings-details > section:first-child {
+  border-top: 1px solid #aaaaaa;
+  border-bottom: 1px solid #cccccc;
+}
+
+.settings-details > section:last-child {
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.settings-details > section {
+  border-bottom: 1px solid #cccccc;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.settings-details label {
+  float: left;
+
+}
+
+.settings-details div {
+  float: left;
+  display: block;
+  margin-left: 60px;
+  font-weight: bold;
+}
+
+
+/*
+.name-label {
+  float: left;
+}
+
+.name-details {
+
+}
+
+.email-label {
+  float: left;
+}
+
+.email-details {
+
+}*/
+
 
 /* FOOTER */
 
