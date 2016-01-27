@@ -20,16 +20,35 @@
 
 <main class="main">
   <section class="content group">
-    <section class="home-info">
-      <h2>Connect with friends and famous people around you on Famebook.</h2>
+
+    <section class="home-info group">
+      <h2 class="main-caption">Connect with friends and famous people around you on Famebook.</h2>
+      <section class="home-sub-captions group">
+
+        <section class="sub-caption group">
+          <i class="fa fa-comments-o"></i>
+          <h4>Share what you know</h4><span>with friends of similar interests.</span>
+        </section>
+
+        <section class="sub-caption">
+          <i class="fa fa-users"></i>
+          <h4>See cool photos</h4><span>of people you admire.</span>
+        </section>
+
+        <section class="sub-caption">
+          <i class="fa fa-cogs"></i>
+          <h4>Discover more</h4><span>about amazing people you may not know yet.</span>
+        </section>
+
+      </section>
     </section>
 
     <section class="sign-up">
       <h1>Sign Up</h1>
       <h4>It's Famous and always will be.</h4>
+
       <form class="sign-up-form" action="<%= users_url %>" method="post">
         <%= auth_token_form %>
-
         <section class="names group">
           <input class="first-name" type="text" name="user[first_name]" value="First name">
           <input type="text" name="user[last_name]" value="Last Name">
@@ -41,6 +60,7 @@
         </div>
       </form>
     </section>
+
   </section>
 </main>
 

@@ -27,6 +27,9 @@ gem 'bcrypt', '~> 3.1.7'
 group :production do
   gem 'rails_12factor'
 end
+
+# gem 'font-awesome-less', '~> 4.5.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

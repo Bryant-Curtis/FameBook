@@ -1,17 +1,7 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
+ *= require font-awesome-4.5.0/css/font-awesome
  */
 
 
@@ -20,7 +10,7 @@
 html, body, h1, h2, main, figure,
 section, h3, h4, a, span, strong, img,
 ul, li, ol, p, br, input, form, button,
-header, footer, nav {
+header, footer, nav, h5, h6 {
   margin: 0;
   border: 0;
   padding: 0;
@@ -125,8 +115,49 @@ body {
 
 .home-info {
   float: left;
+  margin: 70px 0 0 0;
   width: 581px;
+  color: #333333;
 }
+
+.home-info > .main-caption {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.1666666666;
+}
+
+.home-info .sub-caption{
+  float: left;
+  display: block;
+  margin: 30px 0 0 0;
+  width: 500px;
+  /*height: 75px;*/
+}
+
+.home-sub-captions {
+  margin: 20px 0 0 0;
+}
+
+.sub-caption i {
+  float: left;
+  font-size: 50px;
+  color: #adbad4;
+}
+
+.home-info  h4 {
+  float: left;
+  margin: 15px 20px 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.home-info span {
+  display: block;
+  margin: 16px 0 0 20px;
+  color: #666666;
+  font-size: 14px;
+}
+
 
 /* SIGN UP FORM SIDEBAR*/
 
