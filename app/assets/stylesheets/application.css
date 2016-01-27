@@ -133,7 +133,7 @@ body {
 .sign-up {
   float: left;
   width: 399px;
-  font-family: 'Freight Sans Bold';
+  /*font-family: 'Freight Sans Bold';*/
 }
 
 .sign-up > h1 {
@@ -153,6 +153,7 @@ body {
 
 .sign-up-form input {
   display: block;
+  margin: 10px 0;
   border: 1px solid #bdc7d8;
   border-radius: 5px;
   padding: 10px;
@@ -165,13 +166,33 @@ body {
   width: 194px;
 }
 
+.sign-up-form > input {
+  display: block;
+  width: 400px;
+}
+
 .sign-up-form .first-name{
   float: left;
   margin: 0 11px 0 0;
 }
 
-.sign-up-form > button {
-  background: #5f9b4c;
+.sign-up-form > .button-border {
+  box-sizing: content-box;;
+  border: 1px solid #2c5115;
+  border-radius: 5px;
+  width: 191px;
+  height: 36px;
+}
+
+.sign-up-form button {
+  box-sizing: border-box;
+  border-top: 1px solid #95d67c;
+  width: 191px;
+  height: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  background: -webkit-gradient(linear, center bottom, center top, from(#578843), to(#74b960));
 }
 
 /* Get access to 'Freight Sans' (Bold) font on google */
