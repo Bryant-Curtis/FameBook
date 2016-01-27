@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
