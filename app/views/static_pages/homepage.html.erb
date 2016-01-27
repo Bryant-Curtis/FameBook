@@ -1,37 +1,45 @@
-<header class="header group">
-  <h1 class="famebook">famebook</h1>
+<header class="header">
+  <nav class="header-nav group">
+    <h1 class="header-nav-logo">famebook</h1>
 
-  <form class="log-in-form group" action="<%= session_url %>" method="post">
-    <%= auth_token_form %>
-
-    <label>Email<br/>
-      <input type="text" name="session[email]" value="">
-    </label>
-
-    <label>Password<br/>
-      <input type="password" name="session[password]" value="">
-    </label>
-
-    <button>Log In</button>
-  </form>
-</header>
-
-<main class="content">
-  <section class="home-info">
-
-  </section>
-
-  <section class="sign-up-form">
-    <form action="<%= users_url %>" method="post">
+    <form class="header-nav-log-in-form group" action="<%= session_url %>" method="post">
       <%= auth_token_form %>
 
-      <input type="text" name="user[first_name]" value="First name">
-      <input type="text" name="user[last_name]" value="Last Name">
-      <input type="text" name="user[email]" value="Email">
-      <input type="password" name="user[password]" value="">
+      <label>Email<br/>
+        <input type="text" name="session[email]" value="">
+      </label>
 
-      <button>Sign Up</button>
+      <label>Password<br/>
+        <input type="password" name="session[password]" value="">
+      </label>
+
+      <button>Log In</button>
     </form>
+  </nav>
+</header>
+
+<main class="main">
+  <section class="content group">
+    <section class="home-info">
+      <h2>Connect with friends and famous people around you on Famebook.</h2>
+    </section>
+
+    <section class="sign-up">
+      <h1>Sign Up</h1>
+      <h4>It's Famous and always will be.</h4>
+      <form class="sign-up-form" action="<%= users_url %>" method="post">
+        <%= auth_token_form %>
+
+        <section class="names group">
+          <input class="first-name" type="text" name="user[first_name]" value="First name">
+          <input type="text" name="user[last_name]" value="Last Name">
+        </section>
+        <input type="text" name="user[email]" value="Email">
+        <input type="password" name="user[password]" value="">
+
+        <button>Sign Up</button>
+      </form>
+    </section>
   </section>
 </main>
 

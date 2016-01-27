@@ -18,7 +18,7 @@
 /* RESET */
 
 html, body, h1, h2, main, figure,
-section, h3, a, span, strong, img,
+section, h3, h4, a, span, strong, img,
 ul, li, ol, p, br, input, form, button,
 header, footer, nav {
   margin: 0;
@@ -35,9 +35,13 @@ header, footer, nav {
   background: transparent;
 }
 
+body {
+  font-family: helvetica;
+}
+
 /* CLEAR FIX */
 
-.group {
+.group:after {
   content: "";
   display: block;
   clear: both;
@@ -46,71 +50,133 @@ header, footer, nav {
 /* HEADER */
 
 .header {
-  border-bottom: 1px solid #000;
-  font-family: helvetica;
+  border-bottom: 1px solid #1c326c;
   color: #ffffff;
-  height: 82px;
-  background: #3a5694;
+  background: -webkit-gradient(linear, center bottom, center top, from(#3a5795), to(#4e69a2));
+  height: 84px;
 }
 
-.famebook {
+.header-nav {
+  margin: auto;
+  width: 980px;
+}
+
+.header-nav-logo {
   float: left;
-  /*font-size: 36px;
-  display: block;*/
+  display: block;
+  padding-top: 30px;
+  font-size: 36px;
+  font-weight: 600;
 }
 
-.log-in-form {
+.header-nav-log-in-form {
   float: right;
+  display: inline;
+  margin-top: 15px;
 }
 
-.log-in-form > label {
+.header-nav-log-in-form > label {
   float: left;
-  margin-right: 15px;
+  display: block;
+  margin: 0 13px 5px 1px;
   font-size: 12px;
-  margin-bottom: 5px;
-  display: block;
 }
 
-.log-in-form input {
-  background: #ffffff;
+.header-nav-log-in-form input {
+  display: block;
+  margin: 5px 0 0 0;
+  border: 1px solid #1d2a5b;
   width: 150px;
-  height: 22px;
-  display: block;
-  margin-top: 5px;
-  border: 1px solid #000;
+  height: 23px;
+  color: #000;
+  background: #ffffff;
 }
 
-.log-in-form > button {
-  margin-top: 18px;
-  background: #5a74a8;
+.header-nav-log-in-form button {
+  margin-top: 20px;
+  border-top: 1px solid #8a9cc2;
+  border-bottom: 1px solid #1a356e;
+  border-left: 1px solid #29447e;
+  border-right: 1px solid #29447e;
+  padding-bottom: 4px;
   border-style: outset;
-  border: 1px solid #000;
   text-align:center;
   width: 50px;
-  height: 22px;
+  height: 21px;
   font-size: 12px;
   font-weight: bold;
+  background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
 }
 
 /* CONTENT */
 
+.main {
+  border-top: 1px solid #bbbbbc;
+  background: -webkit-gradient(linear, center bottom, center top, from(#d3d8e8), to(#ffffff));
+  height: 595px;
+}
+
 .content {
-  background: #edf0f5;
+  margin: auto;
+  width: 980px;
 }
 
-/* sign in button*/
-.button {
-  background: #5f9b4c;
+/* HOMEPAGE INFORMATION */
+
+.home-info {
+  float: left;
+  width: 581px;
 }
 
-/* log in button*/
+/* SIGN UP FORM SIDEBAR*/
 
-/* text in the sign in box color */
-.text {
+.sign-up {
+  float: left;
+  width: 399px;
+  font-family: 'Freight Sans Bold';
+}
+
+.sign-up > h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 22px 0 10px 0;
+}
+
+.sign-up > h4 {
+  margin: 0 0 22px 0;
+  font-size: 19px;
+}
+
+.sign-up-form {
   color: #999999;
 }
 
-/* sign in error border and logo color */
-.input {
-  border: 1px solid #b94a48;
+.sign-up-form input {
+  display: block;
+  border: 1px solid #bdc7d8;
+  border-radius: 5px;
+  padding: 10px;
+  height: 40px;
+  background: #ffffff;
 }
+
+.sign-up-form > .names > input {
+  display: block;
+  width: 194px;
+}
+
+.sign-up-form .first-name{
+  float: left;
+  margin: 0 11px 0 0;
+}
+
+.sign-up-form > button {
+  background: #5f9b4c;
+}
+
+/* Get access to 'Freight Sans' (Bold) font on google */
+
+/* sign in error border and error logo color */
+/*.input {
+  border: 1px solid #b94a48;
+}*/
