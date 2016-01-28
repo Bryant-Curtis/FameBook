@@ -20065,6 +20065,11 @@
 	    return { posts: PostStore.all };
 	  },
 
+	  componentDidMount: function () {
+	    PostStore.addListener(this.__onChange);
+	    ApiUtil.fetchAllPosts();
+	  },
+
 	  render: function () {
 	    return React.createElement(
 	      'div',
@@ -20072,10 +20077,16 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        'Hi!'
+	        this.state.posts
 	      )
 	    );
+	  },
+
+	  __onChange: function () {
+	    // I feel like here I want to call the method PostStore.resetPosts!
+	    this.setState({ posts: PostStore.all });
 	  }
+
 	});
 
 	module.exports = Posts;
