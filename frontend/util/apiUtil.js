@@ -1,3 +1,5 @@
+var ApiActions = require('../actions/famebookAction');
+
 var ApiUtil = {
   fetchAllPosts: function () {
     $.ajax({
@@ -5,6 +7,10 @@ var ApiUtil = {
       url: 'api/posts',
       success: function (data) {
         console.log(data);
+        ApiActions.receiveAllPosts(data);
+      },
+      error: function () {
+        return "Were not able to get the posts! : )";
       }
     });
   }
