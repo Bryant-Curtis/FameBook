@@ -7,6 +7,12 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_token
 
+  has_many :posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    primary_key: :id
+
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

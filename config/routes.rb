@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'users/:id/settings', to: 'users#settings', as: 'user_settings'
   resources :users, only: [:create, :show]
   resource :session, only: [:create, :destroy]
+  namespace :api, defaults: { format: :json } do
+    resources :posts, only: [:index, :create]
+  end
 end
 
 # If have time later and it seems viable and a good thing to do, create

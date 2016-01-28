@@ -28,7 +28,8 @@ group :production do
   gem 'rails_12factor'
 end
 
-# gem 'font-awesome-less', '~> 4.5.0'
+# gem 'font-awesome-rails', '~> 4.5.0' # this one is on github docs for font-awesome.
+# gem 'font-awesome-less', '~> 4.5.0' # perhaps not the one we want to use.
 
 # Use Unicorn as the app server
 # gem 'unicorn'
