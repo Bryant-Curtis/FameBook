@@ -38,18 +38,18 @@ body {
 
 /* HEADER */
 
-header {
+.settings-header {
   border-bottom: 1px solid #1c326c;
   height: 44px;
   color: #ffffff;
   background: -webkit-gradient(linear, center bottom, center top, from(#3b5998), to(#4e69a2));
 }
 
-header > .header-nav {
+.settings-header > .header-nav {
   width: 980px;
 }
 
-header .logo-box {
+.settings-header .logo-box {
   float: left;
   display: block;
   position: relative;
@@ -64,7 +64,7 @@ header .logo-box {
 }
 
 
-header .logo-letter-f {
+.settings-header .logo-letter-f {
   display: block;
   position: absolute;
   top: 0px;
@@ -73,7 +73,7 @@ header .logo-letter-f {
   font-weight: bold;
 }
 
-header .logo-letter-m {
+.settings-header .logo-letter-m {
   display: block;
   position: absolute;
   top: 8px;
@@ -83,7 +83,7 @@ header .logo-letter-m {
   font-weight: bold;
 }
 
-header .button {
+.settings-header .button {
   float: right;
   display: block;
   margin-top: 10px;

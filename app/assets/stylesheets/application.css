@@ -29,6 +29,10 @@ body {
   font-family: helvetica;
 }
 
+ul {
+  list-style: none;
+}
+
 /* CLEAR FIX */
 
 .group:after {

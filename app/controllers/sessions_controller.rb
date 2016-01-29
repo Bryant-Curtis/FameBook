@@ -15,8 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    user.reset_token!
+    sign_out
     redirect_to "/"
   end
 

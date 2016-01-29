@@ -15,7 +15,12 @@ var Posts = React.createClass({
 
   render: function () {
     var posts = this.state.posts.map(function(post){
-      return <li key={post.id}>{ post.body }</li>;
+      return(
+        <li key={post.id} className="post">
+          <header className="post-header"><section className="post-header-name">{ post.author.name }</section></header>
+          <article className="post-body">{ post.body }</article>
+        </li>
+      );
     });
     return(
       <ul>{ posts }</ul>

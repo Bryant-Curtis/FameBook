@@ -1,2 +1,18 @@
 <main id="root">
+  <header class="settings-header">
+    <nav class="header-nav group">
+
+      <figure class="logo-box">
+        <p class="logo-letter-f">f</p>
+        <p class="logo-letter-m">m</p>
+      </figure>
+
+      <form class="button" action="<%= session_url %>" method="post">
+        <%= auth_token_form %>
+        <input type="hidden" name="_method" value="delete">
+        <button>Log out</button>
+      </form>
+
+    </nav>
+  </header>
 </main>
