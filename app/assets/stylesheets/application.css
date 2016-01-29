@@ -41,9 +41,9 @@ body {
 
 .header {
   border-bottom: 1px solid #1c326c;
+  height: 84px;
   color: #ffffff;
   background: -webkit-gradient(linear, center bottom, center top, from(#3a5795), to(#4e69a2));
-  height: 84px;
 }
 
 .header-nav {
@@ -90,12 +90,11 @@ body {
   border-left: 1px solid #29447e;
   border-right: 1px solid #29447e;
   padding-bottom: 4px;
-  border-style: outset;
-  text-align:center;
   width: 50px;
   height: 21px;
   font-size: 12px;
   font-weight: bold;
+  text-align:center;
   background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
 }
 
@@ -103,8 +102,9 @@ body {
 
 .main {
   border-top: 1px solid #bbbbbc;
-  background: -webkit-gradient(linear, center bottom, center top, from(#d3d8e8), to(#ffffff));
   height: 595px;
+  background: #EDF0F5;
+  /*background: -webkit-gradient(linear, center bottom, center top, from(#d3d8e8), to(#ffffff));*/
 }
 
 .content {
@@ -168,9 +168,9 @@ body {
 }
 
 .sign-up > h1 {
+  margin: 22px 0 10px 0;
   font-size: 36px;
   font-weight: bold;
-  margin: 22px 0 10px 0;
 }
 
 .sign-up > h4 {
@@ -179,6 +179,10 @@ body {
 }
 
 .sign-up-form {
+  color: #999999;
+}
+
+::-webkit-input-placeholder {
   color: #999999;
 }
 
@@ -208,7 +212,7 @@ body {
 }
 
 .sign-up-form > .button-border {
-  box-sizing: content-box;;
+  box-sizing: content-box;
   border: 1px solid #2c5115;
   border-radius: 5px;
   width: 191px;
@@ -220,17 +224,13 @@ body {
   border-top: 1px solid #95d67c;
   width: 191px;
   height: 36px;
+  color: #ffffff;
   font-weight: bold;
   text-align: center;
-  color: #ffffff;
   background: -webkit-gradient(linear, center bottom, center top, from(#578843), to(#74b960));
 }
 
 /* FOOTER */
-
-.footer {
-
-}
 
 .footer-info {
   margin: auto;

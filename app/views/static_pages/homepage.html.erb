@@ -45,16 +45,16 @@
 
     <section class="sign-up">
       <h1>Sign Up</h1>
-      <h4>It's Famous and always will be.</h4>
+      <h4>It's famous and always will be.</h4>
 
       <form class="sign-up-form" action="<%= users_url %>" method="post">
         <%= auth_token_form %>
         <section class="names group">
-          <input class="first-name" type="text" name="user[first_name]" value="First name">
-          <input type="text" name="user[last_name]" value="Last Name">
+          <input class="first-name" type="text" name="user[first_name]" placeholder="First name">
+          <input type="text" name="user[last_name]" placeholder="Last name">
         </section>
-        <input type="text" name="user[email]" value="Email">
-        <input type="password" name="user[password]" value="Pass">
+        <input type="text" name="user[email]" placeholder="Email">
+        <input type="password" name="user[password]" placeholder="New password">
         <div class="button-border">
           <button>Sign Up</button>
         </div>
