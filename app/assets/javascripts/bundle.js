@@ -19675,7 +19675,7 @@
 	  fetchAllPosts: function () {
 	    $.ajax({
 	      method: "GET",
-	      url: 'api/posts',
+	      url: '/api/posts',
 	      success: function (data) {
 	        console.log(data);
 	        ApiActions.receiveAllPosts(data);
@@ -20055,10 +20055,14 @@
 	};
 
 	PostStore.__onDispatch = function (payload) {
-	  if (payload.actionType === FamebookConstants.RECEIVED_POSTS) {
+	  if (payload.actionType === FamebookConstants.POSTS_RECEIVED) {
 	    PostStore.resetPosts(payload.posts);
 	    PostStore.__emitChange();
 	  }
+	};
+
+	PostStore.updateOnRefresh = function () {
+	  ApiUtil.fetchAllPosts();
 	};
 
 	module.exports = PostStore;
@@ -26526,29 +26530,31 @@
 	  displayName: 'Posts',
 
 	  getInitialState: function () {
-	    return { posts: PostStore.all };
+	    return { posts: PostStore.all() };
 	  },
 
 	  componentDidMount: function () {
-	    PostStore.addListener(this.__onChange);
+	    PostStore.addListener(this._onChange);
 	    ApiUtil.fetchAllPosts();
 	  },
 
 	  render: function () {
+	    var posts = this.state.posts.map(function (post) {
+	      return React.createElement(
+	        'li',
+	        { key: post.id },
+	        post.body
+	      );
+	    });
 	    return React.createElement(
-	      'div',
+	      'ul',
 	      null,
-	      React.createElement(
-	        'div',
-	        null,
-	        this.state.posts
-	      )
+	      posts
 	    );
 	  },
 
-	  __onChange: function () {
-	    // I feel like here I want to call the method PostStore.resetPosts!
-	    this.setState({ posts: PostStore.all });
+	  _onChange: function () {
+	    this.setState({ posts: PostStore.all() });
 	  }
 
 	});

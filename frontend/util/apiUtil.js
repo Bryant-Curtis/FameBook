@@ -4,7 +4,7 @@ var ApiUtil = {
   fetchAllPosts: function () {
     $.ajax({
       method: "GET",
-      url: 'api/posts',
+      url: '/api/posts',
       success: function (data) {
         console.log(data);
         ApiActions.receiveAllPosts(data);

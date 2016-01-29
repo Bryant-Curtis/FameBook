@@ -16,7 +16,7 @@ PostStore.resetPosts = function (posts) {
 };
 
 PostStore.__onDispatch = function (payload) {
-  if (payload.actionType === FamebookConstants.RECEIVED_POSTS) {
+  if (payload.actionType === FamebookConstants.POSTS_RECEIVED) {
     PostStore.resetPosts(payload.posts);
     PostStore.__emitChange();
   }

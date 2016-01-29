@@ -5,25 +5,25 @@ var React = require('react'),
 
 var Posts = React.createClass({
   getInitialState: function () {
-    return { posts: PostStore.all };
+    return { posts: PostStore.all() };
   },
 
   componentDidMount: function () {
     PostStore.addListener(this._onChange);
-    PostStore.updateOnRefresh();
+    ApiUtil.fetchAllPosts();
   },
 
   render: function () {
+    var posts = this.state.posts.map(function(post){
+      return <li key={post.id}>{ post.body }</li>;
+    });
     return(
-      <div>
-        <div>{ this.state.posts }</div>
-      </div>
+      <ul>{ posts }</ul>
     );
   },
 
   _onChange: function () {
-    // I feel like here I want to call the method PostStore.resetPosts!
-    this.setState({ posts: PostStore.all });
+    this.setState({ posts: PostStore.all() });
   }
 
 });
