@@ -13,6 +13,16 @@ var ApiUtil = {
         return "Were not able to get the posts! : )";
       }
     });
+  },
+
+  logOut: function (callback) {
+    $.ajax({
+      method: "DELETE",
+      url: '/session',
+      success: function (data) {
+        callback && callback();
+      }
+    });
   }
 };
 

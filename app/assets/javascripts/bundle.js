@@ -51,48 +51,70 @@
 	    IndexRoute = __webpack_require__(159).IndexRoute,
 	    Posts = __webpack_require__(208);
 
-	// var NavBar = React.createClass({
-	//   render: function () {
-	//     return(
-	// <header class="settings-header">
-	//   <nav class="header-nav group">
-	//
-	//     <figure class="logo-box">
-	//       <p class="logo-letter-f">f</p>
-	//       <p class="logo-letter-m">m</p>
-	//     </figure>
-	//
-	//     <form class="button" action="<%= session_url %>" method="post">
-	//       <%= auth_token_form %>
-	//       <input type="hidden" name="_method" value="delete">
-	//       <button>Log out</button>
-	//     </form>
-	//
-	//   </nav>
-	// </header>
-	//     )
-	//   }
-	// });
+	var NavBar = React.createClass({
+	  displayName: 'NavBar',
 
-	// How can I implement a header bar with a log out button as a React component?
+	  // logOut: function () {
+	  //   ApiUtil.logOut(function () {
+	  //     this.history.pushState(null, ) // needs to be finished
+	  //   });
+	  // },
 
-	// var App = React.createClass({
-	//   render: function () {
-	//     return(
-	//
-	//
+	  render: function () {
+	    return React.createElement(
+	      'header',
+	      { className: 'settings-header' },
+	      React.createElement(
+	        'nav',
+	        { className: 'header-nav group' },
+	        React.createElement(
+	          'figure',
+	          { className: 'logo-box' },
+	          React.createElement(
+	            'p',
+	            { className: 'logo-letter-f' },
+	            'f'
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'logo-letter-m' },
+	            'm'
+	          )
+	        ),
+	        React.createElement(
+	          'form',
+	          { className: 'button', action: '/session', method: 'post' },
+	          React.createElement('input', { type: 'hidden', name: 'authenticity_token', value: window.auth_token }),
+	          React.createElement('input', { type: 'hidden', name: '_method', value: 'delete' }),
+	          React.createElement(
+	            'button',
+	            null,
+	            'Log out'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var App = React.createClass({
+	  displayName: 'App',
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(NavBar, null),
+	      this.props.children
+	    );
+	  }
+	});
+
 	var routes = React.createElement(
 	  Route,
-	  { path: '/' },
+	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts })
 	);
-	// <div>
-	//   <NavBar />
-	//   <Posts />
-	// </div>
-	//     );
-	//   }
-	// });
 
 	document.addEventListener("DOMContentLoaded", function (event) {
 	  ReactDOM.render(React.createElement(
@@ -24418,6 +24440,16 @@
 	      },
 	      error: function () {
 	        return "Were not able to get the posts! : )";
+	      }
+	    });
+	  },
+
+	  logOut: function (callback) {
+	    $.ajax({
+	      method: "DELETE",
+	      url: '/session',
+	      success: function (data) {
+	        callback && callback();
 	      }
 	    });
 	  }
