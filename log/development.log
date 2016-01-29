@@ -32860,3 +32860,228 @@ Processing by Api::PostsController#index as JSON
   [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 19, 22)[0m
   Rendered api/posts/index.json.jbuilder (4.5ms)
 Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-01-29 18:47:10 -0500
+Processing by StaticPagesController#homepage as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "KjoIJfnFJDf4FOAug-uqyQ"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 870ms (Views: 866.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/homepage.self-01aa6cd4ddb8c88cd9b2218b2cf7c20bab2db4fd0503f723a237f9dfc4a5331d.css?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/bundle.self-377014c35f5e0f9cdf7f2774f17c181ec5eedf6d9642a7d3214846d7d3905e2a.js?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/application.self-5b8a344247580921fde9c50902fa065626dd36610f8575f760404d593986518d.css?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/settings.self-4c29d02c395bf86db3eda839a6f5e7c143327c5a85d3c10472b0d06084ebdc07.css?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-29 18:47:11 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-01-29 18:47:11 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (13, 19, 22)
+  Rendered api/posts/index.json.jbuilder (6.5ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2016-01-29 18:51:05 -0500
+Processing by StaticPagesController#homepage as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "KjoIJfnFJDf4FOAug-uqyQ"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 893ms (Views: 879.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/homepage.self-01aa6cd4ddb8c88cd9b2218b2cf7c20bab2db4fd0503f723a237f9dfc4a5331d.css?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/application.self-5b8a344247580921fde9c50902fa065626dd36610f8575f760404d593986518d.css?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/bundle.self-1a8d922952d2ec43e0af4e97d5c44fc31cf612d77418a47951f8592645c4ef94.js?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/settings.self-4c29d02c395bf86db3eda839a6f5e7c143327c5a85d3c10472b0d06084ebdc07.css?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-29 18:51:06 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-01-29 18:51:07 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 19, 22)[0m
+  Rendered api/posts/index.json.jbuilder (5.6ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-01-29 18:51:07 -0500
+Processing by StaticPagesController#homepage as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "KjoIJfnFJDf4FOAug-uqyQ"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/homepage.self-01aa6cd4ddb8c88cd9b2218b2cf7c20bab2db4fd0503f723a237f9dfc4a5331d.css?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/application.self-5b8a344247580921fde9c50902fa065626dd36610f8575f760404d593986518d.css?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/settings.self-4c29d02c395bf86db3eda839a6f5e7c143327c5a85d3c10472b0d06084ebdc07.css?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/bundle.self-1a8d922952d2ec43e0af4e97d5c44fc31cf612d77418a47951f8592645c4ef94.js?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-29 18:51:08 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-01-29 18:51:08 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (13, 19, 22)
+  Rendered api/posts/index.json.jbuilder (4.8ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-01-29 18:57:08 -0500
+Processing by StaticPagesController#homepage as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "KjoIJfnFJDf4FOAug-uqyQ"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 457ms (Views: 453.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/homepage.self-01aa6cd4ddb8c88cd9b2218b2cf7c20bab2db4fd0503f723a237f9dfc4a5331d.css?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/application.self-5b8a344247580921fde9c50902fa065626dd36610f8575f760404d593986518d.css?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/settings.self-4c29d02c395bf86db3eda839a6f5e7c143327c5a85d3c10472b0d06084ebdc07.css?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/bundle.self-f766f593a6a7ef32733350948946fd841d8dbe46dae5b5264292ce4cfdad779a.js?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-29 18:57:09 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-01-29 18:57:09 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 19, 22)[0m
+  Rendered api/posts/index.json.jbuilder (6.6ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-01-29 18:57:50 -0500
+Processing by StaticPagesController#homepage as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "KjoIJfnFJDf4FOAug-uqyQ"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 319ms (Views: 317.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/homepage.self-01aa6cd4ddb8c88cd9b2218b2cf7c20bab2db4fd0503f723a237f9dfc4a5331d.css?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/application.self-5b8a344247580921fde9c50902fa065626dd36610f8575f760404d593986518d.css?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/settings.self-4c29d02c395bf86db3eda839a6f5e7c143327c5a85d3c10472b0d06084ebdc07.css?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/bundle.self-f53c066b4b2d1a7dbcb852ea3d0609cf1560d88ea7612b776927b495b3f0f82d.js?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-29 18:57:50 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-01-29 18:57:51 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (13, 19, 22)
+  Rendered api/posts/index.json.jbuilder (5.0ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 1.0ms)

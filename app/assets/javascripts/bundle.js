@@ -49,7 +49,8 @@
 	    Router = __webpack_require__(159).Router,
 	    Route = __webpack_require__(159).Route,
 	    IndexRoute = __webpack_require__(159).IndexRoute,
-	    Posts = __webpack_require__(208);
+	    Posts = __webpack_require__(208),
+	    PostForm = __webpack_require__(234);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -113,6 +114,7 @@
 	var routes = React.createElement(
 	  Route,
 	  { path: '/', component: App },
+	  React.createElement(IndexRoute, { component: PostForm }),
 	  React.createElement(IndexRoute, { component: Posts })
 	);
 
@@ -24384,7 +24386,7 @@
 
 	  componentDidMount: function () {
 	    PostStore.addListener(this._onChange);
-	    ApiUtil.fetchAllPosts();
+	    PostStore.updateOnMount();
 	  },
 
 	  render: function () {
@@ -24444,15 +24446,27 @@
 	    });
 	  },
 
-	  logOut: function (callback) {
+	  createPost: function (post) {
 	    $.ajax({
-	      method: "DELETE",
-	      url: '/session',
+	      method: "POST",
+	      url: "api/posts",
+	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
+	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
-	        callback && callback();
+	        ApiActions.getNewPost(data);
 	      }
 	    });
 	  }
+
+	  // logOut: function (callback) {
+	  //   $.ajax({
+	  //     method: "DELETE",
+	  //     url: '/session',
+	  //     success: function (data) {
+	  //       callback && callback();
+	  //     }
+	  //   });
+	  // }
 	};
 
 	module.exports = ApiUtil;
@@ -24469,6 +24483,12 @@
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.POSTS_RECEIVED,
 	      posts: posts
+	    });
+	  },
+	  getNewPost: function (post) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.NEW_POST_RECEIVED,
+	      posts: post
 	    });
 	  }
 	};
@@ -24796,7 +24816,8 @@
 /***/ function(module, exports) {
 
 	var FamebookConstants = {
-	  POSTS_RECEIVED: "POSTS_RECEIVED"
+	  POSTS_RECEIVED: "POSTS_RECEIVED",
+	  NEW_POST_RECEIVED: "NEW_POST_RECEIVED"
 	};
 
 	module.exports = FamebookConstants;
@@ -24822,14 +24843,21 @@
 	  _posts = posts;
 	};
 
+	PostStore.addPost = function (post) {
+	  _posts.unshift(post);
+	};
+
 	PostStore.__onDispatch = function (payload) {
 	  if (payload.actionType === FamebookConstants.POSTS_RECEIVED) {
 	    PostStore.resetPosts(payload.posts);
 	    PostStore.__emitChange();
+	  } else if (payload.actionType === FamebookConstants.NEW_POST_RECEIVED) {
+	    PostStore.resetPosts(payload.post);
+	    PostStore.__emitChange();
 	  }
 	};
 
-	PostStore.updateOnRefresh = function () {
+	PostStore.updateOnMount = function () {
 	  ApiUtil.fetchAllPosts();
 	};
 
@@ -31284,6 +31312,44 @@
 
 	module.exports = FluxMixinLegacy;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(209),
+	    PostStore = __webpack_require__(216);
+
+	var PostForm = React.createClass({
+	  displayName: 'PostForm',
+
+	  getInitialState: function () {
+	    return { body: "" };
+	  },
+
+	  createPost: function (event) {
+	    event.preventDefault();
+	    var post = {};
+	    post.body = this.state.body;
+	    ApiUtil.createPost(post);
+	  },
+
+	  render: function () {
+	    return React.createElement(
+	      'form',
+	      { className: 'create-post', onSubmit: this.createPost },
+	      React.createElement('input', { type: 'text', name: 'post[body]' }),
+	      React.createElement(
+	        'button',
+	        { className: 'create-post-button' },
+	        'Post'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = PostForm;
 
 /***/ }
 /******/ ]);

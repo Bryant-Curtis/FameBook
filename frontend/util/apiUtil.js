@@ -15,15 +15,27 @@ var ApiUtil = {
     });
   },
 
-  logOut: function (callback) {
+  createPost: function (post) {
     $.ajax({
-      method: "DELETE",
-      url: '/session',
+      method: "POST",
+      url: "api/posts",
+      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
+      data: {post: post}, // What goes in data?, Why do we send in the form of a hash?
       success: function (data) {
-        callback && callback();
+        ApiActions.getNewPost(data);
       }
     });
   }
+
+  // logOut: function (callback) {
+  //   $.ajax({
+  //     method: "DELETE",
+  //     url: '/session',
+  //     success: function (data) {
+  //       callback && callback();
+  //     }
+  //   });
+  // }
 };
 
 module.exports = ApiUtil;

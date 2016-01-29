@@ -7,6 +7,12 @@ var ApiActions = {
       actionType: FamebookConstants.POSTS_RECEIVED,
       posts: posts
     });
+  },
+  getNewPost: function(post) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.NEW_POST_RECEIVED,
+      posts: post
+    });
   }
 };
 

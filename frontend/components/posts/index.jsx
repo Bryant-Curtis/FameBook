@@ -10,7 +10,7 @@ var Posts = React.createClass({
 
   componentDidMount: function () {
     PostStore.addListener(this._onChange);
-    ApiUtil.fetchAllPosts();
+    PostStore.updateOnMount();
   },
 
   render: function () {

@@ -3,7 +3,8 @@ var React = require('react'),
     Router = require('react-router').Router,
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
-    Posts = require('./components/posts/index');
+    Posts = require('./components/posts/index'),
+    PostForm = require('./components/posts/form');
 
 var NavBar = React.createClass({
   // logOut: function () {
@@ -47,6 +48,7 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
+    <IndexRoute component={PostForm} />
     <IndexRoute component={Posts} />
   </Route>
 );

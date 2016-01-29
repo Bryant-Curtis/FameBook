@@ -15,14 +15,21 @@ PostStore.resetPosts = function (posts) {
   _posts = posts;
 };
 
+PostStore.addPost = function (post) {
+  _posts.unshift(post);
+};
+
 PostStore.__onDispatch = function (payload) {
   if (payload.actionType === FamebookConstants.POSTS_RECEIVED) {
     PostStore.resetPosts(payload.posts);
     PostStore.__emitChange();
+  } else if (payload.actionType === FamebookConstants.NEW_POST_RECEIVED) {
+    PostStore.resetPosts(payload.post);
+    PostStore.__emitChange();
   }
 };
 
-PostStore.updateOnRefresh = function () {
+PostStore.updateOnMount = function () {
   ApiUtil.fetchAllPosts();
 };
 

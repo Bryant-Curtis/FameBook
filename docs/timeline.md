@@ -79,7 +79,7 @@ structure for the main application. After the basic Flux architecture has been
 set up, a Post store will be implemented and a set of actions corresponding to
 the needed CRUD functionality created. Once this is done, I will create React
 views for the Posts `Index` and `Form`. At the end of Phase 2, Posts can be
-created, read, edited and destroyed in the browser. I will use CSS to design the
+created, read and destroyed in the browser. I will use CSS to design the
 Posts index page.
 
 [Details][phase-two]
