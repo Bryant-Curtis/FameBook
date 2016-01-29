@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root to: 'static_pages#homepage'
-  get 'api', to: 'static_pages#root', as: 'root_api'
   get 'users/:id/settings', to: 'users#settings', as: 'user_settings'
   resources :users, only: [:create, :show]
-  resource :session, only: [:create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   namespace :api, defaults: { format: :json } do
     resources :posts, only: [:index, :create]
   end

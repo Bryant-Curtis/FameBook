@@ -48,9 +48,9 @@
 	    ReactDOM = __webpack_require__(158),
 	    ApiUtil = __webpack_require__(159),
 	    Dispatcher = __webpack_require__(161),
-	    FamebookConstants = __webpack_require__(167),
-	    PostStore = __webpack_require__(165),
-	    Posts = __webpack_require__(166);
+	    FamebookConstants = __webpack_require__(165),
+	    PostStore = __webpack_require__(166),
+	    Posts = __webpack_require__(184);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -9321,6 +9321,7 @@
 	 */
 	var EventInterface = {
 	  type: null,
+	  target: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
 	  eventPhase: null,
@@ -9354,8 +9355,6 @@
 	  this.dispatchConfig = dispatchConfig;
 	  this.dispatchMarker = dispatchMarker;
 	  this.nativeEvent = nativeEvent;
-	  this.target = nativeEventTarget;
-	  this.currentTarget = nativeEventTarget;
 
 	  var Interface = this.constructor.Interface;
 	  for (var propName in Interface) {
@@ -9366,7 +9365,11 @@
 	    if (normalize) {
 	      this[propName] = normalize(nativeEvent);
 	    } else {
-	      this[propName] = nativeEvent[propName];
+	      if (propName === 'target') {
+	        this.target = nativeEventTarget;
+	      } else {
+	        this[propName] = nativeEvent[propName];
+	      }
 	    }
 	  }
 
@@ -13215,7 +13218,10 @@
 	      }
 	    });
 
-	    nativeProps.children = content;
+	    if (content) {
+	      nativeProps.children = content;
+	    }
+
 	    return nativeProps;
 	  }
 
@@ -18688,7 +18694,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.6';
+	module.exports = '0.14.7';
 
 /***/ },
 /* 147 */
@@ -19688,7 +19694,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(161),
-	    FamebookConstants = __webpack_require__(167);
+	    FamebookConstants = __webpack_require__(165);
 
 	var ApiActions = {
 	  receiveAllPosts: function (posts) {
@@ -20019,13 +20025,23 @@
 
 /***/ },
 /* 165 */
+/***/ function(module, exports) {
+
+	var FamebookConstants = {
+	  POSTS_RECEIVED: "POSTS_RECEIVED"
+	};
+
+	module.exports = FamebookConstants;
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Store = __webpack_require__(168).Store,
+	var Store = __webpack_require__(167).Store,
 	    React = __webpack_require__(1),
 	    ApiUtil = __webpack_require__(159),
 	    Dispatcher = __webpack_require__(161),
-	    FamebookConstants = __webpack_require__(167),
+	    FamebookConstants = __webpack_require__(165),
 	    PostStore = new Store(Dispatcher);
 
 	var _posts = [];
@@ -20050,59 +20066,7 @@
 	// Is the state going to be everything that the store has?
 
 /***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159),
-	    FamebookConstants = __webpack_require__(167),
-	    PostStore = __webpack_require__(165);
-
-	var Posts = React.createClass({
-	  displayName: 'Posts',
-
-	  getInitialState: function () {
-	    return { posts: PostStore.all };
-	  },
-
-	  componentDidMount: function () {
-	    PostStore.addListener(this.__onChange);
-	    ApiUtil.fetchAllPosts();
-	  },
-
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'div',
-	        null,
-	        this.state.posts
-	      )
-	    );
-	  },
-
-	  __onChange: function () {
-	    // I feel like here I want to call the method PostStore.resetPosts!
-	    this.setState({ posts: PostStore.all });
-	  }
-
-	});
-
-	module.exports = Posts;
-
-/***/ },
 /* 167 */
-/***/ function(module, exports) {
-
-	var FamebookConstants = {
-	  POSTS_RECEIVED: "POSTS_RECEIVED"
-	};
-
-	module.exports = FamebookConstants;
-
-/***/ },
-/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20114,15 +20078,15 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 
-	module.exports.Container = __webpack_require__(169);
-	module.exports.MapStore = __webpack_require__(172);
-	module.exports.Mixin = __webpack_require__(184);
-	module.exports.ReduceStore = __webpack_require__(173);
-	module.exports.Store = __webpack_require__(174);
+	module.exports.Container = __webpack_require__(168);
+	module.exports.MapStore = __webpack_require__(171);
+	module.exports.Mixin = __webpack_require__(183);
+	module.exports.ReduceStore = __webpack_require__(172);
+	module.exports.Store = __webpack_require__(173);
 
 
 /***/ },
-/* 169 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20144,10 +20108,10 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var FluxStoreGroup = __webpack_require__(170);
+	var FluxStoreGroup = __webpack_require__(169);
 
 	var invariant = __webpack_require__(164);
-	var shallowEqual = __webpack_require__(171);
+	var shallowEqual = __webpack_require__(170);
 
 	var DEFAULT_OPTIONS = {
 	  pure: true,
@@ -20305,7 +20269,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 170 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20386,7 +20350,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 171 */
+/* 170 */
 /***/ function(module, exports) {
 
 	/**
@@ -20441,7 +20405,7 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 172 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20462,8 +20426,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var FluxReduceStore = __webpack_require__(173);
-	var Immutable = __webpack_require__(183);
+	var FluxReduceStore = __webpack_require__(172);
+	var Immutable = __webpack_require__(182);
 
 	var invariant = __webpack_require__(164);
 
@@ -20591,7 +20555,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 173 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20612,9 +20576,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var FluxStore = __webpack_require__(174);
+	var FluxStore = __webpack_require__(173);
 
-	var abstractMethod = __webpack_require__(182);
+	var abstractMethod = __webpack_require__(181);
 	var invariant = __webpack_require__(164);
 
 	var FluxReduceStore = (function (_FluxStore) {
@@ -20698,7 +20662,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 174 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20717,7 +20681,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _require = __webpack_require__(175);
+	var _require = __webpack_require__(174);
 
 	var EventEmitter = _require.EventEmitter;
 
@@ -20881,7 +20845,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 175 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20894,14 +20858,14 @@
 	 */
 
 	var fbemitter = {
-	  EventEmitter: __webpack_require__(176)
+	  EventEmitter: __webpack_require__(175)
 	};
 
 	module.exports = fbemitter;
 
 
 /***/ },
-/* 176 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20920,11 +20884,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var EmitterSubscription = __webpack_require__(177);
-	var EventSubscriptionVendor = __webpack_require__(179);
+	var EmitterSubscription = __webpack_require__(176);
+	var EventSubscriptionVendor = __webpack_require__(178);
 
-	var emptyFunction = __webpack_require__(181);
-	var invariant = __webpack_require__(180);
+	var emptyFunction = __webpack_require__(180);
+	var invariant = __webpack_require__(179);
 
 	/**
 	 * @class BaseEventEmitter
@@ -21098,7 +21062,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 177 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21119,7 +21083,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var EventSubscription = __webpack_require__(178);
+	var EventSubscription = __webpack_require__(177);
 
 	/**
 	 * EmitterSubscription represents a subscription with listener and context data.
@@ -21151,7 +21115,7 @@
 	module.exports = EmitterSubscription;
 
 /***/ },
-/* 178 */
+/* 177 */
 /***/ function(module, exports) {
 
 	/**
@@ -21205,7 +21169,7 @@
 	module.exports = EventSubscription;
 
 /***/ },
-/* 179 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21224,7 +21188,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var invariant = __webpack_require__(180);
+	var invariant = __webpack_require__(179);
 
 	/**
 	 * EventSubscriptionVendor stores a set of EventSubscriptions that are
@@ -21314,7 +21278,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 180 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21370,7 +21334,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 181 */
+/* 180 */
 /***/ function(module, exports) {
 
 	/**
@@ -21413,7 +21377,7 @@
 	module.exports = emptyFunction;
 
 /***/ },
-/* 182 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21440,7 +21404,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 183 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26427,7 +26391,7 @@
 	}));
 
 /***/ },
-/* 184 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26444,7 +26408,7 @@
 
 	'use strict';
 
-	var FluxStoreGroup = __webpack_require__(170);
+	var FluxStoreGroup = __webpack_require__(169);
 
 	var invariant = __webpack_require__(164);
 
@@ -26548,6 +26512,48 @@
 
 	module.exports = FluxMixinLegacy;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159),
+	    FamebookConstants = __webpack_require__(165),
+	    PostStore = __webpack_require__(166);
+
+	var Posts = React.createClass({
+	  displayName: 'Posts',
+
+	  getInitialState: function () {
+	    return { posts: PostStore.all };
+	  },
+
+	  componentDidMount: function () {
+	    PostStore.addListener(this.__onChange);
+	    ApiUtil.fetchAllPosts();
+	  },
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'div',
+	        null,
+	        this.state.posts
+	      )
+	    );
+	  },
+
+	  __onChange: function () {
+	    // I feel like here I want to call the method PostStore.resetPosts!
+	    this.setState({ posts: PostStore.all });
+	  }
+
+	});
+
+	module.exports = Posts;
 
 /***/ }
 /******/ ]);

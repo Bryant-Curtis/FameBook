@@ -9,8 +9,8 @@ var Posts = React.createClass({
   },
 
   componentDidMount: function () {
-    PostStore.addListener(this.__onChange);
-    ApiUtil.fetchAllPosts();
+    PostStore.addListener(this._onChange);
+    PostStore.updateOnRefresh();
   },
 
   render: function () {
@@ -21,7 +21,7 @@ var Posts = React.createClass({
     );
   },
 
-  __onChange: function () {
+  _onChange: function () {
     // I feel like here I want to call the method PostStore.resetPosts!
     this.setState({ posts: PostStore.all });
   }
