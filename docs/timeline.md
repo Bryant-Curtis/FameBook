@@ -70,9 +70,11 @@ BCrypt). There will be a basic landing page after signup that will eventually
 contain the container for the application's root React component. The Sign up
 and Log in page will be consolidated onto the website's home page.
 
+Pages: Homepage (sign up/log in), User settings
+
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and Post CRUD (2 days)
+### Phase 2: Flux Architecture and Post CRUD (2.5 days)
 
 Phase 2 is focused on setting up Flux, the React Router, and the React view
 structure for the main application. After the basic Flux architecture has been
@@ -82,38 +84,53 @@ views for the Posts `Index` and `Form`. At the end of Phase 2, Posts can be
 created, read and destroyed in the browser. I will use CSS to design the
 Posts index page.
 
+Pages: Posts index(root page), Self Posts(user page)
+
 [Details][phase-two]
 
-### Phase 3: Add/Accept Friends and Tagging (1.5 days)
+### Phase 3: Add Friends (1 day)
 
 Phase 3 is focussed on friend functionality. I will create database relationships
-between users to setup friend functionality. I will also create two new models
-namely Tag and Tagging to set up the ability for users to tag friends in their
-posts.
+between users to setup friend functionality. I will also create a new model
+friendships which will each user to only see the posts of their friends
+on the root page they go to after signing in.
+
+Pages: Friends index
 
 [Details][phase-three]
 
 ### Phase 4: CRUD Photos (1.5 days)
 
 Phase 4 is about Photos. I will create React views for the Photo `Form`, `Index`
-and `Show`. There will also be functionality for each user to set a main and
-background photo.
+and `Show`. I will add the ability for each user to be able to upload
+their own photos and view them immediately. From their uploaded photos they will
+each be able to set a profile and background photo.
+
+Pages: Photos Index, Photo Show
 
 [Details][phase-four]
 
-### Phase 5: Comments and Votes functionality (1.5 days)
+### Phase 5: Add guest log in with tour of site, add and remove Votes (1.5 days)
 
-Phase 5 introduces comments. I will create React views for a Comment `Form` and
-`Show`. There will be a deletion function as well. Users will be able to comment
-on all Posts and Photos.
+Phase 5 introduces votes. I will create React views for a Vote button to
+to display on each post and photo. The user will be able to see whether they
+have voted on a post/photo by the change in the vote image. A number displaying
+the number of votes each post/photo received will also show immediately after
+being clicked. The users will also be able to rescind votes.
+
+Views: Guest login button on Homepage, Tour message bubbles/buttons,
+        Vote image changing functionality
 
 [Details][phase-five]
 
-### Phase 6: Instant Messaging (1 day)
+### Phase 6: Improve website design, add instant messaging, update guest login (1 day)
 
 Phase 6 is about messaging. I will create React views for the `Form` and `Show`
 of messages. There will be an instant message box that will allow users to send
-messages to each other in real time.
+messages to friends in real time. The messages will appear in the view box
+immediately after being sent.
+
+Views: Update HTML and CSS to look more aesthetically pleasing, Instant messaging box
 
 [Details][phase-six]
 
@@ -127,6 +144,9 @@ messages to each other in real time.
 - [ ] View all group members
 - [ ] Create, read, edit and delete posts only viewable by group members
 - [ ] Comment on group posts
+- [ ] View a list of posts/photos most voted on within groups.
+
+- [ ] Create, edit and delete comments
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
