@@ -1,0 +1,63 @@
+main#root {
+  background: #e9eaed;
+}
+
+.post {
+  background: #ffffff;
+  width: 510px;
+  margin: 10px 20px;
+  padding: 10px;
+  border-radius: 2px;
+  border-top: 1px solid #e5e6e9;
+  border-bottom: 1px solid #d0d1d5;
+  border-left: 1px solid #dfe0e4;
+  border-right: 1px solid #dfe0e4;
+  font-size: 14px;
+}
+
+.post-header {
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.create-post {
+  background: #ffffff;
+  width: 510px;
+  margin: 10px 20px;
+  border-radius: 2px;
+  border-top: 1px solid #e5e6e9;
+  border-bottom: 1px solid #d0d1d5;
+  border-left: 1px solid #dfe0e4;
+  border-right: 1px solid #dfe0e4;
+  font-size: 14px;
+}
+
+.create-post-input-box {
+  display: block;
+  border-bottom: 1px solid #DCDEE3;
+  padding: 20px 10px;
+}
+
+.create-post-input {
+  display: block;
+  width: 490px;
+}
+
+.create-post-button {
+  display: block;
+  margin: 10px;
+  border: 1px solid #435A8B;
+  border-radius: 2px;
+  padding: 3px 20px;
+  width: 84px;
+  height: 24px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  background: #415E9C;
+}
+
+
+
+/* How would I change the positioning
+    of the posts for different pages? */

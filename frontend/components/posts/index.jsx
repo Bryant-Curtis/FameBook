@@ -1,7 +1,8 @@
 var React = require('react'),
     ApiUtil = require('../../util/apiUtil'),
     FamebookConstants = require('../../constants/famebookConstants'),
-    PostStore = require('../../stores/postStore');
+    PostStore = require('../../stores/postStore'),
+    PostForm = require('./form');
 
 var Posts = React.createClass({
   getInitialState: function () {
@@ -27,7 +28,10 @@ var Posts = React.createClass({
       );
     });
     return(
-      <ul>{ posts }</ul>
+      <div>
+        <PostForm />
+        <ul>{ posts }</ul>
+      </div>
     );
   },
 

@@ -6,7 +6,6 @@ var ApiUtil = {
       method: "GET",
       url: '/api/posts',
       success: function (data) {
-        console.log(data);
         ApiActions.receiveAllPosts(data);
       },
       error: function () {
@@ -23,6 +22,9 @@ var ApiUtil = {
       data: {post: post}, // What goes in data?, Why do we send in the form of a hash?
       success: function (data) {
         ApiActions.getNewPost(data);
+      },
+      error: function () {
+        return "We were not able to create your post!";
       }
     });
   }

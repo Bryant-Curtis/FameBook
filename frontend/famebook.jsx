@@ -18,10 +18,12 @@ var NavBar = React.createClass({
       <header className="settings-header">
         <nav className="header-nav group">
 
-          <figure className="logo-box">
-            <p className="logo-letter-f">f</p>
-            <p className="logo-letter-m">m</p>
-          </figure>
+          <a href="/">
+            <figure className="logo-box">
+              <p className="logo-letter-f">f</p>
+              <p className="logo-letter-m">m</p>
+            </figure>
+          </a>
 
           <form className="button" action="/session" method="post">
             <input type="hidden" name="authenticity_token" value={ window.auth_token }/>
@@ -37,6 +39,7 @@ var NavBar = React.createClass({
 
 var App = React.createClass({
   render: function () {
+    console.log(<PostForm/>)
     return(
       <div>
         <NavBar />
@@ -48,8 +51,8 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={PostForm} />
     <IndexRoute component={Posts} />
+    <Route path="create" component={PostForm} />
   </Route>
 );
 

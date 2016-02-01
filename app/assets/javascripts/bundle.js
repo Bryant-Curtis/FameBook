@@ -69,17 +69,21 @@
 	        'nav',
 	        { className: 'header-nav group' },
 	        React.createElement(
-	          'figure',
-	          { className: 'logo-box' },
+	          'a',
+	          { href: '/' },
 	          React.createElement(
-	            'p',
-	            { className: 'logo-letter-f' },
-	            'f'
-	          ),
-	          React.createElement(
-	            'p',
-	            { className: 'logo-letter-m' },
-	            'm'
+	            'figure',
+	            { className: 'logo-box' },
+	            React.createElement(
+	              'p',
+	              { className: 'logo-letter-f' },
+	              'f'
+	            ),
+	            React.createElement(
+	              'p',
+	              { className: 'logo-letter-m' },
+	              'm'
+	            )
 	          )
 	        ),
 	        React.createElement(
@@ -102,6 +106,7 @@
 	  displayName: 'App',
 
 	  render: function () {
+	    console.log(React.createElement(PostForm, null));
 	    return React.createElement(
 	      'div',
 	      null,
@@ -114,8 +119,8 @@
 	var routes = React.createElement(
 	  Route,
 	  { path: '/', component: App },
-	  React.createElement(IndexRoute, { component: PostForm }),
-	  React.createElement(IndexRoute, { component: Posts })
+	  React.createElement(IndexRoute, { component: Posts }),
+	  React.createElement(Route, { path: 'create', component: PostForm })
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
@@ -24375,7 +24380,8 @@
 	var React = __webpack_require__(1),
 	    ApiUtil = __webpack_require__(209),
 	    FamebookConstants = __webpack_require__(215),
-	    PostStore = __webpack_require__(216);
+	    PostStore = __webpack_require__(216),
+	    PostForm = __webpack_require__(234);
 
 	var Posts = React.createClass({
 	  displayName: 'Posts',
@@ -24411,9 +24417,14 @@
 	      );
 	    });
 	    return React.createElement(
-	      'ul',
+	      'div',
 	      null,
-	      posts
+	      React.createElement(PostForm, null),
+	      React.createElement(
+	        'ul',
+	        null,
+	        posts
+	      )
 	    );
 	  },
 
@@ -24437,7 +24448,6 @@
 	      method: "GET",
 	      url: '/api/posts',
 	      success: function (data) {
-	        console.log(data);
 	        ApiActions.receiveAllPosts(data);
 	      },
 	      error: function () {
@@ -24454,6 +24464,9 @@
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
 	        ApiActions.getNewPost(data);
+	      },
+	      error: function () {
+	        return "We were not able to create your post!";
 	      }
 	    });
 	  }
@@ -31331,7 +31344,9 @@
 	  createPost: function (event) {
 	    event.preventDefault();
 	    var post = {};
-	    post.body = this.state.body;
+	    console.log(event.currentTarget);
+	    console.log(event.this.state);
+	    post.body = event.currentTarget.value;
 	    ApiUtil.createPost(post);
 	  },
 
@@ -31339,7 +31354,14 @@
 	    return React.createElement(
 	      'form',
 	      { className: 'create-post', onSubmit: this.createPost },
-	      React.createElement('input', { type: 'text', name: 'post[body]' }),
+	      React.createElement(
+	        'div',
+	        { className: 'create-post-input-box' },
+	        React.createElement('input', { className: 'create-post-input',
+	          type: 'text',
+	          name: 'post[body]',
+	          placeholder: 'How are you feeling?' })
+	      ),
 	      React.createElement(
 	        'button',
 	        { className: 'create-post-button' },
