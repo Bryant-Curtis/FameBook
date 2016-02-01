@@ -1,63 +1,46 @@
 var React = require('react'),
     ApiUtil = require('../../util/apiUtil'),
     FamebookConstants = require('../../constants/famebookConstants'),
-    PostStore = require('../../stores/postStore'),
-    PostForm = require('./form');
+    UserStore = require('../../stores/userStore');
 
+var Header = React.createClass({
+  render: function () {
+    return(
+      <header className="profile-header">
+        <figure className="profile-header-photo"></figure>
+        <figure className="profile-user-photo"></figure>
+        <figure className="profile-username"></figure>
+        <nav className="profile-nav">
+          <ul className="group">
+            <li className="profile-nav-timeline">Timeline</li>
+            <li className="profile-nav-basic-info">Basic Info</li>
+            <li className="profile-nav-friends">Friends</li>
+          </ul>
+        </nav>
+      </header>
+    );
+  }
+});
 
-var Users = React.createClass({
+var UserProfile = React.createClass({
   getInitialState: function () {
-    return { posts: PostStore.all() };
+    return { profile: UserStore.find() };
   },
 
   componentDidMount: function () {
-    PostStore.addListener(this._onChange);
-    PostStore.updateOnMount();
-  },
-
-  deletePost: function (post_id) {
-    var post;
-    for (var i = 0; i < this.state.posts.length; i++) {
-      if (this.state.posts[i].id === post_id) {
-        post = this.state.posts[i];
-      }
-    }
-    ApiUtil.deletePost(post);
+    UserStore.addListener(this._onChange);
   },
 
   render: function () {
-    var posts = this.state.posts.map(function(post){
-      var deleteButton;
-      if (post.author_id === window.currentuserId) {
-        deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
-      } else {
-        deleteButton = "";
-      }
-      debugger
-      return(
-        <li key={post.id} className="post group">
-          <header className="post-header">
-            <section className="post-header-name">
-              { post.author.name }
-            </section>
-          </header>
-          <article className="post-body">{ post.body }</article>
-          { deleteButton }
-        </li>
-      );
-    }.bind(this));
     return(
-      <div>
-        <PostForm />
-        <ul>{ posts }</ul>
-      </div>
+      <Header />
     );
   },
 
   _onChange: function () {
-    this.setState({ posts: PostStore.all() });
+    this.setState({ profile: UserStore.find() });
   }
 
 });
 
-module.exports = Users;
+module.exports = UserProfile;

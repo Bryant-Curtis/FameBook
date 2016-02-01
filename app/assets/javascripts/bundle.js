@@ -46,11 +46,12 @@
 
 	var React = __webpack_require__(1),
 	    ReactDOM = __webpack_require__(158),
+	    ApiUtil = __webpack_require__(209),
 	    Router = __webpack_require__(159).Router,
 	    Route = __webpack_require__(159).Route,
 	    IndexRoute = __webpack_require__(159).IndexRoute,
 	    Posts = __webpack_require__(208),
-	    PostForm = __webpack_require__(232);
+	    UserProfile = __webpack_require__(234);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -60,6 +61,10 @@
 	  //     this.history.pushState(null, ) // needs to be finished
 	  //   });
 	  // },
+	  getUserProfile: function (userId) {
+	    ApiUtil.fetchOneUser(userId); // fix this to be only get one user
+	    // id so I can use the profile component to be the same for all users.
+	  },
 
 	  render: function () {
 	    return React.createElement(
@@ -87,14 +92,39 @@
 	          )
 	        ),
 	        React.createElement(
-	          'form',
-	          { className: 'button', action: '/session', method: 'post' },
-	          React.createElement('input', { type: 'hidden', name: 'authenticity_token', value: window.auth_token }),
-	          React.createElement('input', { type: 'hidden', name: '_method', value: 'delete' }),
+	          'ul',
+	          { className: 'group' },
 	          React.createElement(
-	            'button',
-	            null,
-	            'Log out'
+	            'li',
+	            { className: 'home-header-items' },
+	            React.createElement(
+	              'a',
+	              { href: "#/users/" + window.currentUserId },
+	              React.createElement(
+	                'figure',
+	                { className: 'home-header-profile-link-box' },
+	                React.createElement(
+	                  'h6',
+	                  { className: 'home-header-profile-link' },
+	                  'My Profile'
+	                )
+	              )
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'home-header-items' },
+	            React.createElement(
+	              'form',
+	              { className: 'button', action: '/session', method: 'post' },
+	              React.createElement('input', { type: 'hidden', name: 'authenticity_token', value: window.auth_token }),
+	              React.createElement('input', { type: 'hidden', name: '_method', value: 'delete' }),
+	              React.createElement(
+	                'button',
+	                null,
+	                'Log out'
+	              )
+	            )
 	          )
 	        )
 	      )
@@ -119,7 +149,7 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts }),
-	  React.createElement(Route, { path: 'create', component: PostForm })
+	  React.createElement(Route, { path: 'users/:id', component: UserProfile })
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
@@ -24466,7 +24496,7 @@
 	  fetchAllPosts: function () {
 	    $.ajax({
 	      method: "GET",
-	      url: '/api/posts',
+	      url: "/api/posts",
 	      success: function (data) {
 	        ApiActions.receiveAllPosts(data);
 	      },
@@ -24477,14 +24507,12 @@
 	  },
 
 	  createPost: function (post) {
-	    debugger;
 	    $.ajax({
 	      method: "POST",
 	      url: "api/posts",
 	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
-	        debugger;
 	        ApiActions.getNewPost(data);
 	      },
 	      error: function () {
@@ -24506,19 +24534,32 @@
 	        return "We were not able to remove your post!";
 	      }
 	    });
+	  },
+
+	  fetchOneUser: function (userId) {
+	    $.ajax({
+	      method: "GET",
+	      url: "/api/users/" + userId,
+	      success: function (data) {
+	        ApiActions.receiveOneUser(data);
+	      },
+	      error: function () {
+	        return "Were not able to access the user's information! : )";
+	      }
+	    });
 	  }
 
-	  // logOut: function (callback) {
-	  //   $.ajax({
-	  //     method: "DELETE",
-	  //     url: '/session',
-	  //     success: function (data) {
-	  //       callback && callback();
-	  //     }
-	  //   });
-	  // }
 	};
 
+	// logOut: function (callback) {
+	//   $.ajax({
+	//     method: "DELETE",
+	//     url: '/session',
+	//     success: function (data) {
+	//       callback && callback();
+	//     }
+	//   });
+	// }
 	module.exports = ApiUtil;
 
 /***/ },
@@ -24545,6 +24586,13 @@
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.DELETED_POST_RECEIVED,
 	      post: post
+	    });
+	  },
+
+	  receiveOneUser: function (user) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.USER_RECEIVED,
+	      user: user
 	    });
 	  }
 	};
@@ -24874,7 +24922,8 @@
 	var FamebookConstants = {
 	  POSTS_RECEIVED: "POSTS_RECEIVED",
 	  NEW_POST_RECEIVED: "NEW_POST_RECEIVED",
-	  DELETED_POST_RECEIVED: "DELETED_POST_RECEIVED"
+	  DELETED_POST_RECEIVED: "DELETED_POST_RECEIVED",
+	  USER_RECEIVED: "USER_RECEIVED"
 	};
 
 	module.exports = FamebookConstants;
@@ -24902,7 +24951,6 @@
 
 	PostStore.addPost = function (post) {
 	  _posts.unshift(post);
-	  debugger;
 	};
 
 	PostStore.deletePost = function (post) {
@@ -31331,6 +31379,109 @@
 	});
 
 	module.exports = PostForm;
+
+/***/ },
+/* 233 */,
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(209),
+	    FamebookConstants = __webpack_require__(215),
+	    UserStore = __webpack_require__(235);
+
+	var Header = React.createClass({
+	  displayName: 'Header',
+
+	  render: function () {
+	    return React.createElement(
+	      'header',
+	      { className: 'profile-header' },
+	      React.createElement('figure', { className: 'profile-header-photo' }),
+	      React.createElement('figure', { className: 'profile-user-photo' }),
+	      React.createElement('figure', { className: 'profile-username' }),
+	      React.createElement(
+	        'nav',
+	        { className: 'profile-nav' },
+	        React.createElement(
+	          'ul',
+	          { className: 'group' },
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-timeline' },
+	            'Timeline'
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-basic-info' },
+	            'Basic Info'
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-friends' },
+	            'Friends'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var UserProfile = React.createClass({
+	  displayName: 'UserProfile',
+
+	  getInitialState: function () {
+	    return { profile: UserStore.find() };
+	  },
+
+	  componentDidMount: function () {
+	    UserStore.addListener(this._onChange);
+	  },
+
+	  render: function () {
+	    return React.createElement(Header, null);
+	  },
+
+	  _onChange: function () {
+	    this.setState({ profile: UserStore.find() });
+	  }
+
+	});
+
+	module.exports = UserProfile;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Store = __webpack_require__(217).Store,
+	    Dispatcher = __webpack_require__(211),
+	    React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(209),
+	    FamebookConstants = __webpack_require__(215),
+	    UserStore = new Store(Dispatcher),
+	    _users = [],
+	    _user = [];
+
+	UserStore.find = function () {
+	  debugger;
+	  return _user;
+	};
+
+	UserStore.resetUser = function (user) {
+	  _user = user;
+	};
+
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case FamebookConstants.USER_RECEIVED:
+	      this.resetUser(payload.user);
+	      UserStore.__emitChange();
+	      break;
+	  }
+	};
+
+	module.exports = UserStore;
 
 /***/ }
 /******/ ]);

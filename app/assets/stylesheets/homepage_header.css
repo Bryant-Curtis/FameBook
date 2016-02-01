@@ -1,0 +1,19 @@
+.header-nav > ul {
+  float: right;
+}
+
+.header-nav > ul > li {
+  float: left;
+}
+
+.home-header-profile-link-box {
+
+}
+
+.home-header-profile-link {
+  display: block;
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 3px;
+  cursor: pointer;
+}

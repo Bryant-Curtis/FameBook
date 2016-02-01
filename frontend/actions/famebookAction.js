@@ -19,6 +19,13 @@ var ApiActions = {
       actionType: FamebookConstants.DELETED_POST_RECEIVED,
       post: post
     });
+  },
+
+  receiveOneUser: function(user) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.USER_RECEIVED,
+      user: user
+    });
   }
 };
 

@@ -1,0 +1,53 @@
+.profile-header {
+  border: 1px solid #000;
+  width: 980px;
+  height: 350px;
+  margin: auto;
+}
+
+.profile-header-photo {
+  background: #000;
+  position: relative;
+  height: 250px;
+  width: 980px;
+}
+
+.profile-user-photo {
+  position: absolute;
+  bottom: 10;
+  left: 10;
+  border: 3px solid #fff;
+  background: blue;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-username {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-nav {
+
+}
+
+.profile-nav > ul {
+  margin: auto;
+}
+
+.profile-nav > ul > li {
+  float: left;
+  font-size: 18px;
+}
+
+.profile-nav-timeline {
+
+}
+
+.profile-nav-basic-info {
+
+}
+
+.profile-nav-friends {
+
+}
