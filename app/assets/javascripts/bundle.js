@@ -24405,16 +24405,17 @@
 	  },
 
 	  render: function () {
+	    var deleteButton;
 	    var posts = this.state.posts.map(function (post) {
-	      var deleteButton;
-	      if (post.author_id === window.currentuserId) {
-	        deleteButton = "";
-	      } else {
+	      debugger;
+	      if (parseInt(post.author_id) === parseInt(window.currentUserId)) {
 	        deleteButton = React.createElement(
 	          'button',
 	          { onSubmit: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
 	          'Delete'
 	        );
+	      } else {
+	        deleteButton = "";
 	      }
 	      return React.createElement(
 	        'li',
@@ -24433,11 +24434,7 @@
 	          { className: 'post-body' },
 	          post.body
 	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
-	          'Delete'
-	        )
+	        deleteButton
 	      );
 	    }.bind(this));
 	    return React.createElement(
@@ -24481,12 +24478,14 @@
 	  },
 
 	  createPost: function (post) {
+	    debugger;
 	    $.ajax({
 	      method: "POST",
 	      url: "api/posts",
 	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
+	        debugger;
 	        ApiActions.getNewPost(data);
 	      },
 	      error: function () {
@@ -24540,7 +24539,7 @@
 	  getNewPost: function (post) {
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.NEW_POST_RECEIVED,
-	      posts: post
+	      post: post
 	    });
 	  },
 	  getDeletedPost: function (post) {
@@ -24904,6 +24903,7 @@
 
 	PostStore.addPost = function (post) {
 	  _posts.unshift(post);
+	  debugger;
 	};
 
 	PostStore.deletePost = function (post) {

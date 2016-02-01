@@ -8,7 +8,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.author_id = current_user.id
     if @post.save
-      redirect_to api_posts_url
+      render json: @post
     else
       render json: @post.errors.full_messages
     end

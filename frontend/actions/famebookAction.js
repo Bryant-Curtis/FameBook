@@ -11,7 +11,7 @@ var ApiActions = {
   getNewPost: function(post) {
     Dispatcher.dispatch({
       actionType: FamebookConstants.NEW_POST_RECEIVED,
-      posts: post
+      post: post
     });
   },
   getDeletedPost: function(post) {
