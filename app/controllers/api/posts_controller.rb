@@ -11,14 +11,14 @@ class Api::PostsController < ApplicationController
       redirect_to api_posts_url
     else
       flash[:errors] = @post.errors.full_messages
-      render api_posts_url
+      render root_url
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    render api_posts_url
+    render root_url
   end
 
   private

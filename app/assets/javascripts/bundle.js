@@ -24407,16 +24407,11 @@
 	  render: function () {
 	    var posts = this.state.posts.map(function (post) {
 	      var deleteButton;
-	      if (post.author_id === window.currentuserId) {
-	        deleteButton = React.createElement(
-	          'button',
-	          { onSubmit: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
-	          'Delete'
-	        );
-	      } else {
-	        deleteButton = "";
-	      }
-	      debugger;
+	      // if (post.author_id === window.currentuserId) {
+	      //   deleteButton = "";
+	      // } else {
+	      //   deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
+	      // }
 	      return React.createElement(
 	        'li',
 	        { key: post.id, className: 'post group' },
@@ -24434,7 +24429,11 @@
 	          { className: 'post-body' },
 	          post.body
 	        ),
-	        deleteButton
+	        React.createElement(
+	          'button',
+	          { onClick: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
+	          'Delete'
+	        )
 	      );
 	    }.bind(this));
 	    return React.createElement(
@@ -24484,7 +24483,6 @@
 	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
-	        debugger;
 	        ApiActions.getNewPost(data);
 	      },
 	      error: function () {
@@ -24494,10 +24492,11 @@
 	  },
 
 	  deletePost: function (post) {
+	    debugger;
 	    $.ajax({
 	      method: "DELETE",
-	      url: "api/posts" + post.id,
-	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
+	      url: "api/posts/" + post.id,
+	      dataType: "html", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
 	        debugger;
@@ -24902,6 +24901,7 @@
 	};
 
 	PostStore.addPost = function (post) {
+	  debugger;
 	  _posts.unshift(post);
 	};
 

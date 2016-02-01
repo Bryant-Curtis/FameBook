@@ -28,12 +28,11 @@ var Posts = React.createClass({
   render: function () {
     var posts = this.state.posts.map(function(post){
       var deleteButton;
-      if (post.author_id === window.currentuserId) {
-        deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
-      } else {
-        deleteButton = "";
-      }
-      debugger
+      // if (post.author_id === window.currentuserId) {
+      //   deleteButton = "";
+      // } else {
+      //   deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
+      // }
       return(
         <li key={post.id} className="post group">
           <header className="post-header">
@@ -42,7 +41,7 @@ var Posts = React.createClass({
             </section>
           </header>
           <article className="post-body">{ post.body }</article>
-          { deleteButton }
+          <button onClick={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>
         </li>
       );
     }.bind(this));

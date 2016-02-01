@@ -16,6 +16,7 @@ PostStore.resetPosts = function (posts) {
 };
 
 PostStore.addPost = function (post) {
+  debugger
   _posts.unshift(post);
 };
 
