@@ -99,6 +99,7 @@ ul {
   font-size: 12px;
   font-weight: bold;
   text-align:center;
+  cursor: pointer;
   background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
 }
 
@@ -231,6 +232,7 @@ ul {
   color: #ffffff;
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
   background: -webkit-gradient(linear, center bottom, center top, from(#578843), to(#74b960));
 }
 

@@ -5,7 +5,7 @@ var React = require('react'),
     PostForm = require('./form');
 
 
-var Posts = React.createClass({
+var Users = React.createClass({
   getInitialState: function () {
     return { posts: PostStore.all() };
   },
@@ -60,4 +60,4 @@ var Posts = React.createClass({
 
 });
 
-module.exports = Posts;
+module.exports = Users;

@@ -13,6 +13,12 @@ var ApiActions = {
       actionType: FamebookConstants.NEW_POST_RECEIVED,
       posts: post
     });
+  },
+  getDeletedPost: function(post) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.DELETED_POST_RECEIVED,
+      posts: post
+    });
   }
 };
 

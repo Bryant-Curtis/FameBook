@@ -39,7 +39,6 @@ var NavBar = React.createClass({
 
 var App = React.createClass({
   render: function () {
-    console.log(<PostForm/>)
     return(
       <div>
         <NavBar />

@@ -21,10 +21,27 @@ var ApiUtil = {
       dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
       data: {post: post}, // What goes in data?, Why do we send in the form of a hash?
       success: function (data) {
+        debugger
         ApiActions.getNewPost(data);
       },
       error: function () {
         return "We were not able to create your post!";
+      }
+    });
+  },
+
+  deletePost: function (post) {
+    $.ajax({
+      method: "DELETE",
+      url: "api/posts" + post.id,
+      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
+      data: {post: post}, // What goes in data?, Why do we send in the form of a hash?
+      success: function (data) {
+        debugger
+        ApiActions.getDeletedPost(data);
+      },
+      error: function () {
+        return "We were not able to remove your post!";
       }
     });
   }

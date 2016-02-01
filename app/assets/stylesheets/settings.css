@@ -97,6 +97,7 @@ body {
   font-size: 12px;
   font-weight: bold;
   text-align:center;
+  cursor: pointer;
   background: -webkit-gradient(linear, center bottom, center top, from(#637bad), to(#5972a7));
 }
 

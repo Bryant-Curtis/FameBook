@@ -7,20 +7,22 @@ var PostForm = React.createClass({
     return { body: "" };
   },
 
-  createPost: function (event) {
+  handleInput: function (event) {
+    this.setState({ body: event.currentTarget.value});
+  },
+
+  createPost: function () {
     event.preventDefault();
-    var post = {};
-    console.log(event.currentTarget)
-    console.log(event.this.state)
-    post.body = event.currentTarget.value;
-    ApiUtil.createPost(post);
+    ApiUtil.createPost(this.state);
   },
 
   render: function () {
     return(
       <form className="create-post" onSubmit={this.createPost}>
         <div className="create-post-input-box">
-          <input className="create-post-input"
+          <input
+            className="create-post-input"
+            onChange={this.handleInput}
             type="text"
             name="post[body]"
             placeholder="How are you feeling?"/>

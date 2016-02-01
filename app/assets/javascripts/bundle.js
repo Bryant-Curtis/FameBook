@@ -50,7 +50,7 @@
 	    Route = __webpack_require__(159).Route,
 	    IndexRoute = __webpack_require__(159).IndexRoute,
 	    Posts = __webpack_require__(208),
-	    PostForm = __webpack_require__(234);
+	    PostForm = __webpack_require__(232);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -106,7 +106,6 @@
 	  displayName: 'App',
 
 	  render: function () {
-	    console.log(React.createElement(PostForm, null));
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24381,7 +24380,7 @@
 	    ApiUtil = __webpack_require__(209),
 	    FamebookConstants = __webpack_require__(215),
 	    PostStore = __webpack_require__(216),
-	    PostForm = __webpack_require__(234);
+	    PostForm = __webpack_require__(232);
 
 	var Posts = React.createClass({
 	  displayName: 'Posts',
@@ -24395,11 +24394,32 @@
 	    PostStore.updateOnMount();
 	  },
 
+	  deletePost: function (post_id) {
+	    var post;
+	    for (var i = 0; i < this.state.posts.length; i++) {
+	      if (this.state.posts[i].id === post_id) {
+	        post = this.state.posts[i];
+	      }
+	    }
+	    ApiUtil.deletePost(post);
+	  },
+
 	  render: function () {
 	    var posts = this.state.posts.map(function (post) {
+	      var deleteButton;
+	      if (post.author_id === window.currentuserId) {
+	        deleteButton = React.createElement(
+	          'button',
+	          { onSubmit: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
+	          'Delete'
+	        );
+	      } else {
+	        deleteButton = "";
+	      }
+	      debugger;
 	      return React.createElement(
 	        'li',
-	        { key: post.id, className: 'post' },
+	        { key: post.id, className: 'post group' },
 	        React.createElement(
 	          'header',
 	          { className: 'post-header' },
@@ -24413,9 +24433,10 @@
 	          'article',
 	          { className: 'post-body' },
 	          post.body
-	        )
+	        ),
+	        deleteButton
 	      );
-	    });
+	    }.bind(this));
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24463,10 +24484,27 @@
 	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
+	        debugger;
 	        ApiActions.getNewPost(data);
 	      },
 	      error: function () {
 	        return "We were not able to create your post!";
+	      }
+	    });
+	  },
+
+	  deletePost: function (post) {
+	    $.ajax({
+	      method: "DELETE",
+	      url: "api/posts" + post.id,
+	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
+	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
+	      success: function (data) {
+	        debugger;
+	        ApiActions.getDeletedPost(data);
+	      },
+	      error: function () {
+	        return "We were not able to remove your post!";
 	      }
 	    });
 	  }
@@ -24501,6 +24539,12 @@
 	  getNewPost: function (post) {
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.NEW_POST_RECEIVED,
+	      posts: post
+	    });
+	  },
+	  getDeletedPost: function (post) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.DELETED_POST_RECEIVED,
 	      posts: post
 	    });
 	  }
@@ -24830,7 +24874,8 @@
 
 	var FamebookConstants = {
 	  POSTS_RECEIVED: "POSTS_RECEIVED",
-	  NEW_POST_RECEIVED: "NEW_POST_RECEIVED"
+	  NEW_POST_RECEIVED: "NEW_POST_RECEIVED",
+	  DELETED_POST_RECEIVED: "DELETED_POST_RECEIVED"
 	};
 
 	module.exports = FamebookConstants;
@@ -24860,12 +24905,23 @@
 	  _posts.unshift(post);
 	};
 
+	PostStore.deletePost = function (post) {
+	  var index = _posts.indexOf(post); // will NOT work as the two posts are not the same objects in memory.
+	  debugger;
+	  for (var i = 0; i < _post.length; i++) {
+	    if (_post[i] === post) {}
+	  }
+	};
+
 	PostStore.__onDispatch = function (payload) {
 	  if (payload.actionType === FamebookConstants.POSTS_RECEIVED) {
 	    PostStore.resetPosts(payload.posts);
 	    PostStore.__emitChange();
 	  } else if (payload.actionType === FamebookConstants.NEW_POST_RECEIVED) {
-	    PostStore.resetPosts(payload.post);
+	    PostStore.addPost(payload.post);
+	    PostStore.__emitChange();
+	  } else if (payload.actionType === FamebookConstants.DELETED_POST_RECEIVED) {
+	    PostStore.deletePost(payload.post);
 	    PostStore.__emitChange();
 	  }
 	};
@@ -24893,7 +24949,7 @@
 
 	module.exports.Container = __webpack_require__(218);
 	module.exports.MapStore = __webpack_require__(221);
-	module.exports.Mixin = __webpack_require__(233);
+	module.exports.Mixin = __webpack_require__(231);
 	module.exports.ReduceStore = __webpack_require__(222);
 	module.exports.Store = __webpack_require__(223);
 
@@ -25240,7 +25296,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var FluxReduceStore = __webpack_require__(222);
-	var Immutable = __webpack_require__(232);
+	var Immutable = __webpack_require__(230);
 
 	var invariant = __webpack_require__(214);
 
@@ -25391,7 +25447,7 @@
 
 	var FluxStore = __webpack_require__(223);
 
-	var abstractMethod = __webpack_require__(231);
+	var abstractMethod = __webpack_require__(229);
 	var invariant = __webpack_require__(214);
 
 	var FluxReduceStore = (function (_FluxStore) {
@@ -25700,8 +25756,8 @@
 	var EmitterSubscription = __webpack_require__(226);
 	var EventSubscriptionVendor = __webpack_require__(228);
 
-	var emptyFunction = __webpack_require__(230);
-	var invariant = __webpack_require__(229);
+	var emptyFunction = __webpack_require__(15);
+	var invariant = __webpack_require__(13);
 
 	/**
 	 * @class BaseEventEmitter
@@ -26001,7 +26057,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(13);
 
 	/**
 	 * EventSubscriptionVendor stores a set of EventSubscriptions that are
@@ -26095,105 +26151,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule invariant
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	}
-
-	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 230 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule emptyFunction
-	 */
-
-	"use strict";
-
-	function makeEmptyFunction(arg) {
-	  return function () {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	function emptyFunction() {}
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function () {
-	  return this;
-	};
-	emptyFunction.thatReturnsArgument = function (arg) {
-	  return arg;
-	};
-
-	module.exports = emptyFunction;
-
-/***/ },
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2014-2015, Facebook, Inc.
 	 * All rights reserved.
 	 *
@@ -26217,7 +26174,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 232 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31204,7 +31161,7 @@
 	}));
 
 /***/ },
-/* 233 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31327,7 +31284,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 234 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -31341,13 +31298,13 @@
 	    return { body: "" };
 	  },
 
-	  createPost: function (event) {
+	  handleInput: function (event) {
+	    this.setState({ body: event.currentTarget.value });
+	  },
+
+	  createPost: function () {
 	    event.preventDefault();
-	    var post = {};
-	    console.log(event.currentTarget);
-	    console.log(event.this.state);
-	    post.body = event.currentTarget.value;
-	    ApiUtil.createPost(post);
+	    ApiUtil.createPost(this.state);
 	  },
 
 	  render: function () {
@@ -31357,7 +31314,9 @@
 	      React.createElement(
 	        'div',
 	        { className: 'create-post-input-box' },
-	        React.createElement('input', { className: 'create-post-input',
+	        React.createElement('input', {
+	          className: 'create-post-input',
+	          onChange: this.handleInput,
 	          type: 'text',
 	          name: 'post[body]',
 	          placeholder: 'How are you feeling?' })
