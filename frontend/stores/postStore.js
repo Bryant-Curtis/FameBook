@@ -8,7 +8,7 @@ var Store = require('flux/utils').Store,
 var _posts = [];
 
 PostStore.all = function () {
-  return _posts;
+  return _posts.reverse();
 };
 
 PostStore.resetPosts = function (posts) {

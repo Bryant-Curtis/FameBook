@@ -28,7 +28,6 @@ var Posts = React.createClass({
   render: function () {
     var deleteButton;
     var posts = this.state.posts.map(function(post){
-      debugger
       if ((parseInt(post.author_id)) === (parseInt(window.currentUserId))) {
         deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
       } else {

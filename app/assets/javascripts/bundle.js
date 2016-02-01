@@ -24407,7 +24407,6 @@
 	  render: function () {
 	    var deleteButton;
 	    var posts = this.state.posts.map(function (post) {
-	      debugger;
 	      if (parseInt(post.author_id) === parseInt(window.currentUserId)) {
 	        deleteButton = React.createElement(
 	          'button',
@@ -24894,7 +24893,7 @@
 	var _posts = [];
 
 	PostStore.all = function () {
-	  return _posts;
+	  return _posts.reverse();
 	};
 
 	PostStore.resetPosts = function (posts) {
