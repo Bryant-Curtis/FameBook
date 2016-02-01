@@ -45335,3 +45335,829 @@ ActionView::MissingTemplate - Missing template http://localhost:3000 with {:loca
   /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
   /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
 
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:01:47 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 629ms (Views: 605.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/application.self-d247407db7942c90ce72730b57da19392fb8dba7af3e515d61c96252e7b4e88b.css?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/bundle.self-e395ece6f4366bbd4b095689edf4e891f2aa1bd0cd76b8ddade9cfa6c0fbfaf6.js?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:01:48 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:01:51 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (19.7ms)
+Completed 200 OK in 74ms (Views: 36.8ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/api/posts/22" for ::1 at 2016-02-01 14:02:00 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsadfasf", "id"=>"22", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"22"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 22]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 22]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Completed 200 OK in 35ms (Views: 29.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:02:39 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 609ms (Views: 606.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/application.self-d247407db7942c90ce72730b57da19392fb8dba7af3e515d61c96252e7b4e88b.css?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/bundle.self-9d173a49344b46e9fcc82477ed799e0e7342cb332249e6a45b0ff1df112fd8fe.js?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:02:40 -0500
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:02:40 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bundle.self-9d173a49344b46e9fcc82477ed799e0e7342cb332249e6a45b0ff1df112fd8fe.js?body=1" for ::1 at 2016-02-01 14:02:42 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:02:42 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (10.3ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/posts/1" for ::1 at 2016-02-01 14:03:02 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"What a boring day. Why can't something more, you know, exciting happen? haaa....", "id"=>"1", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:03:30 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 449ms (Views: 446.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/application.self-d247407db7942c90ce72730b57da19392fb8dba7af3e515d61c96252e7b4e88b.css?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/bundle.self-39be53b23acbd0cca83fc2a7a0e29eb7e13782eb80e11a62ee86941d3d73554c.js?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:03:31 -0500
+
+
+Started GET "/assets/bundle.self-39be53b23acbd0cca83fc2a7a0e29eb7e13782eb80e11a62ee86941d3d73554c.js?body=1" for ::1 at 2016-02-01 14:03:32 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:03:32 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:03:32 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:03:32 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (8.1ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/posts/21" for ::1 at 2016-02-01 14:03:37 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdasdfasdfasdfasdf", "id"=>"21", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"21"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 21]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 21]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:09:15 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 185ms (Views: 170.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/application.self-d247407db7942c90ce72730b57da19392fb8dba7af3e515d61c96252e7b4e88b.css?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/bundle.self-39be53b23acbd0cca83fc2a7a0e29eb7e13782eb80e11a62ee86941d3d73554c.js?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:09:16 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:09:26 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (39.7ms)
+Completed 200 OK in 62ms (Views: 40.3ms | ActiveRecord: 18.6ms)
+
+
+Started DELETE "/api/posts/20" for ::1 at 2016-02-01 14:09:30 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfadsf", "id"=>"20", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"20"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 20]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/api/posts/2" for ::1 at 2016-02-01 14:11:10 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"漫画は読者と一緒に作ってくもんだろーが！", "id"=>"2", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:16:40 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 852ms (Views: 847.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bundle.self-4082225b5ea307353af1298eaa712a58ff49e12fac53467a3fdf45e0e233c140.js?body=1" for ::1 at 2016-02-01 14:16:41 -0500
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-01 14:16:41 -0500
+
+
+Started GET "/assets/application.self-d247407db7942c90ce72730b57da19392fb8dba7af3e515d61c96252e7b4e88b.css?body=1" for ::1 at 2016-02-01 14:16:41 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-01 14:16:41 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-01 14:16:42 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-01 14:16:42 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-01 14:16:42 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-01 14:16:42 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:16:42 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:16:42 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:16:44 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (8.8ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/api/posts/19" for ::1 at 2016-02-01 14:16:48 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfadsf", "id"=>"19", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"19"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 19]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/api/posts/18" for ::1 at 2016-02-01 14:17:06 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfadsf", "id"=>"18", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"18"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 18]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/?post%5Bbody%5D=vcbxvntdfghdfgcnbv" for ::1 at 2016-02-01 14:17:11 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"vcbxvntdfghdfgcnbv"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 652ms (Views: 650.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/application.self-d247407db7942c90ce72730b57da19392fb8dba7af3e515d61c96252e7b4e88b.css?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/bundle.self-f716569fe5997f3340b407b996949ef3b4df7a500ec6dbc03baf03cb2df9f2e7.js?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-01 14:17:11 -0500
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:14 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (8.4ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/api/posts/12" for ::1 at 2016-02-01 14:17:17 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"Good!", "id"=>"12", "author_id"=>"7", "author"=>{"name"=>"Alexander Hamilton"}}, "id"=>"12"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 12]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:20 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdf"}}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "asdfasdf"], ["author_id", 1], ["created_at", "2016-02-01 19:17:20.962191"], ["updated_at", "2016-02-01 19:17:20.962191"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 8ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/?post%5Bbody%5D=asdfasdf" for ::1 at 2016-02-01 14:17:20 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"asdfasdf"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:20 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (4.6ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:21 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (5.1ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:23 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdf"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "asdfasdfasdf"], ["author_id", 1], ["created_at", "2016-02-01 19:17:23.537236"], ["updated_at", "2016-02-01 19:17:23.537236"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/?post%5Bbody%5D=asdfasdfasdf" for ::1 at 2016-02-01 14:17:23 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"asdfasdfasdf"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:23 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (4.8ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:23 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (4.8ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:25 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"adsfadsfasdf"}}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "adsfadsfasdf"], ["author_id", 1], ["created_at", "2016-02-01 19:17:25.656475"], ["updated_at", "2016-02-01 19:17:25.656475"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 6ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/?post%5Bbody%5D=adsfadsfasdf" for ::1 at 2016-02-01 14:17:25 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"adsfadsfasdf"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:25 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (6.5ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:26 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (5.9ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:28 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdf"}}
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "asdfasdfasdf"], ["author_id", 1], ["created_at", "2016-02-01 19:17:28.105242"], ["updated_at", "2016-02-01 19:17:28.105242"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 8ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/?post%5Bbody%5D=asdfasdfasdf" for ::1 at 2016-02-01 14:17:28 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"asdfasdfasdf"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:28 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (5.3ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:28 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (6.5ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/posts/27" for ::1 at 2016-02-01 14:17:30 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"adsfadsfasdf", "id"=>"27", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"27"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 27]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 27]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/api/posts/25" for ::1 at 2016-02-01 14:17:31 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdf", "id"=>"25", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"25"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 25]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/api/posts/28" for ::1 at 2016-02-01 14:17:33 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdf", "id"=>"28", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"28"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 28]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 28]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/posts/26" for ::1 at 2016-02-01 14:17:34 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdf", "id"=>"26", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"26"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 26]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 26]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:45 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"gooooooooooooooooo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "gooooooooooooooooo"], ["author_id", 1], ["created_at", "2016-02-01 19:17:45.182518"], ["updated_at", "2016-02-01 19:17:45.182518"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/?post%5Bbody%5D=gooooooooooooooooo" for ::1 at 2016-02-01 14:17:45 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"gooooooooooooooooo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 203ms (Views: 201.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:45 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (4.7ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:45 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (5.4ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:49 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdgsdfgdfgasdfa"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "asdfasdfasdgsdfgdfgasdfa"], ["author_id", 1], ["created_at", "2016-02-01 19:17:49.323914"], ["updated_at", "2016-02-01 19:17:49.323914"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/?post%5Bbody%5D=asdfasdfasdgsdfgdfgasdfa" for ::1 at 2016-02-01 14:17:49 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"asdfasdfasdgsdfgdfgasdfa"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:49 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (4.7ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:49 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (6.8ms)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:54 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"oyuioyuioyuiouiyoyuioiuyoyuioyuioiuy"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "oyuioyuioyuiouiyoyuioiuyoyuioyuioiuy"], ["author_id", 1], ["created_at", "2016-02-01 19:17:54.046664"], ["updated_at", "2016-02-01 19:17:54.046664"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/?post%5Bbody%5D=oyuioyuioyuiouiyoyuioiuyoyuioyuioiuy" for ::1 at 2016-02-01 14:17:54 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"oyuioyuioyuiouiyoyuioiuyoyuioyuioiuy"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:54 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (4.9ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:54 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (5.2ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:17:57 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"qetrtertwertwertwertwertewrtwret"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "qetrtertwertwertwertwertewrtwret"], ["author_id", 1], ["created_at", "2016-02-01 19:17:57.033112"], ["updated_at", "2016-02-01 19:17:57.033112"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 8ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/?post%5Bbody%5D=qetrtertwertwertwertwertewrtwret" for ::1 at 2016-02-01 14:17:57 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"qetrtertwertwertwertwertewrtwret"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:57 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (5.7ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:17:57 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (5.8ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:18:01 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>"bnvmvnmvbnmbnvnbm,mnb,bnm,bnm,bmn,"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "bnvmvnmvbnmbnvnbm,mnb,bnm,bnm,bmn,"], ["author_id", 1], ["created_at", "2016-02-01 19:18:01.015116"], ["updated_at", "2016-02-01 19:18:01.015116"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/?post%5Bbody%5D=bnvmvnmvbnmbnvnbm%2Cmnb%2Cbnm%2Cbnm%2Cbmn%2C" for ::1 at 2016-02-01 14:18:01 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>"bnvmvnmvbnmbnvnbm,mnb,bnm,bnm,bmn,"}}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:18:01 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (5.2ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:18:01 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (4.9ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/posts" for ::1 at 2016-02-01 14:18:04 -0500
+Processing by Api::PostsController#create as JSON
+  Parameters: {"post"=>{"body"=>",.,.,.,.,.,.,.,.,.,.,.,.,."}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", ",.,.,.,.,.,.,.,.,.,.,.,.,."], ["author_id", 1], ["created_at", "2016-02-01 19:18:04.536751"], ["updated_at", "2016-02-01 19:18:04.536751"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/api/posts
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/?post%5Bbody%5D=%2C.%2C.%2C.%2C.%2C.%2C.%2C.%2C.%2C.%2C.%2C.%2C.%2C." for ::1 at 2016-02-01 14:18:04 -0500
+Processing by StaticPagesController#homepage as HTML
+  Parameters: {"post"=>{"body"=>",.,.,.,.,.,.,.,.,.,.,.,.,."}}
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "UJ5XjwuKLjnQvuKIJTifPg"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:18:04 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (5.5ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-01 14:18:04 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
+  Rendered api/posts/index.json.jbuilder (5.9ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/api/posts/32" for ::1 at 2016-02-01 14:18:07 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"qetrtertwertwertwertwertewrtwret", "id"=>"32", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"32"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 32]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 32]]
+  [1m[35m (32.0ms)[0m  COMMIT
+Completed 200 OK in 35ms (Views: 0.7ms | ActiveRecord: 32.5ms)
+
+
+Started DELETE "/api/posts/30" for ::1 at 2016-02-01 14:18:12 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"asdfasdfasdgsdfgdfgasdfa", "id"=>"30", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"30"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 30]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 30]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/api/posts/34" for ::1 at 2016-02-01 14:18:16 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>",.,.,.,.,.,.,.,.,.,.,.,.,.", "id"=>"34", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"34"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 34]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 34]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/api/posts/29" for ::1 at 2016-02-01 14:18:18 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"gooooooooooooooooo", "id"=>"29", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"29"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 29]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 29]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/api/posts/31" for ::1 at 2016-02-01 14:18:20 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"oyuioyuioyuiouiyoyuioiuyoyuioyuioiuy", "id"=>"31", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"31"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 31]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 31]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/api/posts/33" for ::1 at 2016-02-01 14:18:21 -0500
+Processing by Api::PostsController#destroy as JSON
+  Parameters: {"post"=>{"body"=>"bnvmvnmvbnmbnvnbm,mnb,bnm,bnm,bmn,", "id"=>"33", "author_id"=>"1", "author"=>{"name"=>"Gintoki Sakata"}}, "id"=>"33"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 33]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 33]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 2.1ms)

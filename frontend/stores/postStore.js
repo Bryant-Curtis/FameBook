@@ -16,16 +16,13 @@ PostStore.resetPosts = function (posts) {
 };
 
 PostStore.addPost = function (post) {
-  debugger
   _posts.unshift(post);
 };
 
 PostStore.deletePost = function (post) {
-  var index = _posts.indexOf(post); // will NOT work as the two posts are not the same objects in memory.
-  debugger
-  for (var i = 0; i < _post.length; i++) {
-    if (_post[i] === post) {
-
+  for (var i = 0; i < _posts.length; i++) {
+    if (_posts[i].id === post.id) {
+      _posts.splice(i, 1);
     }
   }
 };

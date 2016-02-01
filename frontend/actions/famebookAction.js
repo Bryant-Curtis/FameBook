@@ -17,7 +17,7 @@ var ApiActions = {
   getDeletedPost: function(post) {
     Dispatcher.dispatch({
       actionType: FamebookConstants.DELETED_POST_RECEIVED,
-      posts: post
+      post: post
     });
   }
 };

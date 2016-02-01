@@ -24407,11 +24407,15 @@
 	  render: function () {
 	    var posts = this.state.posts.map(function (post) {
 	      var deleteButton;
-	      // if (post.author_id === window.currentuserId) {
-	      //   deleteButton = "";
-	      // } else {
-	      //   deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
-	      // }
+	      if (post.author_id === window.currentuserId) {
+	        deleteButton = "";
+	      } else {
+	        deleteButton = React.createElement(
+	          'button',
+	          { onSubmit: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
+	          'Delete'
+	        );
+	      }
 	      return React.createElement(
 	        'li',
 	        { key: post.id, className: 'post group' },
@@ -24492,14 +24496,12 @@
 	  },
 
 	  deletePost: function (post) {
-	    debugger;
 	    $.ajax({
 	      method: "DELETE",
 	      url: "api/posts/" + post.id,
-	      dataType: "html", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
+	      dataType: "json", // What is the dataType to create it? Note: this is the dataType of the object I am sending to the DB.
 	      data: { post: post }, // What goes in data?, Why do we send in the form of a hash?
 	      success: function (data) {
-	        debugger;
 	        ApiActions.getDeletedPost(data);
 	      },
 	      error: function () {
@@ -24544,7 +24546,7 @@
 	  getDeletedPost: function (post) {
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.DELETED_POST_RECEIVED,
-	      posts: post
+	      post: post
 	    });
 	  }
 	};
@@ -24901,15 +24903,14 @@
 	};
 
 	PostStore.addPost = function (post) {
-	  debugger;
 	  _posts.unshift(post);
 	};
 
 	PostStore.deletePost = function (post) {
-	  var index = _posts.indexOf(post); // will NOT work as the two posts are not the same objects in memory.
-	  debugger;
-	  for (var i = 0; i < _post.length; i++) {
-	    if (_post[i] === post) {}
+	  for (var i = 0; i < _posts.length; i++) {
+	    if (_posts[i].id === post.id) {
+	      _posts.splice(i, 1);
+	    }
 	  }
 	};
 
