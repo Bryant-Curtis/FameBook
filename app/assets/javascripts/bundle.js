@@ -24946,11 +24946,11 @@
 	var _posts = [];
 
 	PostStore.all = function () {
-	  return _posts.reverse();
+	  return _posts;
 	};
 
 	PostStore.resetPosts = function (posts) {
-	  _posts = posts;
+	  _posts = posts.reverse();
 	};
 
 	PostStore.addPost = function (post) {
