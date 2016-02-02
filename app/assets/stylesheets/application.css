@@ -43,6 +43,14 @@ ul {
 
 /* HEADER */
 
+.guest-login {
+  display: block;
+  border: 1px solid #000;
+  color: white;
+  padding: 5px;
+  margin: 10px;
+}
+
 .header {
   border-bottom: 1px solid #1c326c;
   height: 84px;

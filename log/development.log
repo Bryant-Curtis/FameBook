@@ -55918,3 +55918,348 @@ Processing by Api::PostsController#index as JSON
   [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)
   Rendered api/posts/index.json.jbuilder (6.0ms)
 Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-02-02 09:01:50 -0500
+
+PG::ConnectionBad - FATAL:  database "capstone_project_development" does not exist
+:
+  activerecord (4.2.5) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.5) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.5) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.5) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.5) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.5) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.5) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2d5edad2ac36fb89/variables" for ::1 at 2016-02-02 09:01:51 -0500
+  [1m[36mSQL (27.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (121.9ms)[0m  CREATE TABLE "posts" ("id" serial primary key, "body" character varying NOT NULL, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (5.3ms)[0m  [1mCREATE  INDEX  "index_posts_on_author_id" ON "posts" USING btree ("author_id")[0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "index_users_on_session_token" ON "users" USING btree ("session_token")
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160128140546')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160126145813')[0m
+  [1m[35mSQL (0.5ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "body" character varying NOT NULL, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_posts_on_author_id" ON "posts" USING btree ("author_id")
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users" USING btree ("session_token")[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160128140546')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160126145813')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'gintoki@sakata.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'DcOgqtfagPcyqd1_uKy1wg' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "Gintoki"], ["last_name", "Sakata"], ["email", "gintoki@sakata.com"], ["password_digest", "$2a$10$Z/Sln/Bq3F25q1tKb/ICLOKaz.sz/lHXYhe.rE/zrTgoFjbT96UdK"], ["session_token", "DcOgqtfagPcyqd1_uKy1wg"], ["created_at", "2016-02-02 14:28:28.343666"], ["updated_at", "2016-02-02 14:28:28.343666"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'naruto@uzumaki.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."session_token" = '1zhmBIwB7enfZiex3VoN5A' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Naruto"], ["last_name", "Uzumaki"], ["email", "naruto@uzumaki.com"], ["password_digest", "$2a$10$J03ZQFkgYcY1ziATsl9RDerO0Xii.vJlFLVFm4BkX.VGn2C51MJWy"], ["session_token", "1zhmBIwB7enfZiex3VoN5A"], ["created_at", "2016-02-02 14:28:28.423967"], ["updated_at", "2016-02-02 14:28:28.423967"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'vegeta@breigh.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'Tgoh4JuTLbo9FawI4NNBXQ' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "Vegeta"], ["last_name", "Breigh"], ["email", "vegeta@breigh.com"], ["password_digest", "$2a$10$wPgFPpcmZ6s96qCx0Lcg8uWMvW4br/4VOBqO/LP3VGJ.IRqLMnjJ2"], ["session_token", "Tgoh4JuTLbo9FawI4NNBXQ"], ["created_at", "2016-02-02 14:28:28.504979"], ["updated_at", "2016-02-02 14:28:28.504979"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cloud@strife.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'UoZ1gOfENyNhStPIqLJz4w' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Cloud"], ["last_name", "Strife"], ["email", "cloud@strife.com"], ["password_digest", "$2a$10$8gFj5l2v8XGEQSBborvfZ.llw7yypgA.Y6y4if9CwBHuwvQhAuKFS"], ["session_token", "UoZ1gOfENyNhStPIqLJz4w"], ["created_at", "2016-02-02 14:28:28.582692"], ["updated_at", "2016-02-02 14:28:28.582692"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'zidane@tribal.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'E3oVwcZa7DBzZeLtvPgYPA' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "Zidane"], ["last_name", "Tribal"], ["email", "zidane@tribal.com"], ["password_digest", "$2a$10$KiXfuNNimRrbzqQWz..9U.4/2LDrdVM/jg1xghQLbZWqZTYGCBGn6"], ["session_token", "E3oVwcZa7DBzZeLtvPgYPA"], ["created_at", "2016-02-02 14:28:28.664389"], ["updated_at", "2016-02-02 14:28:28.664389"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lance@armstrong.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'UhWYi5jQ5TQSA7lzFkDNOA' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Lance"], ["last_name", "Armstrong"], ["email", "lance@armstrong.com"], ["password_digest", "$2a$10$ususPIPV.tv/Q41Zl.OT2.VwoOU3Vtg8XAUEzNjZ9Cwg7b1g27Uk2"], ["session_token", "UhWYi5jQ5TQSA7lzFkDNOA"], ["created_at", "2016-02-02 14:28:28.744103"], ["updated_at", "2016-02-02 14:28:28.744103"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'alexander@hamilton.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'THfI1zJkxY63qRjVGoCf9A' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "Alexander"], ["last_name", "Hamilton"], ["email", "alexander@hamilton.com"], ["password_digest", "$2a$10$lQFyzCTQzowsX0WgdmNcr.zEj8UwnaFvQJSWYUsPUNjCgMAK4w9HW"], ["session_token", "THfI1zJkxY63qRjVGoCf9A"], ["created_at", "2016-02-02 14:28:28.821400"], ["updated_at", "2016-02-02 14:28:28.821400"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'musashi@miyamoto.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."session_token" = '90lhtVbV1fdjpwvQiwYKVQ' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Musashi"], ["last_name", "Miyamoto"], ["email", "musashi@miyamoto.com"], ["password_digest", "$2a$10$tiR/UBRhpaps11a7l2krUO14IEm8aagQts1mrKR6q3Ofgt3bjFAcW"], ["session_token", "90lhtVbV1fdjpwvQiwYKVQ"], ["created_at", "2016-02-02 14:28:28.900906"], ["updated_at", "2016-02-02 14:28:28.900906"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'julius@caesar.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'LG5fTFp4sxS9smx_yBoMaw' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "Julius"], ["last_name", "Caesar"], ["email", "julius@caesar.com"], ["password_digest", "$2a$10$1XrVETLO5YwVbCFYDmg.luW.Ezlw7ryxgGnYm9wpuvO.MkEyyZDz6"], ["session_token", "LG5fTFp4sxS9smx_yBoMaw"], ["created_at", "2016-02-02 14:28:28.981397"], ["updated_at", "2016-02-02 14:28:28.981397"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'oprah@winfrey.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'uHvl1CPUj7lj-28LfPigoA' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Oprah"], ["last_name", "Winfrey"], ["email", "oprah@winfrey.com"], ["password_digest", "$2a$10$Tp7tbF/FbAwYHBVFJMdZe.yrn6ys1bdC9Ta/vIwdyLHPF/PpP2596"], ["session_token", "uHvl1CPUj7lj-28LfPigoA"], ["created_at", "2016-02-02 14:28:29.063853"], ["updated_at", "2016-02-02 14:28:29.063853"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'george@clooney.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'wZOm6iCGM1eXBDzFWqncSQ' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["first_name", "George"], ["last_name", "Clooney"], ["email", "george@clooney.com"], ["password_digest", "$2a$10$Xhu6J4KI12O9HWqFKuUG0Ov3BNrMq/hD2sViGYh9sOwuyEt6ARqWu"], ["session_token", "wZOm6iCGM1eXBDzFWqncSQ"], ["created_at", "2016-02-02 14:28:29.142501"], ["updated_at", "2016-02-02 14:28:29.142501"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'robert@deniro.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."session_token" = 'uHsHLqODJ2fTNI0ZBAEc8Q' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Robert"], ["last_name", "De Niro"], ["email", "robert@deniro.com"], ["password_digest", "$2a$10$eWFLNhxAeGV8BiX0zkqJ3O4mlm0EpEON7iqhnroirNAVSzOWKGtrC"], ["session_token", "uHsHLqODJ2fTNI0ZBAEc8Q"], ["created_at", "2016-02-02 14:28:29.222850"], ["updated_at", "2016-02-02 14:28:29.222850"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "What a boring day. Why can't something more, you know, exciting happen? haaa...."], ["author_id", 1], ["created_at", "2016-02-02 14:28:29.236943"], ["updated_at", "2016-02-02 14:28:29.236943"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (30.5ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "漫画は読者と一緒に作ってくもんだろーが！"], ["author_id", 1], ["created_at", "2016-02-02 14:28:29.239920"], ["updated_at", "2016-02-02 14:28:29.239920"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "人生を楽しく生きるコツは童心を忘れねーことだよ。"], ["author_id", 1], ["created_at", "2016-02-02 14:28:29.282187"], ["updated_at", "2016-02-02 14:28:29.282187"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "皮肉なもんだな。ホントに大事なモンってのは　もってる奴よりもってねー奴の方がしってるもんさ"], ["author_id", 1], ["created_at", "2016-02-02 14:28:29.285127"], ["updated_at", "2016-02-02 14:28:29.285127"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "There are seasons in every country when noise and impudence pass current for worth; and in popular commotions especially, the clamors of interested and factious men are often mistaken for patriotism."], ["author_id", 7], ["created_at", "2016-02-02 14:28:29.287872"], ["updated_at", "2016-02-02 14:28:29.287872"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "Those who stand for nothing fall for anything."], ["author_id", 7], ["created_at", "2016-02-02 14:28:29.290615"], ["updated_at", "2016-02-02 14:28:29.290615"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "I never expect to see a perfect work from an imperfect man."], ["author_id", 7], ["created_at", "2016-02-02 14:28:29.293077"], ["updated_at", "2016-02-02 14:28:29.293077"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "In framing a government which is to be administered by men over men, the great difficulty lies in this: you must first enable the government to control the governed; and in the next place, oblige it to control itself."], ["author_id", 7], ["created_at", "2016-02-02 14:28:29.295184"], ["updated_at", "2016-02-02 14:28:29.295184"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "The more you praise and celebrate your life, the more there is in life to celebrate."], ["author_id", 10], ["created_at", "2016-02-02 14:28:29.297208"], ["updated_at", "2016-02-02 14:28:29.297208"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "Think like a queen. A queen is not afraid to fail. Failure is another steppingstone to greatness."], ["author_id", 10], ["created_at", "2016-02-02 14:28:29.299241"], ["updated_at", "2016-02-02 14:28:29.299241"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "Do the one thing you think you cannot do. Fail at it. Try again. Do better the second time. The only people who never tumble are those who never mount the high wire. This is your moment. Own it."], ["author_id", 10], ["created_at", "2016-02-02 14:28:29.301230"], ["updated_at", "2016-02-02 14:28:29.301230"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2016-02-02 09:28:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#homepage as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_signed_in! rendered or redirected
+Completed 302 Found in 86ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/session/new" for ::1 at 2016-02-02 09:28:39 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 1113ms (Views: 1112.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homepage_header.self-aac37c0d772fb058caf4432da6c2fb0d801d5261bf836af1e0c2b241902cff51.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/application.self-be2c3081f36d297f9cb9f22dad1be76531298b992279b49a23ff7f8930526602.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/user_profile.self-0dde48411b1ac2ebb79629ebe2c65fd67f11dd4b53538862332dc1b678665dd8.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/bundle.self-80116c77f623bef449c538069086cadd207af68d4adda0c1c99e1bcd9de3cd0d.js?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0" for ::1 at 2016-02-02 09:28:40 -0500
+
+
+Started GET "/session/new" for ::1 at 2016-02-02 09:30:03 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 111ms (Views: 110.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homepage_header.self-aac37c0d772fb058caf4432da6c2fb0d801d5261bf836af1e0c2b241902cff51.css?body=1" for ::1 at 2016-02-02 09:30:03 -0500
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-02 09:30:03 -0500
+
+
+Started GET "/assets/application.self-be2c3081f36d297f9cb9f22dad1be76531298b992279b49a23ff7f8930526602.css?body=1" for ::1 at 2016-02-02 09:30:03 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/user_profile.self-0dde48411b1ac2ebb79629ebe2c65fd67f11dd4b53538862332dc1b678665dd8.css?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/bundle.self-80116c77f623bef449c538069086cadd207af68d4adda0c1c99e1bcd9de3cd0d.js?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-02 09:30:04 -0500
+
+
+Started GET "/session/new" for ::1 at 2016-02-02 09:30:45 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 71ms (Views: 70.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/user_profile.self-0dde48411b1ac2ebb79629ebe2c65fd67f11dd4b53538862332dc1b678665dd8.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/posts.self-2e825bfa04e759d079459033c3750b6c167ced19f30f2bf67c5cdfea312e53a9.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/homepage_header.self-aac37c0d772fb058caf4432da6c2fb0d801d5261bf836af1e0c2b241902cff51.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/application.self-be2c3081f36d297f9cb9f22dad1be76531298b992279b49a23ff7f8930526602.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/settings.self-1d0ee0616159b26189f5bde5999128631ad8eec7f63223b38e28e6621753f437.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/font-awesome-4.5.0/css/font-awesome.self-096a1cf4b422c9c89eb905af2ee7bff3a955fc2ceefa7c0047237a0dddb7ce84.css?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/bundle.self-80116c77f623bef449c538069086cadd207af68d4adda0c1c99e1bcd9de3cd0d.js?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-02 09:30:45 -0500
+
+
+Started POST "/session" for ::1 at 2016-02-02 09:30:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"3awQRCZKeYeI9QbPTlVVEdY3k1pndkZKgRGdyF6No3v8BCKaeZzoQihTEPi9oaZwhb4A5NOzlqjtiLRHsPrLig==", "session"=>{"email"=>"alexander@hamilton.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "alexander@hamilton.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'alexander@hamilton.com' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."session_token" = 'FeEztIxE29BZ7CYjOc74zw' AND "users"."id" != 7) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "FeEztIxE29BZ7CYjOc74zw"], ["updated_at", "2016-02-02 14:30:49.899941"], ["id", 7]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 171ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/" for ::1 at 2016-02-02 09:30:49 -0500
+Processing by StaticPagesController#homepage as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "FeEztIxE29BZ7CYjOc74zw"]]
+  Rendered static_pages/homepage.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-02-02 09:30:50 -0500
+Processing by Api::PostsController#index as JSON
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 7, 10)[0m
+  Rendered api/posts/index.json.jbuilder (37.2ms)
+Completed 200 OK in 57ms (Views: 39.2ms | ActiveRecord: 3.2ms)
