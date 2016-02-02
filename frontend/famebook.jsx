@@ -29,7 +29,9 @@ var NavBar = React.createClass({
               <p className="logo-letter-m">m</p>
             </figure>
           </a>
+
           <ul className="group">
+
             <li className="home-header-items">
               <a href={"#/users/" + window.currentUserId}>
                 <figure className="home-header-profile-link-box">
@@ -37,6 +39,7 @@ var NavBar = React.createClass({
                 </figure>
               </a>
             </li>
+
             <li className="home-header-items">
               <form className="button" action="/session" method="post">
                 <input type="hidden" name="authenticity_token" value={ window.auth_token }/>
@@ -44,7 +47,9 @@ var NavBar = React.createClass({
                 <button>Log out</button>
               </form>
             </li>
+
           </ul>
+          
         </nav>
       </header>
     );

@@ -29,7 +29,7 @@ var Posts = React.createClass({
     var deleteButton;
     var posts = this.state.posts.map(function(post){
       if ((parseInt(post.author_id)) === (parseInt(window.currentUserId))) {
-        deleteButton = <button onSubmit={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
+        deleteButton = <button onClick={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
       } else {
         deleteButton = "";
       }
@@ -37,7 +37,9 @@ var Posts = React.createClass({
         <li key={post.id} className="post group">
           <header className="post-header">
             <section className="post-header-name">
-              { post.author.name }
+              <a className="post-author-name" href={"#/users/" + post.author_id}>
+                { post.author.name }
+              </a>
             </section>
           </header>
           <article className="post-body">{ post.body }</article>

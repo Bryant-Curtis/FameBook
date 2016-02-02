@@ -8,7 +8,6 @@ var Store = require('flux/utils').Store,
     _user = [];
 
 UserStore.find = function () {
-  debugger
   return _user;
 };
 
