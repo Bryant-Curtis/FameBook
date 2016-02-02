@@ -7,11 +7,12 @@ var React = require('react'),
 var Header = React.createClass({
 
   render: function () {
+    var username = this.props.user.first_name + " " + this.props.user.last_name;
     return(
       <header className="profile-header">
         <figure className="profile-header-photo"></figure>
         <figure className="profile-user-photo"></figure>
-        <figure className="profile-username">{window.currentUserName}</figure>
+        <figure className="profile-username">{ username }</figure>
         <nav className="profile-nav">
           <ul className="group">
             <li className="profile-nav-timeline">Timeline</li>

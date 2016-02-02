@@ -31195,7 +31195,7 @@
 	  displayName: 'UserProfile',
 
 	  getInitialState: function () {
-	    return { profile: UserStore.find() };
+	    return { user: UserStore.find() };
 	  },
 
 	  componentDidMount: function () {
@@ -31205,47 +31205,50 @@
 	  },
 
 	  render: function () {
-	    var posts = PostStore.all(),
-	        userPosts = [],
-	        deleteButton;
-	    userPosts = posts.map(function (post) {
-	      if (post.author_id === parseInt(this.props.params.id)) {
-	        // if ((parseInt(post.author_id)) === (parseInt(window.currentUserId))) {
-	        //   deleteButton = <button onClick={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>;
-	        // } else {
-	        //   deleteButton = "";
-	        // }
-	        // return(<p>hi there</p>
-	        //   <li key={post.id} className="post group">
-	        //     <header className="post-header">
-	        //       <section className="post-header-name">
-	        //         <a className="post-author-name" href={"#/users/" + post.author_id}>
-	        //           { post.author.name }
-	        //         </a>
-	        //       </section>
-	        //     </header>
-	        //     <article className="post-body">{ post.body }</article>
-	        //     { deleteButton }
-	        //   </li>;
-	        // )
-	        return post.body;
-	      }
-	    }.bind(this));
+	    var username = this.state.user.first_name + " " + this.state.user.last_name,
+	        userPosts = [];
+	    if (this.state.user.length !== 0) {
+	      userPosts = this.state.user.posts.map(function (post) {
+	        if (post.author_id === parseInt(this.props.params.id)) {
+	          return React.createElement(
+	            'li',
+	            { key: post.id, className: 'post group' },
+	            React.createElement(
+	              'header',
+	              { className: 'post-header' },
+	              React.createElement(
+	                'section',
+	                { className: 'post-header-name' },
+	                React.createElement(
+	                  'a',
+	                  { className: 'post-author-name', href: "#/users/" + post.author_id },
+	                  username
+	                )
+	              )
+	            ),
+	            React.createElement(
+	              'article',
+	              { className: 'post-body' },
+	              post.body
+	            )
+	          );
+	        }
+	      }, this);
+	    }
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-main' },
-	      React.createElement(Header, null),
+	      React.createElement(Header, { user: this.state.user }),
 	      React.createElement(
 	        'ul',
 	        null,
-	        userPosts,
-	        'hi'
+	        userPosts
 	      )
 	    );
 	  },
 
 	  _onChange: function () {
-	    this.setState({ profile: UserStore.find() });
+	    this.setState({ user: UserStore.find() });
 	  }
 
 	});
@@ -31298,6 +31301,7 @@
 	  displayName: 'Header',
 
 	  render: function () {
+	    var username = this.props.user.first_name + " " + this.props.user.last_name;
 	    return React.createElement(
 	      'header',
 	      { className: 'profile-header' },
@@ -31306,7 +31310,7 @@
 	      React.createElement(
 	        'figure',
 	        { className: 'profile-username' },
-	        window.currentUserName
+	        username
 	      ),
 	      React.createElement(
 	        'nav',
