@@ -48,7 +48,7 @@ var Posts = React.createClass({
       );
     }.bind(this));
     return(
-      <div>
+      <div className="root-page-posts-and-form">
         <PostForm />
         <ul>{ posts }</ul>
       </div>

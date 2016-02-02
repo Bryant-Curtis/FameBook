@@ -43,13 +43,6 @@ ul {
 
 /* HEADER */
 
-.guest-login {
-  display: block;
-  border: 1px solid #000;
-  color: white;
-  padding: 5px;
-  margin: 10px;
-}
 
 .header {
   border-bottom: 1px solid #1c326c;
@@ -71,8 +64,35 @@ ul {
   font-weight: 600;
 }
 
-.header-nav-log-in-form {
+.header-nav-buttons {
   float: right;
+}
+
+.header-nav-buttons > form {
+  float: left;
+}
+
+.header-nav-guest-login {
+  float: right;
+  margin: 31px 25px 0px 15px;
+}
+
+.guest-login-button {
+  display: block;
+  border-top: 1px solid #8a9cc2;
+  border-bottom: 1px solid #1a356e;
+  border-left: 1px solid #29447e;
+  border-right: 1px solid #29447e;
+  padding: 5px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align:center;
+  cursor: pointer;
+  background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
+}
+
+.header-nav-log-in-form {
   display: inline;
   margin-top: 15px;
 }

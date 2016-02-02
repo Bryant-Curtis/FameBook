@@ -69,7 +69,7 @@
 	  render: function () {
 	    return React.createElement(
 	      'header',
-	      { className: 'settings-header' },
+	      { className: 'homepage-header' },
 	      React.createElement(
 	        'nav',
 	        { className: 'header-nav group' },
@@ -93,7 +93,7 @@
 	        ),
 	        React.createElement(
 	          'ul',
-	          { className: 'group' },
+	          { className: 'home-header-links group' },
 	          React.createElement(
 	            'li',
 	            { className: 'home-header-items' },
@@ -116,12 +116,12 @@
 	            { className: 'home-header-items' },
 	            React.createElement(
 	              'form',
-	              { className: 'button', action: '/session', method: 'post' },
+	              { className: 'group', action: '/session', method: 'post' },
 	              React.createElement('input', { type: 'hidden', name: 'authenticity_token', value: window.auth_token }),
 	              React.createElement('input', { type: 'hidden', name: '_method', value: 'delete' }),
 	              React.createElement(
 	                'button',
-	                null,
+	                { className: 'home-header-log-out-button' },
 	                'Log out'
 	              )
 	            )
@@ -24606,7 +24606,7 @@
 	    }.bind(this));
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'root-page-posts-and-form' },
 	      React.createElement(PostForm, null),
 	      React.createElement(
 	        'ul',

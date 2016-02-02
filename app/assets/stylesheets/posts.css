@@ -2,10 +2,15 @@ main#root {
   background: #e9eaed;
 }
 
+.root-page-posts-and-form {
+  margin: auto;
+  width: 980px;
+}
+
 .post {
   background: #ffffff;
   width: 510px;
-  margin: 10px 20px;
+  margin: 10px 10px;
   padding: 10px;
   border-radius: 2px;
   border-top: 1px solid #e5e6e9;
@@ -20,10 +25,20 @@ main#root {
   padding-bottom: 20px;
 }
 
+.post-author-name {
+  display: inline;
+  cursor: pointer;
+  color: #3b5998;
+}
+
+.post-author-name:hover {
+  text-decoration: underline;
+}
+
 .create-post {
   background: #ffffff;
   width: 510px;
-  margin: 10px 20px;
+  margin: 10px 10px;
   border-radius: 2px;
   border-top: 1px solid #e5e6e9;
   border-bottom: 1px solid #d0d1d5;

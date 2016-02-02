@@ -20,7 +20,7 @@ var NavBar = React.createClass({
 
   render: function () {
     return(
-      <header className="settings-header">
+      <header className="homepage-header">
         <nav className="header-nav group">
 
           <a href="/">
@@ -30,7 +30,7 @@ var NavBar = React.createClass({
             </figure>
           </a>
 
-          <ul className="group">
+          <ul className="home-header-links group">
 
             <li className="home-header-items">
               <a href={"#/users/" + window.currentUserId}>
@@ -41,15 +41,15 @@ var NavBar = React.createClass({
             </li>
 
             <li className="home-header-items">
-              <form className="button" action="/session" method="post">
+              <form className="group" action="/session" method="post">
                 <input type="hidden" name="authenticity_token" value={ window.auth_token }/>
                 <input type="hidden" name="_method" value="delete"/>
-                <button>Log out</button>
+                <button className="home-header-log-out-button">Log out</button>
               </form>
             </li>
 
           </ul>
-          
+
         </nav>
       </header>
     );
