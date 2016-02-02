@@ -16,7 +16,11 @@ var UserProfile = React.createClass({
     ApiUtil.fetchAllPosts();
   },
 
-  render: function () {    
+  deletePost: function (post) {
+    ApiUtil.deletePost(post);
+  },
+
+  render: function () {
     var username = this.state.user.first_name + " " + this.state.user.last_name,
         userPosts = [];
     if (this.state.user.length !== 0) {
@@ -32,6 +36,7 @@ var UserProfile = React.createClass({
                 </section>
               </header>
               <article className="post-body">{ post.body }</article>
+              <button onClick={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>
             </li>
           );
         }

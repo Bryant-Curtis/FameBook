@@ -24544,8 +24544,8 @@
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
 	    PostStore = __webpack_require__(214),
-	    PostForm = __webpack_require__(232);
-	ReactCSSTransitionGroup = __webpack_require__(236);
+	    PostForm = __webpack_require__(232),
+	    ReactCSSTransitionGroup = __webpack_require__(236);
 
 	var Posts = React.createClass({
 	  displayName: 'Posts',
@@ -31204,6 +31204,10 @@
 	    ApiUtil.fetchAllPosts();
 	  },
 
+	  deletePost: function (post) {
+	    ApiUtil.deletePost(post);
+	  },
+
 	  render: function () {
 	    var username = this.state.user.first_name + " " + this.state.user.last_name,
 	        userPosts = [];
@@ -31230,6 +31234,11 @@
 	              'article',
 	              { className: 'post-body' },
 	              post.body
+	            ),
+	            React.createElement(
+	              'button',
+	              { onClick: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
+	              'Delete'
 	            )
 	          );
 	        }

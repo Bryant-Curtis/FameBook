@@ -2,7 +2,7 @@ var React = require('react'),
     ApiUtil = require('../../util/apiUtil'),
     FamebookConstants = require('../../constants/famebookConstants'),
     PostStore = require('../../stores/postStore'),
-    PostForm = require('./form')
+    PostForm = require('./form'),
     ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
