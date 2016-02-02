@@ -31233,7 +31233,7 @@
 	    }.bind(this));
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'profile-main' },
 	      React.createElement(Header, null),
 	      React.createElement(
 	        'ul',

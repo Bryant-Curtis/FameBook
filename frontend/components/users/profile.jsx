@@ -44,7 +44,7 @@ var UserProfile = React.createClass({
       }
     }.bind(this));
     return(
-      <div>
+      <div className="profile-main">
         <Header />
         <ul>{ userPosts }hi</ul>
       </div>

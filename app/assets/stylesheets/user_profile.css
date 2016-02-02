@@ -1,7 +1,11 @@
+.profile-main {
+  width: 980px;
+  margin: auto;
+}
+
 .profile-header {
   width: 850px;
   height: 360px;
-  margin: auto;
   position: relative;
 }
 
