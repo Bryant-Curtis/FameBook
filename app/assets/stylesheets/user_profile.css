@@ -4,9 +4,10 @@
 }
 
 .profile-header {
+  position: relative;
+  border-radius: 4px;
   width: 850px;
   height: 360px;
-  position: relative;
 }
 
 .profile-header-photo {
@@ -42,6 +43,7 @@
   border-left: 1px solid #d3d6db;
   border-bottom: 1px solid #d3d6db;
   border-right: 1px solid #d3d6db;
+  border-radius: 4px;
   box-sizing: border-box;
   background: #FFF;
   width: 850px;
