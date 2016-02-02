@@ -18,7 +18,7 @@ var PostForm = React.createClass({
 
   render: function () {
     return(
-      <form className="create-post" onSubmit={this.createPost}>
+      <form key={0} className="create-post" onSubmit={this.createPost}>
         <div className="create-post-input-box">
           <input
             className="create-post-input"

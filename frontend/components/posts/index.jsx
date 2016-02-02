@@ -2,7 +2,8 @@ var React = require('react'),
     ApiUtil = require('../../util/apiUtil'),
     FamebookConstants = require('../../constants/famebookConstants'),
     PostStore = require('../../stores/postStore'),
-    PostForm = require('./form');
+    PostForm = require('./form')
+    ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 var Posts = React.createClass({
@@ -48,9 +49,13 @@ var Posts = React.createClass({
       );
     }.bind(this));
     return(
-      <div className="root-page-posts-and-form">
+      <div key={1} className="root-page-posts-and-form">
         <PostForm />
-        <ul>{ posts }</ul>
+        <ul>
+          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            { posts }
+          </ReactCSSTransitionGroup>
+        </ul>
       </div>
     );
   },
