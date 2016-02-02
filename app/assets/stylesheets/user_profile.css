@@ -1,53 +1,70 @@
 .profile-header {
-  border: 1px solid #000;
-  width: 980px;
-  height: 350px;
+  width: 850px;
+  height: 360px;
   margin: auto;
+  position: relative;
 }
 
 .profile-header-photo {
   background: #000;
-  position: relative;
-  height: 250px;
-  width: 980px;
+  height: 313px;
+  width: 850px;
 }
 
 .profile-user-photo {
+  display: block;
   position: absolute;
-  bottom: 10;
-  left: 10;
-  border: 3px solid #fff;
+  bottom: 16px;
+  left: 16px;
+  border: 4px solid #fff;
+  border-radius: 2px;
   background: blue;
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
+  box-shadow: 0 0 2px #000;
 }
 
 .profile-username {
+  display: block;
+  position: absolute;
+  bottom: 60px;
+  left: 193px;
   font-size: 24px;
-  font-weight: bold;
+  color: #FFF;
 }
 
-.profile-nav {
-
+.profile-header > .profile-nav {
+  display: block;
+  border-left: 1px solid #d3d6db;
+  border-bottom: 1px solid #d3d6db;
+  border-right: 1px solid #d3d6db;
+  box-sizing: border-box;
+  background: #FFF;
+  width: 850px;
+  height: 47px;
+  text-align: center;
 }
 
 .profile-nav > ul {
+  float: right;
   margin: auto;
+  color: #3B5998;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .profile-nav > ul > li {
   float: left;
-  font-size: 18px;
+  padding: 15px 17px;
+  cursor: pointer;
+  border-left: 1px solid #e9eaed;
 }
 
-.profile-nav-timeline {
-
+.profile-nav > ul > li:hover {
+  background: #f6f7f8;
 }
 
-.profile-nav-basic-info {
-
-}
-
-.profile-nav-friends {
-
+.profile-nav-photos {
+  margin: 0 320px 0 0;
+  border-right: 1px solid #e9eaed;
 }
