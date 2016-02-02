@@ -1,12 +1,11 @@
 # Schema Information
 
-
-
 ## friendships
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-friend_id   | integer   | not null, foreign key (references users), indexed
+friend_id   | integer   | not null, foreign key (references friend), indexed
+self_id     | integer   | not null, foreign key (references self),   indexed
 
 <!-- How do I use the db for friend request? Or is it not involved here? -->
 
