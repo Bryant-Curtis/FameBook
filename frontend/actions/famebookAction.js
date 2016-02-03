@@ -8,16 +8,25 @@ var ApiActions = {
       posts: posts
     });
   },
+
   getNewPost: function(post) {
     Dispatcher.dispatch({
       actionType: FamebookConstants.NEW_POST_RECEIVED,
       post: post
     });
   },
+
   getDeletedPost: function(post) {
     Dispatcher.dispatch({
       actionType: FamebookConstants.DELETED_POST_RECEIVED,
       post: post
+    });
+  },
+
+  receiveAllUsers: function(users) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.ALL_USERS_RECEIVED,
+      users: users
     });
   },
 

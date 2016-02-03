@@ -8,17 +8,24 @@ var React = require('react'),
 
 var UserProfile = React.createClass({
   getInitialState: function () {
-    return { user: UserStore.find() };
+    return { user: UserStore.find(parseInt(this.props.params.id)) };
   },
 
   componentDidMount: function () {
     UserStore.addListener(this._onChange);
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    ApiUtil.fetchAllUsers();
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    // ApiUtil.fetchAllUsers(parseInt(this.props.params.id));
+    // debugger
+    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
   deletePost: function (post) {
     ApiUtil.deletePost(post);
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    UserStore.find(parseInt(this.props.params.id));
   },
 
   render: function () {
@@ -62,7 +69,8 @@ var UserProfile = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({ user: UserStore.find() });
+    // debugger
+    this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
   }
 
 });

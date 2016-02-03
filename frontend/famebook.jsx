@@ -5,6 +5,7 @@ var React = require('react'),
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
     Posts = require('./components/posts/index'),
+    PostForm = require('./components/posts/form'),
     UserProfile = require('./components/users/profile');
 
 var NavBar = React.createClass({
@@ -14,7 +15,7 @@ var NavBar = React.createClass({
   //   });
   // },
   getUserProfile: function (userId) {
-    ApiUtil.fetchOneUser(userId); // fix this to be only get one user
+    ApiUtil.fetchOneUser(userId); // fix this to only get one user
     // id so I can use the profile component to be the same for all users.
   },
 
@@ -70,7 +71,9 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Posts} />
-    <Route path="users/:id" component={UserProfile} />
+    <Route path="users/:id" component={UserProfile}>
+      <IndexRoute component={PostForm} />
+    </Route>
   </Route>
 );
 

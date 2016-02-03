@@ -51,7 +51,8 @@
 	    Route = __webpack_require__(166).Route,
 	    IndexRoute = __webpack_require__(166).IndexRoute,
 	    Posts = __webpack_require__(213),
-	    UserProfile = __webpack_require__(240);
+	    PostForm = __webpack_require__(230),
+	    UserProfile = __webpack_require__(238);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -62,7 +63,7 @@
 	  //   });
 	  // },
 	  getUserProfile: function (userId) {
-	    ApiUtil.fetchOneUser(userId); // fix this to be only get one user
+	    ApiUtil.fetchOneUser(userId); // fix this to only get one user
 	    // id so I can use the profile component to be the same for all users.
 	  },
 
@@ -149,7 +150,11 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts }),
-	  React.createElement(Route, { path: 'users/:id', component: UserProfile })
+	  React.createElement(
+	    Route,
+	    { path: 'users/:id', component: UserProfile },
+	    React.createElement(IndexRoute, { component: PostForm })
+	  )
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
@@ -19776,7 +19781,7 @@
 	        ApiActions.receiveAllPosts(data);
 	      },
 	      error: function () {
-	        return "Were not able to get the posts! : )";
+	        return "Were not able to get the posts! :`)";
 	      }
 	    });
 	  },
@@ -19791,7 +19796,7 @@
 	        ApiActions.getNewPost(data);
 	      },
 	      error: function () {
-	        return "We were not able to create your post!";
+	        return "We were not able to create your post! :`)";
 	      }
 	    });
 	  },
@@ -19806,7 +19811,20 @@
 	        ApiActions.getDeletedPost(data);
 	      },
 	      error: function () {
-	        return "We were not able to remove your post!";
+	        return "We were not able to remove your post! :`)";
+	      }
+	    });
+	  },
+
+	  fetchAllUsers: function () {
+	    $.ajax({
+	      method: "GET",
+	      url: "api/users",
+	      success: function (data) {
+	        ApiActions.receiveAllUsers(data);
+	      },
+	      error: function () {
+	        return "We were not able to access the users! :`)";
 	      }
 	    });
 	  },
@@ -19819,7 +19837,7 @@
 	        ApiActions.receiveOneUser(data);
 	      },
 	      error: function () {
-	        return "Were not able to access the user's information! : )";
+	        return "Were not able to access the user's information! :`)";
 	      }
 	    });
 	  }
@@ -19851,16 +19869,25 @@
 	      posts: posts
 	    });
 	  },
+
 	  getNewPost: function (post) {
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.NEW_POST_RECEIVED,
 	      post: post
 	    });
 	  },
+
 	  getDeletedPost: function (post) {
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.DELETED_POST_RECEIVED,
 	      post: post
+	    });
+	  },
+
+	  receiveAllUsers: function (users) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.ALL_USERS_RECEIVED,
+	      users: users
 	    });
 	  },
 
@@ -20198,6 +20225,7 @@
 	  POSTS_RECEIVED: "POSTS_RECEIVED",
 	  NEW_POST_RECEIVED: "NEW_POST_RECEIVED",
 	  DELETED_POST_RECEIVED: "DELETED_POST_RECEIVED",
+	  ALL_USERS_RECEIVED: "ALL_USERS_RECEIVED",
 	  USER_RECEIVED: "USER_RECEIVED"
 	};
 
@@ -24544,8 +24572,8 @@
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
 	    PostStore = __webpack_require__(214),
-	    PostForm = __webpack_require__(232),
-	    ReactCSSTransitionGroup = __webpack_require__(233);
+	    PostForm = __webpack_require__(230),
+	    ReactCSSTransitionGroup = __webpack_require__(231);
 
 	var Posts = React.createClass({
 	  displayName: 'Posts',
@@ -24694,7 +24722,7 @@
 
 	module.exports.Container = __webpack_require__(216);
 	module.exports.MapStore = __webpack_require__(219);
-	module.exports.Mixin = __webpack_require__(231);
+	module.exports.Mixin = __webpack_require__(229);
 	module.exports.ReduceStore = __webpack_require__(220);
 	module.exports.Store = __webpack_require__(221);
 
@@ -25041,7 +25069,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var FluxReduceStore = __webpack_require__(220);
-	var Immutable = __webpack_require__(230);
+	var Immutable = __webpack_require__(228);
 
 	var invariant = __webpack_require__(164);
 
@@ -25192,7 +25220,7 @@
 
 	var FluxStore = __webpack_require__(221);
 
-	var abstractMethod = __webpack_require__(229);
+	var abstractMethod = __webpack_require__(227);
 	var invariant = __webpack_require__(164);
 
 	var FluxReduceStore = (function (_FluxStore) {
@@ -25501,8 +25529,8 @@
 	var EmitterSubscription = __webpack_require__(224);
 	var EventSubscriptionVendor = __webpack_require__(226);
 
-	var emptyFunction = __webpack_require__(228);
-	var invariant = __webpack_require__(227);
+	var emptyFunction = __webpack_require__(15);
+	var invariant = __webpack_require__(13);
 
 	/**
 	 * @class BaseEventEmitter
@@ -25802,7 +25830,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var invariant = __webpack_require__(227);
+	var invariant = __webpack_require__(13);
 
 	/**
 	 * EventSubscriptionVendor stores a set of EventSubscriptions that are
@@ -25896,105 +25924,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule invariant
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	}
-
-	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 228 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule emptyFunction
-	 */
-
-	"use strict";
-
-	function makeEmptyFunction(arg) {
-	  return function () {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	function emptyFunction() {}
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function () {
-	  return this;
-	};
-	emptyFunction.thatReturnsArgument = function (arg) {
-	  return arg;
-	};
-
-	module.exports = emptyFunction;
-
-/***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2014-2015, Facebook, Inc.
 	 * All rights reserved.
 	 *
@@ -26018,7 +25947,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 230 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31005,7 +30934,7 @@
 	}));
 
 /***/ },
-/* 231 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31128,7 +31057,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 232 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -31177,13 +31106,13 @@
 	module.exports = PostForm;
 
 /***/ },
-/* 233 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(234);
+	module.exports = __webpack_require__(232);
 
 /***/ },
-/* 234 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31204,8 +31133,8 @@
 
 	var assign = __webpack_require__(39);
 
-	var ReactTransitionGroup = __webpack_require__(235);
-	var ReactCSSTransitionGroupChild = __webpack_require__(237);
+	var ReactTransitionGroup = __webpack_require__(233);
+	var ReactCSSTransitionGroupChild = __webpack_require__(235);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -31271,7 +31200,7 @@
 	module.exports = ReactCSSTransitionGroup;
 
 /***/ },
-/* 235 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31288,7 +31217,7 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var ReactTransitionChildMapping = __webpack_require__(236);
+	var ReactTransitionChildMapping = __webpack_require__(234);
 
 	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
@@ -31481,7 +31410,7 @@
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 236 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31584,7 +31513,7 @@
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 237 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31604,8 +31533,8 @@
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(3);
 
-	var CSSCore = __webpack_require__(238);
-	var ReactTransitionEvents = __webpack_require__(239);
+	var CSSCore = __webpack_require__(236);
+	var ReactTransitionEvents = __webpack_require__(237);
 
 	var onlyChild = __webpack_require__(156);
 
@@ -31754,7 +31683,7 @@
 	module.exports = ReactCSSTransitionGroupChild;
 
 /***/ },
-/* 238 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31857,7 +31786,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 239 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31971,32 +31900,39 @@
 	module.exports = ReactTransitionEvents;
 
 /***/ },
-/* 240 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(241),
+	    UserStore = __webpack_require__(239),
 	    PostStore = __webpack_require__(214),
-	    Header = __webpack_require__(242),
-	    ReactCSSTransitionGroup = __webpack_require__(233);
+	    Header = __webpack_require__(240),
+	    ReactCSSTransitionGroup = __webpack_require__(231);
 
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
 
 	  getInitialState: function () {
-	    return { user: UserStore.find() };
+	    return { user: UserStore.find(parseInt(this.props.params.id)) };
 	  },
 
 	  componentDidMount: function () {
 	    UserStore.addListener(this._onChange);
-	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	    ApiUtil.fetchAllUsers();
+	  },
+
+	  componentWillReceiveProps: function (newProps) {
+	    // ApiUtil.fetchAllUsers(parseInt(this.props.params.id));
+	    // debugger
+	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
 	  deletePost: function (post) {
 	    ApiUtil.deletePost(post);
-	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	    UserStore.find(parseInt(this.props.params.id));
 	  },
 
 	  render: function () {
@@ -32058,7 +31994,8 @@
 	  },
 
 	  _onChange: function () {
-	    this.setState({ user: UserStore.find() });
+	    // debugger
+	    this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
 	  }
 
 	});
@@ -32066,7 +32003,7 @@
 	module.exports = UserProfile;
 
 /***/ },
-/* 241 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(215).Store,
@@ -32078,8 +32015,24 @@
 	    _users = [],
 	    _user = [];
 
-	UserStore.find = function () {
-	  return _user;
+	UserStore.find = function (userId) {
+	  if (_users.length > 0) {
+	    var profileUser;
+	    _users.forEach(function (user) {
+	      if (user.id === userId) {
+	        profileUser = user;
+	      }
+	    });
+	    if (profileUser !== undefined) {
+	      return profileUser;
+	    }
+	  } else {
+	    return [];
+	  }
+	};
+
+	UserStore.resetUsers = function (users) {
+	  _users = users;
 	};
 
 	UserStore.resetUser = function (user) {
@@ -32088,6 +32041,10 @@
 
 	UserStore.__onDispatch = function (payload) {
 	  switch (payload.actionType) {
+	    case FamebookConstants.ALL_USERS_RECEIVED:
+	      this.resetUsers(payload.users);
+	      UserStore.__emitChange();
+	      break;
 	    case FamebookConstants.USER_RECEIVED:
 	      this.resetUser(payload.user);
 	      UserStore.__emitChange();
@@ -32098,13 +32055,13 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 242 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(241),
+	    UserStore = __webpack_require__(239),
 	    PostStore = __webpack_require__(214);
 
 	var Header = React.createClass({
