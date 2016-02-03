@@ -1,6 +1,3 @@
 json.array! @posts do |post|
-  json.extract! post, :body, :id, :author_id
-  json.author do
-    json.name post.author.first_name + " " + post.author.last_name
-  end
+  json.partial! "api/posts/post", post: post
 end

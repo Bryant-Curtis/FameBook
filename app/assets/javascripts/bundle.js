@@ -150,11 +150,7 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts }),
-	  React.createElement(
-	    Route,
-	    { path: 'users/:id', component: UserProfile },
-	    React.createElement(IndexRoute, { component: PostForm })
-	  )
+	  React.createElement(Route, { path: 'users/:id', component: UserProfile })
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
