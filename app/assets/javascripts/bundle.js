@@ -31934,10 +31934,11 @@
 	  },
 
 	  render: function () {
-	    var username = this.state.user.first_name + " " + this.state.user.last_name,
+	    var username = "",
 	        userPosts = [],
 	        deleteButton;
 	    if (this.state.user.length !== 0) {
+	      username = this.state.user.first_name + " " + this.state.user.last_name;
 	      userPosts = this.state.user.posts.map(function (post) {
 	        if (post.author_id === parseInt(this.props.params.id)) {
 	          if (parseInt(post.author_id) === parseInt(window.currentUserId)) {
@@ -31978,7 +31979,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-main' },
-	      React.createElement(Header, { user: this.state.user }),
+	      React.createElement(Header, { user: username }),
 	      React.createElement(
 	        'ul',
 	        null,
@@ -32066,7 +32067,7 @@
 	  displayName: 'Header',
 
 	  render: function () {
-	    var username = this.props.user.first_name + " " + this.props.user.last_name;
+	    var username = this.props.user;
 	    return React.createElement(
 	      'header',
 	      { className: 'profile-header' },

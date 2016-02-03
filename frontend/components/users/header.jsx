@@ -7,7 +7,7 @@ var React = require('react'),
 var Header = React.createClass({
 
   render: function () {
-    var username = this.props.user.first_name + " " + this.props.user.last_name;
+    var username = this.props.user;
     return(
       <header className="profile-header">
         <figure className="profile-header-photo"></figure>

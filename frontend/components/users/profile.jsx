@@ -27,10 +27,11 @@ var UserProfile = React.createClass({
   },
 
   render: function () {
-    var username = this.state.user.first_name + " " + this.state.user.last_name,
+    var username = "",
         userPosts = [],
         deleteButton;
     if (this.state.user.length !== 0) {
+      username = this.state.user.first_name + " " + this.state.user.last_name;
       userPosts = this.state.user.posts.map(function(post) {
         if (post.author_id === parseInt(this.props.params.id)) {
           if ((parseInt(post.author_id)) === (parseInt(window.currentUserId))) {
@@ -56,7 +57,7 @@ var UserProfile = React.createClass({
     }
     return(
       <div className="profile-main">
-        <Header user={this.state.user} />
+        <Header user={username} />
         <ul>
           <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
             { userPosts.reverse() }
