@@ -12,8 +12,12 @@ var Posts = React.createClass({
   },
 
   componentDidMount: function () {
-    PostStore.addListener(this._onChange);
+    this.postToken = PostStore.addListener(this._onChange);
     ApiUtil.fetchAllPosts();
+  },
+
+  componentWillUnmount: function () {
+    this.postToken.remove();
   },
 
   deletePost: function (post_id) {

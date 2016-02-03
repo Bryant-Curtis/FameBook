@@ -24579,8 +24579,12 @@
 	  },
 
 	  componentDidMount: function () {
-	    PostStore.addListener(this._onChange);
+	    this.postToken = PostStore.addListener(this._onChange);
 	    ApiUtil.fetchAllPosts();
+	  },
+
+	  componentWillUnmount: function () {
+	    this.postToken.remove();
 	  },
 
 	  deletePost: function (post_id) {
@@ -31918,9 +31922,14 @@
 	  },
 
 	  componentDidMount: function () {
-	    UserStore.addListener(this._onChange);
-	    PostStore.addListener(this._onPostsChange);
+	    this.userToken = UserStore.addListener(this._onChange);
+	    this.postToken = PostStore.addListener(this._onPostsChange);
 	    ApiUtil.fetchAllUsers();
+	  },
+
+	  componentWillUnmount: function () {
+	    this.userToken.remove();
+	    this.postToken.remove();
 	  },
 
 	  componentWillReceiveProps: function (newProps) {
