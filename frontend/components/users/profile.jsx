@@ -4,6 +4,7 @@ var React = require('react'),
     UserStore = require('../../stores/userStore'),
     PostStore = require('../../stores/postStore'),
     Header = require('./header'),
+    PostForm = require('../posts/form'),
     ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var UserProfile = React.createClass({
@@ -13,6 +14,7 @@ var UserProfile = React.createClass({
 
   componentDidMount: function () {
     UserStore.addListener(this._onChange);
+    PostStore.addListener(this._onPostsChange);
     ApiUtil.fetchAllUsers();
   },
 
@@ -58,6 +60,7 @@ var UserProfile = React.createClass({
     return(
       <div className="profile-main">
         <Header user={username} />
+        <PostForm />
         <ul>
           <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
             { userPosts.reverse() }
@@ -67,8 +70,11 @@ var UserProfile = React.createClass({
     );
   },
 
+  _onPostsChange: function () {
+    ApiUtil.fetchAllUsers();
+  },
+
   _onChange: function () {
-    // debugger
     this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
   }
 

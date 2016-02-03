@@ -31907,6 +31907,7 @@
 	    UserStore = __webpack_require__(239),
 	    PostStore = __webpack_require__(214),
 	    Header = __webpack_require__(240),
+	    PostForm = __webpack_require__(230),
 	    ReactCSSTransitionGroup = __webpack_require__(231);
 
 	var UserProfile = React.createClass({
@@ -31918,6 +31919,7 @@
 
 	  componentDidMount: function () {
 	    UserStore.addListener(this._onChange);
+	    PostStore.addListener(this._onPostsChange);
 	    ApiUtil.fetchAllUsers();
 	  },
 
@@ -31978,6 +31980,7 @@
 	      'div',
 	      { className: 'profile-main' },
 	      React.createElement(Header, { user: username }),
+	      React.createElement(PostForm, null),
 	      React.createElement(
 	        'ul',
 	        null,
@@ -31990,8 +31993,11 @@
 	    );
 	  },
 
+	  _onPostsChange: function () {
+	    ApiUtil.fetchAllUsers();
+	  },
+
 	  _onChange: function () {
-	    // debugger
 	    this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
 	  }
 
