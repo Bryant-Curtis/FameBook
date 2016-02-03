@@ -52,7 +52,7 @@ var Posts = React.createClass({
       <div key={1} className="root-page-posts-and-form">
         <PostForm />
         <ul>
-          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
             { posts }
           </ReactCSSTransitionGroup>
         </ul>

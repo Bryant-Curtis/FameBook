@@ -17,15 +17,13 @@ var UserProfile = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    // ApiUtil.fetchAllUsers(parseInt(this.props.params.id));
-    // debugger
+    ApiUtil.fetchAllUsers();
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
   deletePost: function (post) {
     ApiUtil.deletePost(post);
-    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
-    UserStore.find(parseInt(this.props.params.id));
+    ApiUtil.fetchAllUsers();
   },
 
   render: function () {
@@ -60,7 +58,7 @@ var UserProfile = React.createClass({
       <div className="profile-main">
         <Header user={this.state.user} />
         <ul>
-          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={900}>
+          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
             { userPosts.reverse() }
           </ReactCSSTransitionGroup>
         </ul>

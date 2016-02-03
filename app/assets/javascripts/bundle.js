@@ -24642,7 +24642,7 @@
 	        null,
 	        React.createElement(
 	          ReactCSSTransitionGroup,
-	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
 	          posts
 	        )
 	      )
@@ -31924,15 +31924,13 @@
 	  },
 
 	  componentWillReceiveProps: function (newProps) {
-	    // ApiUtil.fetchAllUsers(parseInt(this.props.params.id));
-	    // debugger
+	    ApiUtil.fetchAllUsers();
 	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
 	  deletePost: function (post) {
 	    ApiUtil.deletePost(post);
-	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
-	    UserStore.find(parseInt(this.props.params.id));
+	    ApiUtil.fetchAllUsers();
 	  },
 
 	  render: function () {
@@ -31986,7 +31984,7 @@
 	        null,
 	        React.createElement(
 	          ReactCSSTransitionGroup,
-	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 900 },
+	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
 	          userPosts.reverse()
 	        )
 	      )
