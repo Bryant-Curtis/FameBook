@@ -13,7 +13,7 @@ var Posts = React.createClass({
 
   componentDidMount: function () {
     PostStore.addListener(this._onChange);
-    PostStore.updateOnMount();
+    ApiUtil.fetchAllPosts();
   },
 
   deletePost: function (post_id) {

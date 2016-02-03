@@ -40,10 +40,6 @@ PostStore.__onDispatch = function (payload) {
   }
 };
 
-PostStore.updateOnMount = function () {
-  ApiUtil.fetchAllPosts();
-};
-
 module.exports = PostStore;
 
 // Is the state going to be everything that the store has?

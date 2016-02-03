@@ -43,7 +43,6 @@ ul {
 
 /* HEADER */
 
-
 .header {
   border-bottom: 1px solid #1c326c;
   height: 84px;
@@ -209,10 +208,6 @@ ul {
 .sign-up > h4 {
   margin: 0 0 22px 0;
   font-size: 19px;
-}
-
-.sign-up-form {
-  color: #999999;
 }
 
 ::-webkit-input-placeholder {

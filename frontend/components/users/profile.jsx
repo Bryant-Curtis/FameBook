@@ -13,19 +13,25 @@ var UserProfile = React.createClass({
   componentDidMount: function () {
     UserStore.addListener(this._onChange);
     ApiUtil.fetchOneUser(parseInt(this.props.params.id));
-    ApiUtil.fetchAllPosts();
   },
 
   deletePost: function (post) {
     ApiUtil.deletePost(post);
+    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
   },
 
   render: function () {
     var username = this.state.user.first_name + " " + this.state.user.last_name,
-        userPosts = [];
+        userPosts = [],
+        deleteButton;
     if (this.state.user.length !== 0) {
       userPosts = this.state.user.posts.map(function(post) {
         if (post.author_id === parseInt(this.props.params.id)) {
+          if ((parseInt(post.author_id)) === (parseInt(window.currentUserId))) {
+            deleteButton = <button onClick={this.deletePost.bind(this, post)} className="delete-post-button">Delete</button>;
+          } else {
+            deleteButton = "";
+          }
           return(
             <li key={post.id} className="post group">
               <header className="post-header">
@@ -36,7 +42,7 @@ var UserProfile = React.createClass({
                 </section>
               </header>
               <article className="post-body">{ post.body }</article>
-              <button onClick={this.deletePost.bind(this, post.id)} className="delete-post-button">Delete</button>
+              { deleteButton }
             </li>
           );
         }
@@ -45,7 +51,7 @@ var UserProfile = React.createClass({
     return(
       <div className="profile-main">
         <Header user={this.state.user} />
-        <ul>{ userPosts }</ul>
+        <ul>{ userPosts.reverse() }</ul>
       </div>
     );
   },

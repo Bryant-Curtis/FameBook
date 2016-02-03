@@ -51,7 +51,7 @@
 	    Route = __webpack_require__(166).Route,
 	    IndexRoute = __webpack_require__(166).IndexRoute,
 	    Posts = __webpack_require__(213),
-	    UserProfile = __webpack_require__(233);
+	    UserProfile = __webpack_require__(240);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -24545,7 +24545,7 @@
 	    FamebookConstants = __webpack_require__(165),
 	    PostStore = __webpack_require__(214),
 	    PostForm = __webpack_require__(232),
-	    ReactCSSTransitionGroup = __webpack_require__(236);
+	    ReactCSSTransitionGroup = __webpack_require__(233);
 
 	var Posts = React.createClass({
 	  displayName: 'Posts',
@@ -24556,7 +24556,7 @@
 
 	  componentDidMount: function () {
 	    PostStore.addListener(this._onChange);
-	    PostStore.updateOnMount();
+	    ApiUtil.fetchAllPosts();
 	  },
 
 	  deletePost: function (post_id) {
@@ -24673,10 +24673,6 @@
 	    PostStore.deletePost(payload.post);
 	    PostStore.__emitChange();
 	  }
-	};
-
-	PostStore.updateOnMount = function () {
-	  ApiUtil.fetchAllPosts();
 	};
 
 	module.exports = PostStore;
@@ -31184,185 +31180,10 @@
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159),
-	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(234),
-	    PostStore = __webpack_require__(214),
-	    Header = __webpack_require__(235);
-
-	var UserProfile = React.createClass({
-	  displayName: 'UserProfile',
-
-	  getInitialState: function () {
-	    return { user: UserStore.find() };
-	  },
-
-	  componentDidMount: function () {
-	    UserStore.addListener(this._onChange);
-	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
-	    ApiUtil.fetchAllPosts();
-	  },
-
-	  deletePost: function (post) {
-	    ApiUtil.deletePost(post);
-	  },
-
-	  render: function () {
-	    var username = this.state.user.first_name + " " + this.state.user.last_name,
-	        userPosts = [];
-	    if (this.state.user.length !== 0) {
-	      userPosts = this.state.user.posts.map(function (post) {
-	        if (post.author_id === parseInt(this.props.params.id)) {
-	          return React.createElement(
-	            'li',
-	            { key: post.id, className: 'post group' },
-	            React.createElement(
-	              'header',
-	              { className: 'post-header' },
-	              React.createElement(
-	                'section',
-	                { className: 'post-header-name' },
-	                React.createElement(
-	                  'a',
-	                  { className: 'post-author-name', href: "#/users/" + post.author_id },
-	                  username
-	                )
-	              )
-	            ),
-	            React.createElement(
-	              'article',
-	              { className: 'post-body' },
-	              post.body
-	            ),
-	            React.createElement(
-	              'button',
-	              { onClick: this.deletePost.bind(this, post.id), className: 'delete-post-button' },
-	              'Delete'
-	            )
-	          );
-	        }
-	      }, this);
-	    }
-	    return React.createElement(
-	      'div',
-	      { className: 'profile-main' },
-	      React.createElement(Header, { user: this.state.user }),
-	      React.createElement(
-	        'ul',
-	        null,
-	        userPosts
-	      )
-	    );
-	  },
-
-	  _onChange: function () {
-	    this.setState({ user: UserStore.find() });
-	  }
-
-	});
-
-	module.exports = UserProfile;
+	module.exports = __webpack_require__(234);
 
 /***/ },
 /* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Store = __webpack_require__(215).Store,
-	    Dispatcher = __webpack_require__(161),
-	    React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159),
-	    FamebookConstants = __webpack_require__(165),
-	    UserStore = new Store(Dispatcher),
-	    _users = [],
-	    _user = [];
-
-	UserStore.find = function () {
-	  return _user;
-	};
-
-	UserStore.resetUser = function (user) {
-	  _user = user;
-	};
-
-	UserStore.__onDispatch = function (payload) {
-	  switch (payload.actionType) {
-	    case FamebookConstants.USER_RECEIVED:
-	      this.resetUser(payload.user);
-	      UserStore.__emitChange();
-	      break;
-	  }
-	};
-
-	module.exports = UserStore;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159),
-	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(234),
-	    PostStore = __webpack_require__(214);
-
-	var Header = React.createClass({
-	  displayName: 'Header',
-
-	  render: function () {
-	    var username = this.props.user.first_name + " " + this.props.user.last_name;
-	    return React.createElement(
-	      'header',
-	      { className: 'profile-header' },
-	      React.createElement('figure', { className: 'profile-header-photo' }),
-	      React.createElement('figure', { className: 'profile-user-photo' }),
-	      React.createElement(
-	        'figure',
-	        { className: 'profile-username' },
-	        username
-	      ),
-	      React.createElement(
-	        'nav',
-	        { className: 'profile-nav' },
-	        React.createElement(
-	          'ul',
-	          { className: 'group' },
-	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-timeline' },
-	            'Timeline'
-	          ),
-	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-about' },
-	            'About'
-	          ),
-	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-friends' },
-	            'Friends'
-	          ),
-	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-photos' },
-	            'Photos'
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = Header;
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(237);
-
-/***/ },
-/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31383,8 +31204,8 @@
 
 	var assign = __webpack_require__(39);
 
-	var ReactTransitionGroup = __webpack_require__(238);
-	var ReactCSSTransitionGroupChild = __webpack_require__(240);
+	var ReactTransitionGroup = __webpack_require__(235);
+	var ReactCSSTransitionGroupChild = __webpack_require__(237);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -31450,7 +31271,7 @@
 	module.exports = ReactCSSTransitionGroup;
 
 /***/ },
-/* 238 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31467,7 +31288,7 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var ReactTransitionChildMapping = __webpack_require__(239);
+	var ReactTransitionChildMapping = __webpack_require__(236);
 
 	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
@@ -31660,7 +31481,7 @@
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 239 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31763,7 +31584,7 @@
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 240 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31783,8 +31604,8 @@
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(3);
 
-	var CSSCore = __webpack_require__(241);
-	var ReactTransitionEvents = __webpack_require__(242);
+	var CSSCore = __webpack_require__(238);
+	var ReactTransitionEvents = __webpack_require__(239);
 
 	var onlyChild = __webpack_require__(156);
 
@@ -31933,7 +31754,7 @@
 	module.exports = ReactCSSTransitionGroupChild;
 
 /***/ },
-/* 241 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -32036,7 +31857,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 242 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -32148,6 +31969,187 @@
 	};
 
 	module.exports = ReactTransitionEvents;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159),
+	    FamebookConstants = __webpack_require__(165),
+	    UserStore = __webpack_require__(241),
+	    PostStore = __webpack_require__(214),
+	    Header = __webpack_require__(242);
+
+	var UserProfile = React.createClass({
+	  displayName: 'UserProfile',
+
+	  getInitialState: function () {
+	    return { user: UserStore.find() };
+	  },
+
+	  componentDidMount: function () {
+	    UserStore.addListener(this._onChange);
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	  },
+
+	  deletePost: function (post) {
+	    ApiUtil.deletePost(post);
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	  },
+
+	  render: function () {
+	    var username = this.state.user.first_name + " " + this.state.user.last_name,
+	        userPosts = [],
+	        deleteButton;
+	    if (this.state.user.length !== 0) {
+	      userPosts = this.state.user.posts.map(function (post) {
+	        if (post.author_id === parseInt(this.props.params.id)) {
+	          if (parseInt(post.author_id) === parseInt(window.currentUserId)) {
+	            deleteButton = React.createElement(
+	              'button',
+	              { onClick: this.deletePost.bind(this, post), className: 'delete-post-button' },
+	              'Delete'
+	            );
+	          } else {
+	            deleteButton = "";
+	          }
+	          return React.createElement(
+	            'li',
+	            { key: post.id, className: 'post group' },
+	            React.createElement(
+	              'header',
+	              { className: 'post-header' },
+	              React.createElement(
+	                'section',
+	                { className: 'post-header-name' },
+	                React.createElement(
+	                  'a',
+	                  { className: 'post-author-name', href: "#/users/" + post.author_id },
+	                  username
+	                )
+	              )
+	            ),
+	            React.createElement(
+	              'article',
+	              { className: 'post-body' },
+	              post.body
+	            ),
+	            deleteButton
+	          );
+	        }
+	      }, this);
+	    }
+	    return React.createElement(
+	      'div',
+	      { className: 'profile-main' },
+	      React.createElement(Header, { user: this.state.user }),
+	      React.createElement(
+	        'ul',
+	        null,
+	        userPosts.reverse()
+	      )
+	    );
+	  },
+
+	  _onChange: function () {
+	    this.setState({ user: UserStore.find() });
+	  }
+
+	});
+
+	module.exports = UserProfile;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Store = __webpack_require__(215).Store,
+	    Dispatcher = __webpack_require__(161),
+	    React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159),
+	    FamebookConstants = __webpack_require__(165),
+	    UserStore = new Store(Dispatcher),
+	    _users = [],
+	    _user = [];
+
+	UserStore.find = function () {
+	  return _user;
+	};
+
+	UserStore.resetUser = function (user) {
+	  _user = user;
+	};
+
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case FamebookConstants.USER_RECEIVED:
+	      this.resetUser(payload.user);
+	      UserStore.__emitChange();
+	      break;
+	  }
+	};
+
+	module.exports = UserStore;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159),
+	    FamebookConstants = __webpack_require__(165),
+	    UserStore = __webpack_require__(241),
+	    PostStore = __webpack_require__(214);
+
+	var Header = React.createClass({
+	  displayName: 'Header',
+
+	  render: function () {
+	    var username = this.props.user.first_name + " " + this.props.user.last_name;
+	    return React.createElement(
+	      'header',
+	      { className: 'profile-header' },
+	      React.createElement('figure', { className: 'profile-header-photo' }),
+	      React.createElement('figure', { className: 'profile-user-photo' }),
+	      React.createElement(
+	        'figure',
+	        { className: 'profile-username' },
+	        username
+	      ),
+	      React.createElement(
+	        'nav',
+	        { className: 'profile-nav' },
+	        React.createElement(
+	          'ul',
+	          { className: 'group' },
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-timeline' },
+	            'Timeline'
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-about' },
+	            'About'
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-friends' },
+	            'Friends'
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-photos' },
+	            'Photos'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Header;
 
 /***/ }
 /******/ ]);
