@@ -35,7 +35,7 @@ var NavBar = React.createClass({
             <li className="home-header-items">
               <a href={"#/users/" + window.currentUserId}>
                 <figure className="home-header-profile-link-box">
-                  <h6 className="home-header-profile-link">My Profile</h6>
+                  <h6 className="home-header-profile-link">{ window.currentUserName }</h6>
                 </figure>
               </a>
             </li>

@@ -106,7 +106,7 @@
 	                React.createElement(
 	                  'h6',
 	                  { className: 'home-header-profile-link' },
-	                  'My Profile'
+	                  window.currentUserName
 	                )
 	              )
 	            )
