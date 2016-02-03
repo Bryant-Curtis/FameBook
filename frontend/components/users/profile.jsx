@@ -3,7 +3,8 @@ var React = require('react'),
     FamebookConstants = require('../../constants/famebookConstants'),
     UserStore = require('../../stores/userStore'),
     PostStore = require('../../stores/postStore'),
-    Header = require('./header');
+    Header = require('./header'),
+    ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var UserProfile = React.createClass({
   getInitialState: function () {
@@ -51,7 +52,11 @@ var UserProfile = React.createClass({
     return(
       <div className="profile-main">
         <Header user={this.state.user} />
-        <ul>{ userPosts.reverse() }</ul>
+        <ul>
+          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={900}>
+            { userPosts.reverse() }
+          </ReactCSSTransitionGroup>
+        </ul>
       </div>
     );
   },

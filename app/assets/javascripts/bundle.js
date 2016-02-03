@@ -31979,7 +31979,8 @@
 	    FamebookConstants = __webpack_require__(165),
 	    UserStore = __webpack_require__(241),
 	    PostStore = __webpack_require__(214),
-	    Header = __webpack_require__(242);
+	    Header = __webpack_require__(242),
+	    ReactCSSTransitionGroup = __webpack_require__(233);
 
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
@@ -32047,7 +32048,11 @@
 	      React.createElement(
 	        'ul',
 	        null,
-	        userPosts.reverse()
+	        React.createElement(
+	          ReactCSSTransitionGroup,
+	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 900 },
+	          userPosts.reverse()
+	        )
 	      )
 	    );
 	  },
