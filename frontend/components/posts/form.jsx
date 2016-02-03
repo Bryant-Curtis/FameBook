@@ -11,9 +11,10 @@ var PostForm = React.createClass({
     this.setState({ body: event.currentTarget.value});
   },
 
-  createPost: function () {
-    event.preventDefault();
+  createPost: function (e) {
+    e.preventDefault();
     ApiUtil.createPost(this.state);
+    this.setState({ body: "" });
   },
 
   render: function () {
@@ -25,7 +26,8 @@ var PostForm = React.createClass({
             onChange={this.handleInput}
             type="text"
             name="post[body]"
-            placeholder="How are you feeling?"/>
+            placeholder="How are you feeling?"
+            value={this.state.body}/>
         </div>
         <button className="create-post-button">Post</button>
       </form>
