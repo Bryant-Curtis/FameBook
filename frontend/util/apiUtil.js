@@ -52,7 +52,7 @@ var ApiUtil = {
         ApiActions.receiveAllUsers(data);
       },
       error: function () {
-        return "We were not able to access the users! :`)";
+        return "Was not able to access the users! :`)";
       }
     });
   },
@@ -65,10 +65,25 @@ var ApiUtil = {
         ApiActions.receiveOneUser(data);
       },
       error: function () {
-        return "Were not able to access the user's information! :`)";
+        return "Was not able to access the user's information! :`)";
       }
     });
   },
+
+  giveUserId: function (requesteeId, requestorId) {
+    $.ajax({
+      method:   "PATCH",
+      url:      "/api/users/" + requesteeId,
+      dataType: "json",
+      data:     { user: {friend_request_id: requestorId} },
+      successful: function (data) {
+        ApiActions.receiveRequestee(data);
+      },
+      error: function () {
+        return "Was not able to request for friend! :`)";
+      }
+    });
+  }
 
   // logOut: function (callback) {
   //   $.ajax({

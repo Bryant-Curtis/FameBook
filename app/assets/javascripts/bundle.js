@@ -19820,7 +19820,7 @@
 	        ApiActions.receiveAllUsers(data);
 	      },
 	      error: function () {
-	        return "We were not able to access the users! :`)";
+	        return "Was not able to access the users! :`)";
 	      }
 	    });
 	  },
@@ -19833,22 +19833,37 @@
 	        ApiActions.receiveOneUser(data);
 	      },
 	      error: function () {
-	        return "Were not able to access the user's information! :`)";
+	        return "Was not able to access the user's information! :`)";
+	      }
+	    });
+	  },
+
+	  giveUserId: function (requesteeId, requestorId) {
+	    $.ajax({
+	      method: "PATCH",
+	      url: "/api/users/" + requesteeId,
+	      dataType: "json",
+	      data: { user: { friend_request_id: requestorId } },
+	      successful: function (data) {
+	        ApiActions.receiveRequestee(data);
+	      },
+	      error: function () {
+	        return "Was not able to request for friend! :`)";
 	      }
 	    });
 	  }
 
+	  // logOut: function (callback) {
+	  //   $.ajax({
+	  //     method: "DELETE",
+	  //     url: '/session',
+	  //     success: function (data) {
+	  //       callback && callback();
+	  //     }
+	  //   });
+	  // }
 	};
 
-	// logOut: function (callback) {
-	//   $.ajax({
-	//     method: "DELETE",
-	//     url: '/session',
-	//     success: function (data) {
-	//       callback && callback();
-	//     }
-	//   });
-	// }
 	module.exports = ApiUtil;
 
 /***/ },
@@ -19891,6 +19906,13 @@
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.USER_RECEIVED,
 	      user: user
+	    });
+	  },
+
+	  receiveRequestee: function (requestorId) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.REQUESTEE_RECEIVED,
+	      requestee: requestee
 	    });
 	  }
 	};
@@ -20222,7 +20244,8 @@
 	  NEW_POST_RECEIVED: "NEW_POST_RECEIVED",
 	  DELETED_POST_RECEIVED: "DELETED_POST_RECEIVED",
 	  ALL_USERS_RECEIVED: "ALL_USERS_RECEIVED",
-	  USER_RECEIVED: "USER_RECEIVED"
+	  USER_RECEIVED: "USER_RECEIVED",
+	  REQUESTEE_RECEIVED: "REQUESTEE_RECEIVED"
 	};
 
 	module.exports = FamebookConstants;
@@ -32051,6 +32074,14 @@
 	  _user = user;
 	};
 
+	UserStore.updateUser = function (requestee) {
+	  _users.forEach(function (user) {
+	    if (user.id === requestee.id) {
+	      user = requestee;
+	    }
+	  });
+	};
+
 	UserStore.__onDispatch = function (payload) {
 	  switch (payload.actionType) {
 	    case FamebookConstants.ALL_USERS_RECEIVED:
@@ -32059,6 +32090,10 @@
 	      break;
 	    case FamebookConstants.USER_RECEIVED:
 	      this.resetUser(payload.user);
+	      UserStore.__emitChange();
+	      break;
+	    case FamebookConstants.REQUESTEE_RECEIVED:
+	      this.updateUser(payload.requestee);
 	      UserStore.__emitChange();
 	      break;
 	  }

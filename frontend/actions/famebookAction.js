@@ -35,6 +35,13 @@ var ApiActions = {
       actionType: FamebookConstants.USER_RECEIVED,
       user: user
     });
+  },
+
+  receiveRequestee: function(requestorId) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.REQUESTEE_RECEIVED,
+      requestee: requestee
+    });
   }
 };
 

@@ -31,6 +31,14 @@ UserStore.resetUser = function (user) {
   _user = user;
 };
 
+UserStore.updateUser = function (requestee) {
+  _users.forEach(function(user) {
+    if (user.id === requestee.id) {
+      user = requestee;
+    }
+  });
+};
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case FamebookConstants.ALL_USERS_RECEIVED:
@@ -39,6 +47,10 @@ UserStore.__onDispatch = function (payload) {
       break;
     case FamebookConstants.USER_RECEIVED:
       this.resetUser(payload.user);
+      UserStore.__emitChange();
+      break;
+    case FamebookConstants.REQUESTEE_RECEIVED:
+      this.updateUser(payload.requestee);
       UserStore.__emitChange();
       break;
   }
