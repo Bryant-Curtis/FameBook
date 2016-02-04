@@ -37,7 +37,6 @@ var UserProfile = React.createClass({
   },
 
   render: function () {
-    debugger
     var username = "",
         userPosts = [],
         deleteButton,
@@ -70,7 +69,6 @@ var UserProfile = React.createClass({
         }
       },this);
     }
-    debugger
     return(
       <div className="profile-main">
         <Header user={this.state.user} />

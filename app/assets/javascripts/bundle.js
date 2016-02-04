@@ -32066,7 +32066,6 @@
 	  },
 
 	  render: function () {
-	    debugger;
 	    var username = "",
 	        userPosts = [],
 	        deleteButton,
@@ -32113,7 +32112,6 @@
 	        }
 	      }, this);
 	    }
-	    debugger;
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-main' },
@@ -32236,20 +32234,43 @@
 	var Header = React.createClass({
 	  displayName: 'Header',
 
-	  sendId: function (requestorId) {
-	    ApiUtil.giveUserId(this.props.user.id, requestorId);
-	    this.text = "Pending"; // AND Make the button unclickable!!
+	  sendId: function (requestorId, text) {
+	    if (text === "Befriend") {
+	      ApiUtil.giveUserId(this.props.user.id, requestorId);
+	      text = "Pending"; // AND Make the button unclickable!!
+	    } else if (text === "Unfriend") {
+	        // Add unfriend functionality here -> ApiUtil.deleteFriendship();
+	      }
 	  },
 
 	  render: function () {
-	    var username = "";
+	    var text;
+	    var username = "",
+	        friendRequestButton = "";
 	    if (this.props.user.first_name !== undefined) {
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
-	      if (this.text === undefined) {
+	      if (text === undefined) {
 	        if (this.props.user.friend_request_id === window.currentUserId) {
-	          this.text = "Pending";
-	        } else if (this.props.user) this.text = "Befriend";
+	          text = "Pending";
+	        } else if (this.props.user.friendships.length !== 0) {
+	          this.props.user.friendships.forEach(function (friendship) {
+	            if (friendship.friend_id === window.currentUserId) {
+	              text = "Unfriend";
+	            } else if (text === undefined) {
+	              text = "Befriend";
+	            }
+	          }.bind(this));
+	        } else {
+	          text = "Befriend";
+	        }
 	      }
+	    }
+	    if (parseInt(this.props.user.id) !== window.currentUserId) {
+	      friendRequestButton = React.createElement(
+	        'button',
+	        { className: 'profile-friend-request-button', onClick: this.sendId.bind(this, window.currentUserId, text) },
+	        text
+	      );
 	    }
 	    return React.createElement(
 	      'header',
@@ -32261,11 +32282,7 @@
 	        { className: 'profile-username' },
 	        username
 	      ),
-	      React.createElement(
-	        'button',
-	        { className: 'profile-friend-request-button', onClick: this.sendId.bind(this, window.currentUserId) },
-	        this.text
-	      ),
+	      friendRequestButton,
 	      React.createElement(
 	        'nav',
 	        { className: 'profile-nav' },
