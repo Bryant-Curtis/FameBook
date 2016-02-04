@@ -51,8 +51,8 @@
 	    Route = __webpack_require__(166).Route,
 	    IndexRoute = __webpack_require__(166).IndexRoute,
 	    Posts = __webpack_require__(213),
-	    PostForm = __webpack_require__(230),
-	    UserProfile = __webpack_require__(238);
+	    PostForm = __webpack_require__(232),
+	    UserProfile = __webpack_require__(240);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -24591,8 +24591,8 @@
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
 	    PostStore = __webpack_require__(214),
-	    PostForm = __webpack_require__(230),
-	    ReactCSSTransitionGroup = __webpack_require__(231);
+	    PostForm = __webpack_require__(232),
+	    ReactCSSTransitionGroup = __webpack_require__(233);
 
 	var Posts = React.createClass({
 	  displayName: 'Posts',
@@ -24745,7 +24745,7 @@
 
 	module.exports.Container = __webpack_require__(216);
 	module.exports.MapStore = __webpack_require__(219);
-	module.exports.Mixin = __webpack_require__(229);
+	module.exports.Mixin = __webpack_require__(231);
 	module.exports.ReduceStore = __webpack_require__(220);
 	module.exports.Store = __webpack_require__(221);
 
@@ -25092,7 +25092,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var FluxReduceStore = __webpack_require__(220);
-	var Immutable = __webpack_require__(228);
+	var Immutable = __webpack_require__(230);
 
 	var invariant = __webpack_require__(164);
 
@@ -25243,7 +25243,7 @@
 
 	var FluxStore = __webpack_require__(221);
 
-	var abstractMethod = __webpack_require__(227);
+	var abstractMethod = __webpack_require__(229);
 	var invariant = __webpack_require__(164);
 
 	var FluxReduceStore = (function (_FluxStore) {
@@ -25552,8 +25552,8 @@
 	var EmitterSubscription = __webpack_require__(224);
 	var EventSubscriptionVendor = __webpack_require__(226);
 
-	var emptyFunction = __webpack_require__(15);
-	var invariant = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(228);
+	var invariant = __webpack_require__(227);
 
 	/**
 	 * @class BaseEventEmitter
@@ -25853,7 +25853,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var invariant = __webpack_require__(13);
+	var invariant = __webpack_require__(227);
 
 	/**
 	 * EventSubscriptionVendor stores a set of EventSubscriptions that are
@@ -25947,6 +25947,103 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+
+	'use strict';
+
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  }
+
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	      error.name = 'Invariant Violation';
+	    }
+
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	}
+
+	module.exports = invariant;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 228 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+
+	"use strict";
+
+	function makeEmptyFunction(arg) {
+	  return function () {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	function emptyFunction() {}
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function () {
+	  return this;
+	};
+	emptyFunction.thatReturnsArgument = function (arg) {
+	  return arg;
+	};
+
+	module.exports = emptyFunction;
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2014-2015, Facebook, Inc.
 	 * All rights reserved.
 	 *
@@ -25970,7 +26067,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 228 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30957,7 +31054,7 @@
 	}));
 
 /***/ },
-/* 229 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31080,7 +31177,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -31131,13 +31228,13 @@
 	module.exports = PostForm;
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(232);
+	module.exports = __webpack_require__(234);
 
 /***/ },
-/* 232 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31158,8 +31255,8 @@
 
 	var assign = __webpack_require__(39);
 
-	var ReactTransitionGroup = __webpack_require__(233);
-	var ReactCSSTransitionGroupChild = __webpack_require__(235);
+	var ReactTransitionGroup = __webpack_require__(235);
+	var ReactCSSTransitionGroupChild = __webpack_require__(237);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -31225,7 +31322,7 @@
 	module.exports = ReactCSSTransitionGroup;
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31242,7 +31339,7 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var ReactTransitionChildMapping = __webpack_require__(234);
+	var ReactTransitionChildMapping = __webpack_require__(236);
 
 	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
@@ -31435,7 +31532,7 @@
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 234 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31538,7 +31635,7 @@
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 235 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31558,8 +31655,8 @@
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(3);
 
-	var CSSCore = __webpack_require__(236);
-	var ReactTransitionEvents = __webpack_require__(237);
+	var CSSCore = __webpack_require__(238);
+	var ReactTransitionEvents = __webpack_require__(239);
 
 	var onlyChild = __webpack_require__(156);
 
@@ -31708,7 +31805,7 @@
 	module.exports = ReactCSSTransitionGroupChild;
 
 /***/ },
-/* 236 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31811,7 +31908,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 237 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31925,17 +32022,17 @@
 	module.exports = ReactTransitionEvents;
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(239),
+	    UserStore = __webpack_require__(241),
 	    PostStore = __webpack_require__(214),
-	    Header = __webpack_require__(240),
-	    PostForm = __webpack_require__(230),
-	    ReactCSSTransitionGroup = __webpack_require__(231);
+	    Header = __webpack_require__(242),
+	    PostForm = __webpack_require__(232),
+	    ReactCSSTransitionGroup = __webpack_require__(233);
 
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
@@ -32038,7 +32135,7 @@
 	module.exports = UserProfile;
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(215).Store,
@@ -32102,13 +32199,13 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    ApiUtil = __webpack_require__(159),
 	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(239),
+	    UserStore = __webpack_require__(241),
 	    PostStore = __webpack_require__(214);
 
 	var Header = React.createClass({

@@ -12,6 +12,15 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     primary_key: :id
 
+  has_many :friendships,
+    class_name: "Friendship",
+    foreign_key: :self_id,
+    primary_key: :id
+
+  has_many :friends,
+    through: :friendships,
+    source:  :friend
+
 
   def password=(password)
     @password = password
@@ -39,9 +48,6 @@ class User < ActiveRecord::Base
   def ensure_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
-
-
-
 
 end
 
