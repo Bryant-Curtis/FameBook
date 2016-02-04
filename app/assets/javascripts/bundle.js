@@ -32043,30 +32043,38 @@
 
 	  componentDidMount: function () {
 	    this.userToken = UserStore.addListener(this._onChange);
-	    this.postToken = PostStore.addListener(this._onPostsChange);
-	    ApiUtil.fetchAllUsers();
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+
+	    // ApiUtil.fetchAllUsers();
+	    // this.postToken = PostStore.addListener(this._onPostsChange);
+	    // ApiUtil.fetchPosts(parseInt(this.props.params.id));
 	  },
 
 	  componentWillUnmount: function () {
 	    this.userToken.remove();
-	    this.postToken.remove();
+	    // this.postToken.remove();
 	  },
 
 	  componentWillReceiveProps: function (newProps) {
-	    ApiUtil.fetchAllUsers();
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
 	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
 	  deletePost: function (post) {
 	    ApiUtil.deletePost(post);
-	    ApiUtil.fetchAllUsers();
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
 	  },
 
 	  render: function () {
+	    debugger;
 	    var username = "",
 	        userPosts = [],
-	        deleteButton;
+	        deleteButton,
+	        postform = "";
 	    if (this.state.user.length !== 0) {
+	      if (this.state.user.id === window.currentUserId) {
+	        postform = React.createElement(PostForm, null);
+	      }
 	      username = this.state.user.first_name + " " + this.state.user.last_name;
 	      userPosts = this.state.user.posts.map(function (post) {
 	        if (post.author_id === parseInt(this.props.params.id)) {
@@ -32105,11 +32113,12 @@
 	        }
 	      }, this);
 	    }
+	    debugger;
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-main' },
 	      React.createElement(Header, { user: this.state.user }),
-	      React.createElement(PostForm, null),
+	      postform,
 	      React.createElement(
 	        'ul',
 	        null,
@@ -32122,9 +32131,10 @@
 	    );
 	  },
 
-	  _onPostsChange: function () {
-	    ApiUtil.fetchAllUsers();
-	  },
+	  // _onPostsChange: function () {
+	  //   // ApiUtil.fetchAllPosts();
+	  //   this.setState({ posts: PostStore.all() });
+	  // },
 
 	  _onChange: function () {
 	    this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
@@ -32167,14 +32177,28 @@
 	  _users = users;
 	};
 
-	UserStore.resetUser = function (user) {
-	  _user = user;
+	UserStore.resetUser = function (userNow) {
+	  var index = 0;
+	  _users.forEach(function (user, i) {
+	    if (user.id === userNow.id) {
+	      index = i;
+	    }
+	  });
+	  _users[index] = userNow;
 	};
 
 	UserStore.updateUser = function (requestee) {
 	  _users.forEach(function (user) {
 	    if (user.id === requestee.id) {
 	      user = requestee;
+	    }
+	  });
+	};
+
+	UserStore.addPost = function (post) {
+	  _users.forEach(function (user) {
+	    if (user.id === post.author_id) {
+	      user.posts.push(post);
 	    }
 	  });
 	};
@@ -32193,6 +32217,10 @@
 	      this.updateUser(payload.requestee);
 	      UserStore.__emitChange();
 	      break;
+	    case FamebookConstants.NEW_POST_RECEIVED:
+	      this.addPost(payload.post);
+	      UserStore.__emitChange();
+	      break;
 	  }
 	};
 
@@ -32202,12 +32230,14 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159);
 
 	var Header = React.createClass({
-	  displayName: "Header",
+	  displayName: 'Header',
 
-	  updateText: function () {
+	  sendId: function (requestorId) {
+	    ApiUtil.giveUserId(this.props.user.id, requestorId);
 	    this.text = "Pending"; // AND Make the button unclickable!!
 	  },
 
@@ -32218,50 +32248,49 @@
 	      if (this.text === undefined) {
 	        if (this.props.user.friend_request_id === window.currentUserId) {
 	          this.text = "Pending";
-	        }
-	        this.text = "Befriend";
+	        } else if (this.props.user) this.text = "Befriend";
 	      }
 	    }
 	    return React.createElement(
-	      "header",
-	      { className: "profile-header" },
-	      React.createElement("figure", { className: "profile-header-photo" }),
-	      React.createElement("figure", { className: "profile-user-photo" }),
+	      'header',
+	      { className: 'profile-header' },
+	      React.createElement('figure', { className: 'profile-header-photo' }),
+	      React.createElement('figure', { className: 'profile-user-photo' }),
 	      React.createElement(
-	        "figure",
-	        { className: "profile-username" },
+	        'figure',
+	        { className: 'profile-username' },
 	        username
 	      ),
 	      React.createElement(
-	        "button",
-	        { className: "profile-friend-request-button", onClick: this.updateText },
+	        'button',
+	        { className: 'profile-friend-request-button', onClick: this.sendId.bind(this, window.currentUserId) },
 	        this.text
 	      ),
 	      React.createElement(
-	        "nav",
-	        { className: "profile-nav" },
+	        'nav',
+	        { className: 'profile-nav' },
 	        React.createElement(
-	          "ul",
-	          { className: "group" },
+	          'ul',
+	          { className: 'group' },
 	          React.createElement(
-	            "li",
-	            { className: "profile-nav-timeline" },
-	            "Timeline"
+	            'li',
+	            { className: 'profile-nav-timeline' },
+	            'Timeline'
 	          ),
 	          React.createElement(
-	            "li",
-	            { className: "profile-nav-about" },
-	            "About"
+	            'li',
+	            { className: 'profile-nav-about' },
+	            'About'
 	          ),
 	          React.createElement(
-	            "li",
-	            { className: "profile-nav-friends" },
-	            "Friends"
+	            'li',
+	            { className: 'profile-nav-friends' },
+	            'Friends'
 	          ),
 	          React.createElement(
-	            "li",
-	            { className: "profile-nav-photos" },
-	            "Photos"
+	            'li',
+	            { className: 'profile-nav-photos' },
+	            'Photos'
 	          )
 	        )
 	      )

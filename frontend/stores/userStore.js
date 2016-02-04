@@ -27,14 +27,28 @@ UserStore.resetUsers = function (users) {
   _users = users;
 };
 
-UserStore.resetUser = function (user) {
-  _user = user;
+UserStore.resetUser = function (userNow) {
+  var index = 0;
+  _users.forEach(function(user, i) {
+    if (user.id === userNow.id) {
+      index = i;
+    }
+  });
+  _users[index] = userNow;
 };
 
 UserStore.updateUser = function (requestee) {
   _users.forEach(function(user) {
     if (user.id === requestee.id) {
       user = requestee;
+    }
+  });
+};
+
+UserStore.addPost = function (post) {
+  _users.forEach(function(user) {
+    if (user.id === post.author_id) {
+      user.posts.push(post);
     }
   });
 };
@@ -51,6 +65,10 @@ UserStore.__onDispatch = function (payload) {
       break;
     case FamebookConstants.REQUESTEE_RECEIVED:
       this.updateUser(payload.requestee);
+      UserStore.__emitChange();
+      break;
+    case FamebookConstants.NEW_POST_RECEIVED:
+      this.addPost(payload.post);
       UserStore.__emitChange();
       break;
   }

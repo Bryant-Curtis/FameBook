@@ -1,7 +1,9 @@
-var React = require('react');
+var React = require('react'),
+    ApiUtil = require('../../util/apiUtil');
 
 var Header = React.createClass({
-  updateText: function () {
+  sendId: function (requestorId) {
+    ApiUtil.giveUserId(this.props.user.id, requestorId);
     this.text = "Pending"; // AND Make the button unclickable!!
   },
 
@@ -12,7 +14,7 @@ var Header = React.createClass({
       if (this.text === undefined) {
         if (this.props.user.friend_request_id === window.currentUserId) {
           this.text = "Pending";
-        }
+        } else if (this.props.user)
         this.text = "Befriend";
       }
     }
@@ -21,7 +23,7 @@ var Header = React.createClass({
         <figure className="profile-header-photo"></figure>
         <figure className="profile-user-photo"></figure>
         <figure className="profile-username">{ username }</figure>
-        <button className="profile-friend-request-button" onClick={this.updateText}>{this.text}</button>
+        <button className="profile-friend-request-button" onClick={this.sendId.bind(this, window.currentUserId)}>{this.text}</button>
         <nav className="profile-nav">
           <ul className="group">
             <li className="profile-nav-timeline">Timeline</li>

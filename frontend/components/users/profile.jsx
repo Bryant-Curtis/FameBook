@@ -14,30 +14,38 @@ var UserProfile = React.createClass({
 
   componentDidMount: function () {
     this.userToken = UserStore.addListener(this._onChange);
-    this.postToken = PostStore.addListener(this._onPostsChange);
-    ApiUtil.fetchAllUsers();
+    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+
+    // ApiUtil.fetchAllUsers();
+    // this.postToken = PostStore.addListener(this._onPostsChange);
+    // ApiUtil.fetchPosts(parseInt(this.props.params.id));
   },
 
   componentWillUnmount: function () {
     this.userToken.remove();
-    this.postToken.remove();
+    // this.postToken.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
-    ApiUtil.fetchAllUsers();
+    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
   deletePost: function (post) {
     ApiUtil.deletePost(post);
-    ApiUtil.fetchAllUsers();
+    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
   },
 
   render: function () {
+    debugger
     var username = "",
         userPosts = [],
-        deleteButton;
+        deleteButton,
+        postform = "";
     if (this.state.user.length !== 0) {
+      if (this.state.user.id === window.currentUserId) {
+        postform = <PostForm />;
+      }
       username = this.state.user.first_name + " " + this.state.user.last_name;
       userPosts = this.state.user.posts.map(function(post) {
         if (post.author_id === parseInt(this.props.params.id)) {
@@ -62,10 +70,11 @@ var UserProfile = React.createClass({
         }
       },this);
     }
+    debugger
     return(
       <div className="profile-main">
         <Header user={this.state.user} />
-        <PostForm />
+        { postform }
         <ul>
           <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
             { userPosts.reverse() }
@@ -75,9 +84,10 @@ var UserProfile = React.createClass({
     );
   },
 
-  _onPostsChange: function () {
-    ApiUtil.fetchAllUsers();
-  },
+  // _onPostsChange: function () {
+  //   // ApiUtil.fetchAllPosts();
+  //   this.setState({ posts: PostStore.all() });
+  // },
 
   _onChange: function () {
     this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
