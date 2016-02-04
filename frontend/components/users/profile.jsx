@@ -64,7 +64,7 @@ var UserProfile = React.createClass({
     }
     return(
       <div className="profile-main">
-        <Header user={username} />
+        <Header user={this.state.user} />
         <PostForm />
         <ul>
           <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>

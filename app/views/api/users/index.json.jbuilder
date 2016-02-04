@@ -1,7 +1,5 @@
 json.array! @users do |user|
-  json.id         user.id
-  json.first_name user.first_name
-  json.last_name  user.last_name
+  json.partial! "api/users/user", user: user
   json.posts user.posts do |post|
     json.extract! post, :id, :body, :author_id
     json.author do

@@ -38,6 +38,16 @@
   color: #FFF;
 }
 
+.profile-friend-request-button {
+  display: block;
+  position: absolute;
+  border: 3px solid yellow;
+  right: 25px;
+  bottom: 70px;
+  padding: 5px 10px;
+  background: #fff;
+}
+
 .profile-header > .profile-nav {
   display: block;
   border-left: 1px solid #d3d6db;

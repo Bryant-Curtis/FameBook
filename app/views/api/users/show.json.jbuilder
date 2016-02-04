@@ -1,4 +1,4 @@
-json.extract! @user, :first_name, :last_name, :email
+json.partial! "api/users/user", user: @user
 json.posts @user.posts do |post|
   json.extract! post, :id, :body, :author_id
   json.author do

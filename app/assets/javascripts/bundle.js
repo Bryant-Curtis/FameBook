@@ -32108,7 +32108,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-main' },
-	      React.createElement(Header, { user: username }),
+	      React.createElement(Header, { user: this.state.user }),
 	      React.createElement(PostForm, null),
 	      React.createElement(
 	        'ul',
@@ -32202,52 +32202,66 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159),
-	    FamebookConstants = __webpack_require__(165),
-	    UserStore = __webpack_require__(241),
-	    PostStore = __webpack_require__(214);
+	var React = __webpack_require__(1);
 
 	var Header = React.createClass({
-	  displayName: 'Header',
+	  displayName: "Header",
+
+	  updateText: function () {
+	    this.text = "Pending"; // AND Make the button unclickable!!
+	  },
 
 	  render: function () {
-	    var username = this.props.user;
+	    var username = "";
+	    if (this.props.user.first_name !== undefined) {
+	      username = this.props.user.first_name + " " + this.props.user.last_name;
+	      if (this.text === undefined) {
+	        if (this.props.user.friend_request_id === window.currentUserId) {
+	          this.text = "Pending";
+	        }
+	        this.text = "Befriend";
+	      }
+	    }
 	    return React.createElement(
-	      'header',
-	      { className: 'profile-header' },
-	      React.createElement('figure', { className: 'profile-header-photo' }),
-	      React.createElement('figure', { className: 'profile-user-photo' }),
+	      "header",
+	      { className: "profile-header" },
+	      React.createElement("figure", { className: "profile-header-photo" }),
+	      React.createElement("figure", { className: "profile-user-photo" }),
 	      React.createElement(
-	        'figure',
-	        { className: 'profile-username' },
+	        "figure",
+	        { className: "profile-username" },
 	        username
 	      ),
 	      React.createElement(
-	        'nav',
-	        { className: 'profile-nav' },
+	        "button",
+	        { className: "profile-friend-request-button", onClick: this.updateText },
+	        this.text
+	      ),
+	      React.createElement(
+	        "nav",
+	        { className: "profile-nav" },
 	        React.createElement(
-	          'ul',
-	          { className: 'group' },
+	          "ul",
+	          { className: "group" },
 	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-timeline' },
-	            'Timeline'
+	            "li",
+	            { className: "profile-nav-timeline" },
+	            "Timeline"
 	          ),
 	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-about' },
-	            'About'
+	            "li",
+	            { className: "profile-nav-about" },
+	            "About"
 	          ),
 	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-friends' },
-	            'Friends'
+	            "li",
+	            { className: "profile-nav-friends" },
+	            "Friends"
 	          ),
 	          React.createElement(
-	            'li',
-	            { className: 'profile-nav-photos' },
-	            'Photos'
+	            "li",
+	            { className: "profile-nav-photos" },
+	            "Photos"
 	          )
 	        )
 	      )
@@ -32256,6 +32270,8 @@
 	});
 
 	module.exports = Header;
+
+	// 1. How can I make the button unclickable after it has been clicked on once?
 
 /***/ }
 /******/ ]);
