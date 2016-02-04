@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203222543) do
+ActiveRecord::Schema.define(version: 20160204213141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20160203222543) do
 
   add_index "friendships", ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
   add_index "friendships", ["self_id"], name: "index_friendships_on_self_id", using: :btree
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "photoable_id"
+    t.string   "photoable_type"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "photograph_file_name"
+    t.string   "photograph_content_type"
+    t.integer  "photograph_file_size"
+    t.datetime "photograph_updated_at"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "body",       null: false
