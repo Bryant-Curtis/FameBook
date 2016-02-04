@@ -6,5 +6,8 @@ end
 json.friends user.friends do |friend|
   json.extract! friend, :id, :first_name, :last_name, :email
 end
-
+json.photos user.photos do |photo|
+  json.photoable_id   user.photoable_id
+  json.photoable_type user.photoable_type
+end
 # if unneeded, take out the json.self_id row completely.

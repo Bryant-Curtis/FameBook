@@ -3,10 +3,6 @@ class User < ActiveRecord::Base
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-# These are the Paperclip line from the github ReadMe Quickstart section below!
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
   attr_reader :password
 
   after_initialize :ensure_token
@@ -24,6 +20,21 @@ class User < ActiveRecord::Base
   has_many :friends,
     through: :friendships,
     source:  :friend
+
+  has_many :photos,
+    class_name: "Photo",
+    foreign_key: :photoable_id,
+    primary_key: :id
+
+  has_one :cover_photo,
+    class_name: "Photo",
+    foreign_key: :photoable_id,
+    primary_key: :id
+
+  has_one :profile_photo,
+    class_name: "Photo",
+    foreign_key: :photoable_id,
+    primary_key: :id
 
 
   def password=(password)

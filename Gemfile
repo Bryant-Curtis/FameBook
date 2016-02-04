@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "paperclip", "~> 4.3"
 
+gem 'aws-sdk', '~> 1.6'
+
 group :production do
   gem 'rails_12factor'
 end
