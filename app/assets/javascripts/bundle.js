@@ -52,7 +52,8 @@
 	    IndexRoute = __webpack_require__(166).IndexRoute,
 	    Posts = __webpack_require__(213),
 	    PostForm = __webpack_require__(232),
-	    UserProfile = __webpack_require__(240);
+	    UserProfile = __webpack_require__(240),
+	    Friends = __webpack_require__(243);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -150,7 +151,11 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts }),
-	  React.createElement(Route, { path: 'users/:id', component: UserProfile })
+	  React.createElement(
+	    Route,
+	    { path: 'users/:id', component: UserProfile },
+	    React.createElement(Route, { path: '/friendships/:id', component: Friends })
+	  )
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
@@ -19853,7 +19858,7 @@
 	    });
 	  },
 
-	  // createFriendship: function () {
+	  // createFriendship: function (requestorId, requesteeId) {
 	  //   $.ajax({
 	  //
 	  //   })
@@ -32096,11 +32101,12 @@
 	  },
 
 	  render: function () {
+	    // debugger
 	    var username = "",
 	        userPosts = [],
 	        deleteButton,
 	        postform = "";
-	    if (this.state.user.length !== 0) {
+	    if (this.state.user && this.state.user.length !== 0) {
 	      if (this.state.user.id === window.currentUserId) {
 	        postform = React.createElement(PostForm, null);
 	      }
@@ -32184,6 +32190,10 @@
 	    UserStore = new Store(Dispatcher),
 	    _users = [],
 	    _user = [];
+
+	UserStore.all = function () {
+	  return _users;
+	};
 
 	UserStore.find = function (userId) {
 	  if (_users.length > 0) {
@@ -32293,7 +32303,7 @@
 	    var text;
 	    var username = "",
 	        friendRequestButton = "";
-	    if (this.props.user.first_name !== undefined) {
+	    if (this.props.user && this.props.user.first_name !== undefined) {
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
 	      if (text === undefined) {
 	        if (this.props.user.friend_request_id === window.currentUserId) {
@@ -32317,7 +32327,7 @@
 	        }
 	      }.bind(this));
 	    }
-	    if (parseInt(this.props.user.id) !== window.currentUserId) {
+	    if (this.props.user && parseInt(this.props.user.id) !== window.currentUserId) {
 	      friendRequestButton = React.createElement(
 	        'button',
 	        {
@@ -32356,13 +32366,8 @@
 	          ),
 	          React.createElement(
 	            'li',
-	            { className: 'profile-nav-friends' },
-	            'Friends'
-	          ),
-	          React.createElement(
-	            'li',
 	            { className: 'profile-nav-photos' },
-	            'Photos'
+	            'Friends'
 	          )
 	        )
 	      )
@@ -32372,7 +32377,25 @@
 
 	module.exports = Header;
 
+	// <li className="profile-nav-friends">Friends</li>
 	// 1. How can I make the button unclickable after it has been clicked on once?
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159);
+
+	var Friends = React.createClass({
+	  displayName: 'Friends',
+
+	  render: function () {
+	    return React.createElement('div', null);
+	  }
+	});
+
+	module.exports = Friends;
 
 /***/ }
 /******/ ]);

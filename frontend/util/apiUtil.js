@@ -84,8 +84,8 @@ var ApiUtil = {
       }
     });
   },
-
-  // createFriendship: function () {
+  
+  // createFriendship: function (requestorId, requesteeId) {
   //   $.ajax({
   //
   //   })

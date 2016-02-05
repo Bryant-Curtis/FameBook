@@ -7,6 +7,10 @@ var Store = require('flux/utils').Store,
     _users = [],
     _user = [];
 
+UserStore.all = function () {
+  return _users;
+};
+
 UserStore.find = function (userId) {
   if (_users.length > 0) {
     var profileUser;

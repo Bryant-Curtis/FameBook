@@ -37,11 +37,12 @@ var UserProfile = React.createClass({
   },
 
   render: function () {
+    // debugger
     var username = "",
         userPosts = [],
         deleteButton,
         postform = "";
-    if (this.state.user.length !== 0) {
+    if (this.state.user && this.state.user.length !== 0) {
       if (this.state.user.id === window.currentUserId) {
         postform = <PostForm />;
       }
