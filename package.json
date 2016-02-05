@@ -37,7 +37,7 @@
     "react-dom": "^0.14.7",
     "react-route": "^1.0.3",
     "react-router": "^1.0.3",
-    "webpack": "^1.12.12"
+    "webpack": "^1.12.13"
   },
   "devDependencies": {}
 }

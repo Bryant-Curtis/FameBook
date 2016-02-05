@@ -19851,6 +19851,29 @@
 	        return "Was not able to request for friend! :`)";
 	      }
 	    });
+	  },
+
+	  // createFriendship: function () {
+	  //   $.ajax({
+	  //
+	  //   })
+	  // },
+
+	  deleteFriendship: function (friendshipId, self_id, friend_id) {
+	    debugger;
+	    $.ajax({
+	      method: "DELETE",
+	      url: "api/friendships/" + friendshipId,
+	      dataType: "json",
+	      data: { friendships: { friend_id: friend_id, self_id: self_id } },
+	      success: function (data) {
+	        debugger;
+	        ApiActions.receiveFriendship(data);
+	      },
+	      error: function () {
+	        return "Was not able to delete friend! :`)";
+	      }
+	    });
 	  }
 
 	  // logOut: function (callback) {
@@ -32234,12 +32257,12 @@
 	var Header = React.createClass({
 	  displayName: 'Header',
 
-	  sendId: function (requestorId, text) {
+	  sendId: function (requestorId, requesteeId, friendshipId, text) {
 	    if (text === "Befriend") {
-	      ApiUtil.giveUserId(this.props.user.id, requestorId);
+	      ApiUtil.giveUserId(requestorId, requesteeId);
 	      text = "Pending"; // AND Make the button unclickable!!
 	    } else if (text === "Unfriend") {
-	        // Add unfriend functionality here -> ApiUtil.deleteFriendship();
+	        ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
 	      }
 	  },
 
@@ -32264,11 +32287,21 @@
 	          text = "Befriend";
 	        }
 	      }
+	      var friendshipId;
+	      debugger;
+	      this.props.user.friendships.forEach(function (friendship) {
+	        if (friendship.self_id === this.props.user.id && friendship.friend_id === window.currentUserId) {
+	          friendshipId = friendship.id;
+	        }
+	      }.bind(this));
 	    }
 	    if (parseInt(this.props.user.id) !== window.currentUserId) {
 	      friendRequestButton = React.createElement(
 	        'button',
-	        { className: 'profile-friend-request-button', onClick: this.sendId.bind(this, window.currentUserId, text) },
+	        {
+	          className: 'profile-friend-request-button',
+	          onClick: this.sendId.bind(this, window.currentUserId, this.props.user.id, friendshipId, text)
+	        },
 	        text
 	      );
 	    }

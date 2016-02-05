@@ -83,6 +83,29 @@ var ApiUtil = {
         return "Was not able to request for friend! :`)";
       }
     });
+  },
+
+  // createFriendship: function () {
+  //   $.ajax({
+  //
+  //   })
+  // },
+
+  deleteFriendship: function (friendshipId, self_id, friend_id) {
+    debugger
+    $.ajax({
+      method:   "DELETE",
+      url:      "api/friendships/" + friendshipId,
+      dataType: "json",
+      data:     { friendships: { friend_id: friend_id, self_id: self_id} },
+      success: function (data) {
+        debugger
+        ApiActions.receiveFriendship(data);
+      },
+      error: function () {
+        return "Was not able to delete friend! :`)";
+      }
+    });
   }
 
   // logOut: function (callback) {

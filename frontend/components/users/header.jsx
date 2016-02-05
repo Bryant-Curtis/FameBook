@@ -2,12 +2,12 @@ var React = require('react'),
     ApiUtil = require('../../util/apiUtil');
 
 var Header = React.createClass({
-  sendId: function (requestorId, text) {
+  sendId: function (requestorId, requesteeId, friendshipId, text) {
     if (text === "Befriend") {
-      ApiUtil.giveUserId(this.props.user.id, requestorId);
+      ApiUtil.giveUserId(requestorId, requesteeId);
       text = "Pending"; // AND Make the button unclickable!!
     } else if (text === "Unfriend") {
-      // Add unfriend functionality here -> ApiUtil.deleteFriendship();
+      ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
     }
   },
 
@@ -32,9 +32,28 @@ var Header = React.createClass({
           text = "Befriend";
         }
       }
+      var friendshipId;
+      debugger
+      this.props.user.friendships.forEach(function (friendship) {
+        if (friendship.self_id === this.props.user.id &&
+              friendship.friend_id === window.currentUserId) {
+                friendshipId = friendship.id;
+              }
+      }.bind(this));
     }
     if (parseInt(this.props.user.id) !== window.currentUserId) {
-      friendRequestButton = <button className="profile-friend-request-button" onClick={this.sendId.bind(this, window.currentUserId, text)}>{text}</button>;
+      friendRequestButton = <button
+                              className="profile-friend-request-button"
+                              onClick={
+                                this.sendId.bind(
+                                  this,
+                                  window.currentUserId,
+                                  this.props.user.id,
+                                  friendshipId,
+                                  text
+                                )
+                              }
+                            >{text}</button>;
     }
     return(
       <header className="profile-header">
