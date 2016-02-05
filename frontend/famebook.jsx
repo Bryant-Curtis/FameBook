@@ -72,9 +72,8 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Posts} />
-    <Route path="users/:id" component={UserProfile}>
-      <Route path="/friendships/:id" component={Friends} />
-    </Route>
+    <Route path="users/:id" component={UserProfile} />
+    <Route path="users/:id/friendships" component={Friends} />
   </Route>
 );
 

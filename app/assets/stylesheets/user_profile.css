@@ -72,6 +72,11 @@
 
 .profile-nav > ul > li {
   float: left;
+  /*border-left: 1px solid #e9eaed;*/
+}
+
+.profile-nav > ul > li > a {
+  display: block;
   padding: 15px 17px;
   cursor: pointer;
   border-left: 1px solid #e9eaed;

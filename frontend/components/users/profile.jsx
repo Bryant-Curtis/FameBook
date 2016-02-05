@@ -94,4 +94,5 @@ var UserProfile = React.createClass({
 
 });
 
+// {this.props.children} This goes between the <Header/> and {postform}.
 module.exports = UserProfile;

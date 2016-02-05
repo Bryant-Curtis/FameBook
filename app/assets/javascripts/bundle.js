@@ -151,11 +151,8 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts }),
-	  React.createElement(
-	    Route,
-	    { path: 'users/:id', component: UserProfile },
-	    React.createElement(Route, { path: '/friendships/:id', component: Friends })
-	  )
+	  React.createElement(Route, { path: 'users/:id', component: UserProfile }),
+	  React.createElement(Route, { path: 'users/:id/friendships', component: Friends })
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
@@ -32176,6 +32173,7 @@
 
 	});
 
+	// {this.props.children} This goes between the <Header/> and {postform}.
 	module.exports = UserProfile;
 
 /***/ },
@@ -32302,9 +32300,11 @@
 	  render: function () {
 	    var text;
 	    var username = "",
-	        friendRequestButton = "";
+	        friendRequestButton = "",
+	        userId;
 	    if (this.props.user && this.props.user.first_name !== undefined) {
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
+	      userId = this.props.user.id;
 	      if (text === undefined) {
 	        if (this.props.user.friend_request_id === window.currentUserId) {
 	          text = "Pending";
@@ -32357,17 +32357,29 @@
 	          React.createElement(
 	            'li',
 	            { className: 'profile-nav-timeline' },
-	            'Timeline'
+	            React.createElement(
+	              'a',
+	              null,
+	              'Timeline'
+	            )
 	          ),
 	          React.createElement(
 	            'li',
 	            { className: 'profile-nav-about' },
-	            'About'
+	            React.createElement(
+	              'a',
+	              null,
+	              'About'
+	            )
 	          ),
 	          React.createElement(
 	            'li',
 	            { className: 'profile-nav-photos' },
-	            'Friends'
+	            React.createElement(
+	              'a',
+	              { href: "#/users/" + userId + "/friendships" },
+	              'Friends'
+	            )
 	          )
 	        )
 	      )
@@ -32377,6 +32389,7 @@
 
 	module.exports = Header;
 
+	// href={"/users/" + userId + "/settings"} -> to be used in the about a tag.
 	// <li className="profile-nav-friends">Friends</li>
 	// 1. How can I make the button unclickable after it has been clicked on once?
 
@@ -32385,14 +32398,103 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159);
+	    ApiUtil = __webpack_require__(159),
+	    FamebookConstants = __webpack_require__(165),
+	    UserStore = __webpack_require__(241),
+	    PostStore = __webpack_require__(214),
+	    Header = __webpack_require__(242),
+	    PostForm = __webpack_require__(232),
+	    ReactCSSTransitionGroup = __webpack_require__(233);
 
 	var Friends = React.createClass({
 	  displayName: 'Friends',
 
+	  getInitialState: function () {
+	    return { user: UserStore.find(parseInt(this.props.params.id)) };
+	  },
+
+	  componentDidMount: function () {
+	    this.userToken = UserStore.addListener(this._onChange);
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+
+	    // ApiUtil.fetchAllUsers();
+	    // this.postToken = PostStore.addListener(this._onPostsChange);
+	    // ApiUtil.fetchPosts(parseInt(this.props.params.id));
+	  },
+
+	  componentWillUnmount: function () {
+	    this.userToken.remove();
+	    // this.postToken.remove();
+	  },
+
+	  componentWillReceiveProps: function (newProps) {
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
+	  },
+
+	  deletePost: function (post) {
+	    ApiUtil.deletePost(post);
+	    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	  },
+
 	  render: function () {
-	    return React.createElement('div', null);
+	    var username = "",
+	        friendCount = "";
+	    if (this.state.user && this.state.user.length !== 0) {
+	      if (this.state.user.id === window.currentUserId) {
+	        var confirmFriends;
+	      }
+	      username = this.state.user.first_name + " " + this.state.user.last_name;
+	      friendCount = this.state.user.friendships.length;
+	    }
+	    return React.createElement(
+	      'div',
+	      { className: 'friends-main' },
+	      React.createElement(Header, { user: this.state.user }),
+	      React.createElement(
+	        'section',
+	        { className: 'friends-list' },
+	        React.createElement(
+	          'header',
+	          { className: 'friends-list-header' },
+	          'Friends'
+	        ),
+	        React.createElement(
+	          'section',
+	          { className: 'friends-list-main' },
+	          React.createElement(
+	            'section',
+	            { className: 'friend-box group' },
+	            React.createElement(
+	              'section',
+	              { className: 'friend-box-info group' },
+	              React.createElement('figure', { className: 'friend-photo' }),
+	              React.createElement(
+	                'section',
+	                { className: 'friend-info' },
+	                React.createElement(
+	                  'p',
+	                  { className: 'friend-name' },
+	                  username
+	                ),
+	                React.createElement(
+	                  'h6',
+	                  { className: 'friend-friend-count' },
+	                  friendCount,
+	                  ' friends'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      )
+	    );
+	  },
+
+	  _onChange: function () {
+	    this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
 	  }
+
 	});
 
 	module.exports = Friends;

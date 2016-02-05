@@ -1,0 +1,64 @@
+.friends-main {
+  width: 850px;
+  margin: auto;
+}
+
+.friends-list {
+  margin: 20px 0 0 0;
+  height: 400px;
+  border: 1px solid #D3D6DB;
+  background: #fff;
+}
+
+.friends-list-header {
+  height: 57px;
+  padding: 15px;
+  border-bottom: 1px solid #D3D6DB;
+  font-size: 24px;
+  background: #F6F7F8;
+}
+
+.friends-list-main {
+  padding: 15px;
+}
+
+.friend-box {
+  display: block;
+  width: 400px;
+  height: 100px;
+}
+
+.friend-photo {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+
+.friend-box-info {
+}
+
+.friend-info {
+  float: left;
+  display: block;
+  width: 300px;
+  height: 100px;
+  border-top: 1px solid #e9eaed;
+  border-right: 1px solid #e9eaed;
+  border-bottom: 1px solid #e9eaed;
+  padding: 30px 15px;
+}
+
+.friend-name {
+  left: 10px;
+  display: block;
+  color: #3B5998;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.friend-friend-count {
+  color: #9197a3;
+  font-size: 12px;
+}

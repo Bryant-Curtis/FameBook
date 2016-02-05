@@ -14,9 +14,11 @@ var Header = React.createClass({
   render: function () {
     var text;
     var username = "",
-        friendRequestButton = "";
+        friendRequestButton = "",
+        userId;
     if (this.props.user && this.props.user.first_name !== undefined) {
       username = this.props.user.first_name + " " + this.props.user.last_name;
+      userId = this.props.user.id;
       if (text === undefined) {
         if (this.props.user.friend_request_id === window.currentUserId) {
           text = "Pending";
@@ -62,9 +64,9 @@ var Header = React.createClass({
         { friendRequestButton }
         <nav className="profile-nav">
           <ul className="group">
-            <li className="profile-nav-timeline">Timeline</li>
-            <li className="profile-nav-about">About</li>
-            <li className="profile-nav-photos">Friends</li>
+            <li className="profile-nav-timeline"><a>Timeline</a></li>
+            <li className="profile-nav-about"><a>About</a></li>
+            <li className="profile-nav-photos"><a href={"#/users/" + userId + "/friendships"}>Friends</a></li>
           </ul>
         </nav>
       </header>
@@ -74,5 +76,6 @@ var Header = React.createClass({
 
 module.exports = Header;
 
+// href={"/users/" + userId + "/settings"} -> to be used in the about a tag.
 // <li className="profile-nav-friends">Friends</li>
 // 1. How can I make the button unclickable after it has been clicked on once?
