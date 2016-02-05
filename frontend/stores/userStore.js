@@ -53,6 +53,19 @@ UserStore.addPost = function (post) {
   });
 };
 
+UserStore.updateFriendships = function (destroyedFriendship) {
+  _users.forEach(function(user) {
+    user.friendships.forEach(function(friendship) {
+      // below, self is the this.props.user, NOT THE currentUser.
+      if (friendship.friend_id === destroyedFriendship.self.friend_id &&
+            user.id === destroyedFriendship.self.self_id) {
+        var index = user.friendships.indexOf(friendship)
+        user.friendships.splice(index, 1)
+      }
+    })
+  });
+};
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case FamebookConstants.ALL_USERS_RECEIVED:
@@ -69,6 +82,10 @@ UserStore.__onDispatch = function (payload) {
       break;
     case FamebookConstants.NEW_POST_RECEIVED:
       this.addPost(payload.post);
+      UserStore.__emitChange();
+      break;
+    case FamebookConstants.FRIENDSHIPS_RECEIVED:
+      this.updateFriendships(payload.friendships);
       UserStore.__emitChange();
       break;
   }

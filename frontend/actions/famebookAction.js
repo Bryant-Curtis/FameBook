@@ -42,7 +42,16 @@ var ApiActions = {
       actionType: FamebookConstants.REQUESTEE_RECEIVED,
       requestee: requestee
     });
-  }
+  },
+
+  receiveFriendship: function(friendships) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.FRIENDSHIPS_RECEIVED,
+      friendships: friendships
+    });
+  },
+
+
 };
 
 module.exports = ApiActions;

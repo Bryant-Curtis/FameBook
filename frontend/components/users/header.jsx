@@ -33,7 +33,6 @@ var Header = React.createClass({
         }
       }
       var friendshipId;
-      debugger
       this.props.user.friendships.forEach(function (friendship) {
         if (friendship.self_id === this.props.user.id &&
               friendship.friend_id === window.currentUserId) {

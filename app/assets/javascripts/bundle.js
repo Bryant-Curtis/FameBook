@@ -19860,14 +19860,12 @@
 	  // },
 
 	  deleteFriendship: function (friendshipId, self_id, friend_id) {
-	    debugger;
 	    $.ajax({
 	      method: "DELETE",
 	      url: "api/friendships/" + friendshipId,
 	      dataType: "json",
 	      data: { friendships: { friend_id: friend_id, self_id: self_id } },
 	      success: function (data) {
-	        debugger;
 	        ApiActions.receiveFriendship(data);
 	      },
 	      error: function () {
@@ -19937,7 +19935,15 @@
 	      actionType: FamebookConstants.REQUESTEE_RECEIVED,
 	      requestee: requestee
 	    });
+	  },
+
+	  receiveFriendship: function (friendships) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.FRIENDSHIPS_RECEIVED,
+	      friendships: friendships
+	    });
 	  }
+
 	};
 
 	module.exports = ApiActions;
@@ -20268,7 +20274,8 @@
 	  DELETED_POST_RECEIVED: "DELETED_POST_RECEIVED",
 	  ALL_USERS_RECEIVED: "ALL_USERS_RECEIVED",
 	  USER_RECEIVED: "USER_RECEIVED",
-	  REQUESTEE_RECEIVED: "REQUESTEE_RECEIVED"
+	  REQUESTEE_RECEIVED: "REQUESTEE_RECEIVED",
+	  FRIENDSHIPS_RECEIVED: "FRIENDSHIPS_RECEIVED"
 	};
 
 	module.exports = FamebookConstants;
@@ -32224,6 +32231,18 @@
 	  });
 	};
 
+	UserStore.updateFriendships = function (destroyedFriendship) {
+	  _users.forEach(function (user) {
+	    user.friendships.forEach(function (friendship) {
+	      // below, self is the this.props.user, NOT THE currentUser.
+	      if (friendship.friend_id === destroyedFriendship.self.friend_id && user.id === destroyedFriendship.self.self_id) {
+	        var index = user.friendships.indexOf(friendship);
+	        user.friendships.splice(index, 1);
+	      }
+	    });
+	  });
+	};
+
 	UserStore.__onDispatch = function (payload) {
 	  switch (payload.actionType) {
 	    case FamebookConstants.ALL_USERS_RECEIVED:
@@ -32240,6 +32259,10 @@
 	      break;
 	    case FamebookConstants.NEW_POST_RECEIVED:
 	      this.addPost(payload.post);
+	      UserStore.__emitChange();
+	      break;
+	    case FamebookConstants.FRIENDSHIPS_RECEIVED:
+	      this.updateFriendships(payload.friendships);
 	      UserStore.__emitChange();
 	      break;
 	  }
@@ -32288,7 +32311,6 @@
 	        }
 	      }
 	      var friendshipId;
-	      debugger;
 	      this.props.user.friendships.forEach(function (friendship) {
 	        if (friendship.self_id === this.props.user.id && friendship.friend_id === window.currentUserId) {
 	          friendshipId = friendship.id;

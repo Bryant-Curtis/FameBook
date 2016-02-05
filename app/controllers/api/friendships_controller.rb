@@ -5,7 +5,6 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def destroy
-    debugger
     @friendship_friend = Friendship.where(
       ["friend_id = :friend_id and self_id = :self_id",
       {friend_id: params[:friendships][:friend_id],
@@ -14,9 +13,8 @@ class Api::FriendshipsController < ApplicationController
       ["friend_id = :friend_id and self_id = :self_id",
       {friend_id: params[:friendships][:self_id],
       self_id: params[:friendships][:friend_id]}])
-    debugger
     @friendship_friend[0].destroy
     @friendship_self[0].destroy
-    render json: { friend: @friendship_friend, self: @friendship_self }
+    render json: { friend: @friendship_friend[0], self: @friendship_self[0] }
   end
 end

@@ -92,14 +92,12 @@ var ApiUtil = {
   // },
 
   deleteFriendship: function (friendshipId, self_id, friend_id) {
-    debugger
     $.ajax({
       method:   "DELETE",
       url:      "api/friendships/" + friendshipId,
       dataType: "json",
       data:     { friendships: { friend_id: friend_id, self_id: self_id} },
       success: function (data) {
-        debugger
         ApiActions.receiveFriendship(data);
       },
       error: function () {
