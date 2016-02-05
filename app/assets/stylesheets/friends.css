@@ -1,10 +1,103 @@
 .friends-main {
-  width: 850px;
+  width: 980px;
   margin: auto;
 }
 
+/* FRIEND REQUESTS */
+
+.confirm-friends {
+  margin: 20px 0 0 0;
+  width: 850px;
+  background: #fff;
+}
+
+.confirm-friends-main {
+}
+
+.confirm-friends-list {
+  margin: 20px 0 0 0;
+  height: 400px;
+  border: 1px solid #D3D6DB;
+  background: #fff;
+}
+
+.confirm-friends-list-header {
+  height: 57px;
+  padding: 15px;
+  border-bottom: 1px solid #D3D6DB;
+  font-size: 24px;
+  background: #F6F7F8;
+}
+
+.confirm-friends-list-main {
+  padding: 15px;
+}
+
+.confirm-friend-box {
+  display: block;
+  width: 400px;
+  height: 100px;
+}
+
+.confirm-friend-photo {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+
+.confirm-friend-box-info {
+}
+
+.confirm-friend-info {
+  float: left;
+  display: block;
+  width: 300px;
+  height: 100px;
+  border-top: 1px solid #e9eaed;
+  border-right: 1px solid #e9eaed;
+  border-bottom: 1px solid #e9eaed;
+  padding: 30px 15px;
+}
+
+.confirm-friend-name {
+  float: left;
+  margin: 9px 0 0 0;
+  display: block;
+  color: #3B5998;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.confirm-friend-info > button {
+  float: left;
+  margin: 6px 0 0 15px;
+  width: 70px;
+  padding: 5px 0;
+  text-align: center;
+  /*border: 1px solid #ccc;*/
+  color: #4e5665;
+  font-size: 12px;
+  font-weight: bold;
+  /*background: #f6f7f8;*/
+  box-shadow: 0 0 1px #000;
+}
+
+.accept-friend-button {
+}
+
+.decline-friend-button {
+  float: left;
+  color: #9197a3;
+  font-size: 12px;
+}
+
+/* FRIENDS INDEX */
+
 .friends-list {
   margin: 20px 0 0 0;
+  width: 850px;
   height: 400px;
   border: 1px solid #D3D6DB;
   background: #fff;

@@ -32359,7 +32359,7 @@
 	            { className: 'profile-nav-timeline' },
 	            React.createElement(
 	              'a',
-	              null,
+	              { href: "#/users/" + userId },
 	              'Timeline'
 	            )
 	          ),
@@ -32447,10 +32447,54 @@
 	      username = this.state.user.first_name + " " + this.state.user.last_name;
 	      friendCount = this.state.user.friendships.length;
 	    }
+
+	    var ConfirmFriends;
+
 	    return React.createElement(
 	      'div',
 	      { className: 'friends-main' },
 	      React.createElement(Header, { user: this.state.user }),
+	      React.createElement(
+	        'section',
+	        { className: 'confirm-friends' },
+	        React.createElement(
+	          'header',
+	          { className: 'confirm-friends-list-header' },
+	          'Friend Requests'
+	        ),
+	        React.createElement(
+	          'section',
+	          { className: 'confirm-friends-list-main' },
+	          React.createElement(
+	            'section',
+	            { className: 'confirm-friend-box group' },
+	            React.createElement(
+	              'section',
+	              { className: 'confirm-friend-box-info group' },
+	              React.createElement('figure', { className: 'confirm-friend-photo' }),
+	              React.createElement(
+	                'section',
+	                { className: 'confirm-friend-info group' },
+	                React.createElement(
+	                  'p',
+	                  { className: 'confirm-friend-name' },
+	                  username
+	                ),
+	                React.createElement(
+	                  'button',
+	                  { className: 'accept-friend-button' },
+	                  'Accept'
+	                ),
+	                React.createElement(
+	                  'button',
+	                  { className: 'decline-friend-button' },
+	                  'Decline'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      ),
 	      React.createElement(
 	        'section',
 	        { className: 'friends-list' },

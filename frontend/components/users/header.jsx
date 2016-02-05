@@ -64,7 +64,7 @@ var Header = React.createClass({
         { friendRequestButton }
         <nav className="profile-nav">
           <ul className="group">
-            <li className="profile-nav-timeline"><a>Timeline</a></li>
+            <li className="profile-nav-timeline"><a href={"#/users/" + userId}>Timeline</a></li>
             <li className="profile-nav-about"><a>About</a></li>
             <li className="profile-nav-photos"><a href={"#/users/" + userId + "/friendships"}>Friends</a></li>
           </ul>
