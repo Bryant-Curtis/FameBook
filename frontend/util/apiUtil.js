@@ -70,13 +70,13 @@ var ApiUtil = {
     });
   },
 
-  giveUserId: function (requesteeId, requestorId) {
+  giveUserId: function (requestorId, requesteeId) {
     $.ajax({
       method:   "PATCH",
       url:      "/api/users/" + requesteeId,
       dataType: "json",
       data:     { user: {friend_request_id: requestorId} },
-      successful: function (data) {
+      success: function (data) {
         ApiActions.receiveRequestee(data);
       },
       error: function () {
@@ -84,12 +84,18 @@ var ApiUtil = {
       }
     });
   },
-  
-  // createFriendship: function (requestorId, requesteeId) {
-  //   $.ajax({
-  //
-  //   })
-  // },
+
+  createFriendship: function (requestorId, requesteeId) {
+    $.ajax({
+      method:   "Post",
+      url:      "api/friendships",
+      dataType: "json",
+      data:     { friendships: { friend_id: friend_id, self_id: self_id} },
+      success: function (data) {
+        ApiActions.updateFriendship(data);
+      }
+    });
+  },
 
   deleteFriendship: function (friendshipId, self_id, friend_id) {
     $.ajax({

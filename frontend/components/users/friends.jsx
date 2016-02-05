@@ -14,9 +14,9 @@ var Friends = React.createClass({
 
   componentDidMount: function () {
     this.userToken = UserStore.addListener(this._onChange);
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
 
-    // ApiUtil.fetchAllUsers();
+    ApiUtil.fetchAllUsers();
     // this.postToken = PostStore.addListener(this._onPostsChange);
     // ApiUtil.fetchPosts(parseInt(this.props.params.id));
   },
@@ -27,21 +27,40 @@ var Friends = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    ApiUtil.fetchAllUsers();
+
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
-  deletePost: function (post) {
-    ApiUtil.deletePost(post);
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+  createFriendship: function (post) {
+    ApiUtil.createFriendship(post);
   },
 
   render: function () {
     var username = "",
-        friendCount = "";
+        friendCount = "",
+        confirmFriends;
     if (this.state.user && this.state.user.length !== 0) {
       if (this.state.user.id === window.currentUserId) {
-        var confirmFriends;
+        if (this.state.user.friend_request_id) {
+          var friendRequestor;
+          UserStore.all().forEach(function(user) {
+            if (user.id === this.state.user.friend_request_id) {
+              friendRequestor = user.first_name + ' ' + user.last_name;
+            }
+          });
+          confirmFriends = (
+            <section className="confirm-friend-box-info group">
+              <figure className="confirm-friend-photo"></figure>
+              <section className="confirm-friend-info group">
+                <p className="confirm-friend-name">{ friendRequestor }</p>
+                <button className="accept-friend-button" onClick={this.createFriendship}>Accept</button>
+                <button className="decline-friend-button" onClick={this.declineFriendship}>Decline</button>
+              </section>
+            </section>
+          );
+        }
       }
       username = this.state.user.first_name + " " + this.state.user.last_name;
       friendCount = this.state.user.friendships.length;
@@ -54,17 +73,10 @@ var Friends = React.createClass({
         <Header user={this.state.user} />
         <section className="confirm-friends">
           <header className="confirm-friends-list-header">Friend Requests</header>
-
+            { confirmFriends }
           <section className="confirm-friends-list-main">
             <section className="confirm-friend-box group">
-              <section className="confirm-friend-box-info group">
-                <figure className="confirm-friend-photo"></figure>
-                <section className="confirm-friend-info group">
-                  <p className="confirm-friend-name">{ username }</p>
-                  <button className="accept-friend-button">Accept</button>
-                  <button className="decline-friend-button">Decline</button>
-                </section>
-            </section>
+
             </section>
           </section>
         </section>

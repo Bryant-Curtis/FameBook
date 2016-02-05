@@ -14,9 +14,9 @@ var UserProfile = React.createClass({
 
   componentDidMount: function () {
     this.userToken = UserStore.addListener(this._onChange);
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
 
-    // ApiUtil.fetchAllUsers();
+    ApiUtil.fetchAllUsers();
     // this.postToken = PostStore.addListener(this._onPostsChange);
     // ApiUtil.fetchPosts(parseInt(this.props.params.id));
   },
@@ -27,13 +27,17 @@ var UserProfile = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    ApiUtil.fetchAllUsers();
+
+    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
   deletePost: function (post) {
     ApiUtil.deletePost(post);
-    ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+    ApiUtil.fetchAllUsers();
+
   },
 
   render: function () {

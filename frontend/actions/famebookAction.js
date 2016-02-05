@@ -37,7 +37,7 @@ var ApiActions = {
     });
   },
 
-  receiveRequestee: function(requestorId) {
+  receiveRequestee: function(requestee) {
     Dispatcher.dispatch({
       actionType: FamebookConstants.REQUESTEE_RECEIVED,
       requestee: requestee

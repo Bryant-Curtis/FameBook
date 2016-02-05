@@ -42,9 +42,9 @@ UserStore.resetUser = function (userNow) {
 };
 
 UserStore.updateUser = function (requestee) {
-  _users.forEach(function(user) {
+  _users.forEach(function(user, i) {
     if (user.id === requestee.id) {
-      user = requestee;
+      _users[i] = requestee;
     }
   });
 };
@@ -63,10 +63,10 @@ UserStore.updateFriendships = function (destroyedFriendship) {
       // below, self is the this.props.user, NOT THE currentUser.
       if (friendship.friend_id === destroyedFriendship.self.friend_id &&
             user.id === destroyedFriendship.self.self_id) {
-        var index = user.friendships.indexOf(friendship)
-        user.friendships.splice(index, 1)
+        var index = user.friendships.indexOf(friendship);
+        user.friendships.splice(index, 1);
       }
-    })
+    });
   });
 };
 

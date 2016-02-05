@@ -12,10 +12,12 @@ var Header = React.createClass({
   },
 
   render: function () {
+    debugger
     var text;
     var username = "",
         friendRequestButton = "",
-        userId;
+        userId,
+        friendshipId;
     if (this.props.user && this.props.user.first_name !== undefined) {
       username = this.props.user.first_name + " " + this.props.user.last_name;
       userId = this.props.user.id;
@@ -34,7 +36,6 @@ var Header = React.createClass({
           text = "Befriend";
         }
       }
-      var friendshipId;
       this.props.user.friendships.forEach(function (friendship) {
         if (friendship.self_id === this.props.user.id &&
               friendship.friend_id === window.currentUserId) {
