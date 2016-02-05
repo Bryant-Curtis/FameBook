@@ -12,7 +12,6 @@ var Header = React.createClass({
   },
 
   render: function () {
-    debugger
     var text;
     var username = "",
         friendRequestButton = "",

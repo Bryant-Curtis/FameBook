@@ -32307,7 +32307,6 @@
 	  },
 
 	  render: function () {
-	    debugger;
 	    var text;
 	    var username = "",
 	        friendRequestButton = "",
