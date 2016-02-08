@@ -2,16 +2,17 @@ Rails.application.routes.draw do
   root to: 'static_pages#homepage'
   get 'users/:id/settings', to: 'users#settings', as: 'user_settings'
 
-  resources :users, only:   [:create, :show]
+  resources :users,   only: [:create, :show]
   resource  :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:index, :show, :update] do
-      resources :posts, only: [:index]
-      resources :friendships, only: [:show]
+    resources :posts,           only: [:index, :create, :destroy]
+    resources :friendships,     only: [:create, :show, :destroy]
+    resources :friend_requests, only: [:create, :show, :destroy]
+    resources :users,           only: [:index, :show, :update] do
+      resources :posts,           only: [:index]
+      resources :friendships,     only: [:show]
     end
-    resources :posts, only: [:index, :create, :destroy]
-    resources :friendships, only: [:create, :show, :destroy]
   end
 end
 

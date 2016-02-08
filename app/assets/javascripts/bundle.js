@@ -19840,24 +19840,24 @@
 	    });
 	  },
 
-	  giveUserId: function (requestorId, requesteeId) {
+	  createFriendRequest: function (requestorId, requesteeId) {
 	    $.ajax({
-	      method: "PATCH",
-	      url: "/api/users/" + requesteeId,
+	      method: "POST",
+	      url: "/api/friend_requests",
 	      dataType: "json",
-	      data: { user: { friend_request_id: requestorId } },
+	      data: { friend_request: { requestor_id: requestorId, requestee_id: requestee_id } },
 	      success: function (data) {
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
-	        return "Was not able to request for friend! :`)";
+	        return "Was not able to request friend! :`)";
 	      }
 	    });
 	  },
 
 	  createFriendship: function (requestorId, requesteeId) {
 	    $.ajax({
-	      method: "Post",
+	      method: "POST",
 	      url: "api/friendships",
 	      dataType: "json",
 	      data: { friendship: { friend_id: requestorId, self_id: requesteeId } },
@@ -32310,7 +32310,7 @@
 
 	  sendId: function (requestorId, requesteeId, friendshipId, text) {
 	    if (text === "Befriend") {
-	      ApiUtil.giveUserId(requestorId, requesteeId);
+	      ApiUtil.createFriendRequest(requestorId, requesteeId);
 	      text = "Pending"; // AND Make the button unclickable!!
 	    } else if (text === "Unfriend") {
 	        ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);

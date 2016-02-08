@@ -4,7 +4,7 @@ var React = require('react'),
 var Header = React.createClass({
   sendId: function (requestorId, requesteeId, friendshipId, text) {
     if (text === "Befriend") {
-      ApiUtil.giveUserId(requestorId, requesteeId);
+      ApiUtil.createFriendRequest(requestorId, requesteeId);
       text = "Pending"; // AND Make the button unclickable!!
     } else if (text === "Unfriend") {
       ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
