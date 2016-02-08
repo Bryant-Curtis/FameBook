@@ -46,24 +46,24 @@ var Friends = React.createClass({
   render: function () {
     var username = "",
         friendCount = "",
-        confirmFriends;
+        confirmFriends = [];
     if (this.state.user && this.state.user.length !== 0) {
       if (this.state.user.id === window.currentUserId) {
         if (this.state.user.friend_requests) {
           var friendRequestor;
-          UserStore.all().forEach(function(user) {
-            this.state.user.friend_requests.forEach(function(friend_request) {
+          UserStore.all().map(function(user) {
+            this.state.user.friend_requests.map(function(friend_request) {
               if (user.id === friend_request.requestor_id && friend_request.declined === false) {
                 friendRequestor = user.first_name + ' ' + user.last_name;
-                confirmFriends = (
-                  <section className="confirm-friend-box-info group">
+                confirmFriends.unshift(
+                  <li key={friend_request.id} className="confirm-friend-box-info">
                     <figure className="confirm-friend-photo"></figure>
                     <section className="confirm-friend-info group">
-                      <p className="confirm-friend-name">{ friendRequestor }</p>
+                      <p className="confirm-friend-name"><a href={"#/users/" + user.id}>{ friendRequestor }</a></p>
                       <button className="accept-friend-button" onClick={this.createFriendship.bind(this, friend_request.id, user.id, window.currentUserId)}>Accept</button>
                       <button className="decline-friend-button" onClick={this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId)}>Decline</button>
                     </section>
-                  </section>
+                  </li>
                 );
               }
             }.bind(this));
@@ -74,17 +74,14 @@ var Friends = React.createClass({
       friendCount = this.state.user.friendships.length;
     }
 
-    var ConfirmFriends;
-
     return(
       <div className="friends-main">
         <Header user={this.state.user} />
-        <section className="confirm-friends">
+        <section className="confirm-friends group">
           <header className="confirm-friends-list-header">Friend Requests</header>
-            { confirmFriends }
+          { confirmFriends }
           <section className="confirm-friends-list-main">
             <section className="confirm-friend-box group">
-
             </section>
           </section>
         </section>

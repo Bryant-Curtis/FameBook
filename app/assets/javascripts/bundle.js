@@ -32495,18 +32495,18 @@
 	  render: function () {
 	    var username = "",
 	        friendCount = "",
-	        confirmFriends;
+	        confirmFriends = [];
 	    if (this.state.user && this.state.user.length !== 0) {
 	      if (this.state.user.id === window.currentUserId) {
 	        if (this.state.user.friend_requests) {
 	          var friendRequestor;
-	          UserStore.all().forEach(function (user) {
-	            this.state.user.friend_requests.forEach(function (friend_request) {
+	          UserStore.all().map(function (user) {
+	            this.state.user.friend_requests.map(function (friend_request) {
 	              if (user.id === friend_request.requestor_id && friend_request.declined === false) {
 	                friendRequestor = user.first_name + ' ' + user.last_name;
-	                confirmFriends = React.createElement(
-	                  'section',
-	                  { className: 'confirm-friend-box-info group' },
+	                confirmFriends.unshift(React.createElement(
+	                  'li',
+	                  { key: friend_request.id, className: 'confirm-friend-box-info' },
 	                  React.createElement('figure', { className: 'confirm-friend-photo' }),
 	                  React.createElement(
 	                    'section',
@@ -32514,7 +32514,11 @@
 	                    React.createElement(
 	                      'p',
 	                      { className: 'confirm-friend-name' },
-	                      friendRequestor
+	                      React.createElement(
+	                        'a',
+	                        { href: "#/users/" + user.id },
+	                        friendRequestor
+	                      )
 	                    ),
 	                    React.createElement(
 	                      'button',
@@ -32527,7 +32531,7 @@
 	                      'Decline'
 	                    )
 	                  )
-	                );
+	                ));
 	              }
 	            }.bind(this));
 	          }.bind(this));
@@ -32537,15 +32541,13 @@
 	      friendCount = this.state.user.friendships.length;
 	    }
 
-	    var ConfirmFriends;
-
 	    return React.createElement(
 	      'div',
 	      { className: 'friends-main' },
 	      React.createElement(Header, { user: this.state.user }),
 	      React.createElement(
 	        'section',
-	        { className: 'confirm-friends' },
+	        { className: 'confirm-friends group' },
 	        React.createElement(
 	          'header',
 	          { className: 'confirm-friends-list-header' },
