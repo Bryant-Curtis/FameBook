@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
     through: :friendships,
     source:  :friend
 
+  has_many: :friend_requests,
+    class_name: "FriendRequest",
+    foreign_key: :requestee_id,
+    primary_key: :id
+
   has_many :photos,
     class_name: "Photo",
     foreign_key: :photoable_id,
