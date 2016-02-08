@@ -75,7 +75,7 @@ var ApiUtil = {
       method:   "POST",
       url:      "/api/friend_requests",
       dataType: "json",
-      data:     { friend_request: {requestor_id: requestorId, requestee_id: requestee_id} },
+      data:     { friend_request: {requestor_id: requestorId, requestee_id: requesteeId} },
       success: function (data) {
         ApiActions.receiveRequestee(data);
       },
@@ -105,6 +105,22 @@ var ApiUtil = {
       data:     { friendship: { friend_id: friend_id, self_id: self_id} },
       success: function (data) {
         ApiActions.receiveFriendship(data);
+      },
+      error: function () {
+        return "Was not able to delete friend! :`)";
+      }
+    });
+  },
+
+  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+    $.ajax({
+      method:   "PATCH",
+      url:      "api/friend_requests/" + friendRequestId,
+      dataType: "json",
+      data:     { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
+      success: function (data) {
+        debugger
+        ApiActions.receiveRequestee(data);
       },
       error: function () {
         return "Was not able to delete friend! :`)";

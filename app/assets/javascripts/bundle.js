@@ -19845,7 +19845,7 @@
 	      method: "POST",
 	      url: "/api/friend_requests",
 	      dataType: "json",
-	      data: { friend_request: { requestor_id: requestorId, requestee_id: requestee_id } },
+	      data: { friend_request: { requestor_id: requestorId, requestee_id: requesteeId } },
 	      success: function (data) {
 	        ApiActions.receiveRequestee(data);
 	      },
@@ -19875,6 +19875,22 @@
 	      data: { friendship: { friend_id: friend_id, self_id: self_id } },
 	      success: function (data) {
 	        ApiActions.receiveFriendship(data);
+	      },
+	      error: function () {
+	        return "Was not able to delete friend! :`)";
+	      }
+	    });
+	  },
+
+	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+	    $.ajax({
+	      method: "PATCH",
+	      url: "api/friend_requests/" + friendRequestId,
+	      dataType: "json",
+	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
+	      success: function (data) {
+	        debugger;
+	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
 	        return "Was not able to delete friend! :`)";
@@ -32240,6 +32256,7 @@
 	};
 
 	UserStore.updateUser = function (requestee) {
+	  debugger;
 	  _users.forEach(function (user, i) {
 	    if (user.id === requestee.id) {
 	      _users[i] = requestee;
@@ -32459,42 +32476,48 @@
 	    ApiUtil.createFriendship(requesteeId, requestorId);
 	  },
 
+	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+	    ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+	  },
+
 	  render: function () {
 	    var username = "",
 	        friendCount = "",
 	        confirmFriends;
 	    if (this.state.user && this.state.user.length !== 0) {
 	      if (this.state.user.id === window.currentUserId) {
-	        if (this.state.user.friend_request_id) {
+	        if (this.state.user.friend_requests) {
 	          var friendRequestor;
 	          UserStore.all().forEach(function (user) {
-	            if (user.id === this.state.user.friend_request_id) {
-	              friendRequestor = user.first_name + ' ' + user.last_name;
-	              confirmFriends = React.createElement(
-	                'section',
-	                { className: 'confirm-friend-box-info group' },
-	                React.createElement('figure', { className: 'confirm-friend-photo' }),
-	                React.createElement(
+	            this.state.user.friend_requests.forEach(function (friend_request) {
+	              if (user.id === friend_request.requestor_id && friend_request.declined === false) {
+	                friendRequestor = user.first_name + ' ' + user.last_name;
+	                confirmFriends = React.createElement(
 	                  'section',
-	                  { className: 'confirm-friend-info group' },
+	                  { className: 'confirm-friend-box-info group' },
+	                  React.createElement('figure', { className: 'confirm-friend-photo' }),
 	                  React.createElement(
-	                    'p',
-	                    { className: 'confirm-friend-name' },
-	                    friendRequestor
-	                  ),
-	                  React.createElement(
-	                    'button',
-	                    { className: 'accept-friend-button', onClick: this.createFriendship.bind(this, user.id, window.currentUserId) },
-	                    'Accept'
-	                  ),
-	                  React.createElement(
-	                    'button',
-	                    { className: 'decline-friend-button', onClick: this.declineFriendship },
-	                    'Decline'
+	                    'section',
+	                    { className: 'confirm-friend-info group' },
+	                    React.createElement(
+	                      'p',
+	                      { className: 'confirm-friend-name' },
+	                      friendRequestor
+	                    ),
+	                    React.createElement(
+	                      'button',
+	                      { className: 'accept-friend-button', onClick: this.createFriendship.bind(this, user.id, window.currentUserId) },
+	                      'Accept'
+	                    ),
+	                    React.createElement(
+	                      'button',
+	                      { className: 'decline-friend-button', onClick: this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId) },
+	                      'Decline'
+	                    )
 	                  )
-	                )
-	              );
-	            }
+	                );
+	              }
+	            }.bind(this));
 	          }.bind(this));
 	        }
 	      }

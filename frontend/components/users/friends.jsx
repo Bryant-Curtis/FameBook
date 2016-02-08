@@ -38,28 +38,34 @@ var Friends = React.createClass({
     ApiUtil.createFriendship(requesteeId, requestorId);
   },
 
+  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+    ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+  },
+
   render: function () {
     var username = "",
         friendCount = "",
         confirmFriends;
     if (this.state.user && this.state.user.length !== 0) {
       if (this.state.user.id === window.currentUserId) {
-        if (this.state.user.friend_request_id) {
+        if (this.state.user.friend_requests) {
           var friendRequestor;
           UserStore.all().forEach(function(user) {
-            if (user.id === this.state.user.friend_request_id) {
-              friendRequestor = user.first_name + ' ' + user.last_name;
-              confirmFriends = (
-                <section className="confirm-friend-box-info group">
-                  <figure className="confirm-friend-photo"></figure>
-                  <section className="confirm-friend-info group">
-                    <p className="confirm-friend-name">{ friendRequestor }</p>
-                    <button className="accept-friend-button" onClick={this.createFriendship.bind(this, user.id, window.currentUserId)}>Accept</button>
-                    <button className="decline-friend-button" onClick={this.declineFriendship}>Decline</button>
+            this.state.user.friend_requests.forEach(function(friend_request) {
+              if (user.id === friend_request.requestor_id && friend_request.declined === false) {
+                friendRequestor = user.first_name + ' ' + user.last_name;
+                confirmFriends = (
+                  <section className="confirm-friend-box-info group">
+                    <figure className="confirm-friend-photo"></figure>
+                    <section className="confirm-friend-info group">
+                      <p className="confirm-friend-name">{ friendRequestor }</p>
+                      <button className="accept-friend-button" onClick={this.createFriendship.bind(this, user.id, window.currentUserId)}>Accept</button>
+                      <button className="decline-friend-button" onClick={this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId)}>Decline</button>
+                    </section>
                   </section>
-                </section>
-              );
-            }
+                );
+              }
+            }.bind(this));
           }.bind(this));
         }
       }

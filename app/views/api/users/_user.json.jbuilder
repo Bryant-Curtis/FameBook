@@ -1,6 +1,6 @@
 json.extract! user, :id, :first_name, :last_name, :email, :friend_request_id
 json.friend_requests user.friend_requests do |friend_request|
-  json.extract! friend_request, :requestee_id, :requestor_id, :declined
+  json.extract! friend_request, :id, :requestee_id, :requestor_id, :declined
 end
 json.friendships user.friendships do |friendship|
   json.extract! friendship, :id, :friend_id, :self_id

@@ -1,10 +1,10 @@
-class FriendRequestsController < ApplicationController
-  rescue ActiveRecord::RecordNotUnique
+class Api::FriendRequestsController < ApplicationController
+  # rescue ActiveRecord::RecordNotUnique
 
   def create
     @friend_request = FriendRequest.new(friend_request_params)
-    @user = User.find(params[:friend_request][:requestee_id])
     if @friend_request.save
+      @user = User.find(params[:friend_request][:requestee_id])
       render "api/users/show", user: @user
     else
       @friend_request.errors.full_messages
@@ -12,11 +12,19 @@ class FriendRequestsController < ApplicationController
   end
 
   def show
+  end
 
+  def update
+    @friend_request = FriendRequest.find(params[:id])
+    if @friend_request.update(friend_request_params)
+      @user = User.find(params[:friend_request][:requestee_id])
+      render "api/users/show", user: @user
+    else
+      @friend_request.errors.full_messages
+    end
   end
 
   def destroy
-
   end
 
   private
