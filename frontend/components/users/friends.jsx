@@ -33,12 +33,13 @@ var Friends = React.createClass({
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
-  createFriendship: function (requestorId, requesteeId) {
+  createFriendship: function (friendRequestId, requestorId, requesteeId) {
     ApiUtil.createFriendship(requestorId, requesteeId);
+    ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
     ApiUtil.createFriendship(requesteeId, requestorId);
   },
 
-  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+  declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
     ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
   },
 
@@ -59,7 +60,7 @@ var Friends = React.createClass({
                     <figure className="confirm-friend-photo"></figure>
                     <section className="confirm-friend-info group">
                       <p className="confirm-friend-name">{ friendRequestor }</p>
-                      <button className="accept-friend-button" onClick={this.createFriendship.bind(this, user.id, window.currentUserId)}>Accept</button>
+                      <button className="accept-friend-button" onClick={this.createFriendship.bind(this, friend_request.id, user.id, window.currentUserId)}>Accept</button>
                       <button className="decline-friend-button" onClick={this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId)}>Decline</button>
                     </section>
                   </section>

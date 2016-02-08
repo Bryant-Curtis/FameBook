@@ -1,6 +1,7 @@
 var ApiActions = require('../actions/famebookAction');
 
 var ApiUtil = {
+
   fetchAllPosts: function () {
     $.ajax({
       method:   "GET",
@@ -70,21 +71,6 @@ var ApiUtil = {
     });
   },
 
-  createFriendRequest: function (requestorId, requesteeId) {
-    $.ajax({
-      method:   "POST",
-      url:      "/api/friend_requests",
-      dataType: "json",
-      data:     { friend_request: {requestor_id: requestorId, requestee_id: requesteeId} },
-      success: function (data) {
-        ApiActions.receiveRequestee(data);
-      },
-      error: function () {
-        return "Was not able to request friend! :`)";
-      }
-    });
-  },
-
   createFriendship: function (requestorId, requesteeId) {
     $.ajax({
       method:   "POST",
@@ -112,6 +98,33 @@ var ApiUtil = {
     });
   },
 
+  createFriendRequest: function (requestorId, requesteeId) {
+    $.ajax({
+      method:   "POST",
+      url:      "/api/friend_requests",
+      dataType: "json",
+      data:     { friend_request: {requestor_id: requestorId, requestee_id: requesteeId} },
+      success: function (data) {
+        ApiActions.receiveRequestee(data);
+      },
+      error: function () {
+        return "Was not able to request friend! :`)";
+      }
+    });
+  },
+
+  deleteFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+    $.ajax({
+      method:   "DELETE",
+      url:      "api/friend_requests/" + friendRequestId,
+      dataType: "json",
+      data:     { friend_request: { id: friendRequestId, friend_id: requestorId, self_id: requesteeId} },
+      success: function (data) {
+        ApiActions.receiveRequestee(data);
+      }
+    });
+  },
+
   declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
     $.ajax({
       method:   "PATCH",
@@ -119,7 +132,6 @@ var ApiUtil = {
       dataType: "json",
       data:     { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
       success: function (data) {
-        debugger
         ApiActions.receiveRequestee(data);
       },
       error: function () {

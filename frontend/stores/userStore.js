@@ -42,7 +42,6 @@ UserStore.resetUser = function (userNow) {
 };
 
 UserStore.updateUser = function (requestee) {
-  debugger
   _users.forEach(function(user, i) {
     if (user.id === requestee.id) {
       _users[i] = requestee;

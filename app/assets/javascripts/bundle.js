@@ -19771,6 +19771,7 @@
 	var ApiActions = __webpack_require__(160);
 
 	var ApiUtil = {
+
 	  fetchAllPosts: function () {
 	    $.ajax({
 	      method: "GET",
@@ -19840,21 +19841,6 @@
 	    });
 	  },
 
-	  createFriendRequest: function (requestorId, requesteeId) {
-	    $.ajax({
-	      method: "POST",
-	      url: "/api/friend_requests",
-	      dataType: "json",
-	      data: { friend_request: { requestor_id: requestorId, requestee_id: requesteeId } },
-	      success: function (data) {
-	        ApiActions.receiveRequestee(data);
-	      },
-	      error: function () {
-	        return "Was not able to request friend! :`)";
-	      }
-	    });
-	  },
-
 	  createFriendship: function (requestorId, requesteeId) {
 	    $.ajax({
 	      method: "POST",
@@ -19882,6 +19868,33 @@
 	    });
 	  },
 
+	  createFriendRequest: function (requestorId, requesteeId) {
+	    $.ajax({
+	      method: "POST",
+	      url: "/api/friend_requests",
+	      dataType: "json",
+	      data: { friend_request: { requestor_id: requestorId, requestee_id: requesteeId } },
+	      success: function (data) {
+	        ApiActions.receiveRequestee(data);
+	      },
+	      error: function () {
+	        return "Was not able to request friend! :`)";
+	      }
+	    });
+	  },
+
+	  deleteFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+	    $.ajax({
+	      method: "DELETE",
+	      url: "api/friend_requests/" + friendRequestId,
+	      dataType: "json",
+	      data: { friend_request: { id: friendRequestId, friend_id: requestorId, self_id: requesteeId } },
+	      success: function (data) {
+	        ApiActions.receiveRequestee(data);
+	      }
+	    });
+	  },
+
 	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
 	    $.ajax({
 	      method: "PATCH",
@@ -19889,7 +19902,6 @@
 	      dataType: "json",
 	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
 	      success: function (data) {
-	        debugger;
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -32256,7 +32268,6 @@
 	};
 
 	UserStore.updateUser = function (requestee) {
-	  debugger;
 	  _users.forEach(function (user, i) {
 	    if (user.id === requestee.id) {
 	      _users[i] = requestee;
@@ -32471,12 +32482,13 @@
 	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
-	  createFriendship: function (requestorId, requesteeId) {
+	  createFriendship: function (friendRequestId, requestorId, requesteeId) {
 	    ApiUtil.createFriendship(requestorId, requesteeId);
+	    ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
 	    ApiUtil.createFriendship(requesteeId, requestorId);
 	  },
 
-	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
+	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
 	    ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
 	  },
 
@@ -32506,7 +32518,7 @@
 	                    ),
 	                    React.createElement(
 	                      'button',
-	                      { className: 'accept-friend-button', onClick: this.createFriendship.bind(this, user.id, window.currentUserId) },
+	                      { className: 'accept-friend-button', onClick: this.createFriendship.bind(this, friend_request.id, user.id, window.currentUserId) },
 	                      'Accept'
 	                    ),
 	                    React.createElement(
