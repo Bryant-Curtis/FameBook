@@ -70,6 +70,7 @@ UserStore.updateFriendships = function (destroyedFriendship) {
   });
 };
 
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case FamebookConstants.ALL_USERS_RECEIVED:
@@ -90,6 +91,10 @@ UserStore.__onDispatch = function (payload) {
       break;
     case FamebookConstants.FRIENDSHIPS_RECEIVED:
       this.updateFriendships(payload.friendships);
+      UserStore.__emitChange();
+      break;
+    case FamebookConstants.NEW_FRIENDSHIP_RECEIVED:
+      this.updateUser(payload.friendship);
       UserStore.__emitChange();
       break;
   }

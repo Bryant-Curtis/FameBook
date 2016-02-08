@@ -44,14 +44,19 @@ var ApiActions = {
     });
   },
 
-  receiveFriendship: function(friendships) {
+  receiveFriendship: function(friendship) {
     Dispatcher.dispatch({
       actionType: FamebookConstants.FRIENDSHIPS_RECEIVED,
-      friendships: friendships
+      friendship: friendship
     });
   },
 
-
+  receiveNewFriendship: function(friendship) {
+    Dispatcher.dispatch({
+      actionType: FamebookConstants.NEW_FRIENDSHIP_RECEIVED,
+      friendship: friendship
+    });
+  }
 };
 
 module.exports = ApiActions;

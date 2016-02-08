@@ -1,9 +1,17 @@
 class Api::FriendshipsController < ApplicationController
 
   def create
-    @friendship = Friendship.new(friendships_params)
-    debugger
-    
+    @friendship = Friendship.new(friendship_params)
+    @user = User.find(@friendship.self_id)
+    if @friendship.save
+      render "/api/users/show", user: @user
+    else
+      render @friendship.errors.full_messages
+    end
+  end
+
+  def show
+    @friendship = Friendship.find(params[:id])
   end
 
   def destroy
@@ -22,8 +30,8 @@ class Api::FriendshipsController < ApplicationController
 
   private
 
-  def friendships_params
-    params.require(:friendships).permit(:friend_id, :self_id)
+  def friendship_params
+    params.require(:friendship).permit(:friend_id, :self_id)
   end
 
 end

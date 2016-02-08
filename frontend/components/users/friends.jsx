@@ -33,8 +33,9 @@ var Friends = React.createClass({
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
-  createFriendship: function (post) {
-    ApiUtil.createFriendship(post);
+  createFriendship: function (requestorId, requesteeId) {
+    ApiUtil.createFriendship(requestorId, requesteeId);
+    ApiUtil.createFriendship(requesteeId, requestorId);
   },
 
   render: function () {
@@ -48,18 +49,18 @@ var Friends = React.createClass({
           UserStore.all().forEach(function(user) {
             if (user.id === this.state.user.friend_request_id) {
               friendRequestor = user.first_name + ' ' + user.last_name;
+              confirmFriends = (
+                <section className="confirm-friend-box-info group">
+                  <figure className="confirm-friend-photo"></figure>
+                  <section className="confirm-friend-info group">
+                    <p className="confirm-friend-name">{ friendRequestor }</p>
+                    <button className="accept-friend-button" onClick={this.createFriendship.bind(this, user.id, window.currentUserId)}>Accept</button>
+                    <button className="decline-friend-button" onClick={this.declineFriendship}>Decline</button>
+                  </section>
+                </section>
+              );
             }
-          });
-          confirmFriends = (
-            <section className="confirm-friend-box-info group">
-              <figure className="confirm-friend-photo"></figure>
-              <section className="confirm-friend-info group">
-                <p className="confirm-friend-name">{ friendRequestor }</p>
-                <button className="accept-friend-button" onClick={this.createFriendship}>Accept</button>
-                <button className="decline-friend-button" onClick={this.declineFriendship}>Decline</button>
-              </section>
-            </section>
-          );
+          }.bind(this));
         }
       }
       username = this.state.user.first_name + " " + this.state.user.last_name;

@@ -19860,9 +19860,9 @@
 	      method: "Post",
 	      url: "api/friendships",
 	      dataType: "json",
-	      data: { friendships: { friend_id: friend_id, self_id: self_id } },
+	      data: { friendship: { friend_id: requestorId, self_id: requesteeId } },
 	      success: function (data) {
-	        ApiActions.updateFriendship(data);
+	        ApiActions.receiveRequestee(data);
 	      }
 	    });
 	  },
@@ -19872,7 +19872,7 @@
 	      method: "DELETE",
 	      url: "api/friendships/" + friendshipId,
 	      dataType: "json",
-	      data: { friendships: { friend_id: friend_id, self_id: self_id } },
+	      data: { friendship: { friend_id: friend_id, self_id: self_id } },
 	      success: function (data) {
 	        ApiActions.receiveFriendship(data);
 	      },
@@ -19945,13 +19945,19 @@
 	    });
 	  },
 
-	  receiveFriendship: function (friendships) {
+	  receiveFriendship: function (friendship) {
 	    Dispatcher.dispatch({
 	      actionType: FamebookConstants.FRIENDSHIPS_RECEIVED,
-	      friendships: friendships
+	      friendship: friendship
+	    });
+	  },
+
+	  receiveNewFriendship: function (friendship) {
+	    Dispatcher.dispatch({
+	      actionType: FamebookConstants.NEW_FRIENDSHIP_RECEIVED,
+	      friendship: friendship
 	    });
 	  }
-
 	};
 
 	module.exports = ApiActions;
@@ -20283,7 +20289,8 @@
 	  ALL_USERS_RECEIVED: "ALL_USERS_RECEIVED",
 	  USER_RECEIVED: "USER_RECEIVED",
 	  REQUESTEE_RECEIVED: "REQUESTEE_RECEIVED",
-	  FRIENDSHIPS_RECEIVED: "FRIENDSHIPS_RECEIVED"
+	  FRIENDSHIPS_RECEIVED: "FRIENDSHIPS_RECEIVED",
+	  NEW_FRIENDSHIP_RECEIVED: "NEW_FRIENDSHIP_RECEIVED"
 	};
 
 	module.exports = FamebookConstants;
@@ -32282,6 +32289,10 @@
 	      this.updateFriendships(payload.friendships);
 	      UserStore.__emitChange();
 	      break;
+	    case FamebookConstants.NEW_FRIENDSHIP_RECEIVED:
+	      this.updateUser(payload.friendship);
+	      UserStore.__emitChange();
+	      break;
 	  }
 	};
 
@@ -32443,8 +32454,9 @@
 	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
-	  createFriendship: function (post) {
-	    ApiUtil.createFriendship(post);
+	  createFriendship: function (requestorId, requesteeId) {
+	    ApiUtil.createFriendship(requestorId, requesteeId);
+	    ApiUtil.createFriendship(requesteeId, requestorId);
 	  },
 
 	  render: function () {
@@ -32458,32 +32470,32 @@
 	          UserStore.all().forEach(function (user) {
 	            if (user.id === this.state.user.friend_request_id) {
 	              friendRequestor = user.first_name + ' ' + user.last_name;
+	              confirmFriends = React.createElement(
+	                'section',
+	                { className: 'confirm-friend-box-info group' },
+	                React.createElement('figure', { className: 'confirm-friend-photo' }),
+	                React.createElement(
+	                  'section',
+	                  { className: 'confirm-friend-info group' },
+	                  React.createElement(
+	                    'p',
+	                    { className: 'confirm-friend-name' },
+	                    friendRequestor
+	                  ),
+	                  React.createElement(
+	                    'button',
+	                    { className: 'accept-friend-button', onClick: this.createFriendship.bind(this, user.id, window.currentUserId) },
+	                    'Accept'
+	                  ),
+	                  React.createElement(
+	                    'button',
+	                    { className: 'decline-friend-button', onClick: this.declineFriendship },
+	                    'Decline'
+	                  )
+	                )
+	              );
 	            }
-	          });
-	          confirmFriends = React.createElement(
-	            'section',
-	            { className: 'confirm-friend-box-info group' },
-	            React.createElement('figure', { className: 'confirm-friend-photo' }),
-	            React.createElement(
-	              'section',
-	              { className: 'confirm-friend-info group' },
-	              React.createElement(
-	                'p',
-	                { className: 'confirm-friend-name' },
-	                friendRequestor
-	              ),
-	              React.createElement(
-	                'button',
-	                { className: 'accept-friend-button', onClick: this.createFriendship },
-	                'Accept'
-	              ),
-	              React.createElement(
-	                'button',
-	                { className: 'decline-friend-button', onClick: this.declineFriendship },
-	                'Decline'
-	              )
-	            )
-	          );
+	          }.bind(this));
 	        }
 	      }
 	      username = this.state.user.first_name + " " + this.state.user.last_name;

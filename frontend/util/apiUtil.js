@@ -90,9 +90,9 @@ var ApiUtil = {
       method:   "Post",
       url:      "api/friendships",
       dataType: "json",
-      data:     { friendships: { friend_id: friend_id, self_id: self_id} },
+      data:     { friendship: { friend_id: requestorId, self_id: requesteeId} },
       success: function (data) {
-        ApiActions.updateFriendship(data);
+        ApiActions.receiveRequestee(data);
       }
     });
   },
@@ -102,7 +102,7 @@ var ApiUtil = {
       method:   "DELETE",
       url:      "api/friendships/" + friendshipId,
       dataType: "json",
-      data:     { friendships: { friend_id: friend_id, self_id: self_id} },
+      data:     { friendship: { friend_id: friend_id, self_id: self_id} },
       success: function (data) {
         ApiActions.receiveFriendship(data);
       },
