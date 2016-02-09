@@ -32,7 +32,9 @@ class Api::FriendshipsController < ApplicationController
         self_id:   params[:friendship][:friend_id] }])
     @friendship_friend[0].destroy
     @friendship_self[0].destroy
-    render json: { friend: @friendship_friend[0], self: @friendship_self[0] }
+    @user = User.find(params[:friendship][:self_id])
+    render "/api/users/show", user: @user
+    # render json: { friend: @friendship_friend[0], self: @friendship_self[0] }
   end
 
   private

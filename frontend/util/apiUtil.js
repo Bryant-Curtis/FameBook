@@ -90,7 +90,7 @@ var ApiUtil = {
       dataType: "json",
       data:     { friendship: { friend_id: friend_id, self_id: self_id} },
       success: function (data) {
-        ApiActions.receiveFriendship(data);
+        ApiActions.receiveRequestee(data);
       },
       error: function () {
         return "Was not able to delete friend! :`)";

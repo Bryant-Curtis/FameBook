@@ -19860,7 +19860,7 @@
 	      dataType: "json",
 	      data: { friendship: { friend_id: friend_id, self_id: self_id } },
 	      success: function (data) {
-	        ApiActions.receiveFriendship(data);
+	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
 	        return "Was not able to delete friend! :`)";
@@ -32354,10 +32354,18 @@
 	    if (this.props.user && this.props.user.first_name !== undefined) {
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
 	      userId = this.props.user.id;
+
 	      if (text === undefined) {
-	        if (this.props.user.friend_request_id === window.currentUserId) {
-	          text = "Pending";
-	        } else if (this.props.user.friendships.length !== 0) {
+	        this.props.user.friend_requests.forEach(function (friend_request) {
+	          if (friend_request.requestor_id === window.currentUserId) {
+	            text = "Pending";
+	            return text;
+	          }
+	        });
+	      }
+
+	      if (text === undefined) {
+	        if (this.props.user.friendships.length !== 0) {
 	          this.props.user.friendships.forEach(function (friendship) {
 	            if (friendship.friend_id === window.currentUserId) {
 	              text = "Unfriend";
@@ -32365,10 +32373,9 @@
 	              text = "Befriend";
 	            }
 	          }.bind(this));
-	        } else {
-	          text = "Befriend";
 	        }
 	      }
+
 	      this.props.user.friendships.forEach(function (friendship) {
 	        if (friendship.self_id === this.props.user.id && friendship.friend_id === window.currentUserId) {
 	          friendshipId = friendship.id;
@@ -32491,6 +32498,9 @@
 	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
 	    ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
 	  },
+
+	  // Make sure to add link to each name! --> <a href={"#/users/" + user.id}>
+	  // also remember to add hover - underline effect
 
 	  render: function () {
 	    var username = "",

@@ -43,6 +43,9 @@ var Friends = React.createClass({
     ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
   },
 
+  // Make sure to add link to each name! --> <a href={"#/users/" + user.id}>
+  // also remember to add hover - underline effect
+
   render: function () {
     var username = "",
         friendCount = "",
