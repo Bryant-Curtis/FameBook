@@ -32508,6 +32508,31 @@
 	        confirmFriends = [];
 	    if (this.state.user && this.state.user.length !== 0) {
 	      if (this.state.user.id === window.currentUserId) {
+	        var friendList = [];
+	        this.state.user.friends.forEach(function (friend) {
+	          username = friend.first_name + " " + friend.last_name;
+	          friendCount = friend.friendships.length;
+	          friendList.push(React.createElement(
+	            'li',
+	            { key: friend.id, className: 'friend-box-info group' },
+	            React.createElement('figure', { className: 'friend-photo' }),
+	            React.createElement(
+	              'section',
+	              { className: 'friend-info' },
+	              React.createElement(
+	                'p',
+	                { className: 'friend-name' },
+	                username
+	              ),
+	              React.createElement(
+	                'h6',
+	                { className: 'friend-friend-count' },
+	                friendCount,
+	                ' friends'
+	              )
+	            )
+	          ));
+	        });
 	        if (this.state.user.friend_requests) {
 	          var friendRequestor;
 	          UserStore.all().map(function (user) {
@@ -32547,8 +32572,6 @@
 	          }.bind(this));
 	        }
 	      }
-	      username = this.state.user.first_name + " " + this.state.user.last_name;
-	      friendCount = this.state.user.friendships.length;
 	    }
 
 	    return React.createElement(
@@ -32582,28 +32605,9 @@
 	          'section',
 	          { className: 'friends-list-main' },
 	          React.createElement(
-	            'section',
+	            'ul',
 	            { className: 'friend-box group' },
-	            React.createElement(
-	              'section',
-	              { className: 'friend-box-info group' },
-	              React.createElement('figure', { className: 'friend-photo' }),
-	              React.createElement(
-	                'section',
-	                { className: 'friend-info' },
-	                React.createElement(
-	                  'p',
-	                  { className: 'friend-name' },
-	                  username
-	                ),
-	                React.createElement(
-	                  'h6',
-	                  { className: 'friend-friend-count' },
-	                  friendCount,
-	                  ' friends'
-	                )
-	              )
-	            )
+	            friendList
 	          )
 	        )
 	      )

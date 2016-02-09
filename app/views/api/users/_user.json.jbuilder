@@ -7,6 +7,9 @@ json.friendships user.friendships do |friendship|
 end
 json.friends user.friends do |friend|
   json.extract! friend, :id, :first_name, :last_name, :email
+  json.friendships friend.friendships do |friendship|
+    json.extract! friendship, :id, :friend_id, :self_id
+  end
 end
 json.photos user.photos do |photo|
   json.extract! photo, :photoable_id, :photoable_type
