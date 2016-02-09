@@ -49,22 +49,22 @@ var Friends = React.createClass({
   render: function () {
     var username = "",
         friendCount = "",
-        confirmFriends = [];
+        confirmFriends = [],
+        friendList = [];
     if (this.state.user && this.state.user.length !== 0) {
       if (this.state.user.id === window.currentUserId) {
-        var friendList = [];
         this.state.user.friends.forEach(function(friend) {
           username = friend.first_name + " " + friend.last_name;
           friendCount = friend.friendships.length;
-          friendList.push(
+          friendList.unshift(
             <li key={friend.id} className="friend-box-info group">
               <figure className="friend-photo"></figure>
               <section className="friend-info">
-                <p className="friend-name">{ username }</p>
+                <p className="friend-name"><a href={"#/users/" + friend.id}>{ username }</a></p>
                 <h6 className="friend-friend-count">{ friendCount } friends</h6>
               </section>
             </li>
-          )
+          );
         });
         if (this.state.user.friend_requests) {
           var friendRequestor;
@@ -103,11 +103,9 @@ var Friends = React.createClass({
 
         <section className="friends-list">
           <header className="friends-list-header">Friends</header>
-          <section className="friends-list-main">
-            <ul className="friend-box group">
-              { friendList }
-            </ul>
-          </section>
+          <ul className="friends-list-main group">
+            { friendList }
+          </ul>
         </section>
       </div>
     );

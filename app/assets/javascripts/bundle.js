@@ -32505,14 +32505,14 @@
 	  render: function () {
 	    var username = "",
 	        friendCount = "",
-	        confirmFriends = [];
+	        confirmFriends = [],
+	        friendList = [];
 	    if (this.state.user && this.state.user.length !== 0) {
 	      if (this.state.user.id === window.currentUserId) {
-	        var friendList = [];
 	        this.state.user.friends.forEach(function (friend) {
 	          username = friend.first_name + " " + friend.last_name;
 	          friendCount = friend.friendships.length;
-	          friendList.push(React.createElement(
+	          friendList.unshift(React.createElement(
 	            'li',
 	            { key: friend.id, className: 'friend-box-info group' },
 	            React.createElement('figure', { className: 'friend-photo' }),
@@ -32522,7 +32522,11 @@
 	              React.createElement(
 	                'p',
 	                { className: 'friend-name' },
-	                username
+	                React.createElement(
+	                  'a',
+	                  { href: "#/users/" + friend.id },
+	                  username
+	                )
 	              ),
 	              React.createElement(
 	                'h6',
@@ -32602,13 +32606,9 @@
 	          'Friends'
 	        ),
 	        React.createElement(
-	          'section',
-	          { className: 'friends-list-main' },
-	          React.createElement(
-	            'ul',
-	            { className: 'friend-box group' },
-	            friendList
-	          )
+	          'ul',
+	          { className: 'friends-list-main group' },
+	          friendList
 	        )
 	      )
 	    );
