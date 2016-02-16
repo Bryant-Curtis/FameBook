@@ -41,7 +41,6 @@ var UserProfile = React.createClass({
   },
 
   render: function () {
-    // debugger
     var username = "",
         userPosts = [],
         deleteButton,
@@ -80,7 +79,7 @@ var UserProfile = React.createClass({
         { postform }
         <ul>
           <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
-            { userPosts.reverse() }
+            { userPosts }
           </ReactCSSTransitionGroup>
         </ul>
       </div>

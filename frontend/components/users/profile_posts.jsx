@@ -6,9 +6,11 @@ var ProfilePosts = React.createClass({
       { postform }
       <ul>
         <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
-          { userPosts.reverse() }
+          { userPosts }
         </ReactCSSTransitionGroup>
       </ul>
     )
   }
 });
+
+// Add this in future refactor
