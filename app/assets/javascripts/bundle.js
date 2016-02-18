@@ -32142,7 +32142,6 @@
 	  },
 
 	  render: function () {
-	    // debugger
 	    var username = "",
 	        userPosts = [],
 	        deleteButton,
@@ -32200,7 +32199,7 @@
 	        React.createElement(
 	          ReactCSSTransitionGroup,
 	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
-	          userPosts.reverse()
+	          userPosts
 	        )
 	      )
 	    );
@@ -32336,7 +32335,7 @@
 	var Header = React.createClass({
 	  displayName: 'Header',
 
-	  sendId: function (requestorId, requesteeId, friendshipId, text) {
+	  sendUserId: function (requestorId, requesteeId, friendshipId, text) {
 	    if (text === "Befriend") {
 	      ApiUtil.createFriendRequest(requestorId, requesteeId);
 	      text = "Pending"; // AND Make the button unclickable!!
@@ -32346,8 +32345,8 @@
 	  },
 
 	  render: function () {
-	    var text;
-	    var username = "",
+	    var text = undefined,
+	        username = "",
 	        friendRequestButton = "",
 	        userId,
 	        friendshipId;
@@ -32363,16 +32362,18 @@
 	          }
 	        });
 	      }
-
 	      if (text === undefined) {
-	        if (this.props.user.friendships.length !== 0) {
-	          this.props.user.friendships.forEach(function (friendship) {
-	            if (friendship.friend_id === window.currentUserId) {
-	              text = "Unfriend";
-	            } else if (text === undefined) {
-	              text = "Befriend";
-	            }
-	          }.bind(this));
+	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
+	        this.props.user.friendships.forEach(function (friendship) {
+	          if (friendship.friend_id === window.currentUserId) {
+	            text = "Unfriend";
+	          } else if (text === undefined) {
+	            text = "Befriend";
+	          }
+	        }.bind(this));
+	        // }
+	        if (text === undefined) {
+	          text = "Befriend";
 	        }
 	      }
 
@@ -32387,7 +32388,7 @@
 	        'button',
 	        {
 	          className: 'profile-friend-request-button',
-	          onClick: this.sendId.bind(this, window.currentUserId, this.props.user.id, friendshipId, text)
+	          onClick: this.sendUserId.bind(this, window.currentUserId, this.props.user.id, friendshipId, text)
 	        },
 	        text
 	      );

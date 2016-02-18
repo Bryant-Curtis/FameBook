@@ -2,18 +2,19 @@ var React = require('react'),
     ApiUtil = require('../../util/apiUtil');
 
 var Header = React.createClass({
-  sendId: function (requestorId, requesteeId, friendshipId, text) {
+  sendUserId: function (requestorId, requesteeId, friendshipId, text) {
     if (text === "Befriend") {
       ApiUtil.createFriendRequest(requestorId, requesteeId);
       text = "Pending"; // AND Make the button unclickable!!
     } else if (text === "Unfriend") {
       ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
+
     }
   },
 
   render: function () {
-    var text;
-    var username = "",
+    var text = undefined,
+        username = "",
         friendRequestButton = "",
         userId,
         friendshipId;
@@ -29,9 +30,8 @@ var Header = React.createClass({
           }
         });
       }
-
       if (text === undefined) {
-        if (this.props.user.friendships.length !== 0) {
+        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
           this.props.user.friendships.forEach(function(friendship) {
             if (friendship.friend_id === window.currentUserId) {
               text = "Unfriend";
@@ -39,6 +39,9 @@ var Header = React.createClass({
               text = "Befriend";
             }
           }.bind(this));
+        // }
+        if (text === undefined) {
+          text = "Befriend";
         }
       }
 
@@ -53,7 +56,7 @@ var Header = React.createClass({
       friendRequestButton = <button
                               className="profile-friend-request-button"
                               onClick={
-                                this.sendId.bind(
+                                this.sendUserId.bind(
                                   this,
                                   window.currentUserId,
                                   this.props.user.id,
