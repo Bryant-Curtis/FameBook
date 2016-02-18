@@ -1,6 +1,6 @@
 json.array! @users do |user|
   json.partial! "api/users/user", user: user
-  json.posts user.posts do |post|
+  json.posts user.posts.sort_by(&:created_at).reverse do |post|
     json.partial! "api/posts/post", post: post
   end
 end

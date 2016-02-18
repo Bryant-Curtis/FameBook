@@ -12,7 +12,7 @@ PostStore.all = function () {
 };
 
 PostStore.resetPosts = function (posts) {
-  _posts = posts.reverse();
+  _posts = posts;
 };
 
 PostStore.addPost = function (post) {
