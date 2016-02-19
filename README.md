@@ -1,5 +1,5 @@
 # FameBook
 
-[Heroku link][heroku] **NB:** Link to my production site
+[Link][heroku] to my production site
 
-[heroku]: http://famebook.herokuapp.com/
+[heroku]: http://www.famebook.website/

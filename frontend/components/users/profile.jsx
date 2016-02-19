@@ -52,7 +52,7 @@ var UserProfile = React.createClass({
         postform = <PostForm />;
       }
       username = this.state.user.first_name + " " + this.state.user.last_name;
-      if (this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
+      if (this.state.user.posts[0] && this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
         this.state.user.posts = this.state.user.posts.reverse();
       }
       userPosts = this.state.user.posts.map(function(post) {
