@@ -36,6 +36,8 @@ var UserProfile = React.createClass({
   deletePost: function (post) {
     ApiUtil.deletePost(post);
     // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+
+    // SERIOUS -- H A C K -- CHANGE POSTS IN USER PROFILE TO HAVE PROFILE_TIMELINE COMPONENT AND THEN GET RID OF THIS
     ApiUtil.fetchAllUsers();
 
   },

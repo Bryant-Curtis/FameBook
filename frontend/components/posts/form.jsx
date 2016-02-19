@@ -14,6 +14,7 @@ var PostForm = React.createClass({
   createPost: function (e) {
     e.preventDefault();
     ApiUtil.createPost(this.state);
+    ApiUtil.fetchAllUsers();
     this.setState({ body: "" });
   },
 

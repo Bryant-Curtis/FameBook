@@ -31271,6 +31271,7 @@
 	  createPost: function (e) {
 	    e.preventDefault();
 	    ApiUtil.createPost(this.state);
+	    ApiUtil.fetchAllUsers();
 	    this.setState({ body: "" });
 	  },
 
@@ -32138,6 +32139,8 @@
 	  deletePost: function (post) {
 	    ApiUtil.deletePost(post);
 	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+
+	    // SERIOUS -- H A C K -- CHANGE POSTS IN USER PROFILE TO HAVE PROFILE_TIMELINE COMPONENT AND THEN GET RID OF THIS
 	    ApiUtil.fetchAllUsers();
 	  },
 
