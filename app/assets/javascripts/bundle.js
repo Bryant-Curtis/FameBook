@@ -32432,15 +32432,6 @@
 	          ),
 	          React.createElement(
 	            'li',
-	            { className: 'profile-nav-about' },
-	            React.createElement(
-	              'a',
-	              null,
-	              'About'
-	            )
-	          ),
-	          React.createElement(
-	            'li',
 	            { className: 'profile-nav-photos' },
 	            React.createElement(
 	              'a',
@@ -32456,6 +32447,7 @@
 
 	module.exports = Header;
 
+	// <li className="profile-nav-about"><a>About</a></li> -> to be added in future when finish about page component
 	// href={"/users/" + userId + "/settings"} -> to be used in the about a tag.
 	// <li className="profile-nav-friends">Friends</li>
 	// 1. How can I make the button unclickable after it has been clicked on once?

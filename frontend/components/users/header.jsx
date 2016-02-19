@@ -74,7 +74,6 @@ var Header = React.createClass({
         <nav className="profile-nav">
           <ul className="group">
             <li className="profile-nav-timeline"><a href={"#/users/" + userId}>Timeline</a></li>
-            <li className="profile-nav-about"><a>About</a></li>
             <li className="profile-nav-photos"><a href={"#/users/" + userId + "/friendships"}>Friends</a></li>
           </ul>
         </nav>
@@ -85,6 +84,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
+// <li className="profile-nav-about"><a>About</a></li> -> to be added in future when finish about page component
 // href={"/users/" + userId + "/settings"} -> to be used in the about a tag.
 // <li className="profile-nav-friends">Friends</li>
 // 1. How can I make the button unclickable after it has been clicked on once?
