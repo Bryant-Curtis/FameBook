@@ -53,7 +53,7 @@ var Friends = React.createClass({
         friendList = [];
     if (this.state.user && this.state.user.length !== 0) {
 
-        // FRIENDS LIST
+      // FRIENDS LIST
 
       this.state.user.friends.forEach(function(friend) {
         username = friend.first_name + " " + friend.last_name;
@@ -94,20 +94,24 @@ var Friends = React.createClass({
           }.bind(this));
         }
 
+        var FriendRequestBox = (
+          <section className="confirm-friends group">
+            <header className="confirm-friends-list-header">Friend Requests</header>
+            { confirmFriends }
+            <section className="confirm-friends-list-main">
+              <section className="confirm-friend-box group">
+              </section>
+            </section>
+          </section>
+        )
+
       }
     }
 
     return(
       <div className="friends-main">
         <Header user={this.state.user} />
-        <section className="confirm-friends group">
-          <header className="confirm-friends-list-header">Friend Requests</header>
-          { confirmFriends }
-          <section className="confirm-friends-list-main">
-            <section className="confirm-friend-box group">
-            </section>
-          </section>
-        </section>
+        { FriendRequestBox }
 
         <section className="friends-list">
           <header className="friends-list-header">Friends</header>

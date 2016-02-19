@@ -32586,6 +32586,22 @@
 	            }.bind(this));
 	          }.bind(this));
 	        }
+
+	        var FriendRequestBox = React.createElement(
+	          'section',
+	          { className: 'confirm-friends group' },
+	          React.createElement(
+	            'header',
+	            { className: 'confirm-friends-list-header' },
+	            'Friend Requests'
+	          ),
+	          confirmFriends,
+	          React.createElement(
+	            'section',
+	            { className: 'confirm-friends-list-main' },
+	            React.createElement('section', { className: 'confirm-friend-box group' })
+	          )
+	        );
 	      }
 	    }
 
@@ -32593,21 +32609,7 @@
 	      'div',
 	      { className: 'friends-main' },
 	      React.createElement(Header, { user: this.state.user }),
-	      React.createElement(
-	        'section',
-	        { className: 'confirm-friends group' },
-	        React.createElement(
-	          'header',
-	          { className: 'confirm-friends-list-header' },
-	          'Friend Requests'
-	        ),
-	        confirmFriends,
-	        React.createElement(
-	          'section',
-	          { className: 'confirm-friends-list-main' },
-	          React.createElement('section', { className: 'confirm-friend-box group' })
-	        )
-	      ),
+	      FriendRequestBox,
 	      React.createElement(
 	        'section',
 	        { className: 'friends-list' },
