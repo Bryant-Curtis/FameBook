@@ -83,12 +83,12 @@ var ApiUtil = {
     });
   },
 
-  deleteFriendship: function (friendshipId, self_id, friend_id) {
+  deleteFriendship: function (friendshipId, requestor_id, requestee_id) {
     $.ajax({
       method:   "DELETE",
       url:      "api/friendships/" + friendshipId,
       dataType: "json",
-      data:     { friendship: { friend_id: friend_id, self_id: self_id} },
+      data:     { friendship: { friend_id: requestor_id, self_id: requestee_id} },
       success: function (data) {
         ApiActions.receiveRequestee(data);
       },

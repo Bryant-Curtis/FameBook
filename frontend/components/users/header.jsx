@@ -22,6 +22,16 @@ var Header = React.createClass({
       userId = this.props.user.id;
 
       if (text === undefined) {
+        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
+        this.props.user.friendships.forEach(function(friendship) {
+          if (friendship.friend_id === window.currentUserId) {
+            text = "Unfriend";
+          }
+        }.bind(this));
+        // }
+      }
+
+      if (text === undefined) {
         this.props.user.friend_requests.forEach(function(friend_request) {
           if (friend_request.requestor_id === window.currentUserId) {
             text = "Pending";
@@ -29,19 +39,9 @@ var Header = React.createClass({
           }
         });
       }
+
       if (text === undefined) {
-        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
-          this.props.user.friendships.forEach(function(friendship) {
-            if (friendship.friend_id === window.currentUserId) {
-              text = "Unfriend";
-            } else if (text === undefined) {
-              text = "Befriend";
-            }
-          }.bind(this));
-        // }
-        if (text === undefined) {
-          text = "Befriend";
-        }
+        text = "Befriend";
       }
 
       this.props.user.friendships.forEach(function (friendship) {

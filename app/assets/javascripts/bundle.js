@@ -19853,12 +19853,12 @@
 	    });
 	  },
 
-	  deleteFriendship: function (friendshipId, self_id, friend_id) {
+	  deleteFriendship: function (friendshipId, requestor_id, requestee_id) {
 	    $.ajax({
 	      method: "DELETE",
 	      url: "api/friendships/" + friendshipId,
 	      dataType: "json",
-	      data: { friendship: { friend_id: friend_id, self_id: self_id } },
+	      data: { friendship: { friend_id: requestor_id, self_id: requestee_id } },
 	      success: function (data) {
 	        ApiActions.receiveRequestee(data);
 	      },
@@ -32244,7 +32244,6 @@
 	};
 
 	UserStore.find = function (userId) {
-	  // debugger
 	  if (_users.length > 0) {
 	    var profileUser;
 	    _users.forEach(function (user) {
@@ -32261,7 +32260,6 @@
 	};
 
 	UserStore.resetUsers = function (users) {
-	  // debugger
 	  _users = users;
 	};
 
@@ -32276,7 +32274,6 @@
 	};
 
 	UserStore.updateUser = function (requestee) {
-	  // debugger
 	  _users.forEach(function (user, i) {
 	    if (user.id === requestee.id) {
 	      _users[i] = requestee;
@@ -32366,6 +32363,16 @@
 	      userId = this.props.user.id;
 
 	      if (text === undefined) {
+	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
+	        this.props.user.friendships.forEach(function (friendship) {
+	          if (friendship.friend_id === window.currentUserId) {
+	            text = "Unfriend";
+	          }
+	        }.bind(this));
+	        // }
+	      }
+
+	      if (text === undefined) {
 	        this.props.user.friend_requests.forEach(function (friend_request) {
 	          if (friend_request.requestor_id === window.currentUserId) {
 	            text = "Pending";
@@ -32373,19 +32380,9 @@
 	          }
 	        });
 	      }
+
 	      if (text === undefined) {
-	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
-	        this.props.user.friendships.forEach(function (friendship) {
-	          if (friendship.friend_id === window.currentUserId) {
-	            text = "Unfriend";
-	          } else if (text === undefined) {
-	            text = "Befriend";
-	          }
-	        }.bind(this));
-	        // }
-	        if (text === undefined) {
-	          text = "Befriend";
-	        }
+	        text = "Befriend";
 	      }
 
 	      this.props.user.friendships.forEach(function (friendship) {
