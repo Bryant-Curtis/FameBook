@@ -32120,7 +32120,7 @@
 
 	    ApiUtil.fetchAllUsers();
 	    // this.postToken = PostStore.addListener(this._onPostsChange);
-	    // ApiUtil.fetchPosts(parseInt(this.props.params.id));
+	    // ApiUtil.fetchAllPosts(parseInt(this.props.params.id));
 	  },
 
 	  componentWillUnmount: function () {
@@ -32151,6 +32151,9 @@
 	        postform = React.createElement(PostForm, null);
 	      }
 	      username = this.state.user.first_name + " " + this.state.user.last_name;
+	      if (this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
+	        this.state.user.posts = this.state.user.posts.reverse();
+	      }
 	      userPosts = this.state.user.posts.map(function (post) {
 	        if (post.author_id === parseInt(this.props.params.id)) {
 	          if (parseInt(post.author_id) === parseInt(window.currentUserId)) {
@@ -32205,6 +32208,10 @@
 	    );
 	  },
 
+	  // CANNOT DO BELOW. NEED TO MOVE PROFILE POSTS OR TIMELINE INTO
+	  // ANOTHER JSX COMPONENT THAT IS A CHILD OF THE HEADER/USER.
+	  // REASON: BECAUSE CAN ONLY HAVE ONE STATE PER JSX FILE. (I THINK...)
+
 	  // _onPostsChange: function () {
 	  //   // ApiUtil.fetchAllPosts();
 	  //   this.setState({ posts: PostStore.all() });
@@ -32237,6 +32244,7 @@
 	};
 
 	UserStore.find = function (userId) {
+	  // debugger
 	  if (_users.length > 0) {
 	    var profileUser;
 	    _users.forEach(function (user) {
@@ -32253,6 +32261,7 @@
 	};
 
 	UserStore.resetUsers = function (users) {
+	  // debugger
 	  _users = users;
 	};
 
@@ -32267,6 +32276,7 @@
 	};
 
 	UserStore.updateUser = function (requestee) {
+	  // debugger
 	  _users.forEach(function (user, i) {
 	    if (user.id === requestee.id) {
 	      _users[i] = requestee;
@@ -32346,7 +32356,8 @@
 
 	  render: function () {
 	    var text = undefined,
-	        username = "",
+	        // Need to reset the text each render to determine which one to update to.
+	    username = "",
 	        friendRequestButton = "",
 	        userId,
 	        friendshipId;

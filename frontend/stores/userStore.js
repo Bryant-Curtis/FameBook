@@ -12,6 +12,7 @@ UserStore.all = function () {
 };
 
 UserStore.find = function (userId) {
+  // debugger
   if (_users.length > 0) {
     var profileUser;
     _users.forEach(function(user) {
@@ -28,6 +29,7 @@ UserStore.find = function (userId) {
 };
 
 UserStore.resetUsers = function (users) {
+  // debugger
   _users = users;
 };
 
@@ -42,6 +44,7 @@ UserStore.resetUser = function (userNow) {
 };
 
 UserStore.updateUser = function (requestee) {
+  // debugger
   _users.forEach(function(user, i) {
     if (user.id === requestee.id) {
       _users[i] = requestee;

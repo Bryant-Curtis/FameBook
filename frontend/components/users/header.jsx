@@ -8,12 +8,11 @@ var Header = React.createClass({
       text = "Pending"; // AND Make the button unclickable!!
     } else if (text === "Unfriend") {
       ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
-
     }
   },
 
   render: function () {
-    var text = undefined,
+    var text = undefined, // Need to reset the text each render to determine which one to update to.
         username = "",
         friendRequestButton = "",
         userId,
