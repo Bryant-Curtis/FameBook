@@ -52,20 +52,27 @@ var Friends = React.createClass({
         confirmFriends = [],
         friendList = [];
     if (this.state.user && this.state.user.length !== 0) {
+
+        // FRIENDS LIST
+
+      this.state.user.friends.forEach(function(friend) {
+        username = friend.first_name + " " + friend.last_name;
+        friendCount = friend.friendships.length;
+        friendList.unshift(
+          <li key={friend.id} className="friend-box-info group">
+            <figure className="friend-photo"></figure>
+            <section className="friend-info">
+              <p className="friend-name"><a href={"#/users/" + friend.id}>{ username }</a></p>
+              <h6 className="friend-friend-count">{ friendCount } friends</h6>
+            </section>
+          </li>
+        );
+      });
+
       if (this.state.user.id === window.currentUserId) {
-        this.state.user.friends.forEach(function(friend) {
-          username = friend.first_name + " " + friend.last_name;
-          friendCount = friend.friendships.length;
-          friendList.unshift(
-            <li key={friend.id} className="friend-box-info group">
-              <figure className="friend-photo"></figure>
-              <section className="friend-info">
-                <p className="friend-name"><a href={"#/users/" + friend.id}>{ username }</a></p>
-                <h6 className="friend-friend-count">{ friendCount } friends</h6>
-              </section>
-            </li>
-          );
-        });
+
+        // FRIEND REQUESTS
+
         if (this.state.user.friend_requests) {
           var friendRequestor;
           UserStore.all().map(function(user) {
@@ -86,6 +93,7 @@ var Friends = React.createClass({
             }.bind(this));
           }.bind(this));
         }
+
       }
     }
 

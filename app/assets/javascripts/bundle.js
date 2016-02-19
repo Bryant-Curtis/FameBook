@@ -32520,35 +32520,42 @@
 	        confirmFriends = [],
 	        friendList = [];
 	    if (this.state.user && this.state.user.length !== 0) {
-	      if (this.state.user.id === window.currentUserId) {
-	        this.state.user.friends.forEach(function (friend) {
-	          username = friend.first_name + " " + friend.last_name;
-	          friendCount = friend.friendships.length;
-	          friendList.unshift(React.createElement(
-	            'li',
-	            { key: friend.id, className: 'friend-box-info group' },
-	            React.createElement('figure', { className: 'friend-photo' }),
+
+	      // FRIENDS LIST
+
+	      this.state.user.friends.forEach(function (friend) {
+	        username = friend.first_name + " " + friend.last_name;
+	        friendCount = friend.friendships.length;
+	        friendList.unshift(React.createElement(
+	          'li',
+	          { key: friend.id, className: 'friend-box-info group' },
+	          React.createElement('figure', { className: 'friend-photo' }),
+	          React.createElement(
+	            'section',
+	            { className: 'friend-info' },
 	            React.createElement(
-	              'section',
-	              { className: 'friend-info' },
+	              'p',
+	              { className: 'friend-name' },
 	              React.createElement(
-	                'p',
-	                { className: 'friend-name' },
-	                React.createElement(
-	                  'a',
-	                  { href: "#/users/" + friend.id },
-	                  username
-	                )
-	              ),
-	              React.createElement(
-	                'h6',
-	                { className: 'friend-friend-count' },
-	                friendCount,
-	                ' friends'
+	                'a',
+	                { href: "#/users/" + friend.id },
+	                username
 	              )
+	            ),
+	            React.createElement(
+	              'h6',
+	              { className: 'friend-friend-count' },
+	              friendCount,
+	              ' friends'
 	            )
-	          ));
-	        });
+	          )
+	        ));
+	      });
+
+	      if (this.state.user.id === window.currentUserId) {
+
+	        // FRIEND REQUESTS
+
 	        if (this.state.user.friend_requests) {
 	          var friendRequestor;
 	          UserStore.all().map(function (user) {
