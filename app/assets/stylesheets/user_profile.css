@@ -1,7 +1,11 @@
+/* PROFILE */
+
 .profile-main {
   width: 980px;
   margin: auto;
 }
+
+/* HEADER */
 
 .profile-header {
   position: relative;
@@ -38,16 +42,44 @@
   color: #FFF;
 }
 
-.profile-friend-request-button {
+/* FRIEND REQUEST BUTTONS */
+
+.profile-header > button {
   display: block;
-  position: absolute;
-  border: 3px solid yellow;
-  right: 25px;
-  bottom: 70px;
+  border-radius: 2px;
   padding: 5px 10px;
+  box-shadow: 0 0 1px #000;
+  text-align: center;
+  color: #4e5665;
+  font-size: 13px;
+  /*font-weight: bold;*/
   cursor: pointer;
   background: #fff;
 }
+
+.profile-accept-friend-request-button {
+  position: absolute;
+  right: 113px;
+  bottom: 70px;
+  /*display: block;
+  border: 3px solid yellow;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #fff;*/
+}
+
+.profile-friend-request-button {
+  position: absolute;
+  right: 25px;
+  bottom: 70px;
+  /*display: block;
+  border: 3px solid yellow;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #fff;*/
+}
+
+/* NAVIGATION TABS*/
 
 .profile-header > .profile-nav {
   display: block;

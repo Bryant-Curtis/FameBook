@@ -1,8 +1,9 @@
+/* FRIENDS */
+
 .friends-main {
   width: 980px;
   margin: auto;
 }
-
 
 /* FRIEND REQUESTS */
 
@@ -87,11 +88,9 @@
   box-shadow: 0 0 1px #000;
 }
 
-
 .accept-friend-button {
   position: absolute;
   right: 90px;
-
 }
 
 .decline-friend-button {
@@ -100,8 +99,6 @@
   /*float: right;*/
   color: #9197a3;
 }
-
-
 
 /* FRIENDS INDEX */
 

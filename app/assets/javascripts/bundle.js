@@ -32340,17 +32340,24 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    ApiUtil = __webpack_require__(159);
+	    ApiUtil = __webpack_require__(159),
+	    UserStore = __webpack_require__(241);
 
 	var Header = React.createClass({
 	  displayName: 'Header',
 
-	  sendUserId: function (requestorId, requesteeId, friendshipId, text) {
+	  sendUserId: function (requestorId, requesteeId, friendshipId, text, friendRequestId) {
 	    if (text === "Befriend") {
 	      ApiUtil.createFriendRequest(requestorId, requesteeId);
 	      text = "Pending"; // AND Make the button unclickable!!
 	    } else if (text === "Unfriend") {
 	        ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
+	      } else if (text === "Accept") {
+	        ApiUtil.createFriendship(requestorId, requesteeId);
+	        ApiUtil.createFriendship(requesteeId, requestorId);
+	        ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
+	      } else if (text === "Decline") {
+	        ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
 	      }
 	  },
 
@@ -32359,8 +32366,10 @@
 	        // Need to reset the text each render to determine which one to update to.
 	    username = "",
 	        friendRequestButton = "",
+	        acceptRequestButton = "",
 	        userId,
-	        friendshipId;
+	        friendshipId,
+	        friendRequestId;
 	    if (this.props.user && this.props.user.first_name !== undefined) {
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
 	      userId = this.props.user.id;
@@ -32394,12 +32403,42 @@
 	        }
 	      }.bind(this));
 	    }
-	    if (this.props.user && parseInt(this.props.user.id) !== window.currentUserId) {
+	    if (this.props.user.id && parseInt(this.props.user.id) !== window.currentUserId) {
+
+	      // Create extra Accept & Decline button if user profile sent friend request to current user
+
+	      // Find current User
+
+	      var currentUser;
+	      UserStore.all().forEach(function (user) {
+	        if (user.id === window.currentUserId) {
+	          currentUser = user;
+	        }
+	      });
+
+	      // Create extra button and label both buttons' text
+
+	      currentUser.friend_requests.forEach(function (friend_request) {
+	        debugger;
+	        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
+	          text = "Decline"; // change the sendUserId method to include a case for "Decline";
+	          friendRequestId = friend_request.id;
+	          acceptRequestButton = React.createElement(
+	            'button',
+	            {
+	              className: 'profile-accept-friend-request-button',
+	              onClick: this.sendUserId.bind(this, window.currentUserId, this.props.user.id, friendshipId, "Accept", friendRequestId)
+	            },
+	            'Accept'
+	          );
+	        }
+	      }.bind(this));
+
 	      friendRequestButton = React.createElement(
 	        'button',
 	        {
 	          className: 'profile-friend-request-button',
-	          onClick: this.sendUserId.bind(this, window.currentUserId, this.props.user.id, friendshipId, text)
+	          onClick: this.sendUserId.bind(this, window.currentUserId, this.props.user.id, friendshipId, text, friendRequestId)
 	        },
 	        text
 	      );
@@ -32414,6 +32453,7 @@
 	        { className: 'profile-username' },
 	        username
 	      ),
+	      acceptRequestButton,
 	      friendRequestButton,
 	      React.createElement(
 	        'nav',
