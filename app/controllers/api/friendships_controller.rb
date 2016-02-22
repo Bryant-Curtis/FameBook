@@ -10,7 +10,7 @@ class Api::FriendshipsController < ApplicationController
     # @friend_request[0].destroy if @friend_request
 
     if @friendship.save
-      @user = User.find(@friendship.self_id)
+      @user = User.find(@friendship.friend_id)
       render "/api/users/show", user: @user
     else
       render @friendship.errors.full_messages

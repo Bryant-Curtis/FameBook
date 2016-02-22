@@ -27,7 +27,7 @@ class Api::FriendRequestsController < ApplicationController
   def destroy
     @friend_request = FriendRequest.find(params[:id])
     @friend_request.destroy
-    @user = User.find(@friend_request.requestee_id)
+    @user = User.find(@friend_request.requestor_id)
     render "api/users/show", user: @user
   end
 
