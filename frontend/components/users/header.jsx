@@ -58,8 +58,8 @@ var Header = React.createClass({
       }
 
       if (text === undefined) {
-        this.props.user.sent_friend_requests.forEach(function(friend_request) {
-          if (friend_request.requestee_id === window.currentUserId && friend_request.declined) {
+        currentUser.received_friend_requests.forEach(function(friend_request) {
+          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
             text = "Accept";
             friendRequestId = friend_request.id;
           }
@@ -84,8 +84,8 @@ var Header = React.createClass({
 
       // Create extra button and label both buttons' text
 
-      this.props.user.sent_friend_requests.forEach(function(friend_request) {
-        if (friend_request.requestee_id === window.currentUserId && !friend_request.declined) {
+      currentUser.received_friend_requests.forEach(function(friend_request) {
+        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
           text = "Decline"; // change the sendUserId method to include a case for "Decline";
           friendRequestId = friend_request.id;
           acceptRequestButton = <button

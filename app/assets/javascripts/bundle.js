@@ -19902,6 +19902,7 @@
 	      dataType: "json",
 	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
 	      success: function (data) {
+	        debugger;
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -32402,8 +32403,8 @@
 	      }
 
 	      if (text === undefined) {
-	        this.props.user.sent_friend_requests.forEach(function (friend_request) {
-	          if (friend_request.requestee_id === window.currentUserId && friend_request.declined) {
+	        currentUser.received_friend_requests.forEach(function (friend_request) {
+	          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
 	            text = "Accept";
 	            friendRequestId = friend_request.id;
 	          }
@@ -32427,8 +32428,8 @@
 
 	      // Create extra button and label both buttons' text
 
-	      this.props.user.sent_friend_requests.forEach(function (friend_request) {
-	        if (friend_request.requestee_id === window.currentUserId && !friend_request.declined) {
+	      currentUser.received_friend_requests.forEach(function (friend_request) {
+	        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
 	          text = "Decline"; // change the sendUserId method to include a case for "Decline";
 	          friendRequestId = friend_request.id;
 	          acceptRequestButton = React.createElement(
@@ -32544,7 +32545,7 @@
 	  createFriendship: function (friendRequestId, requestorId, requesteeId) {
 	    ApiUtil.createFriendship(requestorId, requesteeId);
 	    ApiUtil.createFriendship(requesteeId, requestorId);
-	    ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
+	    ApiUtil.deleteFriendRequest(friendRequestId, requesteeId, requestorId);
 	  },
 
 	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
@@ -32562,6 +32563,7 @@
 	    if (this.state.user && this.state.user.length !== 0) {
 
 	      // FRIENDS LIST
+
 	      if (this.state.user.friends) {
 	        this.state.user.friends.forEach(function (friend) {
 	          username = friend.first_name + " " + friend.last_name;
@@ -32621,12 +32623,14 @@
 	                    ),
 	                    React.createElement(
 	                      'button',
-	                      { className: 'accept-friend-button', onClick: this.createFriendship.bind(this, friend_request.id, user.id, window.currentUserId) },
+	                      { className: 'accept-friend-button',
+	                        onClick: this.createFriendship.bind(this, friend_request.id, user.id, window.currentUserId) },
 	                      'Accept'
 	                    ),
 	                    React.createElement(
 	                      'button',
-	                      { className: 'decline-friend-button', onClick: this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId) },
+	                      { className: 'decline-friend-button',
+	                        onClick: this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId) },
 	                      'Decline'
 	                    )
 	                  )

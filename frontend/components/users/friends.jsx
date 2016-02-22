@@ -36,7 +36,7 @@ var Friends = React.createClass({
   createFriendship: function (friendRequestId, requestorId, requesteeId) {
     ApiUtil.createFriendship(requestorId, requesteeId);
     ApiUtil.createFriendship(requesteeId, requestorId);
-    ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
+    ApiUtil.deleteFriendRequest(friendRequestId, requesteeId, requestorId);
   },
 
   declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
@@ -54,6 +54,7 @@ var Friends = React.createClass({
     if (this.state.user && this.state.user.length !== 0) {
 
       // FRIENDS LIST
+
       if (this.state.user.friends) {
         this.state.user.friends.forEach(function(friend) {
           username = friend.first_name + " " + friend.last_name;
@@ -85,8 +86,27 @@ var Friends = React.createClass({
                     <figure className="confirm-friend-photo"></figure>
                     <section className="confirm-friend-info group">
                       <p className="confirm-friend-name"><a href={"#/users/" + user.id}>{ friendRequestor }</a></p>
-                      <button className="accept-friend-button" onClick={this.createFriendship.bind(this, friend_request.id, user.id, window.currentUserId)}>Accept</button>
-                      <button className="decline-friend-button" onClick={this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId)}>Decline</button>
+
+                      <button className="accept-friend-button"
+                        onClick={
+                          this.createFriendship.bind(
+                            this,
+                            friend_request.id,
+                            user.id,
+                            window.currentUserId
+                          )
+                        }>Accept</button>
+
+                      <button className="decline-friend-button"
+                        onClick={
+                          this.declineFriendRequest.bind(
+                            this,
+                            friend_request.id,
+                            user.id,
+                            window.currentUserId
+                          )
+                        }>Decline</button>
+
                     </section>
                   </li>
                 );

@@ -132,6 +132,7 @@ var ApiUtil = {
       dataType: "json",
       data:     { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
       success: function (data) {
+        debugger
         ApiActions.receiveRequestee(data);
       },
       error: function () {

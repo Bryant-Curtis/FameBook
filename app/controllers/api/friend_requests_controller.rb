@@ -17,7 +17,8 @@ class Api::FriendRequestsController < ApplicationController
   def update
     @friend_request = FriendRequest.find(params[:id])
     if @friend_request.update(friend_request_params)
-      @user = User.find(params[:friend_request][:requestor_id])
+      @user = User.find(params[:friend_request][:requestee_id])
+      debugger
       render "api/users/show", user: @user
     else
       @friend_request.errors.full_messages
@@ -27,7 +28,7 @@ class Api::FriendRequestsController < ApplicationController
   def destroy
     @friend_request = FriendRequest.find(params[:id])
     @friend_request.destroy
-    @user = User.find(@friend_request.requestor_id)
+    @user = User.find(@friend_request.requestee_id)
     render "api/users/show", user: @user
   end
 
