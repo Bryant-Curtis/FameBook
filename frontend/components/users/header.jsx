@@ -5,8 +5,8 @@ var React = require('react'),
 var Header = React.createClass({
   sendUserId: function (requestorId, requesteeId, friendshipId, text, friendRequestId) {
     if (text === "Befriend") {
+
       ApiUtil.createFriendRequest(requestorId, requesteeId);
-      text = "Pending"; // AND Make the button unclickable!!
     } else if (text === "Unfriend") {
       ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
     } else if (text === "Accept") {
@@ -42,11 +42,28 @@ var Header = React.createClass({
 
       if (text === undefined) {
         this.props.user.friend_requests.forEach(function(friend_request) {
-          if (friend_request.requestor_id === window.currentUserId) {
+          if (friend_request.requestor_id === window.currentUserId && !friend_request.declined) {
             text = "Pending";
-            return text;
           }
         });
+      }
+
+      if (text === undefined) {
+
+        // Find current User
+
+        var currentUser;
+        UserStore.all().forEach(function(user) {
+          if (user.id === window.currentUserId) {
+            currentUser = user;
+          }
+        });
+
+        currentUser.friend_requests.forEach(function(friend_request) {
+          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
+            text = "Accept";
+          }
+        }.bind(this));
       }
 
       if (text === undefined) {
@@ -64,19 +81,9 @@ var Header = React.createClass({
 
       // Create extra Accept & Decline button if user profile sent friend request to current user
 
-      // Find current User
-
-      var currentUser;
-      UserStore.all().forEach(function(user) {
-        if (user.id === window.currentUserId) {
-          currentUser = user;
-        }
-      });
-
       // Create extra button and label both buttons' text
 
       currentUser.friend_requests.forEach(function(friend_request) {
-        debugger
         if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
           text = "Decline"; // change the sendUserId method to include a case for "Decline";
           friendRequestId = friend_request.id

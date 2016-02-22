@@ -19873,8 +19873,9 @@
 	      method: "POST",
 	      url: "/api/friend_requests",
 	      dataType: "json",
-	      data: { friend_request: { requestor_id: requestorId, requestee_id: requesteeId } },
+	      data: { friend_request: { requestee_id: requesteeId, requestor_id: requestorId } },
 	      success: function (data) {
+	        debugger;
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -19902,6 +19903,7 @@
 	      dataType: "json",
 	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
 	      success: function (data) {
+	        // debugger
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -32348,17 +32350,17 @@
 
 	  sendUserId: function (requestorId, requesteeId, friendshipId, text, friendRequestId) {
 	    if (text === "Befriend") {
+
 	      ApiUtil.createFriendRequest(requestorId, requesteeId);
-	      text = "Pending"; // AND Make the button unclickable!!
 	    } else if (text === "Unfriend") {
-	        ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
-	      } else if (text === "Accept") {
-	        ApiUtil.createFriendship(requestorId, requesteeId);
-	        ApiUtil.createFriendship(requesteeId, requestorId);
-	        ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
-	      } else if (text === "Decline") {
-	        ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
-	      }
+	      ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
+	    } else if (text === "Accept") {
+	      ApiUtil.createFriendship(requestorId, requesteeId);
+	      ApiUtil.createFriendship(requesteeId, requestorId);
+	      ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
+	    } else if (text === "Decline") {
+	      ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+	    }
 	  },
 
 	  render: function () {
@@ -32386,11 +32388,28 @@
 
 	      if (text === undefined) {
 	        this.props.user.friend_requests.forEach(function (friend_request) {
-	          if (friend_request.requestor_id === window.currentUserId) {
+	          if (friend_request.requestor_id === window.currentUserId && !friend_request.declined) {
 	            text = "Pending";
-	            return text;
 	          }
 	        });
+	      }
+
+	      if (text === undefined) {
+
+	        // Find current User
+
+	        var currentUser;
+	        UserStore.all().forEach(function (user) {
+	          if (user.id === window.currentUserId) {
+	            currentUser = user;
+	          }
+	        });
+
+	        currentUser.friend_requests.forEach(function (friend_request) {
+	          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
+	            text = "Accept";
+	          }
+	        }.bind(this));
 	      }
 
 	      if (text === undefined) {
@@ -32407,19 +32426,9 @@
 
 	      // Create extra Accept & Decline button if user profile sent friend request to current user
 
-	      // Find current User
-
-	      var currentUser;
-	      UserStore.all().forEach(function (user) {
-	        if (user.id === window.currentUserId) {
-	          currentUser = user;
-	        }
-	      });
-
 	      // Create extra button and label both buttons' text
 
 	      currentUser.friend_requests.forEach(function (friend_request) {
-	        debugger;
 	        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
 	          text = "Decline"; // change the sendUserId method to include a case for "Decline";
 	          friendRequestId = friend_request.id;
