@@ -61,6 +61,7 @@ var Header = React.createClass({
         this.props.user.sent_friend_requests.forEach(function(friend_request) {
           if (friend_request.requestee_id === window.currentUserId && friend_request.declined) {
             text = "Accept";
+            friendRequestId = friend_request.id;
           }
         }.bind(this));
       }
