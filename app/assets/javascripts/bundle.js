@@ -19902,7 +19902,6 @@
 	      dataType: "json",
 	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
 	      success: function (data) {
-	        debugger;
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -32358,7 +32357,7 @@
 	      ApiUtil.createFriendship(requesteeId, requestorId);
 	      ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
 	    } else if (text === "Decline") {
-	      ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+	      ApiUtil.declineFriendRequest(friendRequestId, requesteeId, requestorId);
 	    }
 	  },
 

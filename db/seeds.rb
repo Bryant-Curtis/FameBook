@@ -85,8 +85,8 @@ r8 = Post.create!(body: "The hardest thing about being famous is that people are
 
 Friendship.destroy_all
 
-f1 = Friendship.create!(self_id: oprah.id, friend_id: alexander.id)
-f2 = Friendship.create!(self_id: alexander.id, friend_id: oprah.id)
+# f1 = Friendship.create!(self_id: oprah.id, friend_id: alexander.id)
+# f2 = Friendship.create!(self_id: alexander.id, friend_id: oprah.id)
 # f3 = Friendship.create!(self_id: oprah.id, friend_id: julius.id)
 # f4 = Friendship.create!(self_id: julius.id, friend_id: oprah.id)
 # f5 = Friendship.create!(self_id: oprah.id, friend_id: robert.id)
@@ -111,6 +111,7 @@ FriendRequest.destroy_all
 fr = FriendRequest.create!(requestee_id: alexander.id, requestor_id: george.id)
 fr = FriendRequest.create!(requestee_id: alexander.id, requestor_id: julius.id)
 fr = FriendRequest.create!(requestee_id: alexander.id, requestor_id: robert.id)
+fr = FriendRequest.create!(requestee_id: alexander.id, requestor_id: oprah.id)
 fr = FriendRequest.create!(requestee_id: george.id, requestor_id: robert.id)
 fr = FriendRequest.create!(requestee_id: robert.id, requestor_id: oprah.id)
 fr = FriendRequest.create!(requestee_id: julius.id, requestor_id: oprah.id)

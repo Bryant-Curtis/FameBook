@@ -14,7 +14,7 @@ var Header = React.createClass({
       ApiUtil.createFriendship(requesteeId, requestorId);
       ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
     } else if (text === "Decline") {
-      ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+      ApiUtil.declineFriendRequest(friendRequestId, requesteeId, requestorId);
     }
   },
 
@@ -76,7 +76,7 @@ var Header = React.createClass({
               }
       }.bind(this));
     }
-    
+
     if (this.props.user.id && parseInt(this.props.user.id) !== window.currentUserId) {
 
       // Create extra Accept & Decline button if user profile sent friend request to current user
@@ -86,7 +86,7 @@ var Header = React.createClass({
       this.props.user.sent_friend_requests.forEach(function(friend_request) {
         if (friend_request.requestee_id === window.currentUserId && !friend_request.declined) {
           text = "Decline"; // change the sendUserId method to include a case for "Decline";
-          friendRequestId = friend_request.id
+          friendRequestId = friend_request.id;
           acceptRequestButton = <button
             className="profile-accept-friend-request-button"
             onClick={
