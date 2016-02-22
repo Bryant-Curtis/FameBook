@@ -74,10 +74,10 @@ var Friends = React.createClass({
 
         // FRIEND REQUESTS
 
-        if (this.state.user.friend_requests) {
+        if (this.state.user.received_friend_requests) {
           var friendRequestor;
           UserStore.all().map(function(user) {
-            this.state.user.friend_requests.map(function(friend_request) {
+            this.state.user.received_friend_requests.map(function(friend_request) {
               if (user.id === friend_request.requestor_id && friend_request.declined === false) {
                 friendRequestor = user.first_name + ' ' + user.last_name;
                 confirmFriends.unshift(

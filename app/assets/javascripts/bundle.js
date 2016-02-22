@@ -19875,7 +19875,6 @@
 	      dataType: "json",
 	      data: { friend_request: { requestee_id: requesteeId, requestor_id: requestorId } },
 	      success: function (data) {
-	        debugger;
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -19903,7 +19902,7 @@
 	      dataType: "json",
 	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
 	      success: function (data) {
-	        // debugger
+	        debugger;
 	        ApiActions.receiveRequestee(data);
 	      },
 	      error: function () {
@@ -32376,6 +32375,15 @@
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
 	      userId = this.props.user.id;
 
+	      // Find current User
+
+	      var currentUser;
+	      UserStore.all().forEach(function (user) {
+	        if (user.id === window.currentUserId) {
+	          currentUser = user;
+	        }
+	      });
+
 	      if (text === undefined) {
 	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
 	        this.props.user.friendships.forEach(function (friendship) {
@@ -32387,7 +32395,7 @@
 	      }
 
 	      if (text === undefined) {
-	        this.props.user.friend_requests.forEach(function (friend_request) {
+	        this.props.user.received_friend_requests.forEach(function (friend_request) {
 	          if (friend_request.requestor_id === window.currentUserId && !friend_request.declined) {
 	            text = "Pending";
 	          }
@@ -32395,18 +32403,8 @@
 	      }
 
 	      if (text === undefined) {
-
-	        // Find current User
-
-	        var currentUser;
-	        UserStore.all().forEach(function (user) {
-	          if (user.id === window.currentUserId) {
-	            currentUser = user;
-	          }
-	        });
-
-	        currentUser.friend_requests.forEach(function (friend_request) {
-	          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
+	        this.props.user.sent_friend_requests.forEach(function (friend_request) {
+	          if (friend_request.requestee_id === window.currentUserId && friend_request.declined) {
 	            text = "Accept";
 	          }
 	        }.bind(this));
@@ -32422,14 +32420,15 @@
 	        }
 	      }.bind(this));
 	    }
+
 	    if (this.props.user.id && parseInt(this.props.user.id) !== window.currentUserId) {
 
 	      // Create extra Accept & Decline button if user profile sent friend request to current user
 
 	      // Create extra button and label both buttons' text
 
-	      currentUser.friend_requests.forEach(function (friend_request) {
-	        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
+	      this.props.user.sent_friend_requests.forEach(function (friend_request) {
+	        if (friend_request.requestee_id === window.currentUserId && !friend_request.declined) {
 	          text = "Decline"; // change the sendUserId method to include a case for "Decline";
 	          friendRequestId = friend_request.id;
 	          acceptRequestButton = React.createElement(
@@ -32598,10 +32597,10 @@
 
 	        // FRIEND REQUESTS
 
-	        if (this.state.user.friend_requests) {
+	        if (this.state.user.received_friend_requests) {
 	          var friendRequestor;
 	          UserStore.all().map(function (user) {
-	            this.state.user.friend_requests.map(function (friend_request) {
+	            this.state.user.received_friend_requests.map(function (friend_request) {
 	              if (user.id === friend_request.requestor_id && friend_request.declined === false) {
 	                friendRequestor = user.first_name + ' ' + user.last_name;
 	                confirmFriends.unshift(React.createElement(

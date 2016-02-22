@@ -3,7 +3,6 @@ class Api::FriendRequestsController < ApplicationController
 
   def create
     @friend_request = FriendRequest.new(friend_request_params)
-    debugger
     if @friend_request.save
       @user = User.find(params[:friend_request][:requestee_id])
       render "api/users/show", user: @user
