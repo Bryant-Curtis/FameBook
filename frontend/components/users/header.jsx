@@ -128,7 +128,7 @@ var Header = React.createClass({
         <nav className="profile-nav">
           <ul className="group">
             <li className="profile-nav-timeline"><a href={"#/users/" + userId}>Timeline</a></li>
-            <li className="profile-nav-photos"><a href={"#/users/" + userId + "/friendships"}>Friends</a></li>
+            <li className="profile-nav-friends"><a href={"#/users/" + userId + "/friendships"}>Friends</a></li>
           </ul>
         </nav>
       </header>

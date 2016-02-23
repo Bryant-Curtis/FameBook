@@ -86,7 +86,7 @@
   border-left: 1px solid #d3d6db;
   border-bottom: 1px solid #d3d6db;
   border-right: 1px solid #d3d6db;
-  border-radius: 4px;
+  border-radius: 0 0 4px 4px;
   box-sizing: border-box;
   background: #FFF;
   width: 850px;
@@ -118,7 +118,7 @@
   background: #f6f7f8;
 }
 
-.profile-nav-photos {
-  margin: 0 405px 0 0;
+.profile-nav-friends {
+  margin: 0 480px 0 0;
   border-right: 1px solid #e9eaed;
 }
