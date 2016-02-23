@@ -118,8 +118,8 @@ var Friends = React.createClass({
         var FriendRequestBox = (
           <section className="confirm-friends group">
             <header className="confirm-friends-list-header">Friend Requests</header>
-            { confirmFriends }
-            <section className="confirm-friends-list-main">
+            <section className="confirm-friends-list-main group">
+              { confirmFriends }
               <section className="confirm-friend-box group">
               </section>
             </section>

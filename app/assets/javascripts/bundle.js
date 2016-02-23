@@ -32647,10 +32647,10 @@
 	            { className: 'confirm-friends-list-header' },
 	            'Friend Requests'
 	          ),
-	          confirmFriends,
 	          React.createElement(
 	            'section',
-	            { className: 'confirm-friends-list-main' },
+	            { className: 'confirm-friends-list-main group' },
+	            confirmFriends,
 	            React.createElement('section', { className: 'confirm-friend-box group' })
 	          )
 	        );

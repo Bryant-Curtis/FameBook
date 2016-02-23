@@ -3,24 +3,18 @@
 .friends-main {
   width: 980px;
   margin: auto;
+  padding-bottom: 5px;
 }
 
 /* FRIEND REQUESTS */
 
 .confirm-friends {
   margin: 20px 0 0 0;
-  width: 850px;
+  width: 851px;
   background: #fff;
   border: 1px solid #D3D6DB;
   border-radius: 2px;
   /*padding: 10px;*/
-}
-
-.confirm-friends-list {
-  margin: 20px 0 0 0;
-  height: 400px;
-  border: 1px solid #D3D6DB;
-  background: #fff;
 }
 
 .confirm-friends-list-header {
@@ -32,13 +26,7 @@
 }
 
 .confirm-friends-list-main {
-  padding: 10px;
-}
-
-.confirm-friend-box {
-  display: block;
-  width: 400px;
-  height: 100px;
+  padding: 15px 0 0 15px;
 }
 
 .confirm-friend-photo {
@@ -51,25 +39,24 @@
 
 .confirm-friend-box-info {
   float: left;
-  margin: 10px;
-
+  margin: 0px 13px 13px 0;
 }
 
 .confirm-friend-info {
   float: left;
   display: block;
   position: relative;
-  width: 304px;
+  width: 302px;
   height: 100px;
   border-top: 1px solid #e9eaed;
   border-right: 1px solid #e9eaed;
   border-bottom: 1px solid #e9eaed;
-  padding: 30px 10px;
+  padding: 30px 6px;
 }
 
 .confirm-friend-name {
   float: left;
-  margin: 9px 0 0 0;
+  margin: 9px 0 0 4px;
   display: block;
   color: #3B5998;
   font-weight: bold;
@@ -78,7 +65,7 @@
 
 .confirm-friend-info > button {
   float: left;
-  margin: 6px 0 0 15px;
+  margin: 6px 0 0 0px;
   width: 70px;
   padding: 5px 0;
   text-align: center;
@@ -96,18 +83,16 @@
 .decline-friend-button {
   position: absolute;
   right: 10px;
-  /*float: right;*/
   color: #9197a3;
 }
 
 /* FRIENDS INDEX */
 
 .friends-list {
-  margin: 20px 0 0 0;
-  width: 850px;
-  height: 400px;
+  margin: 20px 0 20px 0;
+  width: 851px;
   border: 1px solid #D3D6DB;
-  border-radius: 2px;
+  border-radius: 4px;
   background: #fff;
 }
 
@@ -115,12 +100,13 @@
   height: 57px;
   padding: 15px;
   border-bottom: 1px solid #D3D6DB;
+  border-radius: 4px 4px 0 0;
   font-size: 24px;
   background: #F6F7F8;
 }
 
 .friends-list-main {
-  /*padding: 10px;*/
+  padding: 15px 0 0 15px;
 }
 
 .friend-photo {
@@ -134,20 +120,20 @@
 .friend-box-info {
   float: left;
   display: block;
-  width: 404px;
+  width: 402px;
   height: 100px;
-  margin: 10px;
+  margin: 0px 13px 13px 0;
 }
 
 .friend-info {
   float: left;
   display: block;
-  width: 304px;
+  width: 302px;
   height: 100px;
   border-top: 1px solid #e9eaed;
   border-right: 1px solid #e9eaed;
   border-bottom: 1px solid #e9eaed;
-  padding: 35px 10px;
+  padding: 35px 6px;
 }
 
 .friend-name {
