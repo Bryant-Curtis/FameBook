@@ -5,7 +5,7 @@
   width: 980px;
 }
 
-/* FEED POSTS */
+/* POSTS FEED */
 
 .feed-main {
   display: block;
@@ -14,7 +14,7 @@
 
 .post {
   background: #ffffff;
-  width: 510px;
+  width: 490px;
   margin: 10px 10px;
   padding: 10px;
   border-radius: 2px;
@@ -51,7 +51,7 @@
 
 .create-post {
   background: #ffffff;
-  width: 510px;
+  width: 490px;
   margin: 10px 10px;
   border-radius: 2px;
   border-top: 1px solid #e5e6e9;
@@ -74,16 +74,19 @@
 
 .create-post-button {
   display: block;
+  float: right;
   margin: 10px;
-  border: 1px solid #435A8B;
+  border: 1px solid #3C5488;
   border-radius: 2px;
-  padding: 3px 20px;
-  width: 84px;
+  padding: 3px 0px;
+  width: 60px;
   height: 24px;
   color: white;
+  font-size: 12px;
   text-align: center;
+  text-shadow: 0 0px 1px #000000;
   cursor: pointer;
-  background: #415E9C;
+  background: -webkit-gradient(linear, center bottom, center top, from(#4D68A3), to(#4D68A3));
 }
 
 /* POSTS TRANSITION */

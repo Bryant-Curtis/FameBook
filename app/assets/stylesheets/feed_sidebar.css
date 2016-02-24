@@ -6,7 +6,6 @@
   margin: 0 0 0 6px;
   max-width: 173px;
   width: 100%;
-  /*border-right: 1px solid #000;*/
 }
 
 .feed-sidebar-left-game {
@@ -15,7 +14,7 @@
 }
 
 .feed-sidebar-left-game:hover {
-  background: #CCC;
+  background: #dcdee3;
 }
 
 .feed-sidebar-left-game > img {

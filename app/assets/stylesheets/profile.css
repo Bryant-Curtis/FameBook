@@ -61,22 +61,12 @@
   position: absolute;
   right: 113px;
   bottom: 70px;
-  /*display: block;
-  border: 3px solid yellow;
-  padding: 5px 10px;
-  cursor: pointer;
-  background: #fff;*/
 }
 
 .profile-friend-request-button {
   position: absolute;
   right: 25px;
   bottom: 70px;
-  /*display: block;
-  border: 3px solid yellow;
-  padding: 5px 10px;
-  cursor: pointer;
-  background: #fff;*/
 }
 
 /* NAVIGATION TABS*/

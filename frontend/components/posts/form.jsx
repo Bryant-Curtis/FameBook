@@ -20,14 +20,14 @@ var PostForm = React.createClass({
 
   render: function () {
     return(
-      <form key={0} className="create-post" onSubmit={this.createPost}>
+      <form key={0} className="create-post group" onSubmit={this.createPost}>
         <div className="create-post-input-box">
           <input
             className="create-post-input"
             onChange={this.handleInput}
             type="text"
             name="post[body]"
-            placeholder="How are you feeling?"
+            placeholder="What's on your mind?"
             value={this.state.body}/>
         </div>
         <button className="create-post-button">Post</button>

@@ -31305,7 +31305,7 @@
 	  render: function () {
 	    return React.createElement(
 	      'form',
-	      { key: 0, className: 'create-post', onSubmit: this.createPost },
+	      { key: 0, className: 'create-post group', onSubmit: this.createPost },
 	      React.createElement(
 	        'div',
 	        { className: 'create-post-input-box' },
@@ -31314,7 +31314,7 @@
 	          onChange: this.handleInput,
 	          type: 'text',
 	          name: 'post[body]',
-	          placeholder: 'How are you feeling?',
+	          placeholder: 'What\'s on your mind?',
 	          value: this.state.body })
 	      ),
 	      React.createElement(
