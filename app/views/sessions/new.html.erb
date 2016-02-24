@@ -1,4 +1,8 @@
+<!-- Header Bar -->
+
 <header class="header group">
+
+  <!-- Guest Login button -->
 
   <form class="header-nav-guest-login" action="<%= session_url %>" method="post">
     <%= auth_token_form %>
@@ -6,6 +10,8 @@
     <input type="hidden" name="session[password]" value="hamilton">
     <button class="guest-login-button">Guest Log In</button>
   </form>
+
+  <!-- Login Form -->
 
   <nav class="header-nav group">
     <h1 class="header-nav-logo">famebook</h1>
@@ -31,30 +37,40 @@
   </nav>
 </header>
 
+<!-- Body under the header -->
+
 <main class="main">
   <section class="content group">
 
+    <!-- Left Half -->
+
     <section class="home-info group">
-      <h2 class="main-caption">Connect with friends and famous people around you on Famebook.</h2>
+
+      <section class="main-caption-container">
+        <h2 class="main-caption">Welcome to Famebook. You can Sign up or use the Guest log in!</h2>
+      </section>
+
       <section class="home-sub-captions group">
 
         <section class="sub-caption group">
-          <i class="fa fa-comments-o"></i>
-          <h4>Share what you know</h4><span>with friends of similar interests.</span>
+          <a href="http://www.bryantcurtis.com/"><i class="fa fa-user"></i></a>
+          <h4 class="sub-caption-portfolio">Here is my portfolio</h4><span><a href="http://www.bryantcurtis.com/">Click Here</a></span>
         </section>
 
         <section class="sub-caption">
-          <i class="fa fa-users"></i>
-          <h4>See cool photos</h4><span>of people you admire.</span>
+          <a href="http://www.bryantcurtis.com/Bolts"><i class="fa fa-gamepad"></i></a>
+          <h4>Play a fun Game!</h4><span><a href="http://www.bryantcurtis.com/Bolts">Let's go</a></span>
         </section>
 
         <section class="sub-caption">
-          <i class="fa fa-cogs"></i>
-          <h4>Discover more</h4><span>about amazing people you may not know yet.</span>
+          <a href="mailto:cbryant.dev@gmail.com"><i class="fa fa-envelope"></i></a>
+          <h4>Like what you see? Contact me!</h4><span><a href="mailto:cbryant.dev@gmail.com">Email</a></span>
         </section>
 
       </section>
     </section>
+
+    <!-- Right Half (Sign up Form) -->
 
     <section class="sign-up">
       <h1>Sign Up</h1>
@@ -77,12 +93,14 @@
   </section>
 </main>
 
+<!-- Footer -->
+
 <footer class="footer">
   <section class="footer-info">
 
     <p class="copyright">
       Famebook © 2016
-      <a class="about" href="https://github.com/Bryant-Curtis/Capstone-Project/blob/master/README.md">About</a>
+      <a class="about" href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
     </p>
   </section>
 </footer>

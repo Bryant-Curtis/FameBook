@@ -32558,11 +32558,20 @@
 	    var username = "",
 	        friendCount = "",
 	        confirmFriends = [],
-	        friendList = [];
+	        friendList = [],
+	        noFriendsMessage = "",
+	        currentPageUser = "";
 	    if (this.state.user && this.state.user.length !== 0) {
-
+	      currentPageUser = this.state.user;
 	      // FRIENDS LIST
 
+	      if (this.state.user.friends.length === 0) {
+	        noFriendsMessage = React.createElement(
+	          'p',
+	          { className: 'no-friends-message' },
+	          'No friends to show'
+	        );
+	      }
 	      if (this.state.user.friends) {
 	        this.state.user.friends.forEach(function (friend) {
 	          username = friend.first_name + " " + friend.last_name;
@@ -32645,7 +32654,12 @@
 	          React.createElement(
 	            'header',
 	            { className: 'confirm-friends-list-header' },
-	            'Friend Requests'
+	            React.createElement('i', { className: 'fa fa-user-plus' }),
+	            React.createElement(
+	              'a',
+	              { href: "#/users/" + this.state.user.id + "/friendships" },
+	              'Friend Requests'
+	            )
 	          ),
 	          React.createElement(
 	            'section',
@@ -32668,12 +32682,32 @@
 	        React.createElement(
 	          'header',
 	          { className: 'friends-list-header' },
-	          'Friends'
+	          React.createElement('i', { className: 'fa fa-users' }),
+	          React.createElement(
+	            'a',
+	            { href: "#/users/" + this.state.user.id + "/friendships" },
+	            'Friends'
+	          )
 	        ),
 	        React.createElement(
 	          'ul',
 	          { className: 'friends-list-main group' },
+	          noFriendsMessage,
 	          friendList
+	        )
+	      ),
+	      React.createElement(
+	        'footer',
+	        { className: 'profile-footer' },
+	        React.createElement(
+	          'a',
+	          { href: 'https://github.com/Bryant-Curtis/Famebook/blob/master/README.md' },
+	          'About'
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'profile-copyright' },
+	          'Famebook © 2016'
 	        )
 	      )
 	    );

@@ -130,7 +130,7 @@ li {
   background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
 }
 
-/* CONTENT */
+/* MAIN CONTENT */
 
 .main {
   border-top: 1px solid #bbbbbc;
@@ -144,7 +144,7 @@ li {
   width: 980px;
 }
 
-/* HOMEPAGE INFORMATION - MAIN CONTENT */
+/* HOMEPAGE INFORMATION - LEFT HALF */
 
 .home-info {
   float: left;
@@ -153,7 +153,11 @@ li {
   color: #333333;
 }
 
-.home-info > .main-caption {
+.home-info > .main-caption-container {
+  width: 450px;
+}
+
+.home-info .main-caption {
   font-size: 28px;
   font-weight: bold;
   line-height: 1.1666666666;
@@ -176,7 +180,21 @@ li {
   color: #adbad4;
 }
 
-.home-info  h4 {
+.fa-user {
+  float: left;
+  margin: 0 7px 0 7px;
+  font-size: 50px;
+  color: #adbad4;
+}
+
+.fa-envelope {
+  float: left;
+  margin: 0 2px 0 2px;
+  font-size: 50px;
+  color: #adbad4;
+}
+
+.home-info h4 {
   float: left;
   margin: 15px 20px 0 20px;
   font-size: 16px;

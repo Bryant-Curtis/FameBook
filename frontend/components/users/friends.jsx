@@ -50,11 +50,16 @@ var Friends = React.createClass({
     var username = "",
         friendCount = "",
         confirmFriends = [],
-        friendList = [];
+        friendList = [],
+        noFriendsMessage = "",
+        currentPageUser = "";
     if (this.state.user && this.state.user.length !== 0) {
-
+      currentPageUser = this.state.user;
       // FRIENDS LIST
 
+      if (this.state.user.friends.length === 0) {
+        noFriendsMessage = <p className="no-friends-message">No friends to show</p>
+      }
       if (this.state.user.friends) {
         this.state.user.friends.forEach(function(friend) {
           username = friend.first_name + " " + friend.last_name;
@@ -117,7 +122,7 @@ var Friends = React.createClass({
 
         var FriendRequestBox = (
           <section className="confirm-friends group">
-            <header className="confirm-friends-list-header">Friend Requests</header>
+            <header className="confirm-friends-list-header"><i className="fa fa-user-plus"></i><a href={"#/users/" + this.state.user.id + "/friendships"}>Friend Requests</a></header>
             <section className="confirm-friends-list-main group">
               { confirmFriends }
               <section className="confirm-friend-box group">
@@ -135,11 +140,17 @@ var Friends = React.createClass({
         { FriendRequestBox }
 
         <section className="friends-list">
-          <header className="friends-list-header">Friends</header>
+
+          <header className="friends-list-header"><i className="fa fa-users"></i><a href={"#/users/" + this.state.user.id + "/friendships"}>Friends</a></header>
           <ul className="friends-list-main group">
+            { noFriendsMessage }
             { friendList }
           </ul>
         </section>
+        <footer className="profile-footer">
+          <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
+          <p className="profile-copyright">Famebook © 2016</p>
+        </footer>
       </div>
     );
   },

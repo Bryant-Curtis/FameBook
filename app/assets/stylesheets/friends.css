@@ -13,16 +13,32 @@
   width: 851px;
   background: #fff;
   border: 1px solid #D3D6DB;
-  border-radius: 2px;
+  border-radius: 4px;
   /*padding: 10px;*/
 }
 
 .confirm-friends-list-header {
   height: 57px;
-  padding: 15px;
+  padding: 18px 13px;
   border-bottom: 1px solid #D3D6DB;
-  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
   background: #F6F7F8;
+}
+
+.confirm-friends-list-header > i {
+  margin: 0 10px 0 0;
+  color: #ADB3BC;
+}
+
+.confirm-friends-list-header > a {
+  /*display: inline;*/
+}
+
+.confirm-friends-list-header > a:hover {
+  text-decoration: underline;
 }
 
 .confirm-friends-list-main {
@@ -88,6 +104,15 @@
 
 /* FRIENDS INDEX */
 
+.no-friends-message {
+  display: block;
+  margin: 0 0 200px 0;
+  padding: 90px 320px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #CCCCCC;
+}
+
 .friends-list {
   margin: 20px 0 20px 0;
   width: 851px;
@@ -98,11 +123,25 @@
 
 .friends-list-header {
   height: 57px;
-  padding: 15px;
+  padding: 18px 13px;
   border-bottom: 1px solid #D3D6DB;
   border-radius: 4px 4px 0 0;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
   background: #F6F7F8;
+}
+
+.friends-list-header > i {
+  margin: 0 10px 0 0;
+  color: #ADB3BC;
+}
+
+.friends-list-header > a {
+  display: inline;
+}
+
+.friends-list-header > a:hover {
+  text-decoration: underline;
 }
 
 .friends-list-main {
@@ -147,4 +186,25 @@
 .friend-friend-count {
   color: #9197a3;
   font-size: 12px;
+}
+
+/* FOOTER */
+
+.profile-footer {
+  margin: 0 0 15px 0;
+  border-top: 1px solid #CCCCCC;
+  /*padding: 10px 0 0 0;*/
+  color: #7E7373;
+}
+
+.profile-footer > a {
+  display: block;
+  padding: 10px 0 13px 0;
+  color: #3B5998;
+  font-size: 12px;
+}
+
+.profile-copyright {
+  display: block;
+  font-size: 11px;
 }
