@@ -53,13 +53,30 @@ var Posts = React.createClass({
       );
     }.bind(this));
     return(
-      <div key={1} className="root-page-posts-and-form">
-        <PostForm />
-        <ul>
-          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
-            { posts }
-          </ReactCSSTransitionGroup>
-        </ul>
+      <div key={1} className="feed group">
+
+        <sidebar className="feed-sidebar-left">
+          <a href="http://www.bryantcurtis.com/Bolts">
+            <section className="feed-sidebar-left-game group">
+              <img className="feed-sidebar-left-game-image"></img>
+              <p className="feed-sidebar-left-game-text">Bolts</p>
+            </section>
+          </a>
+        </sidebar>
+
+        <section className="feed-main">
+          <PostForm />
+          <ul>
+            <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
+              { posts }
+            </ReactCSSTransitionGroup>
+          </ul>
+        </section>
+
+        <sidebar className="feed-sidebar-right">
+          <section className="feed-sidebar-right-adds"></section>
+        </sidebar>
+
       </div>
     );
   },

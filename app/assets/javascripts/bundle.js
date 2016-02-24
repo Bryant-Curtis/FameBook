@@ -24731,16 +24731,43 @@
 	    }.bind(this));
 	    return React.createElement(
 	      'div',
-	      { key: 1, className: 'root-page-posts-and-form' },
-	      React.createElement(PostForm, null),
+	      { key: 1, className: 'feed group' },
 	      React.createElement(
-	        'ul',
-	        null,
+	        'sidebar',
+	        { className: 'feed-sidebar-left' },
 	        React.createElement(
-	          ReactCSSTransitionGroup,
-	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
-	          posts
+	          'a',
+	          { href: 'http://www.bryantcurtis.com/Bolts' },
+	          React.createElement(
+	            'section',
+	            { className: 'feed-sidebar-left-game group' },
+	            React.createElement('img', { className: 'feed-sidebar-left-game-image' }),
+	            React.createElement(
+	              'p',
+	              { className: 'feed-sidebar-left-game-text' },
+	              'Bolts'
+	            )
+	          )
 	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        { className: 'feed-main' },
+	        React.createElement(PostForm, null),
+	        React.createElement(
+	          'ul',
+	          null,
+	          React.createElement(
+	            ReactCSSTransitionGroup,
+	            { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
+	            posts
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'sidebar',
+	        { className: 'feed-sidebar-right' },
+	        React.createElement('section', { className: 'feed-sidebar-right-adds' })
 	      )
 	    );
 	  },

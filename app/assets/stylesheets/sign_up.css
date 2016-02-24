@@ -1,0 +1,253 @@
+/* HEADER */
+
+.header {
+  border-bottom: 1px solid #1c326c;
+  height: 84px;
+  color: #ffffff;
+  background: -webkit-gradient(linear, center bottom, center top, from(#3a5795), to(#4e69a2));
+}
+
+.header-nav {
+  margin: auto;
+  width: 980px;
+}
+
+.header-nav-logo {
+  float: left;
+  display: block;
+  padding-top: 30px;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.header-nav-buttons {
+  float: right;
+}
+
+.header-nav-buttons > form {
+  float: left;
+}
+
+.header-nav-guest-login {
+  float: right;
+  margin: 31px 25px 0px 15px;
+}
+
+.guest-login-button {
+  display: block;
+  border-top: 1px solid #8a9cc2;
+  border-bottom: 1px solid #1a356e;
+  border-left: 1px solid #29447e;
+  border-right: 1px solid #29447e;
+  padding: 5px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align:center;
+  cursor: pointer;
+  background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
+}
+
+.header-nav-log-in-form {
+  display: inline;
+  margin-top: 15px;
+}
+
+.header-nav-log-in-form > label {
+  float: left;
+  display: block;
+  margin: 0 13px 5px 1px;
+  font-size: 12px;
+}
+
+.header-nav-log-in-form input {
+  display: block;
+  margin: 5px 0 0 0;
+  border: 1px solid #1d2a5b;
+  padding: 0 3px;
+  width: 150px;
+  height: 23px;
+  color: #000;
+  background: #ffffff;
+}
+
+.header-nav-log-in-form button {
+  margin-top: 20px;
+  border-top: 1px solid #8a9cc2;
+  border-bottom: 1px solid #1a356e;
+  border-left: 1px solid #29447e;
+  border-right: 1px solid #29447e;
+  padding-bottom: 4px;
+  width: 50px;
+  height: 21px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align:center;
+  cursor: pointer;
+  background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
+}
+
+/* MAIN CONTENT */
+
+.main {
+  border-top: 1px solid #bbbbbc;
+  height: 595px;
+  background: #EDF0F5;
+  /*background: -webkit-gradient(linear, center bottom, center top, from(#d3d8e8), to(#ffffff));*/
+}
+
+.content {
+  margin: auto;
+  width: 980px;
+}
+
+/* HOMEPAGE INFORMATION - LEFT HALF */
+
+.home-info {
+  float: left;
+  margin: 70px 0 0 0;
+  width: 581px;
+  color: #333333;
+}
+
+.home-info > .main-caption-container {
+  width: 450px;
+}
+
+.home-info .main-caption {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.1666666666;
+}
+
+.home-info .sub-caption{
+  float: left;
+  display: block;
+  margin: 30px 0 0 0;
+  width: 500px;
+}
+
+.home-sub-captions {
+  margin: 20px 0 0 0;
+}
+
+.sub-caption i {
+  float: left;
+  font-size: 50px;
+  color: #adbad4;
+}
+
+.fa-user {
+  float: left;
+  margin: 0 7px 0 7px;
+  font-size: 50px;
+  color: #adbad4;
+}
+
+.fa-envelope {
+  float: left;
+  margin: 0 2px 0 2px;
+  font-size: 50px;
+  color: #adbad4;
+}
+
+.home-info h4 {
+  float: left;
+  margin: 15px 20px 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.home-info span {
+  display: block;
+  margin: 16px 0 0 20px;
+  color: #666666;
+  font-size: 14px;
+}
+
+
+/* SIGN UP FORM - RIGHT HALF */
+
+.sign-up {
+  float: left;
+  width: 399px;
+  /*font-family: 'Freight Sans Bold';*/
+}
+
+.sign-up > h1 {
+  margin: 22px 0 10px 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.sign-up > h4 {
+  margin: 0 0 22px 0;
+  font-size: 19px;
+}
+
+::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.sign-up-form input {
+  display: block;
+  margin: 10px 0;
+  border: 1px solid #bdc7d8;
+  border-radius: 5px;
+  padding: 10px;
+  height: 40px;
+  background: #ffffff;
+}
+
+.sign-up-form > .names > input {
+  display: block;
+  width: 194px;
+}
+
+.sign-up-form > input {
+  display: block;
+  width: 400px;
+}
+
+.sign-up-form .first-name{
+  float: left;
+  margin: 0 11px 0 0;
+}
+
+.sign-up-form > .button-border {
+  box-sizing: content-box;
+  border: 1px solid #2c5115;
+  border-radius: 5px;
+  width: 191px;
+  height: 36px;
+}
+
+.sign-up-form button {
+  box-sizing: border-box;
+  border-top: 1px solid #95d67c;
+  width: 191px;
+  height: 36px;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  background: -webkit-gradient(linear, center bottom, center top, from(#578843), to(#74b960));
+}
+
+/* FOOTER */
+
+.footer-info {
+  margin: auto;
+  width: 980px;
+}
+
+.copyright {
+  margin: 20px 20px 20px 0;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.about {
+  padding: 0 40px;
+  cursor: pointer;
+}
