@@ -87,6 +87,10 @@ var UserProfile = React.createClass({
             { userPosts }
           </ReactCSSTransitionGroup>
         </ul>
+        <footer className="profile-footer">
+          <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
+          <p className="profile-copyright">Famebook © 2016</p>
+        </footer>
       </div>
     );
   },

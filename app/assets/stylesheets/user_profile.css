@@ -122,3 +122,28 @@
   margin: 0 480px 0 0;
   border-right: 1px solid #e9eaed;
 }
+
+/* FOOTER */
+
+.profile-footer {
+  margin: 0 0 0 0;
+  border-top: 1px solid #CCCCCC;
+  padding: 0 0 30px 0;
+  color: #7E7373;
+}
+
+.profile-footer > a {
+  display: inline-block;
+  padding: 10px 0 13px 0;
+  color: #3B5998;
+  font-size: 12px;
+}
+
+.profile-footer > a:hover {
+  text-decoration: underline;
+}
+
+.profile-copyright {
+  display: block;
+  font-size: 11px;
+}

@@ -187,24 +187,3 @@
   color: #9197a3;
   font-size: 12px;
 }
-
-/* FOOTER */
-
-.profile-footer {
-  margin: 0 0 15px 0;
-  border-top: 1px solid #CCCCCC;
-  /*padding: 10px 0 0 0;*/
-  color: #7E7373;
-}
-
-.profile-footer > a {
-  display: block;
-  padding: 10px 0 13px 0;
-  color: #3B5998;
-  font-size: 12px;
-}
-
-.profile-copyright {
-  display: block;
-  font-size: 11px;
-}

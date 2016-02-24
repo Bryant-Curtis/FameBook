@@ -32207,6 +32207,20 @@
 	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
 	          userPosts
 	        )
+	      ),
+	      React.createElement(
+	        'footer',
+	        { className: 'profile-footer' },
+	        React.createElement(
+	          'a',
+	          { href: 'https://github.com/Bryant-Curtis/Famebook/blob/master/README.md' },
+	          'About'
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'profile-copyright' },
+	          'Famebook © 2016'
+	        )
 	      )
 	    );
 	  },
