@@ -2,20 +2,21 @@
 
 .homepage-header {
   border-bottom: 1px solid #1c326c;
-  height: 44px;
+  height: 43px;
+  box-shadow: 0 0 2px #333333;
   color: #ffffff;
   background: -webkit-gradient(linear, center bottom, center top, from(#3b5998), to(#4e69a2));
 }
 
 .homepage-header > .header-nav {
-  width: 980px;
+  width: 967px;
 }
 
 .homepage-header .logo-box {
   float: left;
   display: block;
   position: relative;
-  margin: 10px 0;
+  margin: 9px 0px 0 3px;
   border: 1px solid #3a548c;
   border-radius: 3px;
   width: 24px;
