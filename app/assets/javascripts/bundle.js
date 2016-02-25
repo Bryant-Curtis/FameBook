@@ -24767,6 +24767,13 @@
 	      React.createElement(
 	        'sidebar',
 	        { className: 'feed-sidebar-right' },
+	        React.createElement(
+	          'p',
+	          { className: 'feed-sidebar-right-suggestion' },
+	          'SUGGESTED PAGES'
+	        ),
+	        React.createElement('section', { className: 'feed-sidebar-right-adds' }),
+	        React.createElement('section', { className: 'feed-sidebar-right-adds' }),
 	        React.createElement('section', { className: 'feed-sidebar-right-adds' })
 	      )
 	    );

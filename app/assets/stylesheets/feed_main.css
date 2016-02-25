@@ -3,6 +3,7 @@
 .feed {
   margin: auto;
   width: 980px;
+  padding: 10px 0 0 0;
 }
 
 /* POSTS FEED */
@@ -17,7 +18,7 @@
   width: 490px;
   margin: 10px 10px;
   padding: 10px;
-  border-radius: 2px;
+  border-radius: 3px;
   border-top: 1px solid #e5e6e9;
   border-bottom: 1px solid #d0d1d5;
   border-left: 1px solid #dfe0e4;
@@ -52,8 +53,8 @@
 .create-post {
   background: #ffffff;
   width: 490px;
-  margin: 10px 10px;
-  border-radius: 2px;
+  margin: 0 10px 10px 10px;
+  border-radius: 3px;
   border-top: 1px solid #e5e6e9;
   border-bottom: 1px solid #d0d1d5;
   border-left: 1px solid #dfe0e4;

@@ -1,0 +1,28 @@
+/* SIDEBAR RIGHT */
+
+.feed-sidebar-right {
+  float: left;
+  border-radius: 3px;
+  border-top: 1px solid #e5e6e9;
+  border-bottom: 1px solid #d0d1d5;
+  border-left: 1px solid #dfe0e4;
+  border-right: 1px solid #dfe0e4;
+  padding: 10px;
+  max-width: 257px;
+  width: 100%;
+  background: #FFFFFF;
+}
+
+.feed-sidebar-right-suggestion {
+  padding: 0 0 10px 0;
+  font-size: 11px;
+  color: #666666;
+}
+
+.feed-sidebar-right-adds {
+  margin: 0 0 10px 0;
+  width: 254px;
+  height: 157px;
+
+  background: #000000;
+}
