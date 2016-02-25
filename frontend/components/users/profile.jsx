@@ -64,7 +64,12 @@ var UserProfile = React.createClass({
       // Set first post
 
       if (this.state.user.posts.length > 0) {
-        firstPostMessage = <p className="first-post-message">{this.state.user.first_post_year}</p>
+        firstPostMessage = (
+          <section className="first-post-message">
+            <i className="fa fa-clock-o"></i>
+            <p className="first-post-message-text">Posts from {this.state.user.posts[0].created_at.slice(0,4)}</p>
+          </section>
+        )
       }
 
       username = this.state.user.first_name + " " + this.state.user.last_name;

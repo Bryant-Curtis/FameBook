@@ -32225,9 +32225,15 @@
 
 	      if (this.state.user.posts.length > 0) {
 	        firstPostMessage = React.createElement(
-	          'p',
+	          'section',
 	          { className: 'first-post-message' },
-	          this.state.user.first_post_year
+	          React.createElement('i', { className: 'fa fa-clock-o' }),
+	          React.createElement(
+	            'p',
+	            { className: 'first-post-message-text' },
+	            'Posts from ',
+	            this.state.user.posts[0].created_at.slice(0, 4)
+	          )
 	        );
 	      }
 
