@@ -16,7 +16,7 @@
 .post {
   background: #ffffff;
   width: 490px;
-  margin: 10px 10px;
+  margin: 10px 10px 10px 0;
   padding: 10px;
   border-radius: 3px;
   border-top: 1px solid #e5e6e9;
@@ -53,7 +53,7 @@
 .create-post {
   background: #ffffff;
   width: 490px;
-  margin: 0 10px 10px 10px;
+  margin: 0 10px 10px 0;
   border-radius: 3px;
   border-top: 1px solid #e5e6e9;
   border-bottom: 1px solid #d0d1d5;
@@ -88,6 +88,26 @@
   text-shadow: 0 0px 1px #000000;
   cursor: pointer;
   background: -webkit-gradient(linear, center bottom, center top, from(#4D68A3), to(#4D68A3));
+}
+
+/* SPECIAL CASES */
+
+.no-posts-message {
+  display: block;
+  padding: 100px 0 200px 0;
+  max-width: 490px;
+  border-radius: 3px;
+  border-top: 1px solid #e5e6e9;
+  border-bottom: 1px solid #d0d1d5;
+  border-left: 1px solid #dfe0e4;
+  border-right: 1px solid #dfe0e4;
+  color: #bbbbbb;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+.first-post-message {
+
 }
 
 /* POSTS TRANSITION */

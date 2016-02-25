@@ -46,15 +46,32 @@ var UserProfile = React.createClass({
     var username = "",
         userPosts = [],
         deleteButton,
-        postform = "";
+        postform = "",
+        noPostsMessage = "",
+        firstPostMessage = "";
     if (this.state.user && this.state.user.length !== 0) {
+
       if (this.state.user.id === window.currentUserId) {
         postform = <PostForm />;
       }
-      username = this.state.user.first_name + " " + this.state.user.last_name;
-      if (this.state.user.posts[0] && this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
-        this.state.user.posts = this.state.user.posts.reverse();
+
+      // Set no posts to show message
+
+      if (this.state.user.posts.length === 0) {
+        noPostsMessage = <p className="no-posts-message">No posts to show</p>
       }
+
+      // Set first post
+
+      if (this.state.user.posts.length > 0) {
+        firstPostMessage = <p className="first-post-message">{this.state.user.first_post_year}</p>
+      }
+
+      username = this.state.user.first_name + " " + this.state.user.last_name;
+      // if (this.state.user.posts[0] && this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
+      //   this.state.user.posts = this.state.user.posts.reverse();
+      // }
+
       userPosts = this.state.user.posts.map(function(post) {
         if (post.author_id === parseInt(this.props.params.id)) {
           if ((parseInt(post.author_id)) === (parseInt(window.currentUserId))) {
@@ -78,15 +95,18 @@ var UserProfile = React.createClass({
         }
       },this);
     }
+
     return(
       <div className="profile-main">
         <Header user={this.state.user} />
         { postform }
+        { noPostsMessage }
         <ul>
           <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
             { userPosts }
           </ReactCSSTransitionGroup>
         </ul>
+        { firstPostMessage }
         <footer className="profile-footer">
           <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
           <p className="profile-copyright">Famebook © 2016</p>

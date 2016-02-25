@@ -32202,15 +32202,40 @@
 	    var username = "",
 	        userPosts = [],
 	        deleteButton,
-	        postform = "";
+	        postform = "",
+	        noPostsMessage = "",
+	        firstPostMessage = "";
 	    if (this.state.user && this.state.user.length !== 0) {
+
 	      if (this.state.user.id === window.currentUserId) {
 	        postform = React.createElement(PostForm, null);
 	      }
-	      username = this.state.user.first_name + " " + this.state.user.last_name;
-	      if (this.state.user.posts[0] && this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
-	        this.state.user.posts = this.state.user.posts.reverse();
+
+	      // Set no posts to show message
+
+	      if (this.state.user.posts.length === 0) {
+	        noPostsMessage = React.createElement(
+	          'p',
+	          { className: 'no-posts-message' },
+	          'No posts to show'
+	        );
 	      }
+
+	      // Set first post
+
+	      if (this.state.user.posts.length > 0) {
+	        firstPostMessage = React.createElement(
+	          'p',
+	          { className: 'first-post-message' },
+	          this.state.user.first_post_year
+	        );
+	      }
+
+	      username = this.state.user.first_name + " " + this.state.user.last_name;
+	      // if (this.state.user.posts[0] && this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
+	      //   this.state.user.posts = this.state.user.posts.reverse();
+	      // }
+
 	      userPosts = this.state.user.posts.map(function (post) {
 	        if (post.author_id === parseInt(this.props.params.id)) {
 	          if (parseInt(post.author_id) === parseInt(window.currentUserId)) {
@@ -32248,11 +32273,13 @@
 	        }
 	      }, this);
 	    }
+
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-main' },
 	      React.createElement(Header, { user: this.state.user }),
 	      postform,
+	      noPostsMessage,
 	      React.createElement(
 	        'ul',
 	        null,
@@ -32262,6 +32289,7 @@
 	          userPosts
 	        )
 	      ),
+	      firstPostMessage,
 	      React.createElement(
 	        'footer',
 	        { className: 'profile-footer' },
@@ -32882,11 +32910,6 @@
 	            'Photos'
 	          ),
 	          React.createElement(
-	            'button',
-	            { onClick: this.addPhoto },
-	            'Add Photos'
-	          ),
-	          React.createElement(
 	            'form',
 	            { onSubmit: this.handleSubmit },
 	            React.createElement(
@@ -32946,6 +32969,7 @@
 
 	    var formData = new FormData();
 
+	    formData.append("photo[photoable_id]", this.props.params.id);
 	    formData.append("photo[photoable_type]", this.state.imageFile);
 
 	    ApiUtil.createPhoto(formData, this.resetForm);
@@ -32958,6 +32982,8 @@
 	});
 
 	module.exports = Photos;
+
+	// <button onClick={this.addPhoto}>Add Photos</button>
 
 /***/ }
 /******/ ]);
