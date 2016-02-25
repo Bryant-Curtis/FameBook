@@ -30,6 +30,8 @@ gem 'aws-sdk', '~> 1.6'
 
 gem 'figaro'
 
+# gem 'react-rails-img'
+
 group :production do
   gem 'rails_12factor'
 end

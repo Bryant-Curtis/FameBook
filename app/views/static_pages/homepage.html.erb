@@ -1,7 +1,19 @@
 <script>
-  window.auth_token = "<%= form_authenticity_token %>"
-  window.currentUserId = <%= current_user.id %>
-  window.currentUserName = "<%= current_user.first_name %>"
+  window.auth_token =       "<%= form_authenticity_token %>"
+  window.currentUserId =     <%= current_user.id %>
+  window.currentUserName =  "<%= current_user.first_name %>"
+  window.alexMain =         "<%= asset_path('alexander-hamilton.jpg') %>"
+  window.alexBack =         "<%= asset_path('alexander-hamilton-back.jpg') %>"
+  window.oprahMain =        "<%= asset_path('oprah-winfrey.jpg') %>"
+  window.oprahBack =        "<%= asset_path('oprah-winfrey-back.jpg') %>"
+  window.juliusMain =       "<%= asset_path('julius-caesar.jpg') %>"
+  window.juliusBack =       "<%= asset_path('julius-caesar-back.jpg') %>"
+  window.georgeMain =       "<%= asset_path('george-clooney.jpg') %>"
+  window.georgeBack =       "<%= asset_path('george-clooney-back.jpg') %>"
+  window.robertMain =       "<%= asset_path('robert-deniro.jpg') %>"
+  window.robertBack =       "<%= asset_path('robert-deniro-back.jpg') %>"
+  window.bolts =            "<%= asset_path('bolts.png') %>"
+  window.prof =             "<%= asset_path('profile.png') %>"
 </script>
 
 <main id="root">

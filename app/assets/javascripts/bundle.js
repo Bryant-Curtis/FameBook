@@ -24792,9 +24792,16 @@
 	          { className: 'feed-sidebar-right-suggestion' },
 	          'SUGGESTED PAGES'
 	        ),
-	        React.createElement('section', { className: 'feed-sidebar-right-adds' }),
-	        React.createElement('section', { className: 'feed-sidebar-right-adds' }),
-	        React.createElement('section', { className: 'feed-sidebar-right-adds' })
+	        React.createElement(
+	          'section',
+	          { className: 'feed-sidebar-right-adds' },
+	          React.createElement('img', { src: window.prof })
+	        ),
+	        React.createElement(
+	          'section',
+	          { className: 'feed-sidebar-right-adds' },
+	          React.createElement('img', { src: window.bolts })
+	        )
 	      )
 	    );
 	  },
@@ -32473,6 +32480,7 @@
 	        friendshipId,
 	        friendRequestId;
 	    if (this.props.user && this.props.user.first_name !== undefined) {
+
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
 	      userId = this.props.user.id;
 
@@ -32484,6 +32492,10 @@
 	          currentUser = user;
 	        }
 	      });
+
+	      // Determine picture of each SeedUser
+
+	      userImage = React.createElement('img', { src: window.alexMain });
 
 	      if (text === undefined) {
 	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
@@ -32553,6 +32565,7 @@
 	        text
 	      );
 	    }
+
 	    return React.createElement(
 	      'header',
 	      { className: 'profile-header' },
@@ -32976,7 +32989,7 @@
 	    var formData = new FormData();
 
 	    formData.append("photo[photoable_id]", this.props.params.id);
-	    formData.append("photo[photoable_type]", this.state.imageFile);
+	    formData.append("photo[photograph]", this.state.imageFile);
 
 	    ApiUtil.createPhoto(formData, this.resetForm);
 	  },

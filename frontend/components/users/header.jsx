@@ -27,6 +27,7 @@ var Header = React.createClass({
         friendshipId,
         friendRequestId;
     if (this.props.user && this.props.user.first_name !== undefined) {
+
       username = this.props.user.first_name + " " + this.props.user.last_name;
       userId = this.props.user.id;
 
@@ -38,6 +39,10 @@ var Header = React.createClass({
           currentUser = user;
         }
       });
+
+      // Determine picture of each SeedUser
+
+      userImage = <img src={window.alexMain}></img>
 
       if (text === undefined) {
         // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
@@ -118,6 +123,7 @@ var Header = React.createClass({
                               }
                             >{text}</button>;
     }
+
     return(
       <header className="profile-header">
         <figure className="profile-header-photo"></figure>

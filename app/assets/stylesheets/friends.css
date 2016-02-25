@@ -72,7 +72,7 @@
 
 .confirm-friend-name {
   float: left;
-  margin: 9px 0 0 4px;
+  margin: 9px 0 0 0px;
   display: block;
   color: #3B5998;
   font-weight: bold;
@@ -185,6 +185,7 @@
 }
 
 .friend-friend-count {
+  margin: 0 0 0 1px;
   color: #9197a3;
   font-size: 12px;
 }

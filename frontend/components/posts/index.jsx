@@ -75,9 +75,8 @@ var Posts = React.createClass({
 
         <sidebar className="feed-sidebar-right">
           <p className="feed-sidebar-right-suggestion">SUGGESTED PAGES</p>
-          <section className="feed-sidebar-right-adds"></section>
-          <section className="feed-sidebar-right-adds"></section>
-          <section className="feed-sidebar-right-adds"></section>
+          <section className="feed-sidebar-right-adds"><img src={window.prof}></img></section>
+          <section className="feed-sidebar-right-adds"><img src={window.bolts}></img></section>
         </sidebar>
 
       </div>

@@ -114,9 +114,9 @@ var Photos = React.createClass({
     e.preventDefault();
 
     var formData = new FormData();
-    
+
     formData.append("photo[photoable_id]", this.props.params.id);
-    formData.append("photo[photoable_type]", this.state.imageFile);
+    formData.append("photo[photograph]", this.state.imageFile);
 
     ApiUtil.createPhoto(formData, this.resetForm);
   },

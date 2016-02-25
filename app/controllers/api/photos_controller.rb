@@ -21,7 +21,7 @@ class Api::PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:id, :photoable_id, :photoable_type)
+    params.require(:photo).permit(:id, :photoable_id, :photoable_type, :photograph)
   end
 
 end
