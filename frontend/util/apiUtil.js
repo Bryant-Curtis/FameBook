@@ -138,6 +138,24 @@ var ApiUtil = {
         return "Was not able to delete friend! :`)";
       }
     });
+  },
+
+  createPhoto: function (formData, callback) {
+    $.ajax({
+      method:   "POST",
+      url:      "api/photos/",
+      processData: false,
+      contentType: false,
+      dataType: "json",
+      data:     formData,
+      success: function (data) {
+        ApiActions.receiveRequestee(data);
+        callback && callback();
+      },
+      error: function () {
+        return "Was not able to add photo! :`)";
+      }
+    });
   }
 
   // logOut: function (callback) {

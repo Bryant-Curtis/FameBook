@@ -19910,6 +19910,24 @@
 	        return "Was not able to delete friend! :`)";
 	      }
 	    });
+	  },
+
+	  createPhoto: function (formData, callback) {
+	    $.ajax({
+	      method: "POST",
+	      url: "api/photos/",
+	      processData: false,
+	      contentType: false,
+	      dataType: "json",
+	      data: formData,
+	      success: function (data) {
+	        ApiActions.receiveRequestee(data);
+	        callback && callback();
+	      },
+	      error: function () {
+	        return "Was not able to add photo! :`)";
+	      }
+	    });
 	  }
 
 	  // logOut: function (callback) {
@@ -32794,7 +32812,7 @@
 	  displayName: 'Photos',
 
 	  getInitialState: function () {
-	    return { user: UserStore.find(parseInt(this.props.params.id)) };
+	    return { user: UserStore.find(parseInt(this.props.params.id)), imageUrl: "", imageFile: null };
 	  },
 
 	  componentDidMount: function () {
@@ -32815,7 +32833,9 @@
 	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
-	  createPhoto: function () {},
+	  // addPhoto: function () {
+	  //   ApiUtil.createPhoto();
+	  // },
 
 	  render: function () {
 	    var username = "",
@@ -32843,63 +32863,6 @@
 	          photoList.unshift(React.createElement('li', { key: photo.id, className: 'photo group' }));
 	        });
 	      }
-
-	      // if (this.state.user.id === window.currentUserId) {
-
-	      // FRIEND REQUESTS
-
-	      // if (this.state.user.received_friend_requests) {
-	      //   var friendRequestor;
-	      //   UserStore.all().map(function(user) {
-	      //     this.state.user.received_friend_requests.map(function(friend_request) {
-	      //       if (user.id === friend_request.requestor_id && friend_request.declined === false) {
-	      //         friendRequestor = user.first_name + ' ' + user.last_name;
-	      //         confirmFriends.unshift(
-	      //           <li key={friend_request.id} className="confirm-friend-box-info">
-	      //             <figure className="confirm-friend-photo"></figure>
-	      //             <section className="confirm-friend-info group">
-	      //               <p className="confirm-friend-name"><a href={"#/users/" + user.id}>{ friendRequestor }</a></p>
-	      //
-	      //               <button className="accept-friend-button"
-	      //                 onClick={
-	      //                   this.createFriendship.bind(
-	      //                     this,
-	      //                     friend_request.id,
-	      //                     user.id,
-	      //                     window.currentUserId
-	      //                   )
-	      //                 }>Accept</button>
-	      //
-	      //               <button className="decline-friend-button"
-	      //                 onClick={
-	      //                   this.declineFriendRequest.bind(
-	      //                     this,
-	      //                     friend_request.id,
-	      //                     user.id,
-	      //                     window.currentUserId
-	      //                   )
-	      //                 }>Decline</button>
-	      //
-	      //             </section>
-	      //           </li>
-	      //         );
-	      //       }
-	      //     }.bind(this));
-	      //   }.bind(this));
-	      // }
-
-	      // var FriendRequestBox = (
-	      //   <section className="confirm-friends group">
-	      //     <header className="confirm-friends-list-header"><i className="fa fa-user-plus"></i><a href={"#/users/" + this.state.user.id + "/friendships"}>Friend Requests</a></header>
-	      //     <section className="confirm-friends-list-main group">
-	      //       { confirmFriends }
-	      //       <section className="confirm-friend-box group">
-	      //       </section>
-	      //     </section>
-	      //   </section>
-	      // )
-
-	      // }
 	    }
 
 	    return React.createElement(
@@ -32912,7 +32875,7 @@
 	        React.createElement(
 	          'header',
 	          { className: 'photos-list-header group' },
-	          React.createElement('i', { className: 'fa fa-users' }),
+	          React.createElement('i', { className: 'fa fa-camera-retro' }),
 	          React.createElement(
 	            'a',
 	            { href: "#/users/" + this.state.user.id + "/photos" },
@@ -32920,8 +32883,23 @@
 	          ),
 	          React.createElement(
 	            'button',
-	            null,
+	            { onClick: this.addPhoto },
 	            'Add Photos'
+	          ),
+	          React.createElement(
+	            'form',
+	            { onSubmit: this.handleSubmit },
+	            React.createElement(
+	              'label',
+	              null,
+	              React.createElement('input', { type: 'file', onChange: this.changeFile })
+	            ),
+	            React.createElement('img', { className: 'preview-image', src: this.state.imageUrl }),
+	            React.createElement(
+	              'button',
+	              null,
+	              'Submit'
+	            )
 	          )
 	        ),
 	        React.createElement(
@@ -32946,6 +32924,31 @@
 	        )
 	      )
 	    );
+	  },
+
+	  changeFile: function (e) {
+	    var reader = new FileReader();
+	    var file = e.currentTarget.files[0];
+
+	    reader.onloadend = function () {
+	      this.setState({ imageFile: file, imageUrl: reader.result });
+	    }.bind(this);
+
+	    if (file) {
+	      reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
+	    } else {
+	        this.setState({ imageFile: null, imageUrl: "" });
+	      }
+	  },
+
+	  handleSubmit: function (e) {
+	    e.preventDefault();
+
+	    var formData = new FormData();
+
+	    formData.append("photo[photoable_type]", this.state.imageFile);
+
+	    ApiUtil.createPhoto(formData, this.resetForm);
 	  },
 
 	  _onChange: function () {
