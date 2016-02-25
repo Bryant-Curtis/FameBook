@@ -25,7 +25,9 @@ var Header = React.createClass({
         acceptRequestButton = "",
         userId,
         friendshipId,
-        friendRequestId;
+        friendRequestId,
+        userBackImage = "",
+        userImage = "";
     if (this.props.user && this.props.user.first_name !== undefined) {
 
       username = this.props.user.first_name + " " + this.props.user.last_name;
@@ -42,7 +44,22 @@ var Header = React.createClass({
 
       // Determine picture of each SeedUser
 
-      userImage = <img src={window.alexMain}></img>
+      if (this.props.user.first_name === "Alexander") {
+        userImage = <img src={window.alexMain}></img>;
+        userBackImage = <img src={window.alexBack}></img>;
+      } else if (this.props.user.first_name === "George") {
+        userImage = <img src={window.georgeMain}></img>;
+        userBackImage = <img src={window.georgeBack}></img>;
+      } else if (this.props.user.first_name === "Oprah") {
+        userImage = <img src={window.oprahMain}></img>;
+        userBackImage = <img src={window.oprahBack}></img>;
+      } else if (this.props.user.first_name === "Robert") {
+        userImage = <img src={window.robertMain}></img>;
+        userBackImage = <img src={window.robertBack}></img>;
+      } else if (this.props.user.first_name === "Julius") {
+        userImage = <img src={window.juliusMain}></img>;
+        userBackImage = <img src={window.juliusBack}></img>;
+      }
 
       if (text === undefined) {
         // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
@@ -126,8 +143,8 @@ var Header = React.createClass({
 
     return(
       <header className="profile-header">
-        <figure className="profile-header-photo"></figure>
-        <figure className="profile-user-photo"></figure>
+        <figure className="profile-header-photo">{ userBackImage }</figure>
+        <figure className="profile-user-photo">{ userImage }</figure>
         <figure className="profile-username">{ username }</figure>
         { acceptRequestButton}
         { friendRequestButton }

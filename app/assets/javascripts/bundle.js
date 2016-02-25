@@ -32478,7 +32478,9 @@
 	        acceptRequestButton = "",
 	        userId,
 	        friendshipId,
-	        friendRequestId;
+	        friendRequestId,
+	        userBackImage = "",
+	        userImage = "";
 	    if (this.props.user && this.props.user.first_name !== undefined) {
 
 	      username = this.props.user.first_name + " " + this.props.user.last_name;
@@ -32495,7 +32497,22 @@
 
 	      // Determine picture of each SeedUser
 
-	      userImage = React.createElement('img', { src: window.alexMain });
+	      if (this.props.user.first_name === "Alexander") {
+	        userImage = React.createElement('img', { src: window.alexMain });
+	        userBackImage = React.createElement('img', { src: window.alexBack });
+	      } else if (this.props.user.first_name === "George") {
+	        userImage = React.createElement('img', { src: window.georgeMain });
+	        userBackImage = React.createElement('img', { src: window.georgeBack });
+	      } else if (this.props.user.first_name === "Oprah") {
+	        userImage = React.createElement('img', { src: window.oprahMain });
+	        userBackImage = React.createElement('img', { src: window.oprahBack });
+	      } else if (this.props.user.first_name === "Robert") {
+	        userImage = React.createElement('img', { src: window.robertMain });
+	        userBackImage = React.createElement('img', { src: window.robertBack });
+	      } else if (this.props.user.first_name === "Julius") {
+	        userImage = React.createElement('img', { src: window.juliusMain });
+	        userBackImage = React.createElement('img', { src: window.juliusBack });
+	      }
 
 	      if (text === undefined) {
 	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
@@ -32569,8 +32586,16 @@
 	    return React.createElement(
 	      'header',
 	      { className: 'profile-header' },
-	      React.createElement('figure', { className: 'profile-header-photo' }),
-	      React.createElement('figure', { className: 'profile-user-photo' }),
+	      React.createElement(
+	        'figure',
+	        { className: 'profile-header-photo' },
+	        userBackImage
+	      ),
+	      React.createElement(
+	        'figure',
+	        { className: 'profile-user-photo' },
+	        userImage
+	      ),
 	      React.createElement(
 	        'figure',
 	        { className: 'profile-username' },
@@ -32907,7 +32932,12 @@
 
 	      if (this.state.user.photos) {
 	        this.state.user.photos.forEach(function (photo) {
-	          photoList.unshift(React.createElement('li', { key: photo.id, className: 'photo group' }));
+
+	          photoList.unshift(React.createElement(
+	            'li',
+	            { key: photo.id, className: 'photo group' },
+	            React.createElement('img', { src: photo.url })
+	          ));
 	        });
 	      }
 	    }

@@ -16,5 +16,6 @@ json.friends user.friends do |friend|
 end
 json.photos user.photos do |photo|
   json.extract! photo, :id, :photoable_id, :photoable_type
+  json.url photo.photograph.url
 end
 # if unneeded, take out the json.self_id row completely.

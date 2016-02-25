@@ -21,6 +21,11 @@
   width: 850px;
 }
 
+.profile-header-photo > img {
+  width: 100%;
+  height: 100%;
+}
+
 .profile-user-photo {
   display: block;
   position: absolute;

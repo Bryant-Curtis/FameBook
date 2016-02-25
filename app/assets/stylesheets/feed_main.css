@@ -53,7 +53,7 @@
 .create-post {
   background: #ffffff;
   max-width: 490px;
-  margin: 0 10px 10px 0;
+  margin: 0 15px 15px 0;
   border-radius: 3px;
   border-top: 1px solid #e5e6e9;
   border-bottom: 1px solid #d0d1d5;
@@ -94,6 +94,7 @@
 
 .no-posts-message {
   display: block;
+  margin: 0 0 15px 0;
   padding: 100px 0 200px 0;
   max-width: 490px;
   border-radius: 3px;
