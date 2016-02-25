@@ -42,7 +42,7 @@ var Photos = React.createClass({
 
       // NO PHOTOS MESSAGE
 
-      if (this.state.user.photos.length === 0) {
+      if (this.state.user.photos && this.state.user.photos.length === 0) {
         noPhotosMessage = <p className="no-photos-message">No photos to show</p>
       }
 

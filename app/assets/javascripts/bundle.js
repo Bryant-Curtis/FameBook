@@ -32828,7 +32828,7 @@
 
 	      // NO PHOTOS MESSAGE
 
-	      if (this.state.user.photos.length === 0) {
+	      if (this.state.user.photos && this.state.user.photos.length === 0) {
 	        noPhotosMessage = React.createElement(
 	          'p',
 	          { className: 'no-photos-message' },

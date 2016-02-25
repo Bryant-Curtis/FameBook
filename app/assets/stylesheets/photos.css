@@ -1,0 +1,76 @@
+/* PHOTOS */
+
+.photos-main {
+  width: 980px;
+  margin: auto;
+  padding-bottom: 5px;
+}
+
+/* PHOTOS INDEX */
+
+.photos-list {
+  margin: 20px 0 20px 0;
+  width: 851px;
+  border: 1px solid #D3D6DB;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* PHOTOS HEADER */
+
+.photos-list-header {
+  height: 57px;
+  padding: 18px 13px;
+  border-bottom: 1px solid #D3D6DB;
+  border-radius: 4px 4px 0 0;
+  font-size: 20px;
+  font-weight: bold;
+  background: #F6F7F8;
+}
+
+.photos-list-header > i {
+  margin: 0 10px 0 0;
+  color: #ADB3BC;
+}
+
+.photos-list-header > a {
+  display: inline;
+}
+
+.photos-list-header > a:hover {
+  text-decoration: underline;
+}
+
+.photos-list-header > button {
+  float: right;
+  margin: 0 2px 0 0;
+  padding: 5px 10px;
+  text-align: center;
+  color: #4e5665;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 0 1px #000;
+}
+
+/* PHOTOS MAIN */
+
+.no-photos-message {
+  display: block;
+  margin: 0 0 200px 0;
+  padding: 90px 320px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #CCCCCC;
+}
+
+.photos-list-main {
+  padding: 15px 0 0 15px;
+}
+
+.photo {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #D2D5DA;
+}
