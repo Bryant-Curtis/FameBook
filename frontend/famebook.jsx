@@ -7,7 +7,8 @@ var React = require('react'),
     Posts = require('./components/posts/index'),
     PostForm = require('./components/posts/form'),
     UserProfile = require('./components/users/profile'),
-    Friends = require('./components/users/friends');
+    Friends = require('./components/users/friends'),
+    Photos = require('./components/users/photos');
 
 var NavBar = React.createClass({
   // logOut: function () {
@@ -74,6 +75,7 @@ var routes = (
     <IndexRoute component={Posts} />
     <Route path="users/:id" component={UserProfile} />
     <Route path="users/:id/friendships" component={Friends} />
+    <Route path="users/:id/photos" component={Photos} />
   </Route>
 );
 

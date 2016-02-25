@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users,           only: [:index, :show, :update] do
       resources :posts,           only: [:index]
       resources :friendships,     only: [:show]
+      resources :photos,          only: [:index, :show]
     end
   end
 end

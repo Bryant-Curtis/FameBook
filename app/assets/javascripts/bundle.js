@@ -53,7 +53,8 @@
 	    Posts = __webpack_require__(213),
 	    PostForm = __webpack_require__(232),
 	    UserProfile = __webpack_require__(240),
-	    Friends = __webpack_require__(243);
+	    Friends = __webpack_require__(243),
+	    Photos = __webpack_require__(244);
 
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -152,7 +153,8 @@
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Posts }),
 	  React.createElement(Route, { path: 'users/:id', component: UserProfile }),
-	  React.createElement(Route, { path: 'users/:id/friendships', component: Friends })
+	  React.createElement(Route, { path: 'users/:id/friendships', component: Friends }),
+	  React.createElement(Route, { path: 'users/:id/photos', component: Photos })
 	);
 
 	document.addEventListener("DOMContentLoaded", function (event) {
@@ -32534,6 +32536,15 @@
 	              { href: "#/users/" + userId + "/friendships" },
 	              'Friends'
 	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            { className: 'profile-nav-photos' },
+	            React.createElement(
+	              'a',
+	              { href: "#/users/" + userId + "/photos" },
+	              'Photos'
+	            )
 	          )
 	        )
 	      )
@@ -32768,6 +32779,182 @@
 	});
 
 	module.exports = Friends;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    ApiUtil = __webpack_require__(159),
+	    UserStore = __webpack_require__(241),
+	    Header = __webpack_require__(242),
+	    ReactCSSTransitionGroup = __webpack_require__(233);
+
+	var Photos = React.createClass({
+	  displayName: 'Photos',
+
+	  getInitialState: function () {
+	    return { user: UserStore.find(parseInt(this.props.params.id)) };
+	  },
+
+	  componentDidMount: function () {
+	    this.userToken = UserStore.addListener(this._onChange);
+	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+
+	    ApiUtil.fetchAllUsers();
+	  },
+
+	  componentWillUnmount: function () {
+	    this.userToken.remove();
+	  },
+
+	  componentWillReceiveProps: function (newProps) {
+	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
+	    ApiUtil.fetchAllUsers();
+
+	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
+	  },
+
+	  createPhoto: function () {},
+
+	  render: function () {
+	    var username = "",
+	        photoList = [],
+	        noPhotosMessage = "",
+	        currentPageUser = "";
+
+	    if (this.state.user && this.state.user.length !== 0) {
+	      currentPageUser = this.state.user;
+
+	      // NO PHOTOS MESSAGE
+
+	      if (this.state.user.photos.length === 0) {
+	        noPhotosMessage = React.createElement(
+	          'p',
+	          { className: 'no-photos-message' },
+	          'No photos to show'
+	        );
+	      }
+
+	      // PHOTOS LIST
+
+	      if (this.state.user.photos) {
+	        this.state.user.photos.forEach(function (photo) {
+	          photoList.unshift(React.createElement('li', { key: photo.id, className: 'photo group' }));
+	        });
+	      }
+
+	      // if (this.state.user.id === window.currentUserId) {
+
+	      // FRIEND REQUESTS
+
+	      // if (this.state.user.received_friend_requests) {
+	      //   var friendRequestor;
+	      //   UserStore.all().map(function(user) {
+	      //     this.state.user.received_friend_requests.map(function(friend_request) {
+	      //       if (user.id === friend_request.requestor_id && friend_request.declined === false) {
+	      //         friendRequestor = user.first_name + ' ' + user.last_name;
+	      //         confirmFriends.unshift(
+	      //           <li key={friend_request.id} className="confirm-friend-box-info">
+	      //             <figure className="confirm-friend-photo"></figure>
+	      //             <section className="confirm-friend-info group">
+	      //               <p className="confirm-friend-name"><a href={"#/users/" + user.id}>{ friendRequestor }</a></p>
+	      //
+	      //               <button className="accept-friend-button"
+	      //                 onClick={
+	      //                   this.createFriendship.bind(
+	      //                     this,
+	      //                     friend_request.id,
+	      //                     user.id,
+	      //                     window.currentUserId
+	      //                   )
+	      //                 }>Accept</button>
+	      //
+	      //               <button className="decline-friend-button"
+	      //                 onClick={
+	      //                   this.declineFriendRequest.bind(
+	      //                     this,
+	      //                     friend_request.id,
+	      //                     user.id,
+	      //                     window.currentUserId
+	      //                   )
+	      //                 }>Decline</button>
+	      //
+	      //             </section>
+	      //           </li>
+	      //         );
+	      //       }
+	      //     }.bind(this));
+	      //   }.bind(this));
+	      // }
+
+	      // var FriendRequestBox = (
+	      //   <section className="confirm-friends group">
+	      //     <header className="confirm-friends-list-header"><i className="fa fa-user-plus"></i><a href={"#/users/" + this.state.user.id + "/friendships"}>Friend Requests</a></header>
+	      //     <section className="confirm-friends-list-main group">
+	      //       { confirmFriends }
+	      //       <section className="confirm-friend-box group">
+	      //       </section>
+	      //     </section>
+	      //   </section>
+	      // )
+
+	      // }
+	    }
+
+	    return React.createElement(
+	      'div',
+	      { className: 'photos-main' },
+	      React.createElement(Header, { user: this.state.user }),
+	      React.createElement(
+	        'section',
+	        { className: 'photos-list' },
+	        React.createElement(
+	          'header',
+	          { className: 'photos-list-header group' },
+	          React.createElement('i', { className: 'fa fa-users' }),
+	          React.createElement(
+	            'a',
+	            { href: "#/users/" + this.state.user.id + "/photos" },
+	            'Photos'
+	          ),
+	          React.createElement(
+	            'button',
+	            null,
+	            'Add Photos'
+	          )
+	        ),
+	        React.createElement(
+	          'ul',
+	          { className: 'photos-list-main group' },
+	          noPhotosMessage,
+	          photoList
+	        )
+	      ),
+	      React.createElement(
+	        'footer',
+	        { className: 'profile-footer' },
+	        React.createElement(
+	          'a',
+	          { href: 'https://github.com/Bryant-Curtis/Famebook/blob/master/README.md' },
+	          'About'
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'profile-copyright' },
+	          'Famebook © 2016'
+	        )
+	      )
+	    );
+	  },
+
+	  _onChange: function () {
+	    this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });
+	  }
+
+	});
+
+	module.exports = Photos;
 
 /***/ }
 /******/ ]);
