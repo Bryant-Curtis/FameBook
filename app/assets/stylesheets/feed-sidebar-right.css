@@ -14,20 +14,40 @@
 }
 
 .feed-sidebar-right-suggestion {
-  padding: 0 0 10px 0;
   font-size: 11px;
   color: #666666;
 }
 
-.feed-sidebar-right-adds {
-  margin: 0 0 10px 0;
+.add-img {
+  display: block;
+  margin: 18px 0;
+  border: 1px solid #cccccc;
   width: 254px;
   height: 157px;
-
   background: #000000;
 }
 
-.feed-sidebar-right-adds > img {
+.add-img > img {
   width: 100%;
   height: 100%;
+}
+
+.add-descriptions {
+  display: inline-block;
+  padding: 0 0 10px 0;
+  font-size: 12px;
+  font-weight: normal;
+  color: #aaa;
+}
+
+.feed-sidebar-right {
+  font-size: 12px;
+  font-weight: bold;
+  color: #3B5998;
+}
+
+.feed-sidebar-right .add-url {
+  display: block;
+  font-weight: normal;
+  line-height: 1.7;
 }

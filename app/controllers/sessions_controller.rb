@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_user_by_credentials(params[:session][:email], params[:session][:password])
     if user
       sign_in(user)
-      redirect_to root_url
+      redirect_to "#/users/#{user.id}"
     else
       flash[:errors] = "Invalid Log in Credentials"
       render "static_pages/homepage"

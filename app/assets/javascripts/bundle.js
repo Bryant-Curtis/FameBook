@@ -24793,14 +24793,52 @@
 	          'SUGGESTED PAGES'
 	        ),
 	        React.createElement(
-	          'section',
-	          { className: 'feed-sidebar-right-adds' },
-	          React.createElement('img', { src: window.prof })
+	          'a',
+	          { href: 'http://www.bryantcurtis.com' },
+	          React.createElement(
+	            'section',
+	            { className: 'add-img group' },
+	            React.createElement('img', { src: window.prof })
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            'See the creator\'s profile'
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'add-url' },
+	            'www.bryantcurtis.com'
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'add-descriptions' },
+	            'A combination of projects and skills can be found here'
+	          )
 	        ),
 	        React.createElement(
-	          'section',
-	          { className: 'feed-sidebar-right-adds' },
-	          React.createElement('img', { src: window.bolts })
+	          'a',
+	          { href: 'http://www.bryantcurtis.com/Bolts' },
+	          React.createElement(
+	            'section',
+	            { className: 'add-img group' },
+	            React.createElement('img', { src: window.bolts })
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            'Bolts - Try out the exciting game now'
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'add-url' },
+	            'www.bryantcurtis.com/Bolts'
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'add-descriptions' },
+	            'Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!'
+	          )
 	        )
 	      )
 	    );

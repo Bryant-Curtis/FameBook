@@ -75,8 +75,25 @@ var Posts = React.createClass({
 
         <sidebar className="feed-sidebar-right">
           <p className="feed-sidebar-right-suggestion">SUGGESTED PAGES</p>
-          <section className="feed-sidebar-right-adds"><img src={window.prof}></img></section>
-          <section className="feed-sidebar-right-adds"><img src={window.bolts}></img></section>
+
+          <a href="http://www.bryantcurtis.com">
+            <section className="add-img group">
+              <img src={window.prof}></img>
+            </section>
+            <p>See the creator's profile</p>
+            <p className="add-url">www.bryantcurtis.com</p>
+            <p className="add-descriptions">A combination of projects and skills can be found here</p>
+          </a>
+
+          <a href="http://www.bryantcurtis.com/Bolts">
+            <section className="add-img group">
+              <img src={window.bolts}></img>
+            </section>
+            <p>Bolts - Try out the exciting game now</p>
+            <p className="add-url">www.bryantcurtis.com/Bolts</p>
+            <p className="add-descriptions">Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!</p>
+          </a>
+
         </sidebar>
 
       </div>
