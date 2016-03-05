@@ -32585,6 +32585,28 @@
 	      //   }.bind(this));
 	      // }
 
+	      if (text === undefined) {
+
+	        // Create extra Accept & Decline button if user profile sent friend request to current user
+
+	        // Create extra button and label both buttons' texts
+
+	        currentUser.received_friend_requests.forEach(function (friend_request) {
+	          if (friend_request.requestor_id === this.props.user.id) {
+	            text = "Decline";
+	            friendRequestId = friend_request.id;
+	            acceptRequestButton = React.createElement(
+	              'button',
+	              {
+	                className: 'profile-accept-friend-request-button',
+	                onClick: this.sendUserId.bind(this, window.currentUserId, this.props.user.id, friendshipId, "Accept", friendRequestId)
+	              },
+	              'Accept'
+	            );
+	          }
+	        }.bind(this));
+	      }
+
 	      // In case of not friend and have not sent friend request
 
 	      if (text === undefined) {
@@ -32601,25 +32623,6 @@
 	    }
 
 	    if (this.props.user.id && parseInt(this.props.user.id) !== window.currentUserId) {
-
-	      // Create extra Accept & Decline button if user profile sent friend request to current user
-
-	      // Create extra button and label both buttons' text
-
-	      currentUser.received_friend_requests.forEach(function (friend_request) {
-	        if (friend_request.requestor_id === this.props.user.id) {
-	          text = "Decline";
-	          friendRequestId = friend_request.id;
-	          acceptRequestButton = React.createElement(
-	            'button',
-	            {
-	              className: 'profile-accept-friend-request-button',
-	              onClick: this.sendUserId.bind(this, window.currentUserId, this.props.user.id, friendshipId, "Accept", friendRequestId)
-	            },
-	            'Accept'
-	          );
-	        }
-	      }.bind(this));
 
 	      friendRequestButton = React.createElement(
 	        'button',

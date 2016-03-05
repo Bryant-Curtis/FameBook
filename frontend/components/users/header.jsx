@@ -4,7 +4,7 @@ var React = require('react'),
 
 var Header = React.createClass({
   sendUserId: function (requestorId, requesteeId, friendshipId, text, friendRequestId) {
-    
+
     if (text === "Befriend") {
       ApiUtil.createFriendRequest(requestorId, requesteeId);
 
@@ -97,6 +97,34 @@ var Header = React.createClass({
       //   }.bind(this));
       // }
 
+      if (text === undefined) {
+
+        // Create extra Accept & Decline button if user profile sent friend request to current user
+
+        // Create extra button and label both buttons' texts
+
+        currentUser.received_friend_requests.forEach(function(friend_request) {
+          if (friend_request.requestor_id === this.props.user.id) {
+            text = "Decline";
+            friendRequestId = friend_request.id;
+            acceptRequestButton = <button
+              className="profile-accept-friend-request-button"
+              onClick={
+                this.sendUserId.bind(
+                  this,
+                  window.currentUserId,
+                  this.props.user.id,
+                  friendshipId,
+                  "Accept",
+                  friendRequestId
+                )
+              }
+            >Accept</button>;
+          }
+        }.bind(this));
+      }
+
+
       // In case of not friend and have not sent friend request
 
       if (text === undefined) {
@@ -115,30 +143,6 @@ var Header = React.createClass({
     }
 
     if (this.props.user.id && parseInt(this.props.user.id) !== window.currentUserId) {
-
-      // Create extra Accept & Decline button if user profile sent friend request to current user
-
-      // Create extra button and label both buttons' text
-
-      currentUser.received_friend_requests.forEach(function(friend_request) {
-        if (friend_request.requestor_id === this.props.user.id) {
-          text = "Decline";
-          friendRequestId = friend_request.id;
-          acceptRequestButton = <button
-            className="profile-accept-friend-request-button"
-            onClick={
-              this.sendUserId.bind(
-                this,
-                window.currentUserId,
-                this.props.user.id,
-                friendshipId,
-                "Accept",
-                friendRequestId
-              )
-            }
-          >Accept</button>;
-        }
-      }.bind(this));
 
       friendRequestButton = <button
                               className="profile-friend-request-button"
