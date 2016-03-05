@@ -4,17 +4,20 @@ var React = require('react'),
 
 var Header = React.createClass({
   sendUserId: function (requestorId, requesteeId, friendshipId, text, friendRequestId) {
+    
     if (text === "Befriend") {
-
       ApiUtil.createFriendRequest(requestorId, requesteeId);
+
     } else if (text === "Unfriend") {
       ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
+
     } else if (text === "Accept") {
       ApiUtil.createFriendship(requestorId, requesteeId);
       ApiUtil.createFriendship(requesteeId, requestorId);
       ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
+
     } else if (text === "Decline") {
-      ApiUtil.declineFriendRequest(friendRequestId, requesteeId, requestorId);
+      ApiUtil.deleteFriendRequest(friendRequestId);
     }
   },
 
@@ -61,6 +64,10 @@ var Header = React.createClass({
         userBackImage = <img src={window.juliusBack}></img>;
       }
 
+      // Determine text to display for friend status button
+
+      // In case of already friends
+
       if (text === undefined) {
         // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
         this.props.user.friendships.forEach(function(friendship) {
@@ -71,26 +78,32 @@ var Header = React.createClass({
         // }
       }
 
+      // In case of already sent friend request
+
       if (text === undefined) {
         this.props.user.received_friend_requests.forEach(function(friend_request) {
-          if (friend_request.requestor_id === window.currentUserId && !friend_request.declined) {
+          if (friend_request.requestor_id === window.currentUserId) {
             text = "Pending";
           }
         });
       }
 
-      if (text === undefined) {
-        currentUser.received_friend_requests.forEach(function(friend_request) {
-          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
-            text = "Accept";
-            friendRequestId = friend_request.id;
-          }
-        }.bind(this));
-      }
+      // if (text === undefined) {
+      //   currentUser.received_friend_requests.forEach(function(friend_request) {
+      //     if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
+      //       text = "Accept";
+      //       friendRequestId = friend_request.id;
+      //     }
+      //   }.bind(this));
+      // }
+
+      // In case of not friend and have not sent friend request
 
       if (text === undefined) {
         text = "Befriend";
       }
+
+      // Find the friendship id of the current user and the user being viewed for later use
 
       this.props.user.friendships.forEach(function (friendship) {
         if (friendship.self_id === this.props.user.id &&
@@ -98,6 +111,7 @@ var Header = React.createClass({
                 friendshipId = friendship.id;
               }
       }.bind(this));
+
     }
 
     if (this.props.user.id && parseInt(this.props.user.id) !== window.currentUserId) {
@@ -107,8 +121,8 @@ var Header = React.createClass({
       // Create extra button and label both buttons' text
 
       currentUser.received_friend_requests.forEach(function(friend_request) {
-        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
-          text = "Decline"; // change the sendUserId method to include a case for "Decline";
+        if (friend_request.requestor_id === this.props.user.id) {
+          text = "Decline";
           friendRequestId = friend_request.id;
           acceptRequestButton = <button
             className="profile-accept-friend-request-button"

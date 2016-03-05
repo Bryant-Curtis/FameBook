@@ -19890,27 +19890,27 @@
 	      method: "DELETE",
 	      url: "api/friend_requests/" + friendRequestId,
 	      dataType: "json",
-	      data: { friend_request: { id: friendRequestId, friend_id: requestorId, self_id: requesteeId } },
+	      data: { friend_request: { id: friendRequestId } },
 	      success: function (data) {
 	        ApiActions.receiveRequestee(data);
 	      }
 	    });
 	  },
 
-	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
-	    $.ajax({
-	      method: "PATCH",
-	      url: "api/friend_requests/" + friendRequestId,
-	      dataType: "json",
-	      data: { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
-	      success: function (data) {
-	        ApiActions.receiveRequestee(data);
-	      },
-	      error: function () {
-	        return "Was not able to delete friend! :`)";
-	      }
-	    });
-	  },
+	  // declineFriendRequest: function (friendRequestId) {
+	  //   $.ajax({
+	  //     method:   "DELETE",
+	  //     url:      "api/friend_requests/" + friendRequestId,
+	  //     dataType: "json",
+	  //     data:     { friend_request: { id: friendRequestId } },
+	  //     success: function (data) {
+	  //       ApiActions.receiveRequestee(data);
+	  //     },
+	  //     error: function () {
+	  //       return "Was not able to delete friend! :`)";
+	  //     }
+	  //   });
+	  // },
 
 	  createPhoto: function (formData, callback) {
 	    $.ajax({
@@ -32494,8 +32494,8 @@
 	  displayName: 'Header',
 
 	  sendUserId: function (requestorId, requesteeId, friendshipId, text, friendRequestId) {
-	    if (text === "Befriend") {
 
+	    if (text === "Befriend") {
 	      ApiUtil.createFriendRequest(requestorId, requesteeId);
 	    } else if (text === "Unfriend") {
 	      ApiUtil.deleteFriendship(friendshipId, requestorId, requesteeId);
@@ -32504,7 +32504,7 @@
 	      ApiUtil.createFriendship(requesteeId, requestorId);
 	      ApiUtil.deleteFriendRequest(friendRequestId, requestorId, requesteeId);
 	    } else if (text === "Decline") {
-	      ApiUtil.declineFriendRequest(friendRequestId, requesteeId, requestorId);
+	      ApiUtil.deleteFriendRequest(friendRequestId);
 	    }
 	  },
 
@@ -32552,6 +32552,10 @@
 	        userBackImage = React.createElement('img', { src: window.juliusBack });
 	      }
 
+	      // Determine text to display for friend status button
+
+	      // In case of already friends
+
 	      if (text === undefined) {
 	        // if (this.props.user.friendships.length !== 0) { // Why did I put this line here?
 	        this.props.user.friendships.forEach(function (friendship) {
@@ -32562,26 +32566,32 @@
 	        // }
 	      }
 
+	      // In case of already sent friend request
+
 	      if (text === undefined) {
 	        this.props.user.received_friend_requests.forEach(function (friend_request) {
-	          if (friend_request.requestor_id === window.currentUserId && !friend_request.declined) {
+	          if (friend_request.requestor_id === window.currentUserId) {
 	            text = "Pending";
 	          }
 	        });
 	      }
 
-	      if (text === undefined) {
-	        currentUser.received_friend_requests.forEach(function (friend_request) {
-	          if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
-	            text = "Accept";
-	            friendRequestId = friend_request.id;
-	          }
-	        }.bind(this));
-	      }
+	      // if (text === undefined) {
+	      //   currentUser.received_friend_requests.forEach(function(friend_request) {
+	      //     if (friend_request.requestor_id === this.props.user.id && friend_request.declined) {
+	      //       text = "Accept";
+	      //       friendRequestId = friend_request.id;
+	      //     }
+	      //   }.bind(this));
+	      // }
+
+	      // In case of not friend and have not sent friend request
 
 	      if (text === undefined) {
 	        text = "Befriend";
 	      }
+
+	      // Find the friendship id of the current user and the user being viewed for later use
 
 	      this.props.user.friendships.forEach(function (friendship) {
 	        if (friendship.self_id === this.props.user.id && friendship.friend_id === window.currentUserId) {
@@ -32597,8 +32607,8 @@
 	      // Create extra button and label both buttons' text
 
 	      currentUser.received_friend_requests.forEach(function (friend_request) {
-	        if (friend_request.requestor_id === this.props.user.id && !friend_request.declined) {
-	          text = "Decline"; // change the sendUserId method to include a case for "Decline";
+	        if (friend_request.requestor_id === this.props.user.id) {
+	          text = "Decline";
 	          friendRequestId = friend_request.id;
 	          acceptRequestButton = React.createElement(
 	            'button',
@@ -32731,11 +32741,11 @@
 	  createFriendship: function (friendRequestId, requestorId, requesteeId) {
 	    ApiUtil.createFriendship(requestorId, requesteeId);
 	    ApiUtil.createFriendship(requesteeId, requestorId);
-	    ApiUtil.deleteFriendRequest(friendRequestId, requesteeId, requestorId);
+	    ApiUtil.deleteFriendRequest(friendRequestId);
 	  },
 
-	  declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
-	    ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+	  declineFriendRequest: function (friendRequestId, event) {
+	    ApiUtil.deleteFriendRequest(friendRequestId);
 	  },
 
 	  // Make sure to add link to each name! --> <a href={"#/users/" + user.id}>
@@ -32825,7 +32835,7 @@
 	                    React.createElement(
 	                      'button',
 	                      { className: 'decline-friend-button',
-	                        onClick: this.declineFriendRequest.bind(this, friend_request.id, user.id, window.currentUserId) },
+	                        onClick: this.declineFriendRequest.bind(this, friend_request.id) },
 	                      'Decline'
 	                    )
 	                  )

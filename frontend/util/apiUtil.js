@@ -118,27 +118,27 @@ var ApiUtil = {
       method:   "DELETE",
       url:      "api/friend_requests/" + friendRequestId,
       dataType: "json",
-      data:     { friend_request: { id: friendRequestId, friend_id: requestorId, self_id: requesteeId} },
+      data:     { friend_request: { id: friendRequestId } },
       success: function (data) {
         ApiActions.receiveRequestee(data);
       }
     });
   },
-
-  declineFriendRequest: function (friendRequestId, requestorId, requesteeId) {
-    $.ajax({
-      method:   "PATCH",
-      url:      "api/friend_requests/" + friendRequestId,
-      dataType: "json",
-      data:     { friend_request: { id: friendRequestId, requestor_id: requestorId, requestee_id: requesteeId, declined: true } },
-      success: function (data) {
-        ApiActions.receiveRequestee(data);
-      },
-      error: function () {
-        return "Was not able to delete friend! :`)";
-      }
-    });
-  },
+  
+  // declineFriendRequest: function (friendRequestId) {
+  //   $.ajax({
+  //     method:   "DELETE",
+  //     url:      "api/friend_requests/" + friendRequestId,
+  //     dataType: "json",
+  //     data:     { friend_request: { id: friendRequestId } },
+  //     success: function (data) {
+  //       ApiActions.receiveRequestee(data);
+  //     },
+  //     error: function () {
+  //       return "Was not able to delete friend! :`)";
+  //     }
+  //   });
+  // },
 
   createPhoto: function (formData, callback) {
     $.ajax({

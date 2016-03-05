@@ -36,11 +36,11 @@ var Friends = React.createClass({
   createFriendship: function (friendRequestId, requestorId, requesteeId) {
     ApiUtil.createFriendship(requestorId, requesteeId);
     ApiUtil.createFriendship(requesteeId, requestorId);
-    ApiUtil.deleteFriendRequest(friendRequestId, requesteeId, requestorId);
+    ApiUtil.deleteFriendRequest(friendRequestId);
   },
 
-  declineFriendRequest: function (friendRequestId, requestorId, requesteeId, event) {
-    ApiUtil.declineFriendRequest(friendRequestId, requestorId, requesteeId);
+  declineFriendRequest: function (friendRequestId, event) {
+    ApiUtil.deleteFriendRequest(friendRequestId);
   },
 
   // Make sure to add link to each name! --> <a href={"#/users/" + user.id}>
@@ -104,12 +104,7 @@ var Friends = React.createClass({
 
                       <button className="decline-friend-button"
                         onClick={
-                          this.declineFriendRequest.bind(
-                            this,
-                            friend_request.id,
-                            user.id,
-                            window.currentUserId
-                          )
+                          this.declineFriendRequest.bind(this, friend_request.id)
                         }>Decline</button>
 
                     </section>
