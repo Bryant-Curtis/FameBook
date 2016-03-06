@@ -32247,13 +32247,71 @@
 	    var username = "",
 	        userPosts = [],
 	        deleteButton,
-	        postform = "",
+	        postForm = "",
 	        noPostsMessage = "",
-	        firstPostMessage = "";
+	        firstPostMessage = "",
+	        intro = "";
 	    if (this.state.user && this.state.user.length !== 0) {
 
+	      // Make the intro box for the user
+
+	      intro = React.createElement(
+	        'section',
+	        { className: 'intro' },
+	        React.createElement(
+	          'header',
+	          { className: 'intro-header group' },
+	          React.createElement('i', { className: 'fa fa-globe' }),
+	          React.createElement(
+	            'p',
+	            null,
+	            'Intro'
+	          )
+	        ),
+	        React.createElement(
+	          'section',
+	          { className: 'intro-content group' },
+	          React.createElement(
+	            'ul',
+	            { className: 'intro-birthday group' },
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement('i', { className: 'fa fa-birthday-cake group' })
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'p',
+	                null,
+	                'Born on that day!'
+	              )
+	            )
+	          ),
+	          React.createElement(
+	            'ul',
+	            { className: 'intro-gender group' },
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement('i', { className: 'fa fa-user' })
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'p',
+	                null,
+	                'Gender: Human!!!'
+	              )
+	            )
+	          )
+	        )
+	      );
+
 	      if (this.state.user.id === window.currentUserId) {
-	        postform = React.createElement(PostForm, null);
+	        postForm = React.createElement(PostForm, null);
 	      }
 
 	      // Set no posts to show message
@@ -32327,32 +32385,50 @@
 
 	    return React.createElement(
 	      'div',
-	      { className: 'profile-main' },
+	      { className: 'profile' },
 	      React.createElement(Header, { user: this.state.user }),
-	      postform,
-	      noPostsMessage,
 	      React.createElement(
-	        'ul',
-	        null,
+	        'section',
+	        { className: 'profile-content group' },
 	        React.createElement(
-	          ReactCSSTransitionGroup,
-	          { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
-	          userPosts
-	        )
-	      ),
-	      firstPostMessage,
-	      React.createElement(
-	        'footer',
-	        { className: 'profile-footer' },
-	        React.createElement(
-	          'a',
-	          { href: 'https://github.com/Bryant-Curtis/Famebook/blob/master/README.md' },
-	          'About'
+	          'section',
+	          { className: 'profile-content-left' },
+	          intro,
+	          React.createElement(
+	            'footer',
+	            { className: 'profile-content-left-footer' },
+	            React.createElement(
+	              'a',
+	              { href: 'https://github.com/Bryant-Curtis/Famebook/blob/master/README.md' },
+	              'About'
+	            ),
+	            React.createElement(
+	              'p',
+	              { className: 'profile-copyright' },
+	              'Famebook © 2016'
+	            )
+	          )
 	        ),
 	        React.createElement(
-	          'p',
-	          { className: 'profile-copyright' },
-	          'Famebook © 2016'
+	          'section',
+	          { className: 'profile-content-right' },
+	          postForm,
+	          noPostsMessage,
+	          React.createElement(
+	            'ul',
+	            null,
+	            React.createElement(
+	              ReactCSSTransitionGroup,
+	              { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
+	              userPosts
+	            )
+	          ),
+	          firstPostMessage,
+	          React.createElement(
+	            'footer',
+	            { className: 'profile-content-right-footer' },
+	            React.createElement('i', { className: 'fa fa-circle' })
+	          )
 	        )
 	      )
 	    );
@@ -32373,7 +32449,7 @@
 
 	});
 
-	// {this.props.children} This goes between the <Header/> and {postform}.
+	// {this.props.children} This goes between the <Header/> and {postForm}.
 	module.exports = UserProfile;
 
 /***/ },

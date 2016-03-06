@@ -46,13 +46,33 @@ var UserProfile = React.createClass({
     var username = "",
         userPosts = [],
         deleteButton,
-        postform = "",
+        postForm = "",
         noPostsMessage = "",
-        firstPostMessage = "";
+        firstPostMessage = "",
+        intro = "";
     if (this.state.user && this.state.user.length !== 0) {
 
+      // Make the intro box for the user
+
+      intro = <section className="intro">
+                <header className="intro-header group">
+                  <i className="fa fa-globe"></i>
+                  <p>Intro</p>
+                </header>
+                <section className="intro-content group">
+                  <ul className="intro-birthday group">
+                    <li><i className="fa fa-birthday-cake group"></i></li>
+                    <li><p>Born on that day!</p></li>
+                  </ul>
+                  <ul className="intro-gender group">
+                    <li><i className="fa fa-user"></i></li>
+                    <li><p>Gender: Human!!!</p></li>
+                  </ul>
+                </section>
+              </section>
+
       if (this.state.user.id === window.currentUserId) {
-        postform = <PostForm />;
+        postForm = <PostForm />;
       }
 
       // Set no posts to show message
@@ -102,20 +122,28 @@ var UserProfile = React.createClass({
     }
 
     return(
-      <div className="profile-main">
+      <div className="profile">
         <Header user={this.state.user} />
-        { postform }
-        { noPostsMessage }
-        <ul>
-          <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
-            { userPosts }
-          </ReactCSSTransitionGroup>
-        </ul>
-        { firstPostMessage }
-        <footer className="profile-footer">
-          <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
-          <p className="profile-copyright">Famebook © 2016</p>
-        </footer>
+        <section className="profile-content group">
+          <section className="profile-content-left">
+            { intro }
+            <footer className="profile-content-left-footer">
+              <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
+              <p className="profile-copyright">Famebook © 2016</p>
+            </footer>
+          </section>
+          <section className="profile-content-right">
+            { postForm }
+            { noPostsMessage }
+            <ul>
+              <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
+                { userPosts }
+              </ReactCSSTransitionGroup>
+            </ul>
+            { firstPostMessage }
+            <footer className="profile-content-right-footer"><i className="fa fa-circle"></i></footer>
+          </section>
+        </section>
       </div>
     );
   },
@@ -135,5 +163,5 @@ var UserProfile = React.createClass({
 
 });
 
-// {this.props.children} This goes between the <Header/> and {postform}.
+// {this.props.children} This goes between the <Header/> and {postForm}.
 module.exports = UserProfile;

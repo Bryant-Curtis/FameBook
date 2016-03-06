@@ -1,15 +1,18 @@
 /* PROFILE */
 
-.profile-main {
+
+.profile {
   width: 980px;
   margin: auto;
 }
 
+
 /* HEADER */
+
 
 .profile-header {
   position: relative;
-  margin: 0 0 10px 0;
+  margin: 0 0 16px 0;
   border-radius: 4px;
   width: 850px;
   height: 360px;
@@ -53,7 +56,9 @@
   color: #FFF;
 }
 
+
 /* FRIEND REQUEST BUTTONS */
+
 
 .profile-header > button {
   display: block;
@@ -63,7 +68,6 @@
   text-align: center;
   color: #4e5665;
   font-size: 13px;
-  /*font-weight: bold;*/
   cursor: pointer;
   background: #fff;
 }
@@ -80,7 +84,9 @@
   bottom: 70px;
 }
 
+
 /* NAVIGATION TABS*/
+
 
 .profile-header > .profile-nav {
   display: block;
@@ -124,27 +130,112 @@
   border-right: 1px solid #e9eaed;
 }
 
-/* FOOTER */
 
-.profile-footer {
-  margin: 0 0 0 0;
-  border-top: 1px solid #CCCCCC;
-  padding: 0 0 30px 0;
-  color: #7E7373;
+/* PROFILE MAIN CONTENT */
+
+
+.profile-content > section {
+  float: left;
 }
 
-.profile-footer > a {
-  display: inline-block;
-  padding: 10px 0 13px 0;
-  color: #3B5998;
+.profile-content-left {
+  width: 338px;
+}
+
+.profile-content-right {
+  width: 512px;
+}
+
+
+/* INTRO BOX */
+
+
+.intro {
+  width:  323px;
+  /*height: 106px;*/
+  border-radius: 3px;
+  border-top: 1px solid #e5e6e9;
+  border-bottom: 1px solid #d0d1d5;
+  border-left: 1px solid #dfe0e4;
+  border-right: 1px solid #dfe0e4;
+  padding: 11px 10px 5px 14px;
+  font-size: 12px;
+  background: #fff;
+}
+
+.intro > header {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+
+.intro > header > i {
+  float: left;
+  font-size: 26px;
+  color: #4267B2;
+}
+
+.intro > header > p {
+  float: left;
+  margin: 5px 0 0 11px;
+}
+
+.intro-content i {
+  font-size: 12px;
+  color: #A5A9B3;
+}
+
+.intro-content > ul {
+  margin: 0 0 10px 0;
+}
+
+.intro-content > ul > li {
+  float: left;
+}
+
+.intro-birthday > li > p {
+  margin: 0 0 0 12px;
+}
+
+.intro-gender > li > p {
+  margin: 0 0 0 15px;
+}
+
+
+/* LEFT FOOTER */
+
+
+.profile-content-left-footer {
+  margin: 0 0 0 10px;
+  padding: 0 0 30px 0;
+  color: #9997A3;
+  text-shadow: 0 1px 0 #ffffff;
   font-size: 12px;
 }
 
-.profile-footer > a:hover {
+.profile-content-left-footer > a {
+  display: inline-block;
+  padding: 15px 0 3px 0;
+}
+
+.profile-content-left-footer > a:hover {
   text-decoration: underline;
 }
 
 .profile-copyright {
   display: block;
-  font-size: 11px;
 }
+
+
+/* RIGHT FOOTER */
+
+
+.profile-content-right-footer {
+  padding: 17px 0 60px 0;
+  color: #9DB1CC;
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 0 -0.5px 0.5px #000000;
+}
+
+
+/* FIND THE CSS STYLING FOR POSTS IN feed_main.css */
