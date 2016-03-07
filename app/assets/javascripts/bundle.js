@@ -32216,9 +32216,8 @@
 
 	  componentDidMount: function () {
 	    this.userToken = UserStore.addListener(this._onChange);
-	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
-
 	    ApiUtil.fetchAllUsers();
+
 	    // this.postToken = PostStore.addListener(this._onPostsChange);
 	    // ApiUtil.fetchAllPosts(parseInt(this.props.params.id));
 	  },
@@ -32230,16 +32229,13 @@
 
 	  componentWillReceiveProps: function (newProps) {
 	    ApiUtil.fetchAllUsers();
-
-	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
 	    this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
 	  },
 
 	  deletePost: function (post) {
 	    ApiUtil.deletePost(post);
-	    // ApiUtil.fetchOneUser(parseInt(this.props.params.id));
 
-	    // SERIOUS -- H A C K -- CHANGE POSTS IN USER PROFILE TO HAVE PROFILE_TIMELINE COMPONENT AND THEN GET RID OF THIS
+	    // FUTURE REFACTOR => CHANGE POSTS IN USER PROFILE TO HAVE PROFILE_TIMELINE COMPONENT AND REMOVE THIS
 	    ApiUtil.fetchAllUsers();
 	  },
 
@@ -32253,7 +32249,7 @@
 	        intro = "";
 	    if (this.state.user && this.state.user.length !== 0) {
 
-	      // Make the intro box for the user
+	      // MAKE THE INTRO BOX FOR THE USER
 
 	      intro = React.createElement(
 	        'section',
@@ -32314,7 +32310,7 @@
 	        postForm = React.createElement(PostForm, null);
 	      }
 
-	      // Set no posts to show message
+	      // CREATE NO POSTS MESSAGE
 
 	      if (this.state.user.posts.length === 0) {
 	        noPostsMessage = React.createElement(
@@ -32324,7 +32320,7 @@
 	        );
 	      }
 
-	      // Set first post
+	      // CREATE FIRST POST MESSAGE
 
 	      if (this.state.user.posts.length > 0) {
 	        firstPostMessage = React.createElement(
@@ -32340,10 +32336,11 @@
 	        );
 	      }
 
+	      // FIND USERNAME OF USER
+
 	      username = this.state.user.first_name + " " + this.state.user.last_name;
-	      // if (this.state.user.posts[0] && this.state.user.posts[0].id < this.state.user.posts[this.state.user.posts.length - 1]) {
-	      //   this.state.user.posts = this.state.user.posts.reverse();
-	      // }
+
+	      // CREATE ALL USER POSTS
 
 	      userPosts = this.state.user.posts.map(function (post) {
 	        if (post.author_id === parseInt(this.props.params.id)) {
@@ -32419,7 +32416,10 @@
 	            null,
 	            React.createElement(
 	              ReactCSSTransitionGroup,
-	              { transitionName: 'posts', transitionEnterTimeout: 500, transitionLeaveTimeout: 600 },
+	              {
+	                transitionName: 'posts',
+	                transitionEnterTimeout: 500,
+	                transitionLeaveTimeout: 600 },
 	              userPosts
 	            )
 	          ),
