@@ -1,3 +1,5 @@
+<% require 'date' %>
+
 <!-- Header Bar -->
 
 <header class="header group">
@@ -72,21 +74,72 @@
 
     <!-- Right Half (Sign up Form) -->
 
+
     <section class="sign-up">
       <h1>Sign Up</h1>
       <h4>It's famous and always will be.</h4>
 
       <form class="sign-up-form" action="<%= users_url %>" method="post">
         <%= auth_token_form %>
+
         <section class="names group">
           <input class="first-name" type="text" name="user[first_name]" placeholder="First name">
-          <input type="text" name="user[last_name]" placeholder="Last name">
+          <input class="last-name" type="text" name="user[last_name]" placeholder="Last name">
         </section>
-        <input type="text" name="user[email]" placeholder="Email">
-        <input type="password" name="user[password]" placeholder="New password (minimum 6 characters)">
+
+        <input class="email" type="text" name="user[email]" placeholder="Email">
+
+        <input class="password" type="password" name="user[password]" placeholder="New password (minimum 6 characters)">
+
+        <section class="birthday group">
+          <p class="birthday-title">Birthday</p>
+          <select class="birthday-months" name="user[birthday]">
+            <option value="" selected>Month</option>
+            <option value="01">Jan</option>
+            <option value="02">Feb</option>
+            <option value="03">Mar</option>
+            <option value="04">Apr</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option value="07">Jul</option>
+            <option value="08">Aug</option>
+            <option value="09">Sept</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+          </select>
+
+          <% dates = (1..31).to_a %>
+
+          <select class="birthday-dates" name="user[birthday]">
+            <option value="" selected>Day</option>
+            <% dates.each do |date| %>
+            <option value=<%= date %>><%= date %></option>
+            <% end %>
+          </select>
+
+          <% current_year = Date.today.year %>
+          <% years = ((current_year - 110)..current_year).to_a.reverse %>
+
+          <select class="birthday-years" name="user[birthday]">
+            <option value="" selected>Year</option>
+            <% years.each do |year| %>
+            <option value=<%= year %>><%= year %></option>
+            <% end %>
+          </select>
+        </section>
+
+        <ul class="gender group">
+          <li><input type="radio" name="user[gender]" value="female" class="gender-radio"></input></li>
+          <p>Female</p>
+          <li class="group"><input type="radio" name="user[gender]" value="male" class="gender-radio"></input></li>
+          <p>Male</p>
+        </ul>
+
         <div class="button-border">
           <button>Sign Up</button>
         </div>
+
       </form>
     </section>
 

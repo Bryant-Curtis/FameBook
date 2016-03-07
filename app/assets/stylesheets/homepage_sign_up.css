@@ -189,14 +189,48 @@
   color: #999999;
 }
 
-.sign-up-form input {
+.first-name, .last-name, .email, .password {
   display: block;
   margin: 10px 0;
   border: 1px solid #bdc7d8;
   border-radius: 5px;
   padding: 10px;
-  height: 40px;
+  height: 39px;
+  font-size: 18px;
   background: #ffffff;
+}
+
+.birthday-title {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.birthday > select {
+  display: block;
+  float: left;
+  height: 30px;
+  font-size: 12px;
+  background: #ffffff;
+}
+
+.gender > li {
+  float: left;
+  margin: 20px 0 20px 10px;
+  /*width: 100px;*/
+}
+
+.gender p {
+  float: left;
+  margin: 22px 5px 20px 0;
+  font-size: 12px;
+}
+
+.gender input {
+  display: block;
+}
+
+.gender p {
+  padding: 0 0 0 5px;
 }
 
 .sign-up-form > .names > input {
