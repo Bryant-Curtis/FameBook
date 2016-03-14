@@ -55,46 +55,50 @@ var Posts = React.createClass({
     return(
       <div key={1} className="feed group">
 
-        <sidebar className="feed-sidebar-left">
-          <a href="http://www.bryantcurtis.com/Bolts">
-            <section className="feed-sidebar-left-game group">
-              <img className="feed-sidebar-left-game-image"></img>
-              <p className="feed-sidebar-left-game-text">Bolts</p>
-            </section>
-          </a>
-        </sidebar>
+        <section className="feed-main group">
 
-        <section className="feed-main">
-          <PostForm />
-          <ul>
-            <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
-              { posts }
-            </ReactCSSTransitionGroup>
-          </ul>
+          <section className="feed-sidebar-left">
+            <a href="http://www.bryantcurtis.com/Bolts">
+              <section className="feed-sidebar-left-game group">
+                <img className="feed-sidebar-left-game-image"></img>
+                <p className="feed-sidebar-left-game-text">Bolts</p>
+              </section>
+            </a>
+          </section>
+
+          <section className="feed-center">
+            <PostForm />
+            <ul>
+              <ReactCSSTransitionGroup transitionName="posts" transitionEnterTimeout={500} transitionLeaveTimeout={600}>
+                { posts }
+              </ReactCSSTransitionGroup>
+            </ul>
+          </section>
+
+          <section className="feed-sidebar-right">
+            <p className="feed-sidebar-right-suggestion">SUGGESTED PAGES</p>
+
+            <a href="http://www.bryantcurtis.com">
+              <section className="ad-img group">
+                <img src={window.prof}></img>
+              </section>
+              <p>See the creator's profile</p>
+              <p className="ad-url">www.bryantcurtis.com</p>
+              <p className="ad-descriptions">A combination of projects and skills can be found here</p>
+            </a>
+
+            <a href="http://www.bryantcurtis.com/Bolts">
+              <section className="ad-img group">
+                <img src={window.bolts}></img>
+              </section>
+              <p>Bolts - Try out the exciting game now</p>
+              <p className="ad-url">www.bryantcurtis.com/Bolts</p>
+              <p className="ad-descriptions">Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!</p>
+            </a>
+
+          </section>
+
         </section>
-
-        <sidebar className="feed-sidebar-right">
-          <p className="feed-sidebar-right-suggestion">SUGGESTED PAGES</p>
-
-          <a href="http://www.bryantcurtis.com">
-            <section className="add-img group">
-              <img src={window.prof}></img>
-            </section>
-            <p>See the creator's profile</p>
-            <p className="add-url">www.bryantcurtis.com</p>
-            <p className="add-descriptions">A combination of projects and skills can be found here</p>
-          </a>
-
-          <a href="http://www.bryantcurtis.com/Bolts">
-            <section className="add-img group">
-              <img src={window.bolts}></img>
-            </section>
-            <p>Bolts - Try out the exciting game now</p>
-            <p className="add-url">www.bryantcurtis.com/Bolts</p>
-            <p className="add-descriptions">Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!</p>
-          </a>
-
-        </sidebar>
 
       </div>
     );

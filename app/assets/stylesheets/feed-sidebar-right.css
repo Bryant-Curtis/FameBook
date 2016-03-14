@@ -7,8 +7,8 @@
   border-bottom: 1px solid #d0d1d5;
   border-left: 1px solid #dfe0e4;
   border-right: 1px solid #dfe0e4;
-  padding: 10px;
-  max-width: 257px;
+  padding: 12px;
+  max-width: 280px;
   width: 100%;
   background: #FFFFFF;
 }
@@ -18,7 +18,7 @@
   color: #666666;
 }
 
-.add-img {
+.ad-img {
   display: block;
   margin: 18px 0;
   border: 1px solid #cccccc;
@@ -27,12 +27,12 @@
   background: #000000;
 }
 
-.add-img > img {
+.ad-img > img {
   width: 100%;
   height: 100%;
 }
 
-.add-descriptions {
+.ad-descriptions {
   display: inline-block;
   padding: 0 0 10px 0;
   font-size: 12px;
@@ -46,7 +46,7 @@
   color: #3B5998;
 }
 
-.feed-sidebar-right .add-url {
+.feed-sidebar-right .ad-url {
   display: block;
   font-weight: normal;
   line-height: 1.7;

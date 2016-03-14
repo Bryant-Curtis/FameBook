@@ -3,13 +3,13 @@
 .feed-sidebar-left {
   float: left;
   display: block;
-  margin: 0 0 0 6px;
-  max-width: 173px;
+  margin: 0 0 0 0px;
+  max-width: 177px;
   width: 100%;
 }
 
 .feed-sidebar-left-game {
-  margin: 2px 5px 10px 0;
+  margin: 1px 5px 10px 0;
   border-radius: 2px;
 }
 
@@ -20,7 +20,7 @@
 .feed-sidebar-left-game > img {
   float: left;
   display: block;
-  width: 16px;
+  width: 15px;
   height: 16px;
   background: yellow;
   margin: 3px 0 5px 6px;

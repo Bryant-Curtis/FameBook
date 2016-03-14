@@ -2,15 +2,26 @@
 
 .feed {
   margin: auto;
-  width: 980px;
-  padding: 10px 0 0 0;
+  width: 963px;
+  padding: 11px 0 0 0;
+}
+
+.feed > section {
+  float: left;
+  display: block;
+}
+
+.feed-main {
+  width: 963px;
 }
 
 /* POSTS FEED */
 
-.feed-main {
+.feed-center {
   display: block;
   float: left;
+  margin: 0 10px 0 0;
+  max-width: 496px;
 }
 
 .post {
@@ -68,7 +79,7 @@
 
 .create-post-input {
   display: block;
-  width: 490px;
+  /*width: 490px;*/
 }
 
 .create-post-button {
