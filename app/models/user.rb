@@ -49,15 +49,15 @@ class User < ActiveRecord::Base
   # CAN I MAKE THESE ATTR_ACCESSORS?
 
   def birthday_date=(date)
-    @birthday_date = date
+    @birthday_date = date.to_i
   end
 
   def birthday_year=(year)
-    @birthday_year = year
+    @birthday_year = year.to_i
   end
 
   def birthday_month=(month)
-    @birthday_month = month
+    @birthday_month = month.to_i
   end
 
   def build_birthday
