@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  after_initialize :ensure_token
+  after_initialize :ensure_token, :build_birthday
 
   has_many :posts,
     class_name: "Post",
@@ -46,6 +46,26 @@ class User < ActiveRecord::Base
     foreign_key: :photoable_id,
     primary_key: :id
 
+  # CAN I MAKE THESE ATTR_ACCESSORS?
+
+  def birthday_date=(date)
+    @birthday_date = date
+  end
+
+  def birthday_year=(year)
+    @birthday_year = year
+  end
+
+  def birthday_month=(month)
+    @birthday_month = month
+  end
+
+  def build_birthday
+    if @birthday_year != nil
+      birthday = Date.new(@birthday_year, @birthday_month, @birthday_date).to_s
+      self.birthday = birthday
+    end
+  end
 
   def password=(password)
     @password = password

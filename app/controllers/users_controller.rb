@@ -23,7 +23,10 @@ class UsersController < ApplicationController
       :last_name,
       :email,
       :password,
-      :friend_request_id
+      :birthday_month,
+      :birthday_date,
+      :birthday_year,
+      :gender
     )
   end
 

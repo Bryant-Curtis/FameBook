@@ -93,7 +93,7 @@
 
         <section class="birthday group">
           <p class="birthday-title">Birthday</p>
-          <select class="birthday-months" name="user[birthday]">
+          <select class="birthday-months" name="user[birthday_month]">
             <option value="" selected>Month</option>
             <option value="01">Jan</option>
             <option value="02">Feb</option>
@@ -111,7 +111,7 @@
 
           <% dates = (1..31).to_a %>
 
-          <select class="birthday-dates" name="user[birthday]">
+          <select class="birthday-dates" name="user[birthday_date]">
             <option value="" selected>Day</option>
             <% dates.each do |date| %>
             <option value=<%= date %>><%= date %></option>
@@ -121,7 +121,7 @@
           <% current_year = Date.today.year %>
           <% years = ((current_year - 110)..current_year).to_a.reverse %>
 
-          <select class="birthday-years" name="user[birthday]">
+          <select class="birthday-years" name="user[birthday_year]">
             <option value="" selected>Year</option>
             <% years.each do |year| %>
             <option value=<%= year %>><%= year %></option>
@@ -157,7 +157,6 @@
     </p>
   </section>
 </footer>
-
 
 <!-- Change the text in the input fields. Do not add them as values here! -->
 <!-- Note: Add an email or password confirmation later. -->
