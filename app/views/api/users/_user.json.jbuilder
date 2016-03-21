@@ -1,4 +1,4 @@
-json.extract! user, :id, :first_name, :last_name, :email, :friend_request_id
+json.extract! user, :id, :first_name, :last_name, :email, :birthday, :gender
 json.received_friend_requests user.received_friend_requests do |received_friend_request|
   json.extract! received_friend_request, :id, :requestee_id, :requestor_id, :declined
 end

@@ -45,8 +45,41 @@ var UserProfile = React.createClass({
         postForm = "",
         noPostsMessage = "",
         firstPostMessage = "",
-        intro = "";
+        intro = "",
+        birthday = "";
     if (this.state.user && this.state.user.length !== 0) {
+
+      // SET BIRTHDAY TEXT FORMAT
+      if (this.state.user.birthday) {
+        if (this.state.user.birthday.slice(5, 7) === "01"){
+          birthday = "January " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "02"){
+          birthday = "February " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "03"){
+          birthday = "March " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "04"){
+          birthday = "April " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "05"){
+          birthday = "May " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "06"){
+          birthday = "June " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "07"){
+          birthday = "July " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "08"){
+          birthday = "August " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "09"){
+          birthday = "September " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "10"){
+          birthday = "October " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "11"){
+          birthday = "November " + this.state.user.birthday.slice(8, 10)
+        } else if (this.state.user.birthday.slice(5, 7) === "12"){
+          birthday = "December " + this.state.user.birthday.slice(8, 10)
+        }
+      }
+
+      if (birthday === "") { birthday = "Birthday not set yet!"}
+      if (this.state.user.gender === null) { this.state.user.gender = "Gender not set yet!"}
 
       // MAKE THE INTRO BOX FOR THE USER
 
@@ -58,11 +91,11 @@ var UserProfile = React.createClass({
                 <section className="intro-content group">
                   <ul className="intro-birthday group">
                     <li><i className="fa fa-birthday-cake group"></i></li>
-                    <li><p>Born on that day!</p></li>
+                    <li><p>{ birthday }</p></li>
                   </ul>
                   <ul className="intro-gender group">
                     <li><i className="fa fa-user"></i></li>
-                    <li><p>Gender: Human!!!</p></li>
+                    <li><p>{ this.state.user.gender }</p></li>
                   </ul>
                 </section>
               </section>
