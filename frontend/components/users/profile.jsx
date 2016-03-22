@@ -50,32 +50,38 @@ var UserProfile = React.createClass({
     if (this.state.user && this.state.user.length !== 0) {
 
       // SET BIRTHDAY TEXT FORMAT
+      debugger
+      // strftime("b%"")
+
+
       if (this.state.user.birthday) {
-        if (this.state.user.birthday.slice(5, 7) === "01"){
-          birthday = "January " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "02"){
-          birthday = "February " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "03"){
-          birthday = "March " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "04"){
-          birthday = "April " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "05"){
-          birthday = "May " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "06"){
-          birthday = "June " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "07"){
-          birthday = "July " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "08"){
-          birthday = "August " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "09"){
-          birthday = "September " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "10"){
-          birthday = "October " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "11"){
-          birthday = "November " + this.state.user.birthday.slice(8, 10)
-        } else if (this.state.user.birthday.slice(5, 7) === "12"){
-          birthday = "December " + this.state.user.birthday.slice(8, 10)
-        }
+        birthday = this.state.user.birthday_month + " " + this.state.user.birthday.slice(8, 10);
+
+        // if (this.state.user.birthday.slice(5, 7) === "01"){
+        //   birthday = "January " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "02"){
+        //   birthday = "February " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "03"){
+        //   birthday = "March " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "04"){
+        //   birthday = "April " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "05"){
+        //   birthday = "May " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "06"){
+        //   birthday = "June " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "07"){
+        //   birthday = "July " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "08"){
+        //   birthday = "August " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "09"){
+        //   birthday = "September " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "10"){
+        //   birthday = "October " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "11"){
+        //   birthday = "November " + this.state.user.birthday.slice(8, 10)
+        // } else if (this.state.user.birthday.slice(5, 7) === "12"){
+        //   birthday = "December " + this.state.user.birthday.slice(8, 10)
+        // }
       }
 
       if (birthday === "") { birthday = "Birthday not set yet!"}
