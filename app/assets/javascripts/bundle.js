@@ -32255,8 +32255,6 @@
 	    if (this.state.user && this.state.user.length !== 0) {
 
 	      // SET BIRTHDAY TEXT FORMAT
-	      debugger;
-	      // strftime("b%"")
 
 	      if (this.state.user.birthday) {
 	        birthday = this.state.user.birthday_month + " " + this.state.user.birthday.slice(8, 10);
@@ -32435,7 +32433,7 @@
 	        { className: 'profile-content group' },
 	        React.createElement(
 	          'section',
-	          { className: 'profile-content-left' },
+	          { className: 'profile-content-left', style: { marginTop: 1 + 'em' } },
 	          intro,
 	          React.createElement(
 	            'footer',
@@ -32454,7 +32452,7 @@
 	        ),
 	        React.createElement(
 	          'section',
-	          { className: 'profile-content-right' },
+	          { className: 'profile-content-right', style: { marginTop: .375 + 'em' } },
 	          postForm,
 	          noPostsMessage,
 	          React.createElement(

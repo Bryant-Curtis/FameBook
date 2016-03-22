@@ -50,9 +50,6 @@ var UserProfile = React.createClass({
     if (this.state.user && this.state.user.length !== 0) {
 
       // SET BIRTHDAY TEXT FORMAT
-      debugger
-      // strftime("b%"")
-
 
       if (this.state.user.birthday) {
         birthday = this.state.user.birthday_month + " " + this.state.user.birthday.slice(8, 10);
@@ -161,14 +158,14 @@ var UserProfile = React.createClass({
       <div className="profile">
         <Header user={this.state.user} />
         <section className="profile-content group">
-          <section className="profile-content-left">
+          <section className="profile-content-left" style={{marginTop: 1 + 'em' }}>
             { intro }
             <footer className="profile-content-left-footer">
               <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
               <p className="profile-copyright">Famebook © 2016</p>
             </footer>
           </section>
-          <section className="profile-content-right">
+          <section className="profile-content-right" style={{marginTop: .375 + 'em' }}>
             { postForm }
             { noPostsMessage }
             <ul>

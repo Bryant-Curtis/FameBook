@@ -3,7 +3,7 @@
 .feed-sidebar-left {
   float: left;
   display: block;
-  margin: 0 0 0 0px;
+  margin: 10px 0 0 0;
   max-width: 177px;
   width: 100%;
 }
