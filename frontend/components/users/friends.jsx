@@ -43,23 +43,26 @@ var Friends = React.createClass({
     ApiUtil.deleteFriendRequest(friendRequestId);
   },
 
-  // Make sure to add link to each name! --> <a href={"#/users/" + user.id}>
-  // also remember to add hover - underline effect
-
   render: function () {
     var username = "",
         friendCount = "",
-        confirmFriends = [],
+        friendRequestsList = [],
         friendList = [],
         noFriendsMessage = "",
+        noFriendRequestsMessage = "",
         currentPageUser = "";
     if (this.state.user && this.state.user.length !== 0) {
       currentPageUser = this.state.user;
+
       // FRIENDS LIST
 
       if (this.state.user.friends.length === 0) {
         noFriendsMessage = <p className="no-friends-message">No friends to show</p>
       }
+      if (this.state.user.received_friend_requests.length === 0) {
+        noFriendRequestsMessage = <p className="no-friend-requests-message">No new requests</p>
+      }
+
       if (this.state.user.friends) {
         this.state.user.friends.forEach(function(friend) {
           username = friend.first_name + " " + friend.last_name;
@@ -84,9 +87,9 @@ var Friends = React.createClass({
           var friendRequestor;
           UserStore.all().map(function(user) {
             this.state.user.received_friend_requests.map(function(friend_request) {
-              if (user.id === friend_request.requestor_id && friend_request.declined === false) {
+              if (user.id === friend_request.requestor_id) {
                 friendRequestor = user.first_name + ' ' + user.last_name;
-                confirmFriends.unshift(
+                friendRequestsList.unshift(
                   <li key={friend_request.id} className="confirm-friend-box-info">
                     <figure className="confirm-friend-photo"></figure>
                     <section className="confirm-friend-info group">
@@ -119,7 +122,8 @@ var Friends = React.createClass({
           <section className="confirm-friends group">
             <header className="confirm-friends-list-header"><i className="fa fa-user-plus"></i><a href={"#/users/" + this.state.user.id + "/friendships"}>Friend Requests</a></header>
             <section className="confirm-friends-list-main group">
-              { confirmFriends }
+              { noFriendRequestsMessage }
+              { friendRequestsList }
               <section className="confirm-friend-box group">
               </section>
             </section>

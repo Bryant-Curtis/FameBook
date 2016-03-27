@@ -32868,18 +32868,17 @@
 	    ApiUtil.deleteFriendRequest(friendRequestId);
 	  },
 
-	  // Make sure to add link to each name! --> <a href={"#/users/" + user.id}>
-	  // also remember to add hover - underline effect
-
 	  render: function () {
 	    var username = "",
 	        friendCount = "",
-	        confirmFriends = [],
+	        friendRequestsList = [],
 	        friendList = [],
 	        noFriendsMessage = "",
+	        noFriendRequestsMessage = "",
 	        currentPageUser = "";
 	    if (this.state.user && this.state.user.length !== 0) {
 	      currentPageUser = this.state.user;
+
 	      // FRIENDS LIST
 
 	      if (this.state.user.friends.length === 0) {
@@ -32889,6 +32888,14 @@
 	          'No friends to show'
 	        );
 	      }
+	      if (this.state.user.received_friend_requests.length === 0) {
+	        noFriendRequestsMessage = React.createElement(
+	          'p',
+	          { className: 'no-friend-requests-message' },
+	          'No new requests'
+	        );
+	      }
+
 	      if (this.state.user.friends) {
 	        this.state.user.friends.forEach(function (friend) {
 	          username = friend.first_name + " " + friend.last_name;
@@ -32928,9 +32935,9 @@
 	          var friendRequestor;
 	          UserStore.all().map(function (user) {
 	            this.state.user.received_friend_requests.map(function (friend_request) {
-	              if (user.id === friend_request.requestor_id && friend_request.declined === false) {
+	              if (user.id === friend_request.requestor_id) {
 	                friendRequestor = user.first_name + ' ' + user.last_name;
-	                confirmFriends.unshift(React.createElement(
+	                friendRequestsList.unshift(React.createElement(
 	                  'li',
 	                  { key: friend_request.id, className: 'confirm-friend-box-info' },
 	                  React.createElement('figure', { className: 'confirm-friend-photo' }),
@@ -32981,7 +32988,8 @@
 	          React.createElement(
 	            'section',
 	            { className: 'confirm-friends-list-main group' },
-	            confirmFriends,
+	            noFriendRequestsMessage,
+	            friendRequestsList,
 	            React.createElement('section', { className: 'confirm-friend-box group' })
 	          )
 	        );

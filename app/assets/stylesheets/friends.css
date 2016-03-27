@@ -8,6 +8,15 @@
 
 /* FRIEND REQUESTS */
 
+.no-friend-requests-message {
+  display: block;
+  margin: 0 0 10px 0;
+  padding: 50px 335px;
+  font-size: 20px;
+  /*font-weight: bold;*/
+  color: #CCCCCC;
+}
+
 .confirm-friends {
   margin: 20px 0 0 0;
   width: 851px;
@@ -79,6 +88,10 @@
   font-size: 14px;
 }
 
+.confirm-friend-name:hover {
+  text-decoration: underline;
+}
+
 .confirm-friend-info > button {
   float: left;
   margin: 6px 0 0 0px;
@@ -107,10 +120,10 @@
 
 .no-friends-message {
   display: block;
-  margin: 0 0 200px 0;
-  padding: 90px 320px;
+  margin: 0 0 250px 0;
+  padding: 50px 325px;
   font-size: 20px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: #CCCCCC;
 }
 
@@ -182,6 +195,10 @@
   color: #3B5998;
   font-weight: bold;
   font-size: 14px;
+}
+
+.friend-name:hover {
+  text-decoration: underline;
 }
 
 .friend-friend-count {
