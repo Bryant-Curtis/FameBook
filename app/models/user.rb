@@ -52,20 +52,26 @@ class User < ActiveRecord::Base
     @birthday_date = date.to_i
   end
 
-  def birthday_year=(year)
-    @birthday_year = year.to_i
-  end
-
   def birthday_month=(month)
     @birthday_month = month.to_i
   end
 
+  def birthday_year=(year)
+    @birthday_year = year.to_i
+  end
+
   def build_birthday
-    if @birthday_year != nil
+    if @birthday_date != 0 && @birthday_date != nil
       birthday = Date.new(@birthday_year, @birthday_month, @birthday_date).to_s
       self.birthday = birthday
     end
   end
+
+  # Every time "User.new" or other models are instantiated and keys are pushed into the instance,
+  # the "=" method is called for that key. So when the password is passed to @user, the password=
+  # method in the model (here) is called where we can BCrypt the password and set it to the user.
+
+  # setting @password allows calling :password in the validation which calls the reader method
 
   def password=(password)
     @password = password
@@ -96,9 +102,7 @@ class User < ActiveRecord::Base
 
 end
 
-# Questions
-# 1. Why is it that by creating a writer method we can create and set
-#     a password_digest?
+# To do Later
 
-# Try later to add a validation to email to confirm it is in the correct format.
-# How do I use the db for friend requests? Or is it not involved here?
+# 1. Add a validation to email to confirm it is in the correct format.
+# 2. Increase the validations on password to also check for one number and one letter.

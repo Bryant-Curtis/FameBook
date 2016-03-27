@@ -10,14 +10,12 @@ class SessionsController < ApplicationController
       redirect_to "#/users/#{user.id}"
     else
       flash[:errors] = "Invalid Log in Credentials"
-      render "static_pages/homepage"
+      render :new
     end
   end
 
   def destroy
-    # user = current_user
     sign_out
-    # render json: user
     redirect_to new_session_url
   end
 
