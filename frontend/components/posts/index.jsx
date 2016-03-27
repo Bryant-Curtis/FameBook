@@ -76,25 +76,35 @@ var Posts = React.createClass({
           </section>
 
           <section className="feed-sidebar-right">
-            <p className="feed-sidebar-right-suggestion">SUGGESTED PAGES</p>
 
-            <a href="http://www.bryantcurtis.com">
-              <section className="ad-img group">
-                <img src={window.prof}></img>
-              </section>
-              <p>See the creator's profile</p>
-              <p className="ad-url">www.bryantcurtis.com</p>
-              <p className="ad-descriptions">A combination of projects and skills can be found here</p>
-            </a>
+            <section className="feed-sidebar-right-ads">
 
-            <a href="http://www.bryantcurtis.com/Bolts">
-              <section className="ad-img group">
-                <img src={window.bolts}></img>
-              </section>
-              <p>Bolts - Try out the exciting game now</p>
-              <p className="ad-url">www.bryantcurtis.com/Bolts</p>
-              <p className="ad-descriptions">Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!</p>
-            </a>
+              <p className="feed-sidebar-right-suggestion">SUGGESTED PAGES</p>
+
+              <a href="http://www.bryantcurtis.com">
+                <section className="ad-img group">
+                  <img src={window.prof}></img>
+                </section>
+                <p>See the creator's profile</p>
+                <p className="ad-url">www.bryantcurtis.com</p>
+                <p className="ad-descriptions">A combination of projects and skills can be found here</p>
+              </a>
+
+              <a href="http://www.bryantcurtis.com/Bolts">
+                <section className="ad-img group">
+                  <img src={window.bolts}></img>
+                </section>
+                <p>Bolts - Try out the exciting game now</p>
+                <p className="ad-url">www.bryantcurtis.com/Bolts</p>
+                <p className="ad-descriptions">Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!</p>
+              </a>
+
+            </section>
+
+            <footer className="feed-footer">
+              <a href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
+              <p className="profile-copyright">Famebook © 2016</p>
+            </footer>
 
           </section>
 

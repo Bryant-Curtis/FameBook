@@ -3,14 +3,17 @@
 .feed-sidebar-right {
   float: left;
   margin: 10px 0 0 0;
+  max-width: 280px;
+  width: 100%;
+}
+
+.feed-sidebar-right-ads {
   border-radius: 3px;
   border-top: 1px solid #e5e6e9;
   border-bottom: 1px solid #d0d1d5;
   border-left: 1px solid #dfe0e4;
   border-right: 1px solid #dfe0e4;
   padding: 12px;
-  max-width: 280px;
-  width: 100%;
   background: #FFFFFF;
 }
 
@@ -51,4 +54,24 @@
   display: block;
   font-weight: normal;
   line-height: 1.7;
+}
+
+
+/* FOOTER */
+
+
+.feed-footer {
+  margin: 10px 0 0 10px;
+  padding: 0 0 30px 0;
+  color: #9A9A9A;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.feed-footer > a:hover {
+  text-decoration: underline;
+}
+
+.feed-footer > p {
+  margin: 6px 0 0 0;
 }

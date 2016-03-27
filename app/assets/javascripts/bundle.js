@@ -24791,56 +24791,74 @@
 	          'section',
 	          { className: 'feed-sidebar-right' },
 	          React.createElement(
-	            'p',
-	            { className: 'feed-sidebar-right-suggestion' },
-	            'SUGGESTED PAGES'
-	          ),
-	          React.createElement(
-	            'a',
-	            { href: 'http://www.bryantcurtis.com' },
-	            React.createElement(
-	              'section',
-	              { className: 'ad-img group' },
-	              React.createElement('img', { src: window.prof })
-	            ),
+	            'section',
+	            { className: 'feed-sidebar-right-ads' },
 	            React.createElement(
 	              'p',
-	              null,
-	              'See the creator\'s profile'
+	              { className: 'feed-sidebar-right-suggestion' },
+	              'SUGGESTED PAGES'
 	            ),
 	            React.createElement(
-	              'p',
-	              { className: 'ad-url' },
-	              'www.bryantcurtis.com'
+	              'a',
+	              { href: 'http://www.bryantcurtis.com' },
+	              React.createElement(
+	                'section',
+	                { className: 'ad-img group' },
+	                React.createElement('img', { src: window.prof })
+	              ),
+	              React.createElement(
+	                'p',
+	                null,
+	                'See the creator\'s profile'
+	              ),
+	              React.createElement(
+	                'p',
+	                { className: 'ad-url' },
+	                'www.bryantcurtis.com'
+	              ),
+	              React.createElement(
+	                'p',
+	                { className: 'ad-descriptions' },
+	                'A combination of projects and skills can be found here'
+	              )
 	            ),
 	            React.createElement(
-	              'p',
-	              { className: 'ad-descriptions' },
-	              'A combination of projects and skills can be found here'
+	              'a',
+	              { href: 'http://www.bryantcurtis.com/Bolts' },
+	              React.createElement(
+	                'section',
+	                { className: 'ad-img group' },
+	                React.createElement('img', { src: window.bolts })
+	              ),
+	              React.createElement(
+	                'p',
+	                null,
+	                'Bolts - Try out the exciting game now'
+	              ),
+	              React.createElement(
+	                'p',
+	                { className: 'ad-url' },
+	                'www.bryantcurtis.com/Bolts'
+	              ),
+	              React.createElement(
+	                'p',
+	                { className: 'ad-descriptions' },
+	                'Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!'
+	              )
 	            )
 	          ),
 	          React.createElement(
-	            'a',
-	            { href: 'http://www.bryantcurtis.com/Bolts' },
+	            'footer',
+	            { className: 'feed-footer' },
 	            React.createElement(
-	              'section',
-	              { className: 'ad-img group' },
-	              React.createElement('img', { src: window.bolts })
+	              'a',
+	              { href: 'https://github.com/Bryant-Curtis/Famebook/blob/master/README.md' },
+	              'About'
 	            ),
 	            React.createElement(
 	              'p',
-	              null,
-	              'Bolts - Try out the exciting game now'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'ad-url' },
-	              'www.bryantcurtis.com/Bolts'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'ad-descriptions' },
-	              'Wanna play a game? Click here to see how good your reflexes are! Watch out for the changing bolt speeds!'
+	              { className: 'profile-copyright' },
+	              'Famebook © 2016'
 	            )
 	          )
 	        )

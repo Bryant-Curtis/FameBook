@@ -244,4 +244,30 @@
 }
 
 
-/* FIND THE CSS STYLING FOR POSTS IN feed_main.css */
+/* FOOTER FOR FRIENDS AND PHOTOS PAGES*/
+
+
+.profile-footer {
+  margin: 42px 0 0 0;
+  border-top: 1px solid #bbbbbb;
+  padding: 8px 0 10px 0;
+  width: 851px;
+}
+
+.profile-footer > a {
+  font-size: 12px;
+  color: #3B5998;
+}
+
+.profile-footer > a:hover {
+  text-decoration: underline;
+}
+
+.profile-footer > p {
+  margin: 12px 0 0 0;
+  font-size: 11px;
+  color: #6A6A6A;
+}
+
+
+/* FIND THE CSS STYLING FOR ACTUAL POSTS IN feed_main.css */
