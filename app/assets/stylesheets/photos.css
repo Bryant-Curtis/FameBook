@@ -1,4 +1,6 @@
-/* PHOTOS */
+
+      /* PHOTOS */
+
 
 .photos-main {
   width: 980px;
@@ -6,7 +8,9 @@
   padding-bottom: 5px;
 }
 
-/* PHOTOS INDEX */
+
+      /* PHOTOS INDEX */
+
 
 .photos-list {
   margin: 20px 0 20px 0;
@@ -16,7 +20,9 @@
   background: #fff;
 }
 
-/* PHOTOS HEADER */
+
+      /* PHOTOS HEADER */
+
 
 .photos-list-header {
   height: 57px;
@@ -40,6 +46,10 @@
 .photo-list-title:hover {
   text-decoration: underline;
 }
+
+
+      /* MODAL */
+
 
 .open-photo-list-upload-link-box {
   float: right;
@@ -68,16 +78,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .3);
   opacity: 0;
   z-index: 999;
   text-align: center;
   pointer-events: none;
-  /*color: #4e5665;*/
-  /*font-size: 12px;*/
-  /*font-weight: bold;*/
-  /*cursor: pointer;*/
-  /*box-shadow: 0 0 1px #000;*/
 }
 
 .photo-list-display {
@@ -86,7 +91,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .3);
   opacity: 1;
   z-index: 999;
   text-align: center;
@@ -94,11 +99,12 @@
 }
 
 .photo-list-display > section {
-  width: 400px;
+  max-width: 400px;
   position: relative;
   margin: 10% auto;
+  border-radius: 2px;
   padding: 10px 20px;
-  background: #FFFFFF;
+  background: #F6F7F8;
 }
 
 .photo-list-upload-form > input {
@@ -109,6 +115,7 @@
 
 .photo-list-upload-form > img {
   max-width: 300px;
+  max-height: 500px;
 }
 
 .photo-list-upload-form > section {
@@ -147,7 +154,9 @@
   background: -webkit-gradient(linear, center bottom, center top, from(#4D68A3), to(#4D68A3));
 }
 
-/* PHOTOS MAIN */
+
+      /* PHOTOS MAIN */
+
 
 .no-photos-message {
   display: block;
@@ -159,12 +168,13 @@
 }
 
 .photos-list-main {
-  padding: 5px;
+  padding: 5px 0 0 5px;
 }
 
 .photo {
   display: block;
   float: left;
+  margin: 0 5px 5px 0;
   width: 206px;
   height: 206px;
   background: #D2D5DA;
