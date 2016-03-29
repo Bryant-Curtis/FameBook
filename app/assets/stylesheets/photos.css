@@ -20,7 +20,7 @@
 
 .photos-list-header {
   height: 57px;
-  padding: 18px 13px;
+  padding: 10px 10px 0 13px;
   border-bottom: 1px solid #D3D6DB;
   border-radius: 4px 4px 0 0;
   font-size: 20px;
@@ -29,28 +29,122 @@
 }
 
 .photos-list-header > i {
-  margin: 0 10px 0 0;
+  margin: 8px 10px 0 0;
   color: #ADB3BC;
 }
 
-.photos-list-header > a {
-  display: inline;
+.photo-list-title {
+  padding: 8px 0 0 0;
 }
 
-.photos-list-header > a:hover {
+.photo-list-title:hover {
   text-decoration: underline;
 }
 
-.photos-list-header > form {
+.open-photo-list-upload-link-box {
   float: right;
-  margin: 0 2px 0 0;
-  padding: 5px 10px;
-  text-align: center;
-  color: #4e5665;
-  font-size: 12px;
-  font-weight: bold;
+  border-top:     1px solid #CCCCCC;
+  border-right:   1px solid #C5C6C8;
+  border-bottom:  1px solid #B6B7B9;
+  border-left:    1px solid #C5C6C8;
+  border-radius: 3px;
+  margin: 5px 2px 0 0;
+  background: -webkit-gradient(linear, center bottom, center top, from(#F6F7F8), to(#FFFFFF));
   cursor: pointer;
-  box-shadow: 0 0 1px #000;
+}
+
+.open-photo-list-upload-link {
+  font-size: 12px;
+  position: relative;
+  right: 10;
+  top: 10;
+  margin: 5px 10px;
+  color: #4E5665;
+}
+
+.photo-list-hide {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .8);
+  opacity: 0;
+  z-index: 999;
+  text-align: center;
+  pointer-events: none;
+  /*color: #4e5665;*/
+  /*font-size: 12px;*/
+  /*font-weight: bold;*/
+  /*cursor: pointer;*/
+  /*box-shadow: 0 0 1px #000;*/
+}
+
+.photo-list-display {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .8);
+  opacity: 1;
+  z-index: 999;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.photo-list-display > section {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 10px 20px;
+  background: #FFFFFF;
+}
+
+.photo-list-upload-form > input {
+  font-size: 14px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.photo-list-upload-form > img {
+  max-width: 300px;
+}
+
+.photo-list-upload-form > section {
+  position: absolute;
+}
+
+.photo-list-upload-form > section > p {
+  position: relative;
+  top: 0px;
+  right: -353px;
+  font-weight: normal;
+  color: #C7C7C7;
+}
+
+.photo-list-upload-form > section > p:hover {
+  position: relative;
+  top: 0px;
+  right: -353px;
+  color: #AAAAAA;
+  cursor: pointer;
+}
+
+.photo-list-upload-form > button {
+  display: block;
+  margin: auto;
+  border: 1px solid #3C5488;
+  border-radius: 2px;
+  padding: 3px 0px;
+  width: 60px;
+  height: 24px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  text-shadow: 0 0px 1px #000000;
+  cursor: pointer;
+  background: -webkit-gradient(linear, center bottom, center top, from(#4D68A3), to(#4D68A3));
 }
 
 /* PHOTOS MAIN */

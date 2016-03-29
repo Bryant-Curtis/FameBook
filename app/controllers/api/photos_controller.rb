@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     if @photo.save
-      @user = User.find_by(params[:photoable_id])
+      @user = User.find(params[:photo][:photoable_id])
       render "api/users/show", user: @user
     else
       @photo.errors.full_messages

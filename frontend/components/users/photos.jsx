@@ -6,7 +6,19 @@ var React = require('react'),
 
 var Photos = React.createClass({
   getInitialState: function () {
-    return { user: UserStore.find(parseInt(this.props.params.id)), imageUrl: "", imageFile: null };
+    return { user: UserStore.find(parseInt(this.props.params.id)), imageUrl: "", imageFile: null, modalIsOpen: false, modalClass: "photo-list-hide" };
+  },
+
+  // REFACTOR - DO I NEED modalIsOpen???
+
+  openModal: function () {
+    this.setState({modalIsOpen: true});
+    this.setState({modalClass: "photo-list-display" })
+  },
+
+  closeModal: function () {
+    this.setState({modalIsOpen: false});
+    this.setState({modalClass: "photo-list-hide" })
   },
 
   componentDidMount: function () {
@@ -27,9 +39,36 @@ var Photos = React.createClass({
     this.setState({ user: UserStore.find(parseInt(newProps.params.id)) });
   },
 
-  // addPhoto: function () {
-  //   ApiUtil.createPhoto();
-  // },
+  changeFile: function(e) {
+    var reader = new FileReader();
+    var file = e.currentTarget.files[0];
+
+    reader.onloadend = function () {
+      this.setState({imageFile: file, imageUrl: reader.result});
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
+    } else {
+      this.setState({imageFile: null, imageUrl: ""});
+    }
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+
+    var formData = new FormData();
+
+    // NOTE THE formData.append does not LOOK LIKE it adds anything
+    // to the formData variable when seen in the debugger console.
+    // HOWEVER, it actually DOES APPEND the data. It's just hidden.
+
+    formData.append("photo[photoable_id]", this.props.params.id);
+    formData.append("photo[photoable_type]", "User");
+    formData.append("photo[photograph]", this.state.imageFile);
+
+    ApiUtil.createPhoto(formData, this.resetForm);
+  },
 
   render: function () {
     var username = "",
@@ -65,20 +104,32 @@ var Photos = React.createClass({
 
         <section className="photos-list">
 
-          <header className="photos-list-header group">
-            <i className="fa fa-camera-retro"></i>
-            <a href={"#/users/" + this.state.user.id + "/photos"}>Photos</a>
+          <header id="hi" className="photos-list-header group">
 
-            <form onSubmit={this.handleSubmit}>
+              <i className="fa fa-camera-retro"></i>
+              <a href={"#/users/" + this.state.user.id + "/photos"} className="photo-list-title">Photos</a>
 
-              <label>
-                <input type="file" onChange={this.changeFile} />
-              </label>
+              <section onClick={this.openModal} className="open-photo-list-upload-link-box">
+                <p className="open-photo-list-upload-link">Add Photo</p>
+              </section>
 
-              <img className="preview-image" src={this.state.imageUrl}/>
-              <button>Submit</button>
+              <section id="open-photo-list-upload" className={this.state.modalClass}>
 
-            </form>
+                <section>
+
+                  <form onSubmit={this.handleSubmit} className="photo-list-upload-form">
+                    <section>
+                      <p onClick={this.closeModal}>x</p>
+                    </section>
+                    <input type="file" onChange={this.changeFile} className="photo-list-upload-form-input"/>
+                    <img className="photo-list-upload-form-image-preview" src={this.state.imageUrl}/>
+                    <button onClick={this.closeModal}>Post</button>
+                  </form>
+
+                </section>
+
+              </section>
+
           </header>
 
           <ul className="photos-list-main group">
@@ -95,33 +146,6 @@ var Photos = React.createClass({
       </div>
     );
   },
-
-  changeFile: function(e) {
-    var reader = new FileReader();
-    var file = e.currentTarget.files[0];
-
-    reader.onloadend = function () {
-      this.setState({imageFile: file, imageUrl: reader.result});
-    }.bind(this);
-
-    if (file) {
-      reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
-    } else {
-      this.setState({imageFile: null, imageUrl: ""});
-    }
-  },
-
-  handleSubmit: function(e) {
-    e.preventDefault();
-
-    var formData = new FormData();
-
-    formData.append("photo[photoable_id]", this.props.params.id);
-    formData.append("photo[photograph]", this.state.imageFile);
-
-    ApiUtil.createPhoto(formData, this.resetForm);
-  },
-
 
   _onChange: function () {
     this.setState({ user: UserStore.find(parseInt(this.props.params.id)) });

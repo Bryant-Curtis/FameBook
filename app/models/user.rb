@@ -31,10 +31,7 @@ class User < ActiveRecord::Base
     foreign_key: :requestor_id,
     primary_key: :id
 
-  has_many :photos,
-    class_name: "Photo",
-    foreign_key: :photoable_id,
-    primary_key: :id
+  has_many :photos, as: :photoable
 
   has_one :cover_photo,
     class_name: "Photo",
