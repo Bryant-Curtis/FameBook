@@ -1,4 +1,6 @@
+
 /* HEADER */
+
 
 .header {
   border-bottom: 1px solid #1c326c;
@@ -28,9 +30,13 @@
   float: left;
 }
 
+
+/* GUEST LOGIN BUTTON */
+
+
 .header-nav-guest-login {
-  float: right;
-  margin: 31px 25px 0px 15px;
+  float: left;
+  margin: 29px 25px 0px 279px;
 }
 
 .guest-login-button {
@@ -40,12 +46,14 @@
   border-left: 1px solid #29447e;
   border-right: 1px solid #29447e;
   padding: 5px;
-  color: white;
+  /*color: #FFFFFF;*/
+  color: #637bad;
   font-size: 12px;
   font-weight: bold;
   text-align:center;
   cursor: pointer;
-  background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
+  background: #F0F990;
+  /*background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));*/
 }
 
 .header-nav-log-in-form {

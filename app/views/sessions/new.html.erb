@@ -15,19 +15,19 @@
 
 <header class="header group">
 
-  <!-- Guest Login button -->
-
-  <form class="header-nav-guest-login" action="<%= session_url %>" method="post">
-    <%= auth_token_form %>
-    <input type="hidden" name="session[email]" value="alexander@hamilton.com">
-    <input type="hidden" name="session[password]" value="hamilton">
-    <button class="guest-login-button">Guest Log In</button>
-  </form>
-
   <!-- Login Form -->
 
   <nav class="header-nav group">
     <h1 class="header-nav-logo">famebook</h1>
+
+    <!-- Guest Login button -->
+
+    <form class="header-nav-guest-login" action="<%= session_url %>" method="post">
+    <%= auth_token_form %>
+    <input type="hidden" name="session[email]" value="alexander@hamilton.com">
+    <input type="hidden" name="session[password]" value="hamilton">
+    <button class="guest-login-button">Log In as a Guest</button>
+  </form>
 
     <section class="header-nav-buttons group">
 
@@ -67,6 +67,19 @@
 
         <section class="sub-caption group">
           <a href="http://www.bryantcurtis.com/"><i class="fa fa-user fa-user-home"></i></a>
+          <!-- <h4 class="sub-caption-portfolio">Take a tour here! ==> </h4>
+          <span>
+
+            Guest Login button
+
+            <form class="header-nav-guest-login" action="<%= session_url %>" method="post">
+              <%= auth_token_form %>
+              <input type="hidden" name="session[email]" value="alexander@hamilton.com">
+              <input type="hidden" name="session[password]" value="hamilton">
+              <button class="guest-login-button">Guest Log In</button>
+            </form>
+          </span> -->
+
           <h4 class="sub-caption-portfolio">Here is my portfolio</h4><span><a href="http://www.bryantcurtis.com/">Click Here</a></span>
         </section>
 
