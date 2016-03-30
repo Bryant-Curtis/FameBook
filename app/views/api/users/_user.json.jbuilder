@@ -22,5 +22,8 @@ end
 
 json.photos user.photos do |photo|
   json.extract! photo, :id, :photoable_id, :photoable_type
-  json.url photo.photograph.url
+  json.original   photo.photograph.url
+  json.profile    photo.photograph.url(:profile)
+  json.cover      photo.photograph.url(:cover)
+  json.list       photo.photograph.url(:list)
 end

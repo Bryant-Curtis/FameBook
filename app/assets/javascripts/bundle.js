@@ -33169,7 +33169,7 @@
 	          photoList.unshift(React.createElement(
 	            'li',
 	            { key: photo.id, className: 'photo group' },
-	            React.createElement('img', { src: photo.url })
+	            React.createElement('img', { src: photo.list })
 	          ));
 	        });
 	      }

@@ -91,7 +91,7 @@ var Photos = React.createClass({
         this.state.user.photos.forEach(function(photo) {
 
           photoList.unshift(
-            <li key={photo.id} className="photo group"><img src={photo.url}/></li>
+            <li key={photo.id} className="photo group"><img src={photo.list}/></li>
           );
         });
       }
