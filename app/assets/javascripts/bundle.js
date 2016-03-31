@@ -32692,9 +32692,10 @@
 	        userBackImage = React.createElement('img', { src: window.juliusBack });
 	      }
 
-	      // Determine text to display for friend status button
+	      // Set friendship buttons according to friendship status of current
+	      // user and user being viewed
 
-	      // In case of already friends
+	      // Set button text for case of existing friendship
 
 	      if (text === undefined) {
 	        this.props.user.friendships.forEach(function (friendship) {
@@ -32704,7 +32705,7 @@
 	        }.bind(this));
 	      }
 
-	      // In case of already sent friend request
+	      // Set button text for case of sent friend request
 
 	      if (text === undefined) {
 	        this.props.user.received_friend_requests.forEach(function (friend_request) {
@@ -32714,12 +32715,9 @@
 	        });
 	      }
 
+	      // Create extra Accept button for case of received friend request
+
 	      if (text === undefined) {
-
-	        // Create extra Accept & Decline button if user profile sent
-	        // friend request to current user
-
-	        // Create extra button and label both buttons' texts
 
 	        currentUser.received_friend_requests.forEach(function (friend_request) {
 	          if (friend_request.requestor_id === this.props.user.id) {
@@ -32737,15 +32735,19 @@
 	        }.bind(this));
 	      }
 
-	      // In case of not friend and have not sent nor received a friend
-	      // request
+	      // Set text for case of no existing friendship and no friend requests
+	      // sent nor received
 
 	      if (text === undefined) {
 	        text = "Befriend";
 	      }
 
 	      // Find the friendship id of the current user and the user being
-	      // viewed for later use
+	      // viewed for the AJAX request
+
+	      // Maybe REFACTOR this to be in the Unfriend text setting loop
+	      // as a one line "friendshipId = friendship.id;". Test
+	      // thoroughly to make sure it works.
 
 	      this.props.user.friendships.forEach(function (friendship) {
 	        if (friendship.self_id === this.props.user.id && friendship.friend_id === window.currentUserId) {
@@ -32833,7 +32835,6 @@
 	// <li className="profile-nav-about"><a>About</a></li> -> to be added in future when finish about page component
 	// href={"/users/" + userId + "/settings"} -> to be used in the about a tag.
 	// <li className="profile-nav-friends">Friends</li>
-	// 1. How can I make the button unclickable after it has been clicked on once?
 
 /***/ },
 /* 243 */

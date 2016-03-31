@@ -95,11 +95,13 @@
   background: -webkit-gradient(linear, center bottom, center top, from(#5972a7), to(#637bad));
 }
 
+
 /* MAIN CONTENT */
+
 
 .main {
   border-top: 1px solid #bbbbbc;
-  height: 595px;
+  height: 608px;
   background: #EDF0F5;
   /*background: -webkit-gradient(linear, center bottom, center top, from(#d3d8e8), to(#ffffff));*/
 }
@@ -109,7 +111,9 @@
   width: 980px;
 }
 
+
 /* HOMEPAGE INFORMATION - LEFT HALF */
+
 
 .home-info {
   float: left;
@@ -143,6 +147,7 @@
   float: left;
   font-size: 50px;
   color: #adbad4;
+  text-shadow: 0 0.5px 1px #3a5795;
 }
 
 .fa-user-home {
@@ -281,15 +286,22 @@
 .footer-info {
   margin: auto;
   width: 980px;
+  font-size: 12px;
 }
 
-.copyright {
-  margin: 20px 20px 20px 0;
-  padding: 20px;
-  font-size: 14px;
+.footer-info > p {
+  display: block;
+  color: #7A7A7A;
+  font-size: 10px;
 }
 
 .about {
-  padding: 0 40px;
+  display: block;
+  margin: 15px 0 10px 0;
+  color: #3B5998;
   cursor: pointer;
+}
+
+.about:hover {
+  text-decoration: underline;
 }
