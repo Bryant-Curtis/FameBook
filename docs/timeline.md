@@ -1,58 +1,18 @@
 ## Minimum Viable Product
 
-FameBook is a web application inspired by FaceBook built using Ruby on Rails
-and React.js. FameBook allows users to:
+FameBook is a web application inspired by FaceBook built using Ruby on Rails and React.js. FameBook allows users to:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [ ] Create an account　
-- [ ] Log in / Log out
-- [ ] View their own account information
-
-- [ ] Create, read, edit, and delete posts
-- [ ] View all self made posts
-
-- [ ] Request and accept friend requests
-- [ ] View all friends
-- [ ] View the posts of friends
+- [x] Sign up
+- [x] Log in/out
+- [ ] User settings
+- [x] Create, read, edit, and delete posts
+- [x] Request, accept and decline friend requests
 - [ ] Tag friends in posts
-
 - [ ] Create, view, update and delete photos with descriptions
-- [ ] View photos of friends
-- [ ] Add a main photo
-- [ ] Add a background photo
-- [ ] View all photos
-
-- [ ] Comment on all posts
-- [ ] Comment on all photos
-
+- [ ] Add profile and cover photos
+- [ ] Comment on posts and photos
 - [ ] Vote up and take down votes on friends' posts
-
 - [ ] Instant message with friends
-
-<!--
-(If have time later)
-- [ ] Search for friends
-
-- [ ] Set accounts' privacy level (Public, friends only and self only)
-
-- [ ] Create, edit and delete groups
-- [ ] Invite friends to join groups
-- [ ] Accept and decline group invitations
-- [ ] View all group members
-- [ ] Create, read, edit and delete posts only viewable by group members
-- [ ] Comment on group posts
-
-- [ ] Create, view, edit and delete events
-- [ ] Send event invitations to friends
-- [ ] Accept and decline event invitations
-
-- [ ] Create, view, update and delete photo albums
-
-- [ ] Checkin their current location
-
-- [ ] Tag friends in photos
- -->
 
 ## Design Docs
 * [View Wireframes][view]
@@ -135,18 +95,14 @@ Views: Update HTML and CSS to look more aesthetically pleasing, Instant messagin
 [Details][phase-six]
 
 ### Bonus Features (TBD)
-- [ ] Search for friends
-- [ ] Set account privacy level (Public, friends only and self only)
-
+- [ ] Friend search
+- [ ] Set account privacy levels (Public, friends only and self only)
 - [ ] Create, edit and delete groups
-- [ ] Invite friends to join groups
-- [ ] Accept and decline group invitations
-- [ ] View all group members
-- [ ] Create, read, edit and delete posts only viewable by group members
-- [ ] Comment on group posts
-- [ ] View a list of posts/photos most voted on within groups.
-
-- [ ] Create, edit and delete comments
+- [ ] Send, accept and decline group invitations
+- [ ] Create group member list
+- [ ] Create, read, edit and delete group posts/comments
+- [ ] OAuth
+- [ ] Infinite Scroll
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
