@@ -4,7 +4,7 @@
   margin: auto;
   border: 1px solid #cccccc;
   padding: 20px;
-  width: 980px;
+  max-width: 980px;
   height: 620px;
 }
 
@@ -44,7 +44,7 @@
 
 .footer-info {
   margin: auto;
-  width: 980px;
+  max-width: 980px;
 }
 
 .copyright {

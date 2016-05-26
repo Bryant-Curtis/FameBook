@@ -10,7 +10,7 @@
 html, body, h1, h2, main, figure,
 section, h3, h4, a, span, strong, img,
 ul, li, ol, p, br, input, form, button,
-header, footer, nav, h5, h6 {
+header, footer, nav, h5, h6, select {
   margin: 0;
   border: 0;
   padding: 0;

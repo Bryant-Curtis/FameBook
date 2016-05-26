@@ -11,7 +11,7 @@
 
 .header-nav {
   margin: auto;
-  width: 980px;
+  max-width: 980px;
 }
 
 .header-nav-logo {
@@ -108,7 +108,7 @@
 
 .content {
   margin: auto;
-  width: 980px;
+  max-width: 980px;
 }
 
 
@@ -118,12 +118,12 @@
 .home-info {
   float: left;
   margin: 70px 0 0 0;
-  width: 581px;
+  max-width: 581px;
   color: #333333;
 }
 
 .home-info > .main-caption-container {
-  width: 450px;
+  max-width: 450px;
 }
 
 .home-info .main-caption {
@@ -136,7 +136,7 @@
   float: left;
   display: block;
   margin: 30px 0 0 0;
-  width: 500px;
+  max-width: 500px;
 }
 
 .home-sub-captions {
@@ -183,7 +183,7 @@
 
 .sign-up {
   float: left;
-  width: 399px;
+  max-width: 399px;
   /*font-family: 'Freight Sans Bold';*/
 }
 
@@ -218,7 +218,7 @@
   font-size: 18px;
 }
 
-.birthday > select {
+.birthday-select > select {
   display: block;
   float: left;
   height: 30px;
@@ -285,7 +285,7 @@
 
 .footer-info {
   margin: auto;
-  width: 980px;
+  max-width: 980px;
   font-size: 12px;
 }
 
@@ -295,7 +295,7 @@
   font-size: 10px;
 }
 
-.about {
+.footer-info > a {
   display: block;
   margin: 15px 0 10px 0;
   color: #3B5998;
@@ -304,4 +304,127 @@
 
 .about:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 414px) {
+
+  .header {
+    height: 55px;
+    font-family: sans-serif;
+  }
+
+  .header-nav-logo {
+    margin: 0 0 0 25px;
+    padding-top: 10px;
+    font-size: 30px;
+  }
+
+  .header-nav-guest-login {
+    margin: 14px 25px 0px 100px;
+  }
+
+  .header-nav-log-in-form {
+    margin-top: 40px;
+  }
+
+  .header-nav-log-in-form > label {
+    float: none;
+    display: inline-block;
+    margin: 13px 13px 0 1px;
+    padding: 0 0 0 130px;
+    color: #111;
+  }
+
+  .header-nav-log-in-form button {
+    margin: 10px 180px 20px 180px;
+  }
+
+  .content {
+    max-width: 414px;
+    width: auto;
+    font-family: sans-serif;
+  }
+
+  .home-info {
+    display: none;
+  }
+
+  .sign-up {
+    float: none;
+    max-width: 414px;
+  }
+
+  .sign-up > h1 {
+    margin: 15px 0 0 0;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .sign-up > h4 {
+    display: none;
+    margin: 15px 0 0 0;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .sign-up-form {
+    margin: auto;
+    border: transparent 15px solid;
+    font-size: 16px;
+  }
+
+  .sign-up-form > .names > input {
+    margin: auto;
+    width: auto;
+    max-width: 250px;
+  }
+
+  .sign-up-form > input {
+    width: auto;
+    max-width: 414px;
+    margin: auto;
+  }
+
+  .sign-up-form .first-name {
+    float: none;
+  }
+
+  .first-name, .last-name, .email, .password {
+    font-size: 16px;
+  }
+
+  .birthday-title {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .birthday-select {
+    margin: 0 0 0 114px;
+  }
+
+  .birthday-select > select {
+    border: rgb(166, 166, 166) 1px solid;
+  }
+
+  .gender > li:first-child {
+    margin: 20px 0 20px 130px;
+  }
+
+  .sign-up-form > .button-border {
+    margin: auto;
+  }
+
+  .footer {
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .footer-info > a {
+    display: inline-block;
+    margin: 15px 10px 10px 10px;
+  }
+
+  .copyright {
+    margin: 15px 0;
+  }
 }

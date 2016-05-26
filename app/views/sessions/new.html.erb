@@ -117,40 +117,44 @@
 
         <section class="birthday group">
           <p class="birthday-title">Birthday</p>
-          <select class="birthday-months" name="user[birthday_month]">
-            <option value="" selected>Month</option>
-            <option value="01">Jan</option>
-            <option value="02">Feb</option>
-            <option value="03">Mar</option>
-            <option value="04">Apr</option>
-            <option value="05">May</option>
-            <option value="06">Jun</option>
-            <option value="07">Jul</option>
-            <option value="08">Aug</option>
-            <option value="09">Sept</option>
-            <option value="10">Oct</option>
-            <option value="11">Nov</option>
-            <option value="12">Dec</option>
-          </select>
 
-          <% dates = (1..31).to_a %>
+          <section class="birthday-select group">
+            <select class="birthday-months" name="user[birthday_month]">
+              <option value="" selected>Month</option>
+              <option value="01">Jan</option>
+              <option value="02">Feb</option>
+              <option value="03">Mar</option>
+              <option value="04">Apr</option>
+              <option value="05">May</option>
+              <option value="06">Jun</option>
+              <option value="07">Jul</option>
+              <option value="08">Aug</option>
+              <option value="09">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+            </select>
 
-          <select class="birthday-dates" name="user[birthday_date]">
-            <option value="" selected>Day</option>
-            <% dates.each do |date| %>
-            <option value=<%= date %>><%= date %></option>
-            <% end %>
-          </select>
+            <% dates = (1..31).to_a %>
 
-          <% current_year = Date.today.year %>
-          <% years = ((current_year - 110)..current_year).to_a.reverse %>
+            <select class="birthday-dates" name="user[birthday_date]">
+              <option value="" selected>Day</option>
+              <% dates.each do |date| %>
+              <option value=<%= date %>><%= date %></option>
+              <% end %>
+            </select>
 
-          <select class="birthday-years" name="user[birthday_year]">
-            <option value="" selected>Year</option>
-            <% years.each do |year| %>
-            <option value=<%= year %>><%= year %></option>
-            <% end %>
-          </select>
+            <% current_year = Date.today.year %>
+            <% years = ((current_year - 110)..current_year).to_a.reverse %>
+
+            <select class="birthday-years" name="user[birthday_year]">
+              <option value="" selected>Year</option>
+              <% years.each do |year| %>
+              <option value=<%= year %>><%= year %></option>
+              <% end %>
+            </select>
+
+          </section>
         </section>
 
         <ul class="gender group">
@@ -176,6 +180,10 @@
   <section class="footer-info">
 
     <a class="about" href="https://github.com/Bryant-Curtis/Famebook/blob/master/README.md">About</a>
+    <a href="https://www.linkedin.com/in/bryantcurtisdev"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/Bryant-Curtis"><i class="fa fa-github"></i></a>
+    <a href="http://www.bryantcurtis.com"><i class="fa fa-user"></i></a>
+
     <p class="copyright">Famebook © 2016</p>
 
   </section>
