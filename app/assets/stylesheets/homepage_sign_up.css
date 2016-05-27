@@ -118,7 +118,7 @@
 .home-info {
   float: left;
   margin: 70px 0 0 0;
-  max-width: 581px;
+  width: 580px;
   color: #333333;
 }
 
@@ -133,14 +133,17 @@
 }
 
 .home-info .sub-caption{
-  float: left;
   display: block;
-  margin: 30px 0 0 0;
-  max-width: 500px;
+  margin: 25px 0 0 0;
+  height: 50px;
 }
 
 .home-sub-captions {
   margin: 20px 0 0 0;
+}
+
+.home-sub-captions:first-child {
+  margin: 30px 0 0 0;
 }
 
 .sub-caption i {
@@ -173,9 +176,14 @@
 
 .home-info span {
   display: block;
-  margin: 16px 0 0 20px;
+  margin: 0 0 0 20px;
   color: #666666;
   font-size: 14px;
+}
+
+.home-info span > a {
+  display: inline-block;
+  margin: 16px 0 0 0;
 }
 
 
@@ -183,7 +191,7 @@
 
 .sign-up {
   float: left;
-  max-width: 399px;
+  max-width: 400px;
   /*font-family: 'Freight Sans Bold';*/
 }
 
@@ -221,6 +229,7 @@
 .birthday-select > select {
   display: block;
   float: left;
+  border: rgb(166, 166, 166) 1px solid;
   height: 30px;
   font-size: 12px;
   background: #ffffff;
@@ -258,7 +267,7 @@
 
 .sign-up-form .first-name{
   float: left;
-  margin: 0 11px 0 0;
+  margin: 0 12px 0 0;
 }
 
 .sign-up-form > .button-border {
@@ -300,6 +309,10 @@
   margin: 15px 0 10px 0;
   color: #3B5998;
   cursor: pointer;
+}
+
+.footer-info i {
+  display: none;
 }
 
 .about:hover {
@@ -402,10 +415,6 @@
     margin: 0 0 0 114px;
   }
 
-  .birthday-select > select {
-    border: rgb(166, 166, 166) 1px solid;
-  }
-
   .gender > li:first-child {
     margin: 20px 0 20px 130px;
   }
@@ -422,6 +431,10 @@
   .footer-info > a {
     display: inline-block;
     margin: 15px 10px 10px 10px;
+  }
+
+  .footer-info i {
+    display: inline;
   }
 
   .copyright {
