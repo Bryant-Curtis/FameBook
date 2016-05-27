@@ -189,6 +189,10 @@
 
 /* SIGN UP FORM - RIGHT HALF */
 
+.responsive-log-in {
+  display: none;
+}
+
 .sign-up {
   float: left;
   max-width: 400px;
@@ -319,7 +323,7 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 480px) {
 
   .header {
     height: 55px;
@@ -332,8 +336,17 @@
     font-size: 30px;
   }
 
+  .empty-section {
+    max_width: 100px;
+  }
+
   .header-nav-guest-login {
-    margin: 14px 25px 0px 100px;
+    float: right;
+    margin: 14px 25px 0 0;
+  }
+
+  .header-nav-buttons {
+    display: none;
   }
 
   .header-nav-log-in-form {
@@ -341,25 +354,45 @@
   }
 
   .header-nav-log-in-form > label {
+    /*display: inline-block;*/
     float: none;
-    display: inline-block;
-    margin: 13px 13px 0 1px;
-    padding: 0 0 0 130px;
+    margin: auto;
+    padding: 0px 0 15px 0;
+    width: 150px;
     color: #111;
   }
 
+  .header-nav-log-in-form > label > p {
+    margin: auto;
+  }
+
   .header-nav-log-in-form button {
-    margin: 10px 180px 20px 180px;
+    display: block;
+    margin: auto;
+    color: #fff;
+  }
+
+  .header-nav-log-in-form input {
+    margin: auto;
   }
 
   .content {
-    max-width: 414px;
+    max-width: 200px;
+    padding: 25px 0 0 0;
     width: auto;
     font-family: sans-serif;
   }
 
   .home-info {
     display: none;
+  }
+
+
+  /* LOG IN / SIGN UP */
+
+
+  .responsive-log-in {
+    display: block;
   }
 
   .sign-up {
@@ -382,7 +415,7 @@
 
   .sign-up-form {
     margin: auto;
-    border: transparent 15px solid;
+    padding: 15px 0 0 0;
     font-size: 16px;
   }
 
@@ -412,11 +445,16 @@
   }
 
   .birthday-select {
-    margin: 0 0 0 114px;
+    margin: auto;
+    width: 155px;
+  }
+
+  .gender {
+    margin: auto;
+    width: 135px;
   }
 
   .gender > li:first-child {
-    margin: 20px 0 20px 130px;
   }
 
   .sign-up-form > .button-border {

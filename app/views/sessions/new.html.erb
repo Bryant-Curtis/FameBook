@@ -22,12 +22,14 @@
 
     <!-- Guest Login button -->
 
+    <section class="empty-section"> </section>
+
     <form class="header-nav-guest-login" action="<%= session_url %>" method="post">
-    <%= auth_token_form %>
-    <input type="hidden" name="session[email]" value="alexander@hamilton.com">
-    <input type="hidden" name="session[password]" value="hamilton">
-    <button class="guest-login-button">Log In as a Guest</button>
-  </form>
+      <%= auth_token_form %>
+      <input type="hidden" name="session[email]" value="alexander@hamilton.com">
+      <input type="hidden" name="session[password]" value="hamilton">
+      <button class="guest-login-button">Log In as a Guest</button>
+    </form>
 
     <section class="header-nav-buttons group">
 
@@ -98,6 +100,25 @@
 
     <!-- Right Half (Sign up Form) -->
 
+    <section class="responsive-log-in group">
+
+      <form class="header-nav-log-in-form group" action="<%= session_url %>" method="post">
+        <%= auth_token_form %>
+
+        <label>
+          <p>Email</p>
+          <input type="text" name="session[email]" value="">
+        </label>
+
+        <label>
+          <p>Password</p>
+          <input type="password" name="session[password]" value="">
+        </label>
+
+        <button>Log In</button>
+      </form>
+
+    </section>
 
     <section class="sign-up">
       <h1>Sign Up</h1>
@@ -183,6 +204,7 @@
     <a href="https://www.linkedin.com/in/bryantcurtisdev"><i class="fa fa-linkedin"></i></a>
     <a href="https://github.com/Bryant-Curtis"><i class="fa fa-github"></i></a>
     <a href="http://www.bryantcurtis.com"><i class="fa fa-user"></i></a>
+    <a href="http://www.bryantcurtis.com/Bolts"><i class="fa fa-bolt"></i></a>
 
     <p class="copyright">Famebook © 2016</p>
 
