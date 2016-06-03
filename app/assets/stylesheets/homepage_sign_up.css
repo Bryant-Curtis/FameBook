@@ -325,6 +325,10 @@
 
 @media only screen and (min-width: 501px) and (max-width: 770px) {
 
+  .main {
+    height: initial;
+  }
+
   .header {
     height: auto;
     font-family: sans-serif;
@@ -392,7 +396,7 @@
 
   .content {
     max-width: 450px;
-    padding: 25px 0 0 0;
+    padding: 25px 0 43px 0;
     width: auto;
     font-family: sans-serif;
     color: #222;
